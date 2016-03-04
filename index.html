@@ -125,7 +125,7 @@
 
 <p>You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
 
-<h1 id="native-ads">Native ads</h1>
+          <h1 id="native-ads">Native ads</h1>
 
 <p>Dispply uses Access tokens to allow access to the API. You can register a new App and get Access token key at our <a href="http://dispply.com/publishers/sign_in">developer portal</a>.</p>
 
@@ -142,14 +142,7 @@ You must replace <code>TOKEN</code> with your app&rsquo;s Access token and <code
 <blockquote>
 <p>Using this example available ads appeared inside <code class="prettyprint">DIV</code> with <code class="prettyprint">ID</code> native-ad</p>
 </blockquote>
-<pre class="highlight html"><code><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;</span>
-<span class="kd">var</span> <span class="nx">w_NVM9zaqJ</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="na">access_token</span><span class="p">:</span> <span class="s2">"TOKEN"</span><span class="p">,</span>
-  <span class="na">placement_id</span><span class="p">:</span> <span class="s2">"PLACEMENT_ID"</span><span class="p">,</span>
-  <span class="na">theme</span><span class="p">:</span> <span class="s2">"base"</span><span class="p">,</span>
-  <span class="na">id</span><span class="p">:</span> <span class="s2">"native-ad"</span>
-<span class="p">}</span>
-
+<pre class="highlight html"><code><span class="nt">&lt;script </span><span class="na">async</span> <span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;</span>
 <span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
     <span class="kd">var</span> <span class="nx">_s</span><span class="o">=</span><span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'script'</span><span class="p">);</span>
     <span class="nx">_s</span><span class="p">.</span><span class="nx">type</span><span class="o">=</span><span class="s1">'text/javascript'</span><span class="p">;</span>
@@ -158,19 +151,14 @@ You must replace <code>TOKEN</code> with your app&rsquo;s Access token and <code
     <span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">)?</span><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">_s</span><span class="p">):</span><span class="nb">document</span><span class="p">.</span><span class="nx">head</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">_s</span><span class="p">);</span>
     <span class="p">})();</span>
 <span class="nt">&lt;/script&gt;</span>
-
-<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"native-ad"</span><span class="nt">&gt;</span>
-<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"w_NVM9zaqJ"</span> <span class="na">ad-token=</span><span class="s">"TOKEN"</span> <span class="na">ad-placement=</span><span class="s">"PLACEMENT_ID"</span> <span class="na">ad-theme=</span><span class="s">"base"</span><span class="nt">&gt;&lt;/div&gt;</span>
 </code></pre>
 
 <blockquote>
 <p>Also you can use custom template using <a href="http://olado.github.io/doT/index.html">dot.js</a> template engine</p>
 </blockquote>
-<pre class="highlight html"><code><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;</span>
+<pre class="highlight html"><code><span class="nt">&lt;script </span><span class="na">async</span> <span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;</span>
 <span class="kd">var</span> <span class="nx">w_NVM9zaqJ</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="na">access_token</span><span class="p">:</span> <span class="s2">"TOKEN"</span><span class="p">,</span>
-  <span class="na">placement_id</span><span class="p">:</span> <span class="s2">"PLACEMENT_ID"</span><span class="p">,</span>
-  <span class="na">id</span><span class="p">:</span> <span class="s2">"native-ad"</span><span class="p">,</span>
   <span class="na">template</span><span class="p">:</span> <span class="s1">'
     &lt;div class="dispply_board dispply_board-single"&gt;\
       &lt;div class="centrifier"&gt;\
@@ -203,14 +191,12 @@ You must replace <code>TOKEN</code> with your app&rsquo;s Access token and <code
     <span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">)?</span><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">_s</span><span class="p">):</span><span class="nb">document</span><span class="p">.</span><span class="nx">head</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">_s</span><span class="p">);</span>
     <span class="p">})();</span>
 <span class="nt">&lt;/script&gt;</span>
-
-<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"native-ad"</span><span class="nt">&gt;</span>
-<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"w_NVM9zaqJ"</span> <span class="na">ad-token=</span><span class="s">"TOKEN"</span> <span class="na">ad-placement=</span><span class="s">"PLACEMENT_ID"</span><span class="nt">&gt;&lt;/div&gt;</span>
 </code></pre>
 
 <h2 id="native-ads-in-ios">Native Ads in iOS</h2>
 
-<p>The Native Ad API allows you to build a customized experience for the ads you show in your app. When using the Native Ad API, instead of receiving an ad ready to be displayed, you will receive a group of ad properties such as a title, an image, a call to action, and you will have to use them to construct a custom UIView where the ad is shown.</p>
+<p>The Dispply&rsquo;s Native Ads allows you to build a customized experience for the ads you show in your app. When using the Native Ad API, instead of receiving an ad ready to be displayed, you will receive a group of ad properties such as a title, an image, a call to action, and you will have to use them to construct a custom UIView where the ad is shown.</p>
 
 <p><strong>There are three actions you will need to take to implement this in your app:</strong></p>
 
@@ -255,7 +241,7 @@ You must replace <code>TOKEN</code> with your app&rsquo;s Access token and <code
   <span class="k">@property</span> <span class="p">(</span><span class="n">weak</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">IBOutlet</span> <span class="n">UILabel</span> <span class="o">*</span><span class="n">adSocialContextLabel</span><span class="p">;</span>
   <span class="k">@property</span> <span class="p">(</span><span class="n">weak</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">IBOutlet</span> <span class="n">UILabel</span> <span class="o">*</span><span class="n">sponsoredLabel</span><span class="p">;</span>
 
-  <span class="k">@property</span> <span class="p">(</span><span class="n">weak</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">FBMediaView</span> <span class="o">*</span><span class="n">adCoverMediaView</span><span class="p">;</span>
+  <span class="k">@property</span> <span class="p">(</span><span class="n">weak</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">DispplyMediaView</span> <span class="o">*</span><span class="n">adCoverMediaView</span><span class="p">;</span>
 
   <span class="k">@property</span> <span class="p">(</span><span class="n">weak</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">IBOutlet</span> <span class="n">UIView</span> <span class="o">*</span><span class="n">adView</span><span class="p">;</span>
 <span class="k">@end</span>
@@ -299,9 +285,156 @@ There are three actions you will need to take to implement this in your app:
 <span class="o">}</span>
 </code></pre>
 
-<h1 id="banner-ads">Banner ads</h1>
+          <h1 id="banner">Banner</h1>
 
-<h1 id="ads-api">Ads API</h1>
+<p>Dispply uses Access tokens to allow access to the API. You can register a new App and get Access token key at our <a href="http://dispply.com/publishers/sign_in">developer portal</a>.</p>
+
+<p>Dispply expects for the Access token and Placement ID to be included in all API requests to the server in a get variable that looks like the following:</p>
+
+<aside class="notice">
+You must replace <code>TOKEN</code> with your app&rsquo;s Access token and <code>PLACEMENT_ID</code> with your placement&rsquo;s ID.
+</aside>
+
+<h2 id="mobile-web">Mobile Web</h2>
+
+<p>To add ad to your mobile site copy and paste this code to web page</p>
+<pre class="highlight html"><code><span class="nt">&lt;script </span><span class="na">async</span> <span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;</span>
+<span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+    <span class="kd">var</span> <span class="nx">_s</span><span class="o">=</span><span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'script'</span><span class="p">);</span>
+    <span class="nx">_s</span><span class="p">.</span><span class="nx">type</span><span class="o">=</span><span class="s1">'text/javascript'</span><span class="p">;</span>
+    <span class="nx">_s</span><span class="p">.</span><span class="nx">async</span><span class="o">=</span><span class="kc">true</span><span class="p">;</span>
+    <span class="nx">_s</span><span class="p">.</span><span class="nx">src</span><span class="o">=</span><span class="s1">'http://ad-cdn.dispply.com/banner.js'</span><span class="p">;</span>
+    <span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">)?</span><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">_s</span><span class="p">):</span><span class="nb">document</span><span class="p">.</span><span class="nx">head</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">_s</span><span class="p">);</span>
+    <span class="p">})();</span>
+<span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"w_NVM9zaqJ"</span> <span class="na">ad-token=</span><span class="s">"TOKEN"</span> <span class="na">ad-placement=</span><span class="s">"PLACEMENT_ID"</span> <span class="na">ad-format=</span><span class="s">"120x90"</span><span class="nt">&gt;&lt;/div&gt;</span>
+</code></pre>
+
+<h2 id="ios">iOS</h2>
+
+<p>The Dispply Banner ads allows you to monetize your iOS apps with banner ads. This guide explains how to add banner ads to your app. If you&rsquo;re interested in other kinds of ad units, see the list of available types.</p>
+
+<h3 id="set-up-the-sdk">Set up the SDK</h3>
+
+<p>Follow these steps to download and include it in your project:</p>
+
+<p><strong>Using Cocoapods</strong></p>
+
+<ul>
+<li>Add the following line to your project&rsquo;s Podfile: pod &lsquo;DispplyNetwork&rsquo;</li>
+<li>Run <code class="prettyprint">pod install</code>.</li>
+</ul>
+
+<p><strong>Manual</strong>
+* Download and extract the Dispply SDK for iOS.
+* Drag the DispplyNetwork.framework file to your Xcode project and place it under the Frameworks folder.</p>
+
+<h3 id="implementation">Implementation</h3>
+
+<blockquote>
+<p>Now you&rsquo;ll need to import the Audience Network SDK header. Add the following line to your View Controller header file:</p>
+</blockquote>
+<pre class="highlight objective_c"><code><span class="k">@import</span> <span class="n">DispplyNetwork</span><span class="p">;</span>
+</code></pre>
+
+<blockquote>
+<p>Then, on your View Controller&rsquo;s viewDidLoad implementation, create a new instance of the DispplyAdView class and add it to your view. Since DispplyAdView is a subclass of UIView, you can add it to your view hierarchy just as with any other view.</p>
+</blockquote>
+<pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">viewDidLoad</span>
+<span class="p">{</span>
+  <span class="p">[</span><span class="n">super</span> <span class="nf">viewDidLoad</span><span class="p">];</span>
+
+  <span class="n">DispplyAdView</span> <span class="o">*</span><span class="n">adView</span> <span class="o">=</span> <span class="p">[[</span><span class="n">DispplyAdView</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithPlacementID</span><span class="p">:</span><span class="n">PLACEMENT_ID</span>
+                         <span class="nf">adSize</span><span class="p">:</span><span class="n">kDispplyAdSizeHeight50Banner</span>
+                         <span class="nf">rootViewController</span><span class="p">:</span><span class="n">self</span><span class="p">];</span>
+  <span class="p">[</span><span class="n">adView</span> <span class="nf">loadAd</span><span class="p">];</span>
+  <span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">view</span> <span class="nf">addSubview</span><span class="p">:</span><span class="n">adView</span><span class="p">];</span>
+<span class="p">}</span>
+</code></pre>
+
+<h2 id="android">Android</h2>
+
+          <h1 id="api">API</h1>
+
+<h2 id="native-ads-api">Native ads API</h2>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://ad.dispply.com/v2/ads</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>access_token</td>
+<td>true</td>
+<td>No</td>
+<td>This is Access Token from one of your App (<a href="http://dispply.com/publishers/apps">here</a>).</td>
+</tr>
+<tr>
+<td>placement_id</td>
+<td>true</td>
+<td>No</td>
+<td>Placement in the app (<a href="http://dispply.com/publishers/placements">here</a>)</td>
+</tr>
+<tr>
+<td>ip</td>
+<td>false</td>
+<td>Requester&rsquo;s ip</td>
+<td>Device IP</td>
+</tr>
+<tr>
+<td>user_agent</td>
+<td>false</td>
+<td>Requester&rsquo;s user-agent</td>
+<td>Device user-agent</td>
+</tr>
+<tr>
+<td>platform</td>
+<td>false</td>
+<td>No</td>
+<td>Device platform (ios/android)</td>
+</tr>
+<tr>
+<td>device_type</td>
+<td>false</td>
+<td>phone</td>
+<td>Device type (phone/tablet)</td>
+</tr>
+<tr>
+<td>creative_type</td>
+<td>false</td>
+<td>image</td>
+<td>Type of creative (image/video)</td>
+</tr>
+<tr>
+<td>format</td>
+<td>false</td>
+<td>No</td>
+<td>Creative&rsquo;s format (ex. 120x80)</td>
+</tr>
+<tr>
+<td>content</td>
+<td>false</td>
+<td>title,icon,image</td>
+<td>Required content separated by comma (ex. title,desc,icon,main)</td>
+</tr>
+<tr>
+<td>callback</td>
+<td>false</td>
+<td>No</td>
+<td>Callback function for <a href="https://en.wikipedia.org/wiki/JSONP">JSONP</a> request</td>
+</tr>
+</tbody></table>
+
+<h2 id="account-api">Account API</h2>
 
           <h1 id="errors">Errors</h1>
 
