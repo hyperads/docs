@@ -121,9 +121,7 @@
       <div class="content">
         <h1 id="introduction">Introduction</h1>
 
-<p>Welcome to the Dispply Integration and SDK documentation! You can use our API to access Dispply API endpoints and use JS tag or SDK for monetization.</p>
-
-<p>You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
+<h3 id="welcome-to-the-dispply-integration-and-api-documentation">Welcome to the Dispply Integration and API documentation!</h3>
 
           <h1 id="native-ads">Native ads</h1>
 
@@ -433,6 +431,42 @@ You must replace <code>TOKEN</code> with your app&rsquo;s Access token and <code
 <td>Callback function for <a href="https://en.wikipedia.org/wiki/JSONP">JSONP</a> request</td>
 </tr>
 </tbody></table>
+
+<h3 id="response">Response</h3>
+
+<blockquote>
+<p>The above endpoint returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ads"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ad title"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ad description"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"creatives"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"icon"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://cdn.com/icon"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"width"</span><span class="p">:</span><span class="w"> </span><span class="s2">"60"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"height"</span><span class="p">:</span><span class="w"> </span><span class="s2">"60"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"image"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://cdn.com/image"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"width"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1200"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"height"</span><span class="p">:</span><span class="w"> </span><span class="s2">"627"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"video"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VAST"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"beacons"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"http://pixel.com"</span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>For <code class="prettyprint">JSONP</code> response like this:</p>
+</blockquote>
+<pre class="highlight plaintext"><code>callback({"status": "success", "ads": []})
+</code></pre>
 
 <h2 id="account-api">Account API</h2>
 
