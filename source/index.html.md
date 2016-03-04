@@ -1,14 +1,9 @@
 ---
-title: API Reference
-
-language_tabs:
-  - shell
-  - ruby
-  - python
+title: Integration & SDK docs
 
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
-  - <a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a>
+  - <a target="_blank" href='http://dispply.com/publishers/sign_in'>Sign Up for a Monetization</a>
+  - <a target="_blank" href='http://dispply.com'>Powered by Dispply</a>
 
 includes:
   - errors
@@ -18,151 +13,178 @@ search: true
 
 # Introduction
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+Welcome to the Dispply Integration and SDK documentation! You can use our API to access Dispply API endpoints and use JS tag or SDK for monetization.
 
-We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
 
-This example API documentation page was created with [Slate](https://github.com/tripit/slate). Feel free to edit it and use it as a base for your own API's documentation.
+# Native ads
 
-# Authentication
+Dispply uses Access tokens to allow access to the API. You can register a new App and get Access token key at our [developer portal](http://dispply.com/publishers/sign_in).
 
-> To authorize, use this code:
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-```
-
-```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
-```
-
-> Make sure to replace `meowmeowmeow` with your API key.
-
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
-
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
-
-`Authorization: meowmeowmeow`
+Dispply expects for the Access token and Placement ID to be included in all API requests to the server in a get variable that looks like the following:
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+You must replace <code>TOKEN</code> with your app's Access token and <code>PLACEMENT_ID</code> with your placement's ID.
 </aside>
 
-# Kittens
+## Native Ads in Mobile Web
 
-## Get All Kittens
+To add ad to your mobile site copy and paste this code to web page
 
-```ruby
-require 'kittn'
+> Using this example available ads appeared inside `DIV` with `ID` native-ad
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
+```html
+<script type="text/javascript">
+var w_NVM9zaqJ = {
+  access_token: "TOKEN",
+  placement_id: "PLACEMENT_ID",
+  theme: "base",
+  id: "native-ad"
+}
+
+(function(){
+	var _s=document.createElement('script');
+	_s.type='text/javascript';
+	_s.async=true;
+	_s.src='http://ad-cdn.dispply.com/sdk.js';
+	(document.body)?document.body.appendChild(_s):document.head.appendChild(_s);
+	})();
+</script>
+
+<div id="native-ad">
+</div>
 ```
 
-```python
-import kittn
+> Also you can use custom template using [dot.js](http://olado.github.io/doT/index.html) template engine
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
+```html
+<script type="text/javascript">
+var w_NVM9zaqJ = {
+  access_token: "TOKEN",
+  placement_id: "PLACEMENT_ID",
+  id: "native-ad",
+  template: '
+    <div class="dispply_board dispply_board-single">\
+      <div class="centrifier">\
+        <h1>App {{= it.status}}</h1>\
+        {{~it.ads :ad:index}}\
+          <article class="app-widget app-brick">\
+            <a class="app-widget_button button-green" href="{{=ad.click_url}}" target="_blank">FREE</a>\
+            <img src="{{=ad.creatives.icon.url}}" width="64" height="64" class="app-widget_ico">\
+            <div class="app-widget_content">\
+              <div class="app-widget_desc">\
+                <h2>{{=ad.title}}</h2>\
+                <p>{{=ad.description}}</p>\
+              </div>\
+            </div>\
+            <a href="{{=ad.click_url}}" target="_blank" class="cover-link"></a>\
+          </article>\
+          {{~ad.beacons :url:index}}\
+            <img style="position: absolute;visibility: hidden;" src="{{= url}}">\
+          {{~}}\
+        {{~}}\
+      </div>\
+    </div>'
+}
+
+(function(){
+	var _s=document.createElement('script');
+	_s.type='text/javascript';
+	_s.async=true;
+	_s.src='http://ad-cdn.dispply.com/sdk.js';
+	(document.body)?document.body.appendChild(_s):document.head.appendChild(_s);
+	})();
+</script>
+
+<div id="native-ad">
+</div>
 ```
 
-```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
+## Native Ads in iOS
+
+The Native Ad API allows you to build a customized experience for the ads you show in your app. When using the Native Ad API, instead of receiving an ad ready to be displayed, you will receive a group of ad properties such as a title, an image, a call to action, and you will have to use them to construct a custom UIView where the ad is shown.
+
+**There are three actions you will need to take to implement this in your app:**
+
+* Request an ad
+* Use the returned ad metadata to build a custom native UI
+* Register the ad's view with the `nativeAd` instance
+
+### Set up the SDK
+
+Follow these steps to download and include it in your project:
+
+**Using Cocoapods**
+
+* Add the following line to your project's Podfile: `pod 'DispplyNetwork'`.
+* Run pod install.
+
+**Manual**
+
+* Download and extract the Dispply SDK for iOS.
+* Drag the Dispply.framework file to your Xcode project and place it under the Frameworks folder.
+
+### Implementation
+
+> Now, in your View Controller header file, import the SDK header and declare that you implement the DispplyNativeAdDelegate protocol as well as declare and connect instance variables to your UI .XIB:
+
+```objective_c
+#import <UIKit/UIKit.h>
+@import DispplyNetwork; // import Dispply module
+
+@interface MyViewController : UIViewController <DispplyNativeAdDelegate>
+  // Other code might go here...
+  @property (weak, nonatomic) IBOutlet UIImageView *adIconImageView;
+  @property (weak, nonatomic) IBOutlet UILabel *adTitleLabel;
+  @property (weak, nonatomic) IBOutlet UILabel *adBodyLabel;
+  @property (weak, nonatomic) IBOutlet UIButton *adCallToActionButton;
+  @property (weak, nonatomic) IBOutlet UILabel *adSocialContextLabel;
+  @property (weak, nonatomic) IBOutlet UILabel *sponsoredLabel;
+
+  @property (weak, nonatomic) FBMediaView *adCoverMediaView;
+
+  @property (weak, nonatomic) IBOutlet UIView *adView;
+@end
 ```
 
-> The above command returns JSON structured like this:
+## Native Ads in Android
 
-```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
-```
+The Native Ad API allows you to build a customized experience for the ads you show in your app. When using the Native Ad API, instead of receiving an ad ready to be displayed, you will receive a group of ad properties such as a title, an image, a call to action, and you will have to use them to construct a custom view where the ad is shown.
 
-This endpoint retrieves all kittens.
-
-### HTTP Request
-
-`GET http://example.com/api/kittens`
-
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
-
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
+<aside class="notice">
+There are three actions you will need to take to implement this in your app:
 </aside>
 
-## Get a Specific Kitten
+* Request an ad
+* Use the returned ad metadata to build a custom native UI
+* Register the ad's view with the `nativeAd` instance
 
-```ruby
-require 'kittn'
+```java
+private NativeAd nativeAd;
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
+private void showNativeAd() {
+  nativeAd = new NativeAd(this, "YOUR_PLACEMENT_ID");
+  nativeAd.setAdListener(new AdListener() {
+    @Override
+    public void onError(Ad ad, AdError error) {
 
-```python
-import kittn
+    }
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
+    @Override
+    public void onAdLoaded(Ad ad) {
 
-```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
-```
+    }
 
-> The above command returns JSON structured like this:
+    @Override
+    public void onAdClicked(Ad ad) {
 
-```json
-{
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
+    }
+  });
+
+  nativeAd.loadAd();
 }
 ```
 
-This endpoint retrieves a specific kitten.
+# Banner ads
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-
-### HTTP Request
-
-`GET http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
-
+# Ads API

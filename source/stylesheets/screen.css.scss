@@ -2,6 +2,7 @@
 @import 'normalize';
 @import 'variables';
 @import 'icon-font';
+@import 'logo';
 
 /*
 Copyright 2008-2013 Concur Technologies, Inc.
@@ -272,7 +273,7 @@ html, body {
   // I know, it's hackish, but it's the simplist way to make the left
   // half of the content always this background color.
   .dark-box {
-    width: $examples-width;
+    width: 0;
     background-color: $examples-bg;
     position: absolute;
     right: 0;
@@ -335,7 +336,6 @@ html, body {
   }
 
   &>h1, &>h2, &>h3, &>h4, &>h5, &>h6, &>p, &>table, &>ul, &>ol, &>aside, &>dl {
-    margin-right: $examples-width;
     padding: 0 $main-padding;
     box-sizing: border-box;
     display: block;
@@ -353,7 +353,7 @@ html, body {
     clear:both;
   }
 
-  h1 {
+  h1, h2 {
     @extend %header-font;
     font-size: 30px;
     padding-top: 0.5em;
@@ -373,8 +373,8 @@ html, body {
   h2 {
     @extend %header-font;
     font-size: 20px;
-    margin-top: 4em;
-    margin-bottom: 0;
+    margin-top: 2em;
+    margin-bottom: 1em;
     border-top: 1px solid #ccc;
     padding-top: 1.2em;
     padding-bottom: 1.2em;
@@ -527,9 +527,7 @@ html, body {
 
     padding: 2em $main-padding;
     margin: 0;
-    width: $examples-width;
 
-    float:right;
     clear:right;
 
     box-sizing: border-box;
