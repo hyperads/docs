@@ -1,0 +1,357 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Integration & SDK docs</title>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #f8f8f2;
+  background-color: #272822;
+}
+.highlight .err {
+  color: #151515;
+  background-color: #ac4142;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #505050;
+}
+.highlight .cp {
+  color: #f4bf75;
+}
+.highlight .nt {
+  color: #f4bf75;
+}
+.highlight .o, .highlight .ow {
+  color: #d0d0d0;
+}
+.highlight .p, .highlight .pi {
+  color: #d0d0d0;
+}
+.highlight .gi {
+  color: #90a959;
+}
+.highlight .gd {
+  color: #ac4142;
+}
+.highlight .gh {
+  color: #6a9fb5;
+  background-color: #151515;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #aa759f;
+}
+.highlight .kc {
+  color: #d28445;
+}
+.highlight .kt {
+  color: #d28445;
+}
+.highlight .kd {
+  color: #d28445;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #90a959;
+}
+.highlight .sr {
+  color: #75b5aa;
+}
+.highlight .si {
+  color: #8f5536;
+}
+.highlight .se {
+  color: #8f5536;
+}
+.highlight .nn {
+  color: #f4bf75;
+}
+.highlight .nc {
+  color: #f4bf75;
+}
+.highlight .no {
+  color: #f4bf75;
+}
+.highlight .na {
+  color: #6a9fb5;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #90a959;
+}
+.highlight .ss {
+  color: #90a959;
+}
+    </style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all.js"></script>
+  </head>
+
+  <body class="index" data-languages="[]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <div class="logo-wrapper">
+        <img src="images/logo.png" />
+      </div>
+
+        <div class="lang-selector">
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc">
+      </div>
+        <ul class="toc-footer">
+            <li><a target="_blank" href='http://dispply.com/publishers/sign_in'>Sign Up for a Monetization</a></li>
+            <li><a target="_blank" href='http://dispply.com'>Powered by Dispply</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id="introduction">Introduction</h1>
+
+<p>Welcome to the Dispply Integration and SDK documentation! You can use our API to access Dispply API endpoints and use JS tag or SDK for monetization.</p>
+
+<p>You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
+
+<h1 id="native-ads">Native ads</h1>
+
+<p>Dispply uses Access tokens to allow access to the API. You can register a new App and get Access token key at our <a href="http://dispply.com/publishers/sign_in">developer portal</a>.</p>
+
+<p>Dispply expects for the Access token and Placement ID to be included in all API requests to the server in a get variable that looks like the following:</p>
+
+<aside class="notice">
+You must replace <code>TOKEN</code> with your app&rsquo;s Access token and <code>PLACEMENT_ID</code> with your placement&rsquo;s ID.
+</aside>
+
+<h2 id="native-ads-in-mobile-web">Native Ads in Mobile Web</h2>
+
+<p>To add ad to your mobile site copy and paste this code to web page</p>
+
+<blockquote>
+<p>Using this example available ads appeared inside <code class="prettyprint">DIV</code> with <code class="prettyprint">ID</code> native-ad</p>
+</blockquote>
+<pre class="highlight html"><code><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;</span>
+<span class="kd">var</span> <span class="nx">w_NVM9zaqJ</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">access_token</span><span class="p">:</span> <span class="s2">"TOKEN"</span><span class="p">,</span>
+  <span class="na">placement_id</span><span class="p">:</span> <span class="s2">"PLACEMENT_ID"</span><span class="p">,</span>
+  <span class="na">theme</span><span class="p">:</span> <span class="s2">"base"</span><span class="p">,</span>
+  <span class="na">id</span><span class="p">:</span> <span class="s2">"native-ad"</span>
+<span class="p">}</span>
+
+<span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+    <span class="kd">var</span> <span class="nx">_s</span><span class="o">=</span><span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'script'</span><span class="p">);</span>
+    <span class="nx">_s</span><span class="p">.</span><span class="nx">type</span><span class="o">=</span><span class="s1">'text/javascript'</span><span class="p">;</span>
+    <span class="nx">_s</span><span class="p">.</span><span class="nx">async</span><span class="o">=</span><span class="kc">true</span><span class="p">;</span>
+    <span class="nx">_s</span><span class="p">.</span><span class="nx">src</span><span class="o">=</span><span class="s1">'http://ad-cdn.dispply.com/sdk.js'</span><span class="p">;</span>
+    <span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">)?</span><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">_s</span><span class="p">):</span><span class="nb">document</span><span class="p">.</span><span class="nx">head</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">_s</span><span class="p">);</span>
+    <span class="p">})();</span>
+<span class="nt">&lt;/script&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"native-ad"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre>
+
+<blockquote>
+<p>Also you can use custom template using <a href="http://olado.github.io/doT/index.html">dot.js</a> template engine</p>
+</blockquote>
+<pre class="highlight html"><code><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;</span>
+<span class="kd">var</span> <span class="nx">w_NVM9zaqJ</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">access_token</span><span class="p">:</span> <span class="s2">"TOKEN"</span><span class="p">,</span>
+  <span class="na">placement_id</span><span class="p">:</span> <span class="s2">"PLACEMENT_ID"</span><span class="p">,</span>
+  <span class="na">id</span><span class="p">:</span> <span class="s2">"native-ad"</span><span class="p">,</span>
+  <span class="na">template</span><span class="p">:</span> <span class="s1">'
+    &lt;div class="dispply_board dispply_board-single"&gt;\
+      &lt;div class="centrifier"&gt;\
+        &lt;h1&gt;App {{= it.status}}&lt;/h1&gt;\
+        {{~it.ads :ad:index}}\
+          &lt;article class="app-widget app-brick"&gt;\
+            &lt;a class="app-widget_button button-green" href="{{=ad.click_url}}" target="_blank"&gt;FREE&lt;/a&gt;\
+            &lt;img src="{{=ad.creatives.icon.url}}" width="64" height="64" class="app-widget_ico"&gt;\
+            &lt;div class="app-widget_content"&gt;\
+              &lt;div class="app-widget_desc"&gt;\
+                &lt;h2&gt;{{=ad.title}}&lt;/h2&gt;\
+                &lt;p&gt;{{=ad.description}}&lt;/p&gt;\
+              &lt;/div&gt;\
+            &lt;/div&gt;\
+            &lt;a href="{{=ad.click_url}}" target="_blank" class="cover-link"&gt;&lt;/a&gt;\
+          &lt;/article&gt;\
+          {{~ad.beacons :url:index}}\
+            &lt;img style="position: absolute;visibility: hidden;" src="{{= url}}"&gt;\
+          {{~}}\
+        {{~}}\
+      &lt;/div&gt;\
+    &lt;/div&gt;'</span>
+<span class="p">}</span>
+
+<span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+    <span class="kd">var</span> <span class="nx">_s</span><span class="o">=</span><span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'script'</span><span class="p">);</span>
+    <span class="nx">_s</span><span class="p">.</span><span class="nx">type</span><span class="o">=</span><span class="s1">'text/javascript'</span><span class="p">;</span>
+    <span class="nx">_s</span><span class="p">.</span><span class="nx">async</span><span class="o">=</span><span class="kc">true</span><span class="p">;</span>
+    <span class="nx">_s</span><span class="p">.</span><span class="nx">src</span><span class="o">=</span><span class="s1">'http://ad-cdn.dispply.com/sdk.js'</span><span class="p">;</span>
+    <span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">)?</span><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">_s</span><span class="p">):</span><span class="nb">document</span><span class="p">.</span><span class="nx">head</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">_s</span><span class="p">);</span>
+    <span class="p">})();</span>
+<span class="nt">&lt;/script&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"native-ad"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre>
+
+<h2 id="native-ads-in-ios">Native Ads in iOS</h2>
+
+<p>The Native Ad API allows you to build a customized experience for the ads you show in your app. When using the Native Ad API, instead of receiving an ad ready to be displayed, you will receive a group of ad properties such as a title, an image, a call to action, and you will have to use them to construct a custom UIView where the ad is shown.</p>
+
+<p><strong>There are three actions you will need to take to implement this in your app:</strong></p>
+
+<ul>
+<li>Request an ad</li>
+<li>Use the returned ad metadata to build a custom native UI</li>
+<li>Register the ad&rsquo;s view with the <code class="prettyprint">nativeAd</code> instance</li>
+</ul>
+
+<h3 id="set-up-the-sdk">Set up the SDK</h3>
+
+<p>Follow these steps to download and include it in your project:</p>
+
+<p><strong>Using Cocoapods</strong></p>
+
+<ul>
+<li>Add the following line to your project&rsquo;s Podfile: <code class="prettyprint">pod &#39;DispplyNetwork&#39;</code>.</li>
+<li>Run pod install.</li>
+</ul>
+
+<p><strong>Manual</strong></p>
+
+<ul>
+<li>Download and extract the Dispply SDK for iOS.</li>
+<li>Drag the Dispply.framework file to your Xcode project and place it under the Frameworks folder.</li>
+</ul>
+
+<h3 id="implementation">Implementation</h3>
+
+<blockquote>
+<p>Now, in your View Controller header file, import the SDK header and declare that you implement the DispplyNativeAdDelegate protocol as well as declare and connect instance variables to your UI .XIB:</p>
+</blockquote>
+<pre class="highlight objective_c"><code><span class="cp">#import &lt;UIKit/UIKit.h&gt;
+</span><span class="k">@import</span> <span class="n">DispplyNetwork</span><span class="p">;</span> <span class="c1">// import Dispply module
+</span>
+<span class="k">@interface</span> <span class="nc">MyViewController</span> <span class="p">:</span> <span class="nc">UIViewController</span> <span class="o">&lt;</span><span class="n">DispplyNativeAdDelegate</span><span class="o">&gt;</span>
+  <span class="c1">// Other code might go here...
+</span>  <span class="k">@property</span> <span class="p">(</span><span class="n">weak</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">IBOutlet</span> <span class="n">UIImageView</span> <span class="o">*</span><span class="n">adIconImageView</span><span class="p">;</span>
+  <span class="k">@property</span> <span class="p">(</span><span class="n">weak</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">IBOutlet</span> <span class="n">UILabel</span> <span class="o">*</span><span class="n">adTitleLabel</span><span class="p">;</span>
+  <span class="k">@property</span> <span class="p">(</span><span class="n">weak</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">IBOutlet</span> <span class="n">UILabel</span> <span class="o">*</span><span class="n">adBodyLabel</span><span class="p">;</span>
+  <span class="k">@property</span> <span class="p">(</span><span class="n">weak</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">IBOutlet</span> <span class="n">UIButton</span> <span class="o">*</span><span class="n">adCallToActionButton</span><span class="p">;</span>
+  <span class="k">@property</span> <span class="p">(</span><span class="n">weak</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">IBOutlet</span> <span class="n">UILabel</span> <span class="o">*</span><span class="n">adSocialContextLabel</span><span class="p">;</span>
+  <span class="k">@property</span> <span class="p">(</span><span class="n">weak</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">IBOutlet</span> <span class="n">UILabel</span> <span class="o">*</span><span class="n">sponsoredLabel</span><span class="p">;</span>
+
+  <span class="k">@property</span> <span class="p">(</span><span class="n">weak</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">FBMediaView</span> <span class="o">*</span><span class="n">adCoverMediaView</span><span class="p">;</span>
+
+  <span class="k">@property</span> <span class="p">(</span><span class="n">weak</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">IBOutlet</span> <span class="n">UIView</span> <span class="o">*</span><span class="n">adView</span><span class="p">;</span>
+<span class="k">@end</span>
+</code></pre>
+
+<h2 id="native-ads-in-android">Native Ads in Android</h2>
+
+<p>The Native Ad API allows you to build a customized experience for the ads you show in your app. When using the Native Ad API, instead of receiving an ad ready to be displayed, you will receive a group of ad properties such as a title, an image, a call to action, and you will have to use them to construct a custom view where the ad is shown.</p>
+
+<aside class="notice">
+There are three actions you will need to take to implement this in your app:
+</aside>
+
+<ul>
+<li>Request an ad</li>
+<li>Use the returned ad metadata to build a custom native UI</li>
+<li>Register the ad&rsquo;s view with the <code class="prettyprint">nativeAd</code> instance</li>
+</ul>
+<pre class="highlight java"><code><span class="kd">private</span> <span class="n">NativeAd</span> <span class="n">nativeAd</span><span class="o">;</span>
+
+<span class="kd">private</span> <span class="kt">void</span> <span class="nf">showNativeAd</span><span class="p">(</span><span class="o">)</span> <span class="o">{</span>
+  <span class="n">nativeAd</span> <span class="o">=</span> <span class="k">new</span> <span class="n">NativeAd</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="s">"YOUR_PLACEMENT_ID"</span><span class="o">);</span>
+  <span class="n">nativeAd</span><span class="o">.</span><span class="na">setAdListener</span><span class="o">(</span><span class="k">new</span> <span class="n">AdListener</span><span class="o">()</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="n">onError</span><span class="o">(</span><span class="n">Ad</span> <span class="n">ad</span><span class="o">,</span> <span class="n">AdError</span> <span class="n">error</span><span class="o">)</span> <span class="o">{</span>
+
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="n">onAdLoaded</span><span class="o">(</span><span class="n">Ad</span> <span class="n">ad</span><span class="o">)</span> <span class="o">{</span>
+
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="n">onAdClicked</span><span class="o">(</span><span class="n">Ad</span> <span class="n">ad</span><span class="o">)</span> <span class="o">{</span>
+
+    <span class="o">}</span>
+  <span class="o">});</span>
+
+  <span class="n">nativeAd</span><span class="o">.</span><span class="na">loadAd</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre>
+
+<h1 id="banner-ads">Banner ads</h1>
+
+<h1 id="ads-api">Ads API</h1>
+
+          <h1 id="errors">Errors</h1>
+
+<p>The Dispply API uses the following error codes:</p>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>400</td>
+<td>Bad Request &ndash; Your request sucks</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized &ndash; Your API key is wrong</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found &ndash; The specified kitten could not be found</td>
+</tr>
+<tr>
+<td>406</td>
+<td>Not Acceptable &ndash; You requested a format that isn&rsquo;t json</td>
+</tr>
+<tr>
+<td>418</td>
+<td>I&rsquo;m a teapot</td>
+</tr>
+<tr>
+<td>429</td>
+<td>Too Many Requests &ndash; You&rsquo;re requesting too many ads! Slow down!</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Internal Server Error &ndash; We had a problem with our server. Try again later.</td>
+</tr>
+<tr>
+<td>503</td>
+<td>Service Unavailable &ndash; We&rsquo;re temporarially offline for maintanance. Please try again later.</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
