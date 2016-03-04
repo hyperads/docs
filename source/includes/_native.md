@@ -12,15 +12,13 @@ You must replace <code>TOKEN</code> with your app's Access token and <code>PLACE
 
 To add ad to your mobile site copy and paste this code to web page
 
-> Using this example available ads appeared inside `DIV` with `ID` native-ad
-
 ```html
 <script async type="text/javascript">
 (function(){
 	var _s=document.createElement('script');
 	_s.type='text/javascript';
 	_s.async=true;
-	_s.src='http://ad-cdn.dispply.com/sdk.js';
+	_s.src='http://ad-cdn.dispply.com/v2/sdk.js';
 	(document.body)?document.body.appendChild(_s):document.head.appendChild(_s);
 	})();
 </script>
@@ -60,7 +58,7 @@ var w_NVM9zaqJ = {
 	var _s=document.createElement('script');
 	_s.type='text/javascript';
 	_s.async=true;
-	_s.src='http://ad-cdn.dispply.com/sdk.js';
+	_s.src='http://ad-cdn.dispply.com/v2/sdk.js';
 	(document.body)?document.body.appendChild(_s):document.head.appendChild(_s);
 	})();
 </script>

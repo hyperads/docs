@@ -18,7 +18,7 @@ To add ad to your mobile site copy and paste this code to web page
 	var _s=document.createElement('script');
 	_s.type='text/javascript';
 	_s.async=true;
-	_s.src='http://ad-cdn.dispply.com/banner.js';
+	_s.src='http://ad-cdn.dispply.com/v2/banner.js';
 	(document.body)?document.body.appendChild(_s):document.head.appendChild(_s);
 	})();
 </script>
