@@ -21,4 +21,40 @@ format | false | No | Creative's format (ex. 120x80)
 content | false | title,icon,image | Required content separated by comma (ex. title,desc,icon,main)
 callback | false | No | Callback function for [JSONP](https://en.wikipedia.org/wiki/JSONP) request
 
+### Response
+
+> The above endpoint returns JSON structured like this:
+
+```json
+{
+  "status": "success",
+  "ads": [
+    {
+      "title": "Ad title",
+      "description": "Ad description",
+      "creatives": {
+        "icon": {
+          "url": "http://cdn.com/icon",
+          "width": "60",
+          "height": "60"
+        },
+        "image": {
+          "url": "http://cdn.com/image",
+          "width": "1200",
+          "height": "627"
+        },
+        "video": "VAST"
+      },
+      "beacons": ["http://pixel.com"]
+    }
+  ]
+}
+```
+
+> For `JSONP` response like this:
+
+```
+callback({"status": "success", "ads": []})
+```
+
 ## Account API
