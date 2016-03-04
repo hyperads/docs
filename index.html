@@ -136,16 +136,12 @@ You must replace <code>TOKEN</code> with your app&rsquo;s Access token and <code
 <h2 id="native-ads-in-mobile-web">Native Ads in Mobile Web</h2>
 
 <p>To add ad to your mobile site copy and paste this code to web page</p>
-
-<blockquote>
-<p>Using this example available ads appeared inside <code class="prettyprint">DIV</code> with <code class="prettyprint">ID</code> native-ad</p>
-</blockquote>
 <pre class="highlight html"><code><span class="nt">&lt;script </span><span class="na">async</span> <span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;</span>
 <span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
     <span class="kd">var</span> <span class="nx">_s</span><span class="o">=</span><span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'script'</span><span class="p">);</span>
     <span class="nx">_s</span><span class="p">.</span><span class="nx">type</span><span class="o">=</span><span class="s1">'text/javascript'</span><span class="p">;</span>
     <span class="nx">_s</span><span class="p">.</span><span class="nx">async</span><span class="o">=</span><span class="kc">true</span><span class="p">;</span>
-    <span class="nx">_s</span><span class="p">.</span><span class="nx">src</span><span class="o">=</span><span class="s1">'http://ad-cdn.dispply.com/sdk.js'</span><span class="p">;</span>
+    <span class="nx">_s</span><span class="p">.</span><span class="nx">src</span><span class="o">=</span><span class="s1">'http://ad-cdn.dispply.com/v2/sdk.js'</span><span class="p">;</span>
     <span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">)?</span><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">_s</span><span class="p">):</span><span class="nb">document</span><span class="p">.</span><span class="nx">head</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">_s</span><span class="p">);</span>
     <span class="p">})();</span>
 <span class="nt">&lt;/script&gt;</span>
@@ -185,7 +181,7 @@ You must replace <code>TOKEN</code> with your app&rsquo;s Access token and <code
     <span class="kd">var</span> <span class="nx">_s</span><span class="o">=</span><span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'script'</span><span class="p">);</span>
     <span class="nx">_s</span><span class="p">.</span><span class="nx">type</span><span class="o">=</span><span class="s1">'text/javascript'</span><span class="p">;</span>
     <span class="nx">_s</span><span class="p">.</span><span class="nx">async</span><span class="o">=</span><span class="kc">true</span><span class="p">;</span>
-    <span class="nx">_s</span><span class="p">.</span><span class="nx">src</span><span class="o">=</span><span class="s1">'http://ad-cdn.dispply.com/sdk.js'</span><span class="p">;</span>
+    <span class="nx">_s</span><span class="p">.</span><span class="nx">src</span><span class="o">=</span><span class="s1">'http://ad-cdn.dispply.com/v2/sdk.js'</span><span class="p">;</span>
     <span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">)?</span><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">_s</span><span class="p">):</span><span class="nb">document</span><span class="p">.</span><span class="nx">head</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">_s</span><span class="p">);</span>
     <span class="p">})();</span>
 <span class="nt">&lt;/script&gt;</span>
@@ -301,7 +297,7 @@ You must replace <code>TOKEN</code> with your app&rsquo;s Access token and <code
     <span class="kd">var</span> <span class="nx">_s</span><span class="o">=</span><span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'script'</span><span class="p">);</span>
     <span class="nx">_s</span><span class="p">.</span><span class="nx">type</span><span class="o">=</span><span class="s1">'text/javascript'</span><span class="p">;</span>
     <span class="nx">_s</span><span class="p">.</span><span class="nx">async</span><span class="o">=</span><span class="kc">true</span><span class="p">;</span>
-    <span class="nx">_s</span><span class="p">.</span><span class="nx">src</span><span class="o">=</span><span class="s1">'http://ad-cdn.dispply.com/banner.js'</span><span class="p">;</span>
+    <span class="nx">_s</span><span class="p">.</span><span class="nx">src</span><span class="o">=</span><span class="s1">'http://ad-cdn.dispply.com/v2/banner.js'</span><span class="p">;</span>
     <span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">)?</span><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">_s</span><span class="p">):</span><span class="nb">document</span><span class="p">.</span><span class="nx">head</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">_s</span><span class="p">);</span>
     <span class="p">})();</span>
 <span class="nt">&lt;/script&gt;</span>
@@ -470,7 +466,7 @@ You must replace <code>TOKEN</code> with your app&rsquo;s Access token and <code
 
 <h2 id="account-api">Account API</h2>
 
-          <h1 id="errors">Errors</h1>
+<h2 id="errors">Errors</h2>
 
 <p>The Dispply API uses the following error codes:</p>
 
@@ -513,6 +509,22 @@ You must replace <code>TOKEN</code> with your app&rsquo;s Access token and <code
 <td>Service Unavailable &ndash; We&rsquo;re temporarially offline for maintanance. Please try again later.</td>
 </tr>
 </tbody></table>
+
+          <h1 id="tools">Tools</h1>
+
+<h2 id="link-rotator">Link rotator</h2>
+
+<p>With link rotator you can easily rotate most performing offers and redirect user to it</p>
+
+<aside class="notice">
+You must replace <code>TOKEN</code> with your app&rsquo;s Access token and <code>PLACEMENT_ID</code> with your placement&rsquo;s ID.
+</aside>
+
+<p><code class="prettyprint">http://ad.dispply.com/v2/link/TOKEN/PLACEMENT_ID</code></p>
+
+<h2 id="traffic-distribution-system-tds">Traffic distribution system (TDS)</h2>
+
+<p>You can easily customize traffic distribution across different rules</p>
 
       </div>
       <div class="dark-box">
