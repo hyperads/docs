@@ -141,7 +141,7 @@ You must replace <code>TOKEN</code> with your app&rsquo;s Access token and <code
     <span class="kd">var</span> <span class="nx">_s</span><span class="o">=</span><span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'script'</span><span class="p">);</span>
     <span class="nx">_s</span><span class="p">.</span><span class="nx">type</span><span class="o">=</span><span class="s1">'text/javascript'</span><span class="p">;</span>
     <span class="nx">_s</span><span class="p">.</span><span class="nx">async</span><span class="o">=</span><span class="kc">true</span><span class="p">;</span>
-    <span class="nx">_s</span><span class="p">.</span><span class="nx">src</span><span class="o">=</span><span class="s1">'http://ad-cdn.dispply.com/v2/sdk.js'</span><span class="p">;</span>
+    <span class="nx">_s</span><span class="p">.</span><span class="nx">src</span><span class="o">=</span><span class="s1">'http://ad-cdn.dispply.com/v2/widget.js'</span><span class="p">;</span>
     <span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">)?</span><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">_s</span><span class="p">):</span><span class="nb">document</span><span class="p">.</span><span class="nx">head</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">_s</span><span class="p">);</span>
     <span class="p">})();</span>
 <span class="nt">&lt;/script&gt;</span>
@@ -153,7 +153,7 @@ You must replace <code>TOKEN</code> with your app&rsquo;s Access token and <code
 </blockquote>
 <pre class="highlight html"><code><span class="nt">&lt;script </span><span class="na">async</span> <span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;</span>
 <span class="kd">var</span> <span class="nx">w_NVM9zaqJ</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="na">template</span><span class="p">:</span> <span class="s1">'
+  <span class="na">PLACEMENT_ID</span><span class="p">:</span> <span class="s1">'
     &lt;div class="dispply_board dispply_board-single"&gt;\
       &lt;div class="centrifier"&gt;\
         &lt;h1&gt;App {{= it.status}}&lt;/h1&gt;\
@@ -181,7 +181,7 @@ You must replace <code>TOKEN</code> with your app&rsquo;s Access token and <code
     <span class="kd">var</span> <span class="nx">_s</span><span class="o">=</span><span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'script'</span><span class="p">);</span>
     <span class="nx">_s</span><span class="p">.</span><span class="nx">type</span><span class="o">=</span><span class="s1">'text/javascript'</span><span class="p">;</span>
     <span class="nx">_s</span><span class="p">.</span><span class="nx">async</span><span class="o">=</span><span class="kc">true</span><span class="p">;</span>
-    <span class="nx">_s</span><span class="p">.</span><span class="nx">src</span><span class="o">=</span><span class="s1">'http://ad-cdn.dispply.com/v2/sdk.js'</span><span class="p">;</span>
+    <span class="nx">_s</span><span class="p">.</span><span class="nx">src</span><span class="o">=</span><span class="s1">'http://ad-cdn.dispply.com/v2/widget.js'</span><span class="p">;</span>
     <span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">)?</span><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">_s</span><span class="p">):</span><span class="nb">document</span><span class="p">.</span><span class="nx">head</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">_s</span><span class="p">);</span>
     <span class="p">})();</span>
 <span class="nt">&lt;/script&gt;</span>
@@ -301,7 +301,7 @@ You must replace <code>TOKEN</code> with your app&rsquo;s Access token and <code
     <span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">)?</span><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">_s</span><span class="p">):</span><span class="nb">document</span><span class="p">.</span><span class="nx">head</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">_s</span><span class="p">);</span>
     <span class="p">})();</span>
 <span class="nt">&lt;/script&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"w_NVM9zaqJ"</span> <span class="na">ad-token=</span><span class="s">"TOKEN"</span> <span class="na">ad-placement=</span><span class="s">"PLACEMENT_ID"</span> <span class="na">ad-format=</span><span class="s">"120x90"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"w_NVM9zaqJ"</span> <span class="na">ad-token=</span><span class="s">"TOKEN"</span> <span class="na">ad-placement=</span><span class="s">"PLACEMENT_ID"</span> <span class="na">ad-format=</span><span class="s">"120x90"</span> <span class="na">style=</span><span class="s">"text-align: center"</span><span class="nt">&gt;&lt;/div&gt;</span>
 </code></pre>
 
 <h2 id="ios">iOS</h2>
@@ -517,10 +517,10 @@ You must replace <code>TOKEN</code> with your app&rsquo;s Access token and <code
 <p>With link rotator you can easily rotate most performing offers and redirect user to it</p>
 
 <aside class="notice">
-You must replace <code>TOKEN</code> with your app&rsquo;s Access token and <code>PLACEMENT_ID</code> with your placement&rsquo;s ID.
+You must replace <code>PLACEMENT_ID</code> with your placement&rsquo;s ID.
 </aside>
 
-<p><code class="prettyprint">http://ad.dispply.com/v2/link/TOKEN/PLACEMENT_ID</code></p>
+<p><code class="prettyprint">http://ad.dispply.com/v2/link/PLACEMENT_ID</code></p>
 
 <h2 id="traffic-distribution-system-tds">Traffic distribution system (TDS)</h2>
 
