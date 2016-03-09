@@ -22,7 +22,7 @@ To add ad to your mobile site copy and paste this code to web page
 	(document.body)?document.body.appendChild(_s):document.head.appendChild(_s);
 	})();
 </script>
-<div class="w_NVM9zaqJ" ad-token="TOKEN" ad-placement="PLACEMENT_ID" ad-format="120x90"></div>
+<div class="w_NVM9zaqJ" ad-token="TOKEN" ad-placement="PLACEMENT_ID" ad-format="120x90" style="text-align: center"></div>
 ```
 
 ## iOS
