@@ -354,7 +354,7 @@ You must replace <code>PLACEMENT_ID</code> with your placement&rsquo;s ID.
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET http://ad.dispply.com/v2/ads</code></p>
+<p><code class="prettyprint">GET http://ad.dispply.com/v2/ads/PLACEMENT</code></p>
 
 <h3 id="query-parameters">Query Parameters</h3>
 
@@ -366,18 +366,6 @@ You must replace <code>PLACEMENT_ID</code> with your placement&rsquo;s ID.
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>access_token</td>
-<td>true</td>
-<td>No</td>
-<td>This is Access Token from one of your App (<a href="http://dispply.com/publishers/apps">here</a>).</td>
-</tr>
-<tr>
-<td>placement_id</td>
-<td>true</td>
-<td>No</td>
-<td>Placement in the app (<a href="http://dispply.com/publishers/placements">here</a>)</td>
-</tr>
 <tr>
 <td>ip</td>
 <td>false</td>
@@ -425,6 +413,18 @@ You must replace <code>PLACEMENT_ID</code> with your placement&rsquo;s ID.
 <td>false</td>
 <td>No</td>
 <td>Callback function for <a href="https://en.wikipedia.org/wiki/JSONP">JSONP</a> request</td>
+</tr>
+<tr>
+<td>ios_idfa</td>
+<td>false</td>
+<td>No</td>
+<td>iOS advertising ID</td>
+</tr>
+<tr>
+<td>android_id</td>
+<td>false</td>
+<td>No</td>
+<td>Android advertising ID</td>
 </tr>
 </tbody></table>
 
