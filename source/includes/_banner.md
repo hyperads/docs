@@ -1,11 +1,11 @@
 # Banner
 
-Dispply uses Access tokens to allow access to the API. You can register a new App and get Access token key at our [developer portal](http://dispply.com/publishers/sign_in).
+Dispply uses Placement ID to allow access to the API. You can register a new App and create Placement at our [developer portal](http://dispply.com/publishers/sign_in).
 
-Dispply expects for the Access token and Placement ID to be included in all API requests to the server in a get variable that looks like the following:
+Dispply expects for Placement ID to be included in all API requests to the server in a get variable that looks like the following:
 
 <aside class="notice">
-You must replace <code>TOKEN</code> with your app's Access token and <code>PLACEMENT_ID</code> with your placement's ID.
+You must replace <code>PLACEMENT_ID</code> with your placement's ID.
 </aside>
 
 ## Mobile Web
@@ -22,7 +22,7 @@ To add ad to your mobile site copy and paste this code to web page
 	(document.body)?document.body.appendChild(_s):document.head.appendChild(_s);
 	})();
 </script>
-<div class="w_NVM9zaqJ" ad-token="TOKEN" ad-placement="PLACEMENT_ID" ad-format="120x90" style="text-align: center"></div>
+<div class="w_NVM9zaqJ" ad-placement="PLACEMENT_ID" ad-format="300x50" style="text-align: center"></div>
 ```
 
 ## iOS

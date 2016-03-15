@@ -1,11 +1,11 @@
 # Native ads
 
-Dispply uses Access tokens to allow access to the API. You can register a new App and get Access token key at our [developer portal](http://dispply.com/publishers/sign_in).
+Dispply uses Placement ID to allow access to the API. You can register a new App and create Placement at our [developer portal](http://dispply.com/publishers/sign_in).
 
-Dispply expects for the Access token and Placement ID to be included in all API requests to the server in a get variable that looks like the following:
+Dispply expects for Placement ID to be included in all API requests to the server in a get variable that looks like the following:
 
 <aside class="notice">
-You must replace <code>TOKEN</code> with your app's Access token and <code>PLACEMENT_ID</code> with your placement's ID.
+You must replace <code>PLACEMENT_ID</code> with your placement's ID.
 </aside>
 
 ## Native Ads in Mobile Web
@@ -22,37 +22,41 @@ To add ad to your mobile site copy and paste this code to web page
 	(document.body)?document.body.appendChild(_s):document.head.appendChild(_s);
 	})();
 </script>
-<div class="w_NVM9zaqJ" ad-token="TOKEN" ad-placement="PLACEMENT_ID" ad-theme="base"></div>
+<div class="w_NVM9zaqJ" ad-placement="PLACEMENT_ID" ad-theme="base"></div>
 ```
 
 > Also you can use custom template using [dot.js](http://olado.github.io/doT/index.html) template engine
 
 ```html
 <script async type="text/javascript">
+var template = '<div class="dispply_board dispply_board-single">\
+		<div class="centrifier">\
+			<h1>App {{= it.status}}</h1>\
+			{{~it.ads :ad:index}}\
+				<article class="app-widget app-brick">\
+					<a class="app-widget_button button-green" href="{{=ad.click_url}}" target="_blank">FREE</a>\
+					<img src="{{=ad.creatives.icon.url}}" width="64" height="64" class="app-widget_ico">\
+					<div class="app-widget_content">\
+						<div class="app-widget_desc">\
+							<h2>{{=ad.title}}</h2>\
+							<p>{{=ad.description}}</p>\
+						</div>\
+					</div>\
+					<a href="{{=ad.click_url}}" target="_blank" class="cover-link"></a>\
+				</article>\
+				{{~ad.beacons :url:index}}\
+					<img style="position: absolute;visibility: hidden;" src="{{= url}}">\
+				{{~}}\
+			{{~}}\
+		</div>\
+	</div>';
+
+/* Object for settings */
 var w_NVM9zaqJ = {
-  PLACEMENT_ID: '
-    <div class="dispply_board dispply_board-single">\
-      <div class="centrifier">\
-        <h1>App {{= it.status}}</h1>\
-        {{~it.ads :ad:index}}\
-          <article class="app-widget app-brick">\
-            <a class="app-widget_button button-green" href="{{=ad.click_url}}" target="_blank">FREE</a>\
-            <img src="{{=ad.creatives.icon.url}}" width="64" height="64" class="app-widget_ico">\
-            <div class="app-widget_content">\
-              <div class="app-widget_desc">\
-                <h2>{{=ad.title}}</h2>\
-                <p>{{=ad.description}}</p>\
-              </div>\
-            </div>\
-            <a href="{{=ad.click_url}}" target="_blank" class="cover-link"></a>\
-          </article>\
-          {{~ad.beacons :url:index}}\
-            <img style="position: absolute;visibility: hidden;" src="{{= url}}">\
-          {{~}}\
-        {{~}}\
-      </div>\
-    </div>'
-}
+	templates: {
+		PLACEMENT_ID: 'Your template for dot.js'
+	}
+};
 
 (function(){
 	var _s=document.createElement('script');
@@ -62,7 +66,7 @@ var w_NVM9zaqJ = {
 	(document.body)?document.body.appendChild(_s):document.head.appendChild(_s);
 	})();
 </script>
-<div class="w_NVM9zaqJ" ad-token="TOKEN" ad-placement="PLACEMENT_ID"></div>
+<div class="w_NVM9zaqJ" ad-placement="PLACEMENT_ID"></div>
 ```
 
 ## Native Ads in iOS
