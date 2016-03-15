@@ -125,9 +125,9 @@
 
           <h1 id="native-ads">Native ads</h1>
 
-<p>Dispply uses Access tokens to allow access to the API. You can register a new App and get Access token key at our <a href="http://dispply.com/publishers/sign_in">developer portal</a>.</p>
+<p>Dispply uses Placement ID to allow access to the API. You can register a new App and create Placement at our <a href="http://dispply.com/publishers/sign_in">developer portal</a>.</p>
 
-<p>Dispply expects for the Access token and Placement ID to be included in all API requests to the server in a get variable that looks like the following:</p>
+<p>Dispply expects for Placement ID to be included in all API requests to the server in a get variable that looks like the following:</p>
 
 <aside class="notice">
 You must replace <code>PLACEMENT_ID</code> with your placement&rsquo;s ID.
@@ -152,30 +152,34 @@ You must replace <code>PLACEMENT_ID</code> with your placement&rsquo;s ID.
 <p>Also you can use custom template using <a href="http://olado.github.io/doT/index.html">dot.js</a> template engine</p>
 </blockquote>
 <pre class="highlight html"><code><span class="nt">&lt;script </span><span class="na">async</span> <span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;</span>
+<span class="kd">var</span> <span class="nx">template</span> <span class="o">=</span> <span class="s1">'&lt;div class="dispply_board dispply_board-single"&gt;\
+        &lt;div class="centrifier"&gt;\
+            &lt;h1&gt;App {{= it.status}}&lt;/h1&gt;\
+            {{~it.ads :ad:index}}\
+                &lt;article class="app-widget app-brick"&gt;\
+                    &lt;a class="app-widget_button button-green" href="{{=ad.click_url}}" target="_blank"&gt;FREE&lt;/a&gt;\
+                    &lt;img src="{{=ad.creatives.icon.url}}" width="64" height="64" class="app-widget_ico"&gt;\
+                    &lt;div class="app-widget_content"&gt;\
+                        &lt;div class="app-widget_desc"&gt;\
+                            &lt;h2&gt;{{=ad.title}}&lt;/h2&gt;\
+                            &lt;p&gt;{{=ad.description}}&lt;/p&gt;\
+                        &lt;/div&gt;\
+                    &lt;/div&gt;\
+                    &lt;a href="{{=ad.click_url}}" target="_blank" class="cover-link"&gt;&lt;/a&gt;\
+                &lt;/article&gt;\
+                {{~ad.beacons :url:index}}\
+                    &lt;img style="position: absolute;visibility: hidden;" src="{{= url}}"&gt;\
+                {{~}}\
+            {{~}}\
+        &lt;/div&gt;\
+    &lt;/div&gt;'</span><span class="p">;</span>
+
+<span class="cm">/* Object for settings */</span>
 <span class="kd">var</span> <span class="nx">w_NVM9zaqJ</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="na">PLACEMENT_ID</span><span class="p">:</span> <span class="s1">'
-    &lt;div class="dispply_board dispply_board-single"&gt;\
-      &lt;div class="centrifier"&gt;\
-        &lt;h1&gt;App {{= it.status}}&lt;/h1&gt;\
-        {{~it.ads :ad:index}}\
-          &lt;article class="app-widget app-brick"&gt;\
-            &lt;a class="app-widget_button button-green" href="{{=ad.click_url}}" target="_blank"&gt;FREE&lt;/a&gt;\
-            &lt;img src="{{=ad.creatives.icon.url}}" width="64" height="64" class="app-widget_ico"&gt;\
-            &lt;div class="app-widget_content"&gt;\
-              &lt;div class="app-widget_desc"&gt;\
-                &lt;h2&gt;{{=ad.title}}&lt;/h2&gt;\
-                &lt;p&gt;{{=ad.description}}&lt;/p&gt;\
-              &lt;/div&gt;\
-            &lt;/div&gt;\
-            &lt;a href="{{=ad.click_url}}" target="_blank" class="cover-link"&gt;&lt;/a&gt;\
-          &lt;/article&gt;\
-          {{~ad.beacons :url:index}}\
-            &lt;img style="position: absolute;visibility: hidden;" src="{{= url}}"&gt;\
-          {{~}}\
-        {{~}}\
-      &lt;/div&gt;\
-    &lt;/div&gt;'</span>
-<span class="p">}</span>
+    <span class="na">templates</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">PLACEMENT_ID</span><span class="p">:</span> <span class="s1">'Your template for dot.js'</span>
+    <span class="p">}</span>
+<span class="p">};</span>
 
 <span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
     <span class="kd">var</span> <span class="nx">_s</span><span class="o">=</span><span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'script'</span><span class="p">);</span>
@@ -281,9 +285,9 @@ There are three actions you will need to take to implement this in your app:
 
           <h1 id="banner">Banner</h1>
 
-<p>Dispply uses Access tokens to allow access to the API. You can register a new App and get Access token key at our <a href="http://dispply.com/publishers/sign_in">developer portal</a>.</p>
+<p>Dispply uses Placement ID to allow access to the API. You can register a new App and create Placement at our <a href="http://dispply.com/publishers/sign_in">developer portal</a>.</p>
 
-<p>Dispply expects for the Placement ID to be included in all API requests to the server in a get variable that looks like the following:</p>
+<p>Dispply expects for Placement ID to be included in all API requests to the server in a get variable that looks like the following:</p>
 
 <aside class="notice">
 You must replace <code>PLACEMENT_ID</code> with your placement&rsquo;s ID.
