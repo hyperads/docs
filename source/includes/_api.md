@@ -19,7 +19,7 @@ format | false | No | Creative's format (ex. 120x80)
 content | false | title,icon,main | Required content separated by comma (ex. title,desc,icon,main)
 callback | false | No | Callback function for [JSONP](https://en.wikipedia.org/wiki/JSONP) request
 ios_idfa | false| No | iOS advertising ID
-android_id | false | No | Android advertising ID
+gaid | false | No | Android advertising ID
 
 ### Response
 
