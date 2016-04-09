@@ -201,49 +201,74 @@ You must replace <code>PLACEMENT_ID</code> with your placement&rsquo;s ID.
 <ul>
 <li>Request an ad</li>
 <li>Use the returned ad metadata to build a custom native UI</li>
-<li>Register the ad&rsquo;s view with the <code class="prettyprint">nativeAd</code> instance</li>
+<li>Register the ad&rsquo;s view with the <code class="prettyprint">HADNativeAd</code> instance</li>
 </ul>
 
 <h3 id="set-up-the-sdk">Set up the SDK</h3>
 
 <p>Follow these steps to download and include it in your project:</p>
 
-<p><strong>Using Cocoapods</strong></p>
-
-<ul>
-<li>Add the following line to your project&rsquo;s Podfile: <code class="prettyprint">pod &#39;DispplyNetwork&#39;</code>.</li>
-<li>Run pod install.</li>
-</ul>
-
 <p><strong>Manual</strong></p>
 
 <ul>
-<li>Download and extract the Dispply SDK for iOS.</li>
-<li>Drag the Dispply.framework file to your Xcode project and place it under the Frameworks folder.</li>
+<li>Download and extract the HADFramework for iOS.</li>
+<li>Drag the HADFramework.framework file to your Xcode project and place it under the Frameworks folder.</li>
+<li>Add the AdSupport framework to your project.</li>
 </ul>
 
 <h3 id="implementation">Implementation</h3>
 
 <blockquote>
-<p>Now, in your View Controller header file, import the SDK header and declare that you implement the DispplyNativeAdDelegate protocol as well as declare and connect instance variables to your UI .XIB:</p>
+<p>Now, in your View Controller implementation file, import the SDK  and declare that you implement the <code class="prettyprint">HADNativeAdDelegate</code> protocol as well as declare and connect instance variables to your UI .XIB:</p>
 </blockquote>
-<pre class="highlight objective_c"><code><span class="cp">#import &lt;UIKit/UIKit.h&gt;
-</span><span class="k">@import</span> <span class="n">DispplyNetwork</span><span class="p">;</span> <span class="c1">// import Dispply module
-</span>
-<span class="k">@interface</span> <span class="nc">MyViewController</span> <span class="p">:</span> <span class="nc">UIViewController</span> <span class="o">&lt;</span><span class="n">DispplyNativeAdDelegate</span><span class="o">&gt;</span>
-  <span class="c1">// Other code might go here...
-</span>  <span class="k">@property</span> <span class="p">(</span><span class="n">weak</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">IBOutlet</span> <span class="n">UIImageView</span> <span class="o">*</span><span class="n">adIconImageView</span><span class="p">;</span>
-  <span class="k">@property</span> <span class="p">(</span><span class="n">weak</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">IBOutlet</span> <span class="n">UILabel</span> <span class="o">*</span><span class="n">adTitleLabel</span><span class="p">;</span>
-  <span class="k">@property</span> <span class="p">(</span><span class="n">weak</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">IBOutlet</span> <span class="n">UILabel</span> <span class="o">*</span><span class="n">adBodyLabel</span><span class="p">;</span>
-  <span class="k">@property</span> <span class="p">(</span><span class="n">weak</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">IBOutlet</span> <span class="n">UIButton</span> <span class="o">*</span><span class="n">adCallToActionButton</span><span class="p">;</span>
-  <span class="k">@property</span> <span class="p">(</span><span class="n">weak</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">IBOutlet</span> <span class="n">UILabel</span> <span class="o">*</span><span class="n">adSocialContextLabel</span><span class="p">;</span>
-  <span class="k">@property</span> <span class="p">(</span><span class="n">weak</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">IBOutlet</span> <span class="n">UILabel</span> <span class="o">*</span><span class="n">sponsoredLabel</span><span class="p">;</span>
-
-  <span class="k">@property</span> <span class="p">(</span><span class="n">weak</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">DispplyMediaView</span> <span class="o">*</span><span class="n">adCoverMediaView</span><span class="p">;</span>
-
-  <span class="k">@property</span> <span class="p">(</span><span class="n">weak</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">IBOutlet</span> <span class="n">UIView</span> <span class="o">*</span><span class="n">adView</span><span class="p">;</span>
+<pre class="highlight objective_c"><code><span class="cp">#import &lt;HADFramework/HADNativeAd.h&gt;
+</span><span class="k">@interface</span> <span class="nc">MyViewController</span> <span class="p">:</span> <span class="nc">UIViewController</span> <span class="o">&lt;</span><span class="n">HADNativeAdDelegate</span><span class="o">&gt;</span>
+    <span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">weak</span><span class="p">)</span> <span class="n">IBOutlet</span> <span class="n">UIView</span> <span class="o">*</span><span class="n">bannerView</span><span class="p">;</span>
+    <span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">weak</span><span class="p">)</span> <span class="n">IBOutlet</span> <span class="n">UIImageView</span> <span class="o">*</span><span class="n">imageView</span><span class="p">;</span>
+    <span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">weak</span><span class="p">)</span> <span class="n">IBOutlet</span> <span class="n">UIImageView</span> <span class="o">*</span><span class="n">iconView</span><span class="p">;</span>
+    <span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">weak</span><span class="p">)</span> <span class="n">IBOutlet</span> <span class="n">UILabel</span> <span class="o">*</span><span class="n">titleLabel</span><span class="p">;</span>
+    <span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">weak</span><span class="p">)</span> <span class="n">IBOutlet</span> <span class="n">UILabel</span> <span class="o">*</span><span class="n">descLabel</span><span class="p">;</span>
+    <span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">HADNativeAd</span> <span class="o">*</span><span class="n">native</span><span class="p">;</span>
 <span class="k">@end</span>
 </code></pre>
+
+<blockquote>
+<p>Then, add a method in your View Controller&rsquo;s implementation file that initializes <code class="prettyprint">HADNativeAd</code> and request an ad to load:</p>
+</blockquote>
+<pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">viewDidLoad</span> <span class="p">{</span>
+    <span class="p">[</span><span class="n">super</span> <span class="nf">viewDidLoad</span><span class="p">];</span>
+    <span class="n">self</span><span class="p">.</span><span class="n">native</span> <span class="o">=</span> <span class="p">[[</span><span class="n">HADNativeAd</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithPlacementId</span><span class="p">:</span><span class="s">@"PLACEMENT_ID"</span> <span class="nf">bannerSize</span><span class="p">:</span><span class="n">kHADBannerSize300x250</span> <span class="nf">delegate</span><span class="p">:</span><span class="n">self</span><span class="p">];</span>
+    <span class="n">self</span><span class="p">.</span><span class="n">bannerView</span><span class="p">.</span><span class="n">hidden</span> <span class="o">=</span> <span class="nb">YES</span><span class="p">;</span>
+    <span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">native</span> <span class="nf">loadAd</span><span class="p">];</span>
+<span class="p">}</span>
+</code></pre>
+
+<blockquote>
+<p>Now that you have added the code to load the ad, add the following functions to handle loading failures and to construct the ad once it has loaded:</p>
+</blockquote>
+<pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">HADNativeAd</span><span class="p">:(</span><span class="n">HADNativeAd</span><span class="o">*</span><span class="p">)</span><span class="nv">nativeAd</span> <span class="nf">didFailWithError</span><span class="p">:(</span><span class="n">NSError</span><span class="o">*</span><span class="p">)</span><span class="nv">error</span> <span class="p">{</span>
+    <span class="n">NSLog</span><span class="p">(</span><span class="s">@"ERROR: %@"</span><span class="p">,</span><span class="n">error</span><span class="p">.</span><span class="n">localizedDescription</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">HADNativeAdDidLoad</span><span class="p">:(</span><span class="n">HADNativeAd</span><span class="o">*</span><span class="p">)</span><span class="nv">nativeAd</span> <span class="p">{</span>
+  <span class="n">self</span><span class="p">.</span><span class="n">imageView</span><span class="p">.</span><span class="n">image</span> <span class="o">=</span> <span class="n">nativeAd</span><span class="p">.</span><span class="n">image</span><span class="p">;</span>
+  <span class="n">self</span><span class="p">.</span><span class="n">iconView</span><span class="p">.</span><span class="n">image</span> <span class="o">=</span> <span class="n">nativeAd</span><span class="p">.</span><span class="n">icon</span><span class="p">;</span>
+  <span class="n">self</span><span class="p">.</span><span class="n">titleLabel</span><span class="p">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">nativeAd</span><span class="p">.</span><span class="n">title</span><span class="p">;</span>
+  <span class="n">self</span><span class="p">.</span><span class="n">descLabel</span><span class="p">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">nativeAd</span><span class="p">.</span><span class="n">desc</span><span class="p">;</span>
+
+    <span class="c1">// Register the native ad view container for counting ad impressions
+</span>  <span class="p">[</span><span class="n">nativeAd</span> <span class="nf">registerAdView</span><span class="p">:</span><span class="n">self</span><span class="p">.</span><span class="n">bannerView</span><span class="p">];</span>
+    <span class="n">self</span><span class="p">.</span><span class="n">bannerView</span><span class="p">.</span><span class="n">hidden</span> <span class="o">=</span> <span class="nb">NO</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">HADNativeAdDidClick</span><span class="p">:(</span><span class="n">HADNativeAd</span><span class="o">*</span><span class="p">)</span><span class="nv">nativeAd</span> <span class="p">{</span>
+    <span class="n">NSLog</span><span class="p">(</span><span class="s">@"CLICKED AD"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+
+<blockquote>
+<p>In cases where you re-use the view to show different ads over time, make sure to call <code class="prettyprint">unregisterAdView</code> before registering the same view with a different instance of <code class="prettyprint">HADNativeAd</code>, or end using ad view.</p>
+</blockquote>
 
 <h2 id="native-ads-in-android">Native Ads in Android</h2>
 
@@ -314,43 +339,170 @@ You must replace <code>PLACEMENT_ID</code> with your placement&rsquo;s ID.
 
 <h3 id="set-up-the-sdk">Set up the SDK</h3>
 
-<p>Follow these steps to download and include it in your project:</p>
-
-<p><strong>Using Cocoapods</strong></p>
+<p><strong>Manual</strong></p>
 
 <ul>
-<li>Add the following line to your project&rsquo;s Podfile: pod &lsquo;DispplyNetwork&rsquo;</li>
-<li>Run <code class="prettyprint">pod install</code>.</li>
+<li>Download and extract the HADFramework for iOS.</li>
+<li>Drag the HADFramework.framework file to your Xcode project and place it under the Frameworks folder.</li>
+<li>Add the AdSupport framework to your project.</li>
 </ul>
-
-<p><strong>Manual</strong>
-* Download and extract the Dispply SDK for iOS.
-* Drag the DispplyNetwork.framework file to your Xcode project and place it under the Frameworks folder.</p>
 
 <h3 id="implementation">Implementation</h3>
 
 <blockquote>
-<p>Now you&rsquo;ll need to import the Audience Network SDK header. Add the following line to your View Controller header file:</p>
+<p>Add the following line to your AppDelegate implementation file:</p>
 </blockquote>
-<pre class="highlight objective_c"><code><span class="k">@import</span> <span class="n">DispplyNetwork</span><span class="p">;</span>
+<pre class="highlight objective_c"><code><span class="cp">#import &lt;HADFramework/HADBannerView.h&gt;
+</span></code></pre>
+
+<blockquote>
+<p>Then, you can add:</p>
+</blockquote>
+<pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">application</span><span class="p">:(</span><span class="n">UIApplication</span><span class="o">*</span><span class="p">)</span><span class="nv">application</span> <span class="nf">didFinishLaunchingWithOptions</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">launchOptions</span> <span class="p">{</span>
+
+    <span class="p">[</span><span class="n">HADBannerView</span> <span class="nf">configureClass</span><span class="p">];</span>
+
+    <span class="k">return</span> <span class="nb">YES</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre>
 
 <blockquote>
-<p>Then, on your View Controller&rsquo;s viewDidLoad implementation, create a new instance of the DispplyAdView class and add it to your view. Since DispplyAdView is a subclass of UIView, you can add it to your view hierarchy just as with any other view.</p>
+<p>Add the following line to your View Controller implementation file:</p>
 </blockquote>
-<pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">viewDidLoad</span>
-<span class="p">{</span>
-  <span class="p">[</span><span class="n">super</span> <span class="nf">viewDidLoad</span><span class="p">];</span>
+<pre class="highlight objective_c"><code><span class="cp">#import &lt;HADFramework/HADBannerView.h&gt;
+</span></code></pre>
 
-  <span class="n">DispplyAdView</span> <span class="o">*</span><span class="n">adView</span> <span class="o">=</span> <span class="p">[[</span><span class="n">DispplyAdView</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithPlacementID</span><span class="p">:</span><span class="n">PLACEMENT_ID</span>
-                         <span class="nf">adSize</span><span class="p">:</span><span class="n">kDispplyAdSizeHeight50Banner</span>
-                         <span class="nf">rootViewController</span><span class="p">:</span><span class="n">self</span><span class="p">];</span>
-  <span class="p">[</span><span class="n">adView</span> <span class="nf">loadAd</span><span class="p">];</span>
-  <span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">view</span> <span class="nf">addSubview</span><span class="p">:</span><span class="n">adView</span><span class="p">];</span>
+<blockquote>
+<p>Then, on your View Controller&rsquo;s viewDidLoad implementation, use property of the HADBannerView class and add it to your view. Since HADBannerView is a subclass of UIView, you can add it to your view hierarchy just as with any other view:</p>
+</blockquote>
+<pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">viewDidLoad</span> <span class="p">{</span>
+        <span class="p">[</span><span class="n">super</span> <span class="nf">viewDidLoad</span><span class="p">];</span>
+
+        <span class="n">self</span><span class="p">.</span><span class="n">bannerView</span> <span class="o">=</span> <span class="p">[[</span><span class="n">HADBannerView</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithSize</span><span class="p">:</span><span class="n">kHADBannerSizeHeight50</span> <span class="nf">placementId</span><span class="p">:</span><span class="n">PLACEMENT_ID</span> <span class="nf">delegate</span><span class="p">:</span><span class="n">self</span><span class="p">];</span>
+
+        <span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">bannerView</span> <span class="nf">setFrame</span><span class="p">:</span><span class="n">CGRectMake</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span> <span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">width</span><span class="p">,</span> <span class="mi">50</span><span class="p">)];</span>
+        <span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">view</span> <span class="nf">addSubview</span><span class="p">:</span><span class="n">self</span><span class="p">.</span><span class="n">bannerView</span><span class="p">];</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">bannerView</span><span class="p">.</span><span class="n">hidden</span> <span class="o">=</span> <span class="nb">YES</span><span class="p">;</span>
+
+        <span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">bannerView</span> <span class="nf">loadAd</span><span class="p">];</span>
+<span class="p">}</span>
+</code></pre>
+
+<blockquote>
+<p>If you are building your app for iPad, consider using the <code class="prettyprint">kHADBannerSizeHeight90</code> size instead. The HADFramework also supports the 300x250 ad size. Configure the HADBannerView with the following ad size: <code class="prettyprint">kHADBannerSize300x250</code>:</p>
+</blockquote>
+<pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">viewDidLoad</span> <span class="p">{</span>
+    <span class="p">[</span><span class="n">super</span> <span class="nf">viewDidLoad</span><span class="p">];</span>
+
+    <span class="n">self</span><span class="p">.</span><span class="n">bannerView</span> <span class="o">=</span> <span class="p">[[</span><span class="n">HADBannerView</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithSize</span><span class="p">:</span><span class="n">kHADBannerSize300x250</span> <span class="nf">placementId</span><span class="p">:</span><span class="n">PLACEMENT_ID</span> <span class="nf">delegate</span><span class="p">:</span><span class="n">self</span><span class="p">];</span>
+
+    <span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">bannerView</span> <span class="nf">setFrame</span><span class="p">:</span><span class="n">CGRectMake</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">250</span><span class="p">)];</span>
+    <span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">view</span> <span class="nf">addSubview</span><span class="p">:</span><span class="n">self</span><span class="p">.</span><span class="n">bannerView</span><span class="p">];</span>
+    <span class="n">self</span><span class="p">.</span><span class="n">bannerView</span><span class="p">.</span><span class="n">hidden</span> <span class="o">=</span> <span class="nb">YES</span><span class="p">;</span>
+
+    <span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">bannerView</span> <span class="nf">loadAd</span><span class="p">];</span>
+<span class="p">}</span>
+</code></pre>
+
+<blockquote>
+<p>Now that you have the basic code running, it&rsquo;s recommended that you use the <code class="prettyprint">HADBannerView</code> delegate to get notified when the ad fails to load so you could hide the banner unit. In the same way, you can add it back when it was loaded:
+First, on your View Controller implementation file, declare that you are implementing the HADBannerViewDelegate protocol:</p>
+</blockquote>
+<pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">ViewController</span> <span class="p">:</span> <span class="nc">UIViewController</span> <span class="o">&lt;</span><span class="n">HADBannerViewDelegate</span><span class="o">&gt;</span>
+ <span class="k">@property</span> <span class="p">(</span><span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">HADBannerView</span> <span class="o">*</span><span class="n">bannerView</span><span class="p">;</span>
+<span class="k">@end</span>
+</code></pre>
+
+<blockquote>
+<p>Then, add and implement the following three functions in your View Controller implementation file to handle ad loading failures and completions:</p>
+</blockquote>
+<pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">HADViewDidLoad</span><span class="p">:(</span><span class="n">HADBannerView</span> <span class="o">*</span><span class="p">)</span><span class="nv">view</span> <span class="p">{</span>
+    <span class="n">NSLog</span><span class="p">(</span><span class="s">@"AD LOADED"</span><span class="p">);</span>
+    <span class="n">self</span><span class="p">.</span><span class="n">bannerView</span><span class="p">.</span><span class="n">hidden</span> <span class="o">=</span> <span class="nb">NO</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">HADView</span><span class="p">:(</span><span class="n">HADBannerView</span> <span class="o">*</span><span class="p">)</span><span class="nv">view</span> <span class="nf">didFailWithError</span><span class="p">:(</span><span class="n">NSError</span> <span class="o">*</span><span class="p">)</span><span class="nv">error</span> <span class="p">{</span>
+    <span class="n">NSLog</span><span class="p">(</span><span class="s">@"ERROR: %@"</span><span class="p">,</span><span class="n">error</span><span class="p">.</span><span class="n">localizedDescription</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">HADViewDidClick</span><span class="p">:(</span><span class="n">HADBannerView</span> <span class="o">*</span><span class="p">)</span><span class="nv">view</span> <span class="p">{</span>
+    <span class="n">NSLog</span><span class="p">(</span><span class="s">@"CLICKED AD"</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre>
 
 <h2 id="android">Android</h2>
+
+          <h1 id="interstitial-ads">Interstitial ads</h1>
+
+<h2 id="ios">iOS</h2>
+
+<p>The Dispply Interstitial ads allows you to monetize your iOS apps with banner ads. This guide explains how to add banner ads to your app. If you&rsquo;re interested in other kinds of ad units, see the list of available types.</p>
+
+<h3 id="set-up-the-sdk">Set up the SDK</h3>
+
+<p><strong>Manual</strong></p>
+
+<ul>
+<li>Download and extract the HADFramework for iOS.</li>
+<li>Drag the HADFramework.framework file to your Xcode project and place it under the Frameworks folder.</li>
+<li>Add the AdSupport framework to your project.</li>
+</ul>
+
+<h3 id="implementation">Implementation</h3>
+
+<blockquote>
+<p>Now, in your View Controller implementation file, import the SDK header, declare that you implement the HADInterstitialDelegate protocol and add an instance variable for the interstitial ad unit:</p>
+</blockquote>
+<pre class="highlight objective_c"><code><span class="cp">#import &lt;UIKit/UIKit.h&gt;
+#import &lt;HADFramework/HADInterstitial.h&gt;
+</span>
+<span class="k">@interface</span> <span class="nc">MyViewController</span> <span class="p">:</span> <span class="nc">UIViewController</span><span class="o">&lt;</span><span class="n">HADInterstitialDelegate</span><span class="o">&gt;</span>
+  <span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">HADInterstitial</span><span class="o">*</span> <span class="n">interstitial</span><span class="p">;</span>
+<span class="k">@end</span>
+</code></pre>
+
+<blockquote>
+<p>Add a function in your View Controller that initializes the interstitial view. You will typically call this function ahead of the time you want to show the ad:</p>
+</blockquote>
+<pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="n">viewDidLoad</span> <span class="p">{</span>
+  <span class="p">[</span><span class="n">super</span> <span class="nf">viewDidLoad</span><span class="p">];</span>
+
+  <span class="p">[</span><span class="n">self</span> <span class="nf">loadInterstitialAd</span><span class="p">];</span>
+<span class="p">}</span>
+
+<span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="n">loadInterstitalAd</span> <span class="p">{</span>
+  <span class="n">self</span><span class="p">.</span><span class="n">interstitial</span> <span class="o">=</span> <span class="p">[[</span><span class="n">HADInterstitial</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithPlacementId</span><span class="p">:</span><span class="n">PLACEMENT_ID</span> <span class="nf">delegate</span><span class="p">:</span><span class="n">self</span><span class="p">];</span>
+  <span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">interstitial</span> <span class="nf">loadAd</span><span class="p">];</span>
+<span class="p">}</span>
+</code></pre>
+
+<blockquote>
+<p>Now that you have added the code to load the ad, add the following functions to handle loading failures and to display the ad once it has loaded:</p>
+</blockquote>
+<pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">HADInterstitialDidLoad</span><span class="p">:(</span><span class="n">HADInterstitial</span><span class="o">*</span><span class="p">)</span><span class="nv">controller</span> <span class="p">{</span>
+  <span class="p">[</span><span class="n">controller</span> <span class="nf">showFromController</span><span class="p">:</span><span class="n">self</span><span class="p">];</span>
+<span class="p">}</span>
+
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">HADInterstitial</span><span class="p">:(</span><span class="n">HADInterstitial</span><span class="o">*</span><span class="p">)</span><span class="nv">controller</span> <span class="nf">didFailWithError</span><span class="p">:(</span><span class="n">NSError</span><span class="o">*</span><span class="p">)</span><span class="nv">error</span> <span class="p">{</span>
+  <span class="n">NSLog</span><span class="p">(</span><span class="s">@"ERROR: %@"</span><span class="p">,</span><span class="n">error</span><span class="p">.</span><span class="n">localizedDescription</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">HADInterstitialDidClick</span><span class="p">:(</span><span class="n">HADInterstitial</span><span class="o">*</span><span class="p">)</span><span class="nv">controller</span> <span class="p">{</span>
+  <span class="n">NSLog</span><span class="p">(</span><span class="s">@"CLICKED AD"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+
+<blockquote>
+<p>Optionally, you can add the following functions to handle the cases where the full screen ad is closed or when the user clicks on it:</p>
+</blockquote>
+<pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">HADInterstitialDidClose</span><span class="p">:(</span><span class="n">HADInterstitial</span><span class="o">*</span><span class="p">)</span><span class="nv">controller</span> <span class="p">{</span>
+  <span class="c1">// Consider to add code here to resume your app's flow
+</span><span class="p">}</span>
+
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">HADInterstitialWillClose</span><span class="p">:(</span><span class="n">HADInterstitial</span><span class="o">*</span><span class="p">)</span><span class="nv">controller</span> <span class="p">{</span>
+  <span class="c1">// Consider to add code here to resume your app's flow
+</span><span class="p">}</span>
+</code></pre>
 
           <h1 id="api">API</h1>
 
