@@ -1,8 +1,8 @@
 # Banner
 
-Dispply uses Placement ID to allow access to the API. You can register a new App and create Placement at our [developer portal](http://dispply.com/publishers/sign_in).
+HyperAdX uses Placement ID to allow access to the API. You can register a new App and create Placement at our [developer portal](http://dispply.com/publishers/sign_in).
 
-Dispply expects for Placement ID to be included in all API requests to the server in a get variable that looks like the following:
+HyperAdX expects for Placement ID to be included in all API requests to the server in a get variable that looks like the following:
 
 <aside class="notice">
 You must replace <code>PLACEMENT_ID</code> with your placement's ID.
@@ -13,55 +13,107 @@ You must replace <code>PLACEMENT_ID</code> with your placement's ID.
 To add ad to your mobile site copy and paste this code to web page
 
 ```html
-<script async type="text/javascript">
+<script type="text/javascript">
 (function(){
-	var _s=document.createElement('script');
-	_s.type='text/javascript';
-	_s.async=true;
-	_s.src='http://ad-cdn.dispply.com/v2/banner.js';
-	(document.body)?document.body.appendChild(_s):document.head.appendChild(_s);
-	})();
+		var FORMAT = '300x50';
+		var PLACEMENT_ID = '5b3QbMRQ';
+		var _d=document.createElement('div');_d.style = 'text-align: center';_d.setAttribute('class', 'w_NVM9zaqJ');_d.setAttribute('ad-placement', PLACEMENT_ID);_d.setAttribute('ad-format', FORMAT);(document.body)?document.body.appendChild(_d):document.head.appendChild(_d);var _s=document.createElement('script');_s.type='text/javascript';_s.async=true;_s.src="http://ad-cdn.dispply.com/v2/banner.js";(document.body)?document.body.appendChild(_s):document.head.appendChild(_s);}
+	)();
 </script>
-<div class="w_NVM9zaqJ" ad-placement="PLACEMENT_ID" ad-format="300x50" style="text-align: center"></div>
 ```
 
 ## iOS
 
-The Dispply Banner ads allows you to monetize your iOS apps with banner ads. This guide explains how to add banner ads to your app. If you're interested in other kinds of ad units, see the list of available types.
+The HyperAdX Banner ads allows you to monetize your iOS apps with banner ads. This guide explains how to add banner ads to your app. If you're interested in other kinds of ad units, see the list of available types.
 
 ### Set up the SDK
 
-Follow these steps to download and include it in your project:
-
-**Using Cocoapods**
-
-* Add the following line to your project's Podfile: pod 'DispplyNetwork'
-* Run `pod install`.
-
 **Manual**
-* Download and extract the Dispply SDK for iOS.
-* Drag the DispplyNetwork.framework file to your Xcode project and place it under the Frameworks folder.
+
+* Download and extract the HADFramework for iOS.
+* Drag the HADFramework.framework file to your Xcode project and place it under the Frameworks folder.
+* Add the AdSupport framework to your project.
 
 ### Implementation
 
-> Now you'll need to import the Audience Network SDK header. Add the following line to your View Controller header file:
+> Add the following line to your AppDelegate implementation file:
 
 ```objective_c
-@import DispplyNetwork;
+#import <HADFramework/HADBannerView.h>
 ```
 
-> Then, on your View Controller's viewDidLoad implementation, create a new instance of the DispplyAdView class and add it to your view. Since DispplyAdView is a subclass of UIView, you can add it to your view hierarchy just as with any other view.
+> Then, you can add:
 
 ```objective_c
-- (void)viewDidLoad
-{
-  [super viewDidLoad];
+- (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
-  DispplyAdView *adView = [[DispplyAdView alloc] initWithPlacementID:PLACEMENT_ID
-                         adSize:kDispplyAdSizeHeight50Banner
-                         rootViewController:self];
-  [adView loadAd];
-  [self.view addSubview:adView];
+    [HADBannerView configureClass];
+
+    return YES;
+}
+```
+
+> Add the following line to your View Controller implementation file:
+
+```objective_c
+#import <HADFramework/HADBannerView.h>
+```
+
+> Then, on your View Controller's viewDidLoad implementation, use property of the HADBannerView class and add it to your view. Since HADBannerView is a subclass of UIView, you can add it to your view hierarchy just as with any other view:
+
+```objective_c
+- (void)viewDidLoad {
+		[super viewDidLoad];
+
+		self.bannerView = [[HADBannerView alloc] initWithSize:kHADBannerSizeHeight50 placementId:PLACEMENT_ID delegate:self];
+
+		[self.bannerView setFrame:CGRectMake(0,0, self.view.frame.size.width, 50)];
+		[self.view addSubview:self.bannerView];
+		self.bannerView.hidden = YES;
+
+		[self.bannerView loadAd];
+}
+```
+
+> If you are building your app for iPad, consider using the `kHADBannerSizeHeight90` size instead. The HADFramework also supports the 300x250 ad size. Configure the HADBannerView with the following ad size: `kHADBannerSize300x250`:
+
+```objective_c
+- (void)viewDidLoad {
+    [super viewDidLoad];
+
+    self.bannerView = [[HADBannerView alloc] initWithSize:kHADBannerSize300x250 placementId:PLACEMENT_ID delegate:self];
+
+    [self.bannerView setFrame:CGRectMake(10, 100, 300, 250)];
+    [self.view addSubview:self.bannerView];
+    self.bannerView.hidden = YES;
+
+   	[self.bannerView loadAd];
+}
+```
+
+> Now that you have the basic code running, it's recommended that you use the `HADBannerView` delegate to get notified when the ad fails to load so you could hide the banner unit. In the same way, you can add it back when it was loaded:
+First, on your View Controller implementation file, declare that you are implementing the HADBannerViewDelegate protocol:
+
+```objective_c
+@interface ViewController : UIViewController <HADBannerViewDelegate>
+ @property (strong, nonatomic) HADBannerView *bannerView;
+@end
+```
+
+> Then, add and implement the following three functions in your View Controller implementation file to handle ad loading failures and completions:
+
+```objective_c
+- (void) HADViewDidLoad:(HADBannerView *)view {
+    NSLog(@"AD LOADED");
+    self.bannerView.hidden = NO;
+}
+
+- (void) HADView:(HADBannerView *)view didFailWithError:(NSError *)error {
+    NSLog(@"ERROR: %@",error.localizedDescription);
+}
+
+- (void) HADViewDidClick:(HADBannerView *)view {
+    NSLog(@"CLICKED AD");
 }
 ```
 

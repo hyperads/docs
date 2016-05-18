@@ -32,6 +32,7 @@ gaid | false | No | Android advertising ID
     {
       "title": "Ad title",
       "description": "Ad description",
+      "click_url": "http://click.com",
       "creatives": {
         "icon": {
           "url": "http://cdn.com/icon",
@@ -62,7 +63,7 @@ callback({"status": "success", "ads": []})
 
 ## Errors
 
-The Dispply API uses the following error codes:
+The HyperAdX API uses the following error codes:
 
 Error Code | Meaning
 ---------- | -------
