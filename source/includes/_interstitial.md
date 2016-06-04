@@ -76,6 +76,7 @@ The HyperAdX Interstitial ads allows you to monetize your Android apps with bann
 
 Follow these steps to download and include it in your project:
 
-* [Download](https://s3-us-west-2.amazonaws.com/adpanel-public/TestADFramework-Android-1.1.0.zip) and extract the Example app for Android.
+* [Download](https://s3-us-west-2.amazonaws.com/adpanel-public/HyperadxAndroidADs_Sample_v1.2.2.zip) and extract the Example app for Android.
 * Open pdf file from archive for instructions.
-* [Download](https://s3-us-west-2.amazonaws.com/adpanel-public/DispplyMoPubAdapter.zip) and extract the Mopub adapter if needed.
+* [Download](https://s3-us-west-2.amazonaws.com/adpanel-public/HyperadxAndroidAdmobSample_1.0.1.zip) and extract the AdMob adapter if needed.
+* [Download](https://s3-us-west-2.amazonaws.com/adpanel-public/HyperadxAndroidMoPubAdapter_1.1.0.zip) and extract the Mopub adapter if needed.

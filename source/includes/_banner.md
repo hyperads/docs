@@ -1,6 +1,6 @@
 # Banner
 
-HyperAdX uses Placement ID to allow access to the API. You can register a new App and create Placement at our [developer portal](http://dispply.com/publishers/sign_in).
+HyperAdX uses Placement ID to allow access to the API. You can register a new App and create Placement at our [developer portal](http://hyperadx.com/publishers/sign_in).
 
 HyperAdX expects for Placement ID to be included in all API requests to the server in a get variable that looks like the following:
 

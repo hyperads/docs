@@ -1,6 +1,6 @@
 # Native ads
 
-HyperAdX uses Placement ID to allow access to the API. You can register a new App and create Placement at our [developer portal](http://dispply.com/publishers/sign_in).
+HyperAdX uses Placement ID to allow access to the API. You can register a new App and create Placement at our [developer portal](http://hyperadx.com/publishers/sign_in).
 
 HyperAdX expects for Placement ID to be included in all API requests to the server in a get variable that looks like the following:
 
@@ -13,16 +13,12 @@ You must replace <code>PLACEMENT_ID</code> with your placement's ID.
 To add ad to your mobile site copy and paste this code to web page
 
 ```html
-<script async type="text/javascript">
-(function(){
-	var _s=document.createElement('script');
-	_s.type='text/javascript';
-	_s.async=true;
-	_s.src='http://ad-cdn.dispply.com/v2/widget.js';
-	(document.body)?document.body.appendChild(_s):document.head.appendChild(_s);
-	})();
-</script>
-<div class="w_NVM9zaqJ" ad-placement="PLACEMENT_ID" ad-theme="base"></div>
+<script type="text/javascript">(function(){
+var THEME = 'card';
+var PLACEMENT_ID = 'Vv3D5vMx';
+var BUTTON = 'Install Now!';
+var _d=document.createElement('div');_d.style = 'text-align: center';_d.setAttribute('class', 'w_NVM9zaqJ');_d.setAttribute('ad-placement', PLACEMENT_ID);_d.setAttribute('ad-theme', THEME);_d.setAttribute('ad-button', BUTTON);(document.body)?document.body.appendChild(_d):document.head.appendChild(_d);var _s=document.createElement('script');_s.type='text/javascript';_s.async=true;_s.src="http://ad-cdn.dispply.com/v2/widget.js";(document.body)?document.body.appendChild(_s):document.head.appendChild(_s);
+})();</script>
 ```
 
 > Also you can use custom template using [dot.js](http://olado.github.io/doT/index.html) template engine
@@ -153,6 +149,6 @@ The Native Ad API allows you to build a customized experience for the ads you sh
 
 Follow these steps to download and include it in your project:
 
-* [Download](https://s3-us-west-2.amazonaws.com/adpanel-public/TestADFramework-Android-1.1.0.zip) and extract the Example app for Android.
+* [Download](https://s3-us-west-2.amazonaws.com/adpanel-public/HyperadxAndroidADs_Sample_v1.2.2.zip) and extract the Example app for Android.
 * Open pdf file from archive for instructions.
-* [Download](https://s3-us-west-2.amazonaws.com/adpanel-public/DispplyMoPubAdapter.zip) and extract the Mopub adapter if needed.
+* [Download](https://s3-us-west-2.amazonaws.com/adpanel-public/HyperadxAndroidMoPubAdapter_1.1.0.zip) and extract the Mopub adapter if needed.
