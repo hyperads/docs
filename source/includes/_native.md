@@ -139,21 +139,21 @@ Follow these steps to download and include it in your project:
 
 The Native Ad API allows you to build a customized experience for the ads you show in your app. When using the Native Ad API, instead of receiving an ad ready to be displayed, you will receive a group of ad properties such as a title, an image, a call to action, and you will have to use them to construct a custom view where the ad is shown.
 
-**There are three actions you will need to take to implement this in your app:**
+Sample projects:
 
-* Request an ad
-* Use the returned ad metadata to build a custom native UI
-* Register the ad's view with the `nativeAd` instance
+* [Download](https://s3-us-west-2.amazonaws.com/adpanel-public/HyperadxAndroidADs_Sample_v1.2.2.zip) and extract the Example app for Android.
+* Open pdf file from archive for instructions.
+* [Download](https://s3-us-west-2.amazonaws.com/adpanel-public/HyperadxAndroidMoPubAdapter_1.1.0.zip) and extract the Mopub adapter if needed.
 
 ### Set up the SDK
 
-####1. Add following under manifest tag to your AndroidManifest.xml:
+>  Add following under manifest tag to your AndroidManifest.xml:
 ```xml
  <uses-permission android:name="android.permission.INTERNET"/>
 ```
-####2. Put the HyperAdxSDK_xxx.jar in “libs” folder in your Android Studio or Eclipse
+>  Put the HyperAdxSDK_xxx.jar in “libs” folder in your Android Studio or Eclipse
 
-####3. Add it to dependencies in build.grandle file . Also you need to add google play services.
+>  Add it to dependencies in build.grandle file . Also you need to add google play services.
 
 ```groove
 dependencies {
@@ -165,7 +165,8 @@ dependencies {
 }
 ```
 
-####4. Then, create a function that requests a native ad:
+>  Then, create a function that requests a native ad:
+
 ```java
 private void showNativeAd() {
     adFrame = (FrameLayout) findViewById(R.id.adContent);
@@ -189,9 +190,10 @@ private void showNativeAd() {
     nativeAd.loadAd(); // Call to load AD
 }
 ```
-####5. The next step is to extract the ad metadata and use its properties to build your customized native UI. You can either create your custom view in a layout .xml, or you can add elements in code.
+>  The next step is to extract the ad metadata and use its properties to build your customized native UI. You can either create your custom view in a layout .xml, or you can add elements in code.
 
-The custom layout .xml. For example:
+> The custom layout .xml. For example:
+ 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -228,7 +230,7 @@ The custom layout .xml. For example:
 </RelativeLayout>
 ```
 
-Now you can use this  layout .xml as a frame. For example:
+> Now you can use this  layout .xml as a frame. For example:
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -252,7 +254,7 @@ Now you can use this  layout .xml as a frame. For example:
     </FrameLayout>
 </RelativeLayout>
 ```
-####6. Modify the onAdLoaded function above to retrieve the ad properties. For example: 
+>  Modify the onAdLoaded function above to retrieve the ad properties. For example: 
 
 ```java
 private NativeAd nativeAd;
@@ -278,10 +280,5 @@ public void onAdLoaded(Ad ad) { // Called when AD is Loaded
     NativeAd.downloadAndDisplayImage(ivImage, ad.getImage_url());
 }
 ```
-The SDK will log the impression and handle the click automatically.
+> The SDK will log the impression and handle the click automatically.
 
-Sample projects:
-
-* [Download](https://s3-us-west-2.amazonaws.com/adpanel-public/HyperadxAndroidADs_Sample_v1.2.2.zip) and extract the Example app for Android.
-* Open pdf file from archive for instructions.
-* [Download](https://s3-us-west-2.amazonaws.com/adpanel-public/HyperadxAndroidMoPubAdapter_1.1.0.zip) and extract the Mopub adapter if needed.
