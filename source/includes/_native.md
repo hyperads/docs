@@ -97,12 +97,12 @@ Sample projects:
 ### Set up the SDK
 
 >  Add following under manifest tag to your AndroidManifest.xml:
+
 ```xml
  <uses-permission android:name="android.permission.INTERNET"/>
 ```
->  Put the HyperAdxSDK_xxx.jar in “libs” folder in your Android Studio or Eclipse
 
->  Add it to dependencies in build.grandle file . Also you need to add google play services.
+>  Put the HyperAdxSDK_xxx.jar in “libs” folder in your Android Studio or Eclipse. Add it to dependencies in build.grandle file. Also you need to add google play services.
 
 ```groove
 dependencies {
@@ -124,25 +124,23 @@ private void showNativeAd() {
     nativeAd.setAdListener(new AdListener() { // Add Listeners
         @Override
         public void onAdLoaded(Ad ad) { // Called when AD is Loaded
-           
+
         }
         @Override
         public void onError(Ad nativeAd, String error) { // Called when load is fail
-            
+
         }
 
         @Override
         public void onAdClicked() { // Called when user click on AD
-            
+
         }
     });
     nativeAd.loadAd(); // Call to load AD
 }
 ```
->  The next step is to extract the ad metadata and use its properties to build your customized native UI. You can either create your custom view in a layout .xml, or you can add elements in code.
+>  The next step is to extract the ad metadata and use its properties to build your customized native UI. You can either create your custom view in a layout .xml, or you can add elements in code. The custom layout .xml. For example:
 
-> The custom layout .xml. For example:
- 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -180,6 +178,7 @@ private void showNativeAd() {
 ```
 
 > Now you can use this  layout .xml as a frame. For example:
+
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -203,7 +202,8 @@ private void showNativeAd() {
     </FrameLayout>
 </RelativeLayout>
 ```
->  Modify the onAdLoaded function above to retrieve the ad properties. For example: 
+
+>  Modify the onAdLoaded function above to retrieve the ad properties. The SDK will log the impression and handle the click automatically.
 
 ```java
 private NativeAd nativeAd;
@@ -229,5 +229,3 @@ public void onAdLoaded(Ad ad) { // Called when AD is Loaded
     NativeAd.downloadAndDisplayImage(ivImage, ad.getImage_url());
 }
 ```
-> The SDK will log the impression and handle the click automatically.
-

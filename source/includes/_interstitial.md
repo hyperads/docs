@@ -81,12 +81,12 @@ Sample projects:
 ### Set up the SDK
 
 > Add following under manifest tag to your AndroidManifest.xml:
-```xml
- <uses-permission android:name="android.permission.INTERNET"/>
-```
-> Put the HyperAdxSDK_xxx.jar in “libs” folder in your Android Studio or Eclipse
 
->  Add it to dependencies in build.grandle file . Also you need to add google play services.
+```xml
+<uses-permission android:name="android.permission.INTERNET"/>
+```
+
+> Put the HyperAdxSDK_xxx.jar in “libs” folder in your Android Studio or Eclipse. Add it to dependencies in build.grandle file. Also you need to add google play services.
 
 ```groove
 dependencies {
@@ -98,7 +98,8 @@ dependencies {
 }
 ```
 
-> 4. Then, create a function that requests a interstitial ad:
+> Then, create a function that requests a interstitial ad. The SDK will log the impression and handle the click automatically.
+
 ```java
 private void loadInterstitialAd() {
         interstitialAd = new HADInterstitialAd(this /*Strongly recomend to use Activity context*/,
@@ -142,6 +143,3 @@ public void showInterstitial(View view) {
         Toast.makeText(this, "The Interstitial AD not ready yet. Try again!", Toast.LENGTH_LONG).show();
 }
 ```
-> The SDK will log the impression and handle the click automatically.
-
-
