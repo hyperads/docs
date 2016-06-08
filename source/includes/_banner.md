@@ -10,17 +10,10 @@ You must replace <code>PLACEMENT_ID</code> with your placement's ID.
 
 ## Mobile Web
 
-To add ad to your mobile site copy and paste this code to web page
-
-```html
-<script type="text/javascript">
-(function(){
-		var FORMAT = '300x50';
-		var PLACEMENT_ID = '5b3QbMRQ';
-		var _d=document.createElement('div');_d.style = 'text-align: center';_d.setAttribute('class', 'w_NVM9zaqJ');_d.setAttribute('ad-placement', PLACEMENT_ID);_d.setAttribute('ad-format', FORMAT);(document.body)?document.body.appendChild(_d):document.head.appendChild(_d);var _s=document.createElement('script');_s.type='text/javascript';_s.async=true;_s.src="http://ad-cdn.dispply.com/v2/banner.js";(document.body)?document.body.appendChild(_s):document.head.appendChild(_s);}
-	)();
-</script>
-```
+* Go to the Publisher UI
+* Create new App
+* Create new Placement for it
+* On placements list click on Tag & SDK and select appropriate integration.
 
 ## iOS
 

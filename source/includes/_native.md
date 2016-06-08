@@ -10,60 +10,10 @@ You must replace <code>PLACEMENT_ID</code> with your placement's ID.
 
 ## Native Ads in Mobile Web
 
-To add ad to your mobile site copy and paste this code to web page
-
-```html
-<script type="text/javascript">(function(){
-var THEME = 'card';
-var PLACEMENT_ID = 'Vv3D5vMx';
-var BUTTON = 'Install Now!';
-var _d=document.createElement('div');_d.style = 'text-align: center';_d.setAttribute('class', 'w_NVM9zaqJ');_d.setAttribute('ad-placement', PLACEMENT_ID);_d.setAttribute('ad-theme', THEME);_d.setAttribute('ad-button', BUTTON);(document.body)?document.body.appendChild(_d):document.head.appendChild(_d);var _s=document.createElement('script');_s.type='text/javascript';_s.async=true;_s.src="http://ad-cdn.dispply.com/v2/widget.js";(document.body)?document.body.appendChild(_s):document.head.appendChild(_s);
-})();</script>
-```
-
-> Also you can use custom template using [dot.js](http://olado.github.io/doT/index.html) template engine
-
-```html
-<script async type="text/javascript">
-var template = '<div class="dispply_board dispply_board-single">\
-		<div class="centrifier">\
-			<h1>App {{= it.status}}</h1>\
-			{{~it.ads :ad:index}}\
-				<article class="app-widget app-brick">\
-					<a class="app-widget_button button-green" href="{{=ad.click_url}}" target="_blank">FREE</a>\
-					<img src="{{=ad.creatives.icon.url}}" width="64" height="64" class="app-widget_ico">\
-					<div class="app-widget_content">\
-						<div class="app-widget_desc">\
-							<h2>{{=ad.title}}</h2>\
-							<p>{{=ad.description}}</p>\
-						</div>\
-					</div>\
-					<a href="{{=ad.click_url}}" target="_blank" class="cover-link"></a>\
-				</article>\
-				{{~ad.beacons :url:index}}\
-					<img style="position: absolute;visibility: hidden;" src="{{= url}}">\
-				{{~}}\
-			{{~}}\
-		</div>\
-	</div>';
-
-/* Object for settings */
-var w_NVM9zaqJ = {
-	templates: {
-		PLACEMENT_ID: 'Your template for dot.js'
-	}
-};
-
-(function(){
-	var _s=document.createElement('script');
-	_s.type='text/javascript';
-	_s.async=true;
-	_s.src='http://ad-cdn.dispply.com/v2/widget.js';
-	(document.body)?document.body.appendChild(_s):document.head.appendChild(_s);
-	})();
-</script>
-<div class="w_NVM9zaqJ" ad-placement="PLACEMENT_ID"></div>
-```
+* Go to the Publisher UI
+* Create new App
+* Create new Placement for it
+* On placements list click on Tag & SDK and select appropriate integration.
 
 ## Native Ads in iOS
 
