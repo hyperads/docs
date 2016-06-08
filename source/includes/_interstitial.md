@@ -72,15 +72,22 @@ The HyperAdX Interstitial ads allows you to monetize your iOS apps with banner a
 
 The HyperAdX Interstitial ads allows you to monetize your Android apps with banner ads. This guide explains how to add banner ads to your app. If you’re interested in other kinds of ad units, see the list of available types.
 
+Sample projects:
+
+* [Download](https://s3-us-west-2.amazonaws.com/adpanel-public/HyperadxAndroidADs_Sample_v1.2.2.zip) and extract the Example app for Android.
+* Open pdf file from archive for instructions.
+* [Download](https://s3-us-west-2.amazonaws.com/adpanel-public/HyperadxAndroidAdmobSample_1.0.1.zip) and extract the AdMob adapter if needed.
+* [Download](https://s3-us-west-2.amazonaws.com/adpanel-public/HyperadxAndroidMoPubAdapter_1.1.0.zip) and extract the Mopub adapter if needed.
+
 ### Set up the SDK
 
-####1. Add following under manifest tag to your AndroidManifest.xml:
+> Add following under manifest tag to your AndroidManifest.xml:
 ```xml
  <uses-permission android:name="android.permission.INTERNET"/>
 ```
-####2. Put the HyperAdxSDK_xxx.jar in “libs” folder in your Android Studio or Eclipse
+> Put the HyperAdxSDK_xxx.jar in “libs” folder in your Android Studio or Eclipse
 
-####3. Add it to dependencies in build.grandle file . Also you need to add google play services.
+>  Add it to dependencies in build.grandle file . Also you need to add google play services.
 
 ```groove
 dependencies {
@@ -92,7 +99,7 @@ dependencies {
 }
 ```
 
-####4. Then, create a function that requests a interstitial ad:
+> 4. Then, create a function that requests a interstitial ad:
 ```java
 private void loadInterstitialAd() {
         interstitialAd = new HADInterstitialAd(this /*Strongly recomend to use Activity context*/,
@@ -136,11 +143,6 @@ public void showInterstitial(View view) {
         Toast.makeText(this, "The Interstitial AD not ready yet. Try again!", Toast.LENGTH_LONG).show();
 }
 ```
-The SDK will log the impression and handle the click automatically.
+> The SDK will log the impression and handle the click automatically.
 
-Sample projects:
 
-* [Download](https://s3-us-west-2.amazonaws.com/adpanel-public/HyperadxAndroidADs_Sample_v1.2.2.zip) and extract the Example app for Android.
-* Open pdf file from archive for instructions.
-* [Download](https://s3-us-west-2.amazonaws.com/adpanel-public/HyperadxAndroidAdmobSample_1.0.1.zip) and extract the AdMob adapter if needed.
-* [Download](https://s3-us-west-2.amazonaws.com/adpanel-public/HyperadxAndroidMoPubAdapter_1.1.0.zip) and extract the Mopub adapter if needed.
