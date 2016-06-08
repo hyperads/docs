@@ -141,8 +141,7 @@ The Native Ad API allows you to build a customized experience for the ads you sh
 
 Sample projects:
 
-* [Download](https://s3-us-west-2.amazonaws.com/adpanel-public/HyperadxAndroidADs_Sample_v1.2.2.zip) and extract the Example app for Android.
-* Open pdf file from archive for instructions.
+* [Download](https://s3-us-west-2.amazonaws.com/adpanel-public/HyperadxAndroidADs_Sample_v1.2.3.zip) and extract the Example app for Android.
 * [Download](https://s3-us-west-2.amazonaws.com/adpanel-public/HyperadxAndroidMoPubAdapter_1.1.0.zip) and extract the Mopub adapter if needed.
 
 ### Set up the SDK
