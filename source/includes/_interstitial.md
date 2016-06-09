@@ -186,11 +186,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         loadInterstitialAd();
     }
+    
     private void loadInterstitialAd() {
         mAdapterInterstitial = new com.google.android.gms.ads.InterstitialAd(this);
         mAdapterInterstitial.setAdUnitId(
                 "ca-app-pub-6172762133617463/5529648238"
         );
+        
         mAdapterInterstitial.setAdListener(new com.google.android.gms.ads.AdListener() {
             @Override
             public void onAdFailedToLoad(int errorCode) {
@@ -198,22 +200,28 @@ public class MainActivity extends AppCompatActivity {
                         "Error loading adapter interstitial, code " + errorCode,
                         Toast.LENGTH_SHORT).show();
             }
+            
             @Override
             public void onAdLoaded() {
                 Toast.makeText(MainActivity.this,
                         "onAdLoaded()",
                         Toast.LENGTH_SHORT).show();
             }
+            
             @Override
             public void onAdOpened() {
             }
+            
             @Override
             public void onAdClosed() {
                 mAdapterInterstitial.loadAd(new AdRequest.Builder().build());
             }
         });
+        
         mAdapterInterstitial.loadAd(new AdRequest.Builder().build());
     }
+    
+    
     public void showInterstitial(View view) {
         if (mAdapterInterstitial.isLoaded())
             mAdapterInterstitial.show();
