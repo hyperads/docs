@@ -230,3 +230,4 @@ public class MainActivity extends AppCompatActivity {
     }
 }
 ```
+**NOTE** - Admob interstitial may not work in emulator. Use real devices even for tests!
