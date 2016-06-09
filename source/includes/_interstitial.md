@@ -1,5 +1,12 @@
 # Interstitial ads
 
+## Mobile Web
+
+* Go to the Publisher UI
+* Create new App
+* Create new Placement for it
+* On placements list click on Tag & SDK and select appropriate integration.
+
 ## iOS
 
 The HyperAdX Interstitial ads allows you to monetize your iOS apps with banner ads. This guide explains how to add banner ads to your app. If you're interested in other kinds of ad units, see the list of available types.
