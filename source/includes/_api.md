@@ -32,6 +32,8 @@ gaid | false | No | Android advertising ID
     {
       "title": "Ad title",
       "description": "Ad description",
+      "rating": "3.44",
+      "ratings_count": "9872",
       "click_url": "http://click.com",
       "creatives": {
         "icon": {
