@@ -81,12 +81,12 @@ Sample projects:
 ### Set up the SDK
 
 > Add following under manifest tag to your AndroidManifest.xml:
-```xml
- <uses-permission android:name="android.permission.INTERNET"/>
-```
-> Put the HyperAdxSDK_xxx.jar in “libs” folder in your Android Studio or Eclipse
 
->  Add it to dependencies in build.grandle file . Also you need to add google play services.
+```xml
+<uses-permission android:name="android.permission.INTERNET"/>
+```
+
+> Put the HyperAdxSDK_xxx.jar in “libs” folder in your Android Studio or Eclipse. Add it to dependencies in build.grandle file. Also you need to add google play services.
 
 ```groove
 dependencies {
@@ -98,7 +98,8 @@ dependencies {
 }
 ```
 
-> 4. Then, create a function that requests a interstitial ad:
+> Then, create a function that requests a interstitial ad. The SDK will log the impression and handle the click automatically.
+
 ```java
 private void loadInterstitialAd() {
         interstitialAd = new HADInterstitialAd(this /*Strongly recomend to use Activity context*/,
@@ -142,6 +143,82 @@ public void showInterstitial(View view) {
         Toast.makeText(this, "The Interstitial AD not ready yet. Try again!", Toast.LENGTH_LONG).show();
 }
 ```
-> The SDK will log the impression and handle the click automatically.
 
+###Admob Adapter 
 
+>  First of all you need to add new app in AdMob console.
+> You will get UnitId string like 'ca-app-pub-*************/*************'.
+
+> For the next few hours you may get the AdMob errors with codes 0 or 2. Just be patient.
+
+>  Then you need to add new mediation source.
+> Fill 'Class Name ' field with a 'com.hyperadx.admob.HADInterstitialEvent' string. And a 'Parameter' with your HyperAdx statement string.
+
+> Setup eCPM for new network
+
+> Now you can setting up your android project.
+> Put HyperAdx-SDK and AdMob-adapter in 'libs' folder.
+
+> Add those lines in your build.gradle file:
+
+```groove
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:23.4.0'
+    compile 'com.google.android.gms:play-services-ads:9.0.2'
+    compile 'com.google.android.gms:play-services-base:9.0.2'
+}
+```
+> Just create AdMob interstitial Ad as usually:
+
+```java
+package com.hyperadx.admob_sample;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Toast;
+import com.google.android.gms.ads.AdRequest;
+public class MainActivity extends AppCompatActivity {
+    private com.google.android.gms.ads.InterstitialAd mAdapterInterstitial;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        loadInterstitialAd();
+    }
+    private void loadInterstitialAd() {
+        mAdapterInterstitial = new com.google.android.gms.ads.InterstitialAd(this);
+        mAdapterInterstitial.setAdUnitId(
+                "ca-app-pub-6172762133617463/5529648238"
+        );
+        mAdapterInterstitial.setAdListener(new com.google.android.gms.ads.AdListener() {
+            @Override
+            public void onAdFailedToLoad(int errorCode) {
+                Toast.makeText(MainActivity.this,
+                        "Error loading adapter interstitial, code " + errorCode,
+                        Toast.LENGTH_SHORT).show();
+            }
+            @Override
+            public void onAdLoaded() {
+                Toast.makeText(MainActivity.this,
+                        "onAdLoaded()",
+                        Toast.LENGTH_SHORT).show();
+            }
+            @Override
+            public void onAdOpened() {
+            }
+            @Override
+            public void onAdClosed() {
+                mAdapterInterstitial.loadAd(new AdRequest.Builder().build());
+            }
+        });
+        mAdapterInterstitial.loadAd(new AdRequest.Builder().build());
+    }
+    public void showInterstitial(View view) {
+        if (mAdapterInterstitial.isLoaded())
+            mAdapterInterstitial.show();
+        else
+            Toast.makeText(this, "The Interstitial AD not ready yet. Try again!", Toast.LENGTH_LONG).show();
+    }
+}
+```
