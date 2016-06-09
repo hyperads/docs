@@ -109,5 +109,3 @@ First, on your View Controller implementation file, declare that you are impleme
     NSLog(@"CLICKED AD");
 }
 ```
-
-## Android
