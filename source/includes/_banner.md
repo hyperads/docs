@@ -67,7 +67,7 @@ override func viewDidLoad() {
 	super.viewDidLoad()
 	bannerView = HADBannerView(frame: CGRectMake(0,0, view.frame.size.width, 50))
 	view.addSubview(bannerView);
-	bannerView.loadAd(PLACEMENT_ID, bannerSize: .Height50, delegate: self)
+	bannerView.loadAd("PLACEMENT_ID", bannerSize: .Height50, delegate: self)
 }
 ```
 
@@ -78,7 +78,7 @@ override func viewDidLoad() {
     super.viewDidLoad()
     bannerView = HADBannerView(frame: CGRectMake(10, 100, 300, 250))
     view.addSubview(bannerView);
-    bannerView.loadAd(PLACEMENT_ID, bannerSize: .Block300x250, delegate: self)
+    bannerView.loadAd("PLACEMENT_ID", bannerSize: .Block300x250, delegate: self)
 }
 ```
 
@@ -136,7 +136,7 @@ func HADView(view: HADBannerView, didFailWithError error: NSError?) {
     [super viewDidLoad];
     self.bannerView = [[HADBannerView alloc] initWithFrame:CGRectMake(0,0, self.view.frame.size.width, 50)];
     [self.view addSubview:self.bannerView];
-    [self.bannerView loadAd:PLACEMENT_ID bannerSize:HADBannerSizeHeight50 delegate:self];
+    [self.bannerView loadAd:@"PLACEMENT_ID" bannerSize:HADBannerSizeHeight50 delegate:self];
 }
 ```
 
@@ -147,7 +147,7 @@ func HADView(view: HADBannerView, didFailWithError error: NSError?) {
     [super viewDidLoad];
     self.bannerView = [[HADBannerView alloc] initWithFrame:CGRectMake(10, 100, 300, 250)];
     [self.view addSubview:self.bannerView];
-    [self.bannerView loadAd:PLACEMENT_ID bannerSize:HADBannerSizeBlock300x250 delegate:self];
+    [self.bannerView loadAd:@"PLACEMENT_ID" bannerSize:HADBannerSizeBlock300x250 delegate:self];
 }
 ```
 
