@@ -15,7 +15,7 @@ The HyperAdX Interstitial ads allows you to monetize your iOS apps with banner a
 
 **Manual**
 
-* Download and extract the HADFramework for iOS.
+* [Download](https://s3-us-west-2.amazonaws.com/adpanel-public/HyperadxiOSADs_Sample_v2.0.0.zip) and extract the HADFramework for iOS.
 * Open your project target General tab.
 * Drag the HADFramework.framework file to Embedded Binaries.
 * Open your project target Build Settings tab. (Required only for Objective-C projects)
