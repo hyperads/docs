@@ -61,7 +61,7 @@ override func viewDidLoad() {
 }
 
 func loadInterstitalAd() {
-  let interstitial = HADInterstitial(placementId: PLACEMENT_ID)
+  let interstitial = HADInterstitial(placementId: "PLACEMENT_ID")
   interstitial.delegate = self
   interstitial.loadAd()
 }
@@ -139,7 +139,7 @@ func HADInterstitialDidClose(controller: HADInterstitial) {
 }
 
 - (void) loadInterstitalAd {
-  self.interstitial = [[HADInterstitial alloc] initWithPlacementId:PLACEMENT_ID];
+  self.interstitial = [[HADInterstitial alloc] initWithPlacementId:@"PLACEMENT_ID"];
   self.interstitial.delegate = self;
   [self.interstitial loadAd];
 }
