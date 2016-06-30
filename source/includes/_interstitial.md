@@ -16,19 +16,116 @@ The HyperAdX Interstitial ads allows you to monetize your iOS apps with banner a
 **Manual**
 
 * Download and extract the HADFramework for iOS.
-* Drag the HADFramework.framework file to your Xcode project and place it under the Frameworks folder.
+* Open your project target General tab.
+* Drag the HADFramework.framework file to Embedded Binaries.
+* Open your project target Build Settings tab. (Required only for Objective-C projects)
+* Set "Embedded Content Contains Swift Code" to Yes. (Required only for Objective-C projects)
 * Add the AdSupport framework to your project.
 
-### Implementation
+### Swift implementation
 
-> Now, in your View Controller implementation file, import the SDK header, declare that you implement the HADInterstitialDelegate protocol and add an instance variable for the interstitial ad unit:
+> First of all, in your AppDelegate file create an instance of HADFramework
+> Import the SDK
+
+```swift
+import HADFramework
+```
+
+> And in your application didFinishLaunchingWithOptions method call HAD.create()
+
+```swift
+func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+  // Override point for customization after application launch.
+  HAD.create()
+  return true
+}
+```
+
+> Ok, let's move to your View Controller. Import the SDK, declare that you implement the HADInterstitialDelegate protocol and add an instance variable for the interstitial ad unit:
+
+```swift
+import UIKit
+import HADFramework
+
+class MyViewController: UIViewController, HADInterstitialDelegate {
+
+}
+```
+
+> Add a function in your View Controller that initializes the interstitial view. You will typically call this function ahead of the time you want to show the ad:
+
+```swift
+override func viewDidLoad() {
+  super.viewDidLoad()
+  loadInterstitalAd()
+}
+
+func loadInterstitalAd() {
+  let interstitial = HADInterstitial(placementId: PLACEMENT_ID)
+  interstitial.delegate = self
+  interstitial.loadAd()
+}
+```
+
+> Now that you have added the code to load the ad, add the following functions to handle loading failures and to display the ad once it has loaded:
+
+```swift
+//MARK: HADInterstitial Delegate
+
+func HADInterstitialDidLoad(controller: HADInterstitial) {
+  controller.modalTransitionStyle = .CoverVertical
+  controller.modalPresentationStyle = .FullScreen
+  presentViewController(controller, animated: true, completion: nil)
+}
+
+func HADInterstitialDidFail(controller: HADInterstitial, error: NSError?) {
+  print("HADInterstitialDidFail: \(error)")
+}
+```
+
+> Optionally, you can add the following functions to handle the cases where the full screen ad is closed or when the user clicks on it:
+
+```swift
+func HADInterstitialDidClick(controller: HADInterstitial) {
+  print("HADInterstitialDidClick")
+}
+
+func HADInterstitialWillClose(controller: HADInterstitial) {
+  print("HADInterstitialWillClose")
+}
+
+func HADInterstitialDidClose(controller: HADInterstitial) {
+  print("HADInterstitialDidClose")
+}
+```
+
+### Objective-C implementation
+
+> First of all, in your AppDelegate file create an instance of HADFramework
+> Import the SDK header in AppDelegate.h:
+
+```objective_c
+#import <HADFramework/HADFramework.h>
+```
+
+> And in your application didFinishLaunchingWithOptions method call [HAD create]
+
+```objective_c
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+  // Override point for customization after application launch.
+  [HAD create];
+  return YES;
+}
+```
+
+> Ok, let's move to your View Controller. In implementation file, import the SDK header, declare that you implement the HADInterstitialDelegate protocol and add an instance variable for the interstitial ad unit:
 
 ```objective_c
 #import <UIKit/UIKit.h>
-#import <HADFramework/HADInterstitial.h>
+#import <HADFramework/HADFramework.h>
 
-@interface MyViewController : UIViewController<HADInterstitialDelegate>
-  @property (nonatomic, strong) HADInterstitial* interstitial;
+@interface MyViewController () <HADInterstitialDelegate>
+@property (strong, nonatomic) HADInterstitial *interstitial;
 @end
 ```
 
@@ -42,7 +139,8 @@ The HyperAdX Interstitial ads allows you to monetize your iOS apps with banner a
 }
 
 - (void) loadInterstitalAd {
-  self.interstitial = [[HADInterstitial alloc] initWithPlacementId:PLACEMENT_ID delegate:self];
+  self.interstitial = [[HADInterstitial alloc] initWithPlacementId:PLACEMENT_ID];
+  self.interstitial.delegate = self;
   [self.interstitial loadAd];
 }
 ```
@@ -50,28 +148,33 @@ The HyperAdX Interstitial ads allows you to monetize your iOS apps with banner a
 > Now that you have added the code to load the ad, add the following functions to handle loading failures and to display the ad once it has loaded:
 
 ```objective_c
-- (void) HADInterstitialDidLoad:(HADInterstitial*)controller {
-  [controller showFromController:self];
+#pragma mark - HADInterstitialDelegate
+
+-(void)HADInterstitialDidLoad:(HADInterstitial *)controller {
+  NSLog(@"HADInterstitialDidLoad");
+  self.interstitial.modalPresentationStyle = UIModalPresentationFullScreen;
+  self.interstitial.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+  [self presentViewController:self.interstitial animated:YES completion:nil];
 }
 
-- (void) HADInterstitial:(HADInterstitial*)controller didFailWithError:(NSError*)error {
-  NSLog(@"ERROR: %@",error.localizedDescription);
-}
-
-- (void) HADInterstitialDidClick:(HADInterstitial*)controller {
-  NSLog(@"CLICKED AD");
+-(void)HADInterstitialDidFail:(HADInterstitial *)controller error:(NSError *)error {
+  NSLog(@"HADInterstitialDidFail: %@", error);
 }
 ```
 
 > Optionally, you can add the following functions to handle the cases where the full screen ad is closed or when the user clicks on it:
 
 ```objective_c
-- (void) HADInterstitialDidClose:(HADInterstitial*)controller {
-  // Consider to add code here to resume your app's flow
+-(void)HADInterstitialDidClick:(HADInterstitial *)controller {
+  NSLog(@"HADInterstitialDidClick");
 }
 
-- (void) HADInterstitialWillClose:(HADInterstitial*)controller {
-  // Consider to add code here to resume your app's flow
+-(void)HADInterstitialWillClose:(HADInterstitial *)controller {
+  NSLog(@"HADInterstitialWillClose");
+}
+
+-(void)HADInterstitialDidClose:(HADInterstitial *)controller {
+  NSLog(@"HADInterstitialDidClose");
 }
 ```
 
