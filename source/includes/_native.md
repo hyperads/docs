@@ -29,23 +29,97 @@ The HyperAdX's Native Ads allows you to build a customized experience for the ad
 
 Follow these steps to download and include it in your project:
 
-* [Download](https://s3-us-west-2.amazonaws.com/adpanel-public/TestADFramework-1.1.0.zip) and extract the Example app for iOS.
-* Drag the HADFramework.framework file to your Xcode project and place it under the Frameworks folder.
+* [Download](https://s3-us-west-2.amazonaws.com/adpanel-public/HyperadxiOSADs_Sample_v2.0.0.zip) and extract the HADFramework for iOS.
+* Open your project target General tab.
+* Drag the HADFramework.framework file to Embedded Binaries.
+* Open your project target Build Settings tab. (Required only for Objective-C projects)
+* Set "Embedded Content Contains Swift Code" to Yes. (Required only for Objective-C projects)
 * Add the AdSupport framework to your project.
 
-### Implementation
+### Swift implementation
 
-> Now, in your View Controller implementation file, import the SDK  and declare that you implement the `HADNativeAdDelegate` protocol as well as declare and connect instance variables to your UI .XIB:
+> Now, in your View Controller implementation file, import the SDK and declare that you implement the `HADNativeAdDelegate` protocol as well as declare and connect instance variables to your Storyboard or .XIB:
+
+```swift
+import HADFramework
+class MyViewController: UIViewController, HADNativeAdDelegate {
+    @IBOutlet weak var bannerView: UIView!
+    @IBOutlet weak var imageView: HADMediaView!
+    @IBOutlet weak var iconView: HADMediaView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var descLabel: UILabel!
+    @IBOutlet weak var cta: UIButton?
+    
+    var nativeAd: HADNativeAd! = nil
+    
+}
+```
+
+> Then, add a method in your View Controller's implementation file that initializes `HADNativeAd` and request an ad to load:
+
+```swift
+override func viewDidLoad() {
+	super.viewDidLoad()
+	nativeAd = HADNativeAd(placementId: "PLACEMENT_ID", bannerSize: .Block300x250, delegate: self)
+	nativeAd.loadAd()
+}
+```
+
+> Now that you have added the code to load the ad, add the following functions to handle loading failures and to construct the ad once it has loaded:
+
+```swift
+//MARK: HADNativeAd Delegate
+func HADAd(nativeAd: HADNativeAd, didFailWithError error: NSError) {
+	print("ERROR: \(error.localizedDescription)")
+}
+    
+func HADNativeAdDidLoad(nativeAd: HADNativeAd) {
+	imageView.loadHADBanner(nativeAd, animated: true) { (error, image) in
+    		if error != nil {
+        		print("ERROR: CAN'T DOWNLOAD BANNER \(error)")
+        		return
+    		}
+    		print("BANNER DOWNLOADED")
+	}
+	iconView.loadHADIcon(nativeAd, animated: true) { (error, image) in
+    		if error != nil {
+        		print("ERROR: CAN'T DOWNLOAD ICON \(error)")
+        		return
+    		}
+    		print("ICON DOWNLOADED")
+	}
+	titleLabel.text = nativeAd.title
+	descLabel.text = nativeAd.desc
+	cta?.setTitle(nativeAd.cta, forState: .Normal)
+}
+
+func HADNativeAdDidClick(nativeAd: HADNativeAd) {
+	print("CLICKED AD")
+}
+```
+
+> Handle click on your implementation of "call to action" button
+
+```swift
+@IBAction func adClicked() {
+	nativeAd.handleClick()
+}
+```
+
+### Objective-C implementation
+
+> Now, in your View Controller implementation file, import the SDK header and declare that you implement the `HADNativeAdDelegate` protocol as well as declare and connect instance variables to your Storyboard or .XIB:
 
 ```objective_c
-#import <HADFramework/HADNativeAd.h>
+#import <HADFramework/HADFramework.h>
 @interface MyViewController : UIViewController <HADNativeAdDelegate>
-	@property (nonatomic, weak) IBOutlet UIView *bannerView;
-	@property (nonatomic, weak) IBOutlet UIImageView *imageView;
-	@property (nonatomic, weak) IBOutlet UIImageView *iconView;
-	@property (nonatomic, weak) IBOutlet UILabel *titleLabel;
-	@property (nonatomic, weak) IBOutlet UILabel *descLabel;
-	@property (nonatomic, strong) HADNativeAd *native;
+	@property (strong, nonatomic) HADNativeAd *nativeAd;
+	@property (weak, nonatomic) IBOutlet UIView *bannerView;
+	@property (weak, nonatomic) IBOutlet HADMediaView *bannerMediaView;
+	@property (weak, nonatomic) IBOutlet HADMediaView *iconMediaView;
+	@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+	@property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
+	@property (weak, nonatomic) IBOutlet UIButton *ctaButton;
 @end
 ```
 
@@ -54,36 +128,50 @@ Follow these steps to download and include it in your project:
 ```objective_c
 - (void)viewDidLoad {
 	[super viewDidLoad];
-	self.native = [[HADNativeAd alloc] initWithPlacementId:@"PLACEMENT_ID" bannerSize:kHADBannerSize300x250 delegate:self];
-	self.bannerView.hidden = YES;
-	[self.native loadAd];
+	self.nativeAd = [[HADNativeAd alloc] initWithPlacementId:@"PLACEMENT_ID" bannerSize:HADBannerSizeBlock300x250 delegate:self];
+    	[self.nativeAd loadAd];
 }
 ```
 
 > Now that you have added the code to load the ad, add the following functions to handle loading failures and to construct the ad once it has loaded:
 
 ```objective_c
-- (void) HADNativeAd:(HADNativeAd*)nativeAd didFailWithError:(NSError*)error {
+-(void)HADNativeAdDidFail:(HADNativeAd *)nativeAd error:(NSError *)error
 	NSLog(@"ERROR: %@",error.localizedDescription);
 }
 
-- (void) HADNativeAdDidLoad:(HADNativeAd*)nativeAd {
-  self.imageView.image = nativeAd.image;
-  self.iconView.image = nativeAd.icon;
-  self.titleLabel.text = nativeAd.title;
-  self.descLabel.text = nativeAd.desc;
-
-	// Register the native ad view container for counting ad impressions
-  [nativeAd registerAdView:self.bannerView];
-	self.bannerView.hidden = NO;
+-(void)HADNativeAdDidLoad:(HADNativeAd *)nativeAd {
+	[self.bannerMediaView loadHADBanner:nativeAd animated:NO completion:^(NSError * _Nullable error, UIImage * _Nullable image) {
+		if (!error) {
+    			NSLog(@"Banner downloaded");
+		} else {
+    			NSLog(@"Banner download error: %@", error);
+		}
+	}];
+	[self.iconMediaView loadHADIcon:nativeAd animated:NO completion:^(NSError * _Nullable error, UIImage * _Nullable image) {
+		if (!error) {
+    			NSLog(@"Icon downloaded");
+		} else {
+    			NSLog(@"Icon download error: %@", error);
+		}
+	}];
+	[self.titleLabel setText:nativeAd.title];
+	[self.descriptionLabel setText:nativeAd.desc];
+	[self.ctaButton setTitle:nativeAd.cta forState:UIControlStateNormal];
 }
 
-- (void) HADNativeAdDidClick:(HADNativeAd*)nativeAd {
+-(void)HADNativeAdDidClick:(HADNativeAd *)nativeAd
 	NSLog(@"CLICKED AD");
 }
 ```
 
-> In cases where you re-use the view to show different ads over time, make sure to call `unregisterAdView` before registering the same view with a different instance of `HADNativeAd`, or end using ad view.
+> Handle click on your implementation of "call to action" button
+
+```objective_c
+- (IBAction)handleClick:(id)sender {
+	[self.nativeAd handleClick];
+}
+```
 
 ## Native Ads in Android
 
