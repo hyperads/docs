@@ -60,9 +60,17 @@ class MyViewController: UIViewController, HADNativeAdDelegate {
 ```swift
 override func viewDidLoad() {
 	super.viewDidLoad()
-	nativeAd = HADNativeAd(placementId: "PLACEMENT_ID", bannerSize: .Block300x250, delegate: self)
+	nativeAd = HADNativeAd(placementId: "PLACEMENT_ID", content: [.Title, .Description, .Banner, .Icon], delegate: self)
 	nativeAd.loadAd()
 }
+```
+
+> You may set `content` param on HADNativeAd initialization to get only needed properties. If you didn't set `content` param then you get all properties.
+```swift
+.Title       //to get title text
+.Description //to get description text
+.Banner      //to get banner
+.Icon        //to get icon
 ```
 
 > Now that you have added the code to load the ad, add the following functions to handle loading failures and to construct the ad once it has loaded:
@@ -128,9 +136,17 @@ func HADNativeAdDidClick(nativeAd: HADNativeAd) {
 ```objective_c
 - (void)viewDidLoad {
 	[super viewDidLoad];
-	self.nativeAd = [[HADNativeAd alloc] initWithPlacementId:@"PLACEMENT_ID" bannerSize:HADBannerSizeBlock300x250 delegate:self];
+	self.nativeAd = [[HADNativeAd alloc] initWithPlacementId:@"PLACEMENT_ID" content:@[HADAdContentTitle, HADAdContentDescription, HADAdContentBanner, HADAdContentIcon] delegate:self];
     	[self.nativeAd loadAd];
 }
+```
+
+> You may set `content` param on HADNativeAd initialization to get only needed properties. If you didn't set `content` param then you get all properties.
+```objective_c
+HADAdContentTitle       //to get title text
+HADAdContentDescription //to get description text
+HADAdContentBanner      //to get banner
+HADAdContentIcon        //to get icon
 ```
 
 > Now that you have added the code to load the ad, add the following functions to handle loading failures and to construct the ad once it has loaded:
