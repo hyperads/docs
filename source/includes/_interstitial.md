@@ -178,6 +178,331 @@ func HADInterstitialDidClose(controller: HADInterstitial) {
 }
 ```
 
+###Admob Adapter
+
+* [Download](https://s3-us-west-2.amazonaws.com/adpanel-public/HyperadxiOSAdmobAdapter_2.0.0.zip) and extract the AdMob adapter if needed.
+
+* First of all you need to add new app in AdMob console.
+
+* You will get UnitId string like 'ca-app-pub-*************/*************'.
+For the next few hours you may get the AdMob errors with codes 0 or 2. Just be patient.
+
+Then you need to add new mediation source.
+
+* Fill `Class Name` field with a `HADCustomEventBanner` for Banner or a `HADCustomEventInterstitial` for Interstitial string. And a `Parameter` with your HyperAdx statement string.
+
+* Setup eCPM for new network
+
+Now you can setting up your Xcode project.
+
+* Put HyperAdx-SDK as described above
+* Add HADCustomEventBanner.swift and HADCustomEventInterstitial.swift files
+
+**NOTE** - In the Objective-C only project you must create swift header file as described here e.g. http://stackoverflow.com/questions/24102104/how-to-import-swift-code-to-objective-c
+
+> Just create AdMob banner Ad as usually:
+
+```swift
+import GoogleMobileAds
+import HADFramework
+import UIKit
+
+class ViewController: UIViewController, GADBannerViewDelegate {
+    var bannerView: GADBannerView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let request = GADRequest()
+        //Banner 320x50
+        bannerView = GADBannerView(adSize: GADAdSize.init(size: CGSizeMake(320, 50), flags: 0))
+        bannerView.frame.origin.x = (UIScreen.mainScreen().bounds.width-320)/2
+        bannerView.frame.origin.y = 100
+        bannerView.adUnitID = "YOUR_ADUNIT_ID"
+        bannerView.rootViewController = self
+        bannerView.delegate = self
+        view.addSubview(bannerView)
+        bannerView.loadRequest(request)
+    }
+    
+    //MARK: GADBannerViewDelegate
+    func adViewDidReceiveAd(bannerView: GADBannerView!) {
+        print("adViewDidReceiveAd")
+    }
+    
+    func adView(bannerView: GADBannerView!, didFailToReceiveAdWithError error: GADRequestError!) {
+        print("didFailToReceiveAdWithError: \(error)")
+    }
+}
+```
+
+> Just create AdMob interstitial Ad as usually:
+
+```swift
+import GoogleMobileAds
+import HADFramework
+import UIKit
+
+class ViewController: UIViewController, GADInterstitialDelegate {
+    var interstitial: GADInterstitial!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let request = GADRequest()
+        //Interstitial
+        interstitial = GADInterstitial(adUnitID: "YOUR_ADUNIT_ID")
+        interstitial.delegate = self
+        interstitial.loadRequest(request)
+    }
+    
+    @IBAction func createAndLoadInterstitial() {
+        if interstitial.isReady {
+            interstitial.presentFromRootViewController(self)
+        } else {
+            print("Ad wasn't ready")
+        }
+    }
+    
+    //MARK: GADInterstitialDelegate
+    func interstitialDidReceiveAd(ad: GADInterstitial!) {
+        print("interstitialDidReceiveAd")
+    }
+    
+    func interstitial(ad: GADInterstitial!, didFailToReceiveAdWithError error: GADRequestError!) {
+        print("interstitial didFailToReceiveAdWithError: \(error)")
+    }
+}
+```
+
+###Mopub Adapter
+
+* [Download](https://s3-us-west-2.amazonaws.com/adpanel-public/HyperadxiOSMoPubAdapter_2.0.0.zip) and extract the Mopub adapter if needed.
+
+You can use Hyperadx as a Network in Mopub's Mediation platform.
+
+Setup SDKs:
+
+* Integrate with Mopub SDK (https://github.com/mopub/mopub-ios-sdk/wiki/Manual-Native-Ads-Integration-for-iOS)
+* Install Hyperadx SDK
+* Add HADBannerCustomEvent.swift, HADInterstitialCustomEvent.swift, HADNativeAdAdapter.swift and HADNativeCustomEvent.swift files
+
+**NOTE** - In the Objective-C only project you must create swift header file as described here e.g. http://stackoverflow.com/questions/24102104/how-to-import-swift-code-to-objective-c
+
+Setup Mopub Dashboard
+
+* Create an "Hyperadx" Network in Mopub's dashboard and connect it to your Ad Units.
+* In Mopub's dashboard select Networks > Add New network
+* Then select Custom Native Network
+* Complete the fields accordingly to the Ad Unit that you want to use
+* Create new Order in Orders tab
+* Complete the fields accordingly to the Ad Unit that you want to use
+
+####Banner
+Custom Event Class: `HADBannerCustomEvent`
+
+Custom Event Class Data: `{"PLACEMENT":"<YOUR PLACEMENT>"}`
+
+You can use the test placement `5b3QbMRQ`
+
+> Add `HADBannerCustomEvent.swift` adapter in your project
+Implement MoPub Banner:
+
+```swift
+import HADFramework
+import UIKit
+
+class ViewController: UIViewController, MPAdViewDelegate {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        //Banner 320x50
+        let m = MPAdView(adUnitId: "YOUR_AD_UNIT", size: CGSizeMake(320, 50))
+        m.delegate = self
+        m.frame = CGRectMake((UIScreen.mainScreen().bounds.width-320)/2, 100, 320, 50)
+        view.addSubview(m)
+        m.loadAd()
+    }
+
+    //MARK: MPAdViewDelegate
+    func viewControllerForPresentingModalView() -> UIViewController! {
+        return self
+    }
+    
+    func adViewDidLoadAd(view: MPAdView!) {
+        print("adViewDidLoadAd")
+    }
+    
+    func adViewDidFailToLoadAd(view: MPAdView!) {
+        print("adViewDidFailToLoadAd")
+    }
+    
+    func didDismissModalViewForAd(view: MPAdView!) {
+        print("didDismissModalViewForAd")
+    }
+    
+    func willPresentModalViewForAd(view: MPAdView!) {
+        print("willPresentModalViewForAd")
+    }
+    
+    func willLeaveApplicationFromAd(view: MPAdView!) {
+        print("willLeaveApplicationFromAd")
+    }
+}
+```
+
+####Interstitial
+Custom Event Class: `HADInterstitialCustomEvent`
+
+Custom Event Class Data: `{"PLACEMENT":"<YOUR PLACEMENT>"}`
+
+You can use the test placement `5b3QbMRQ`
+
+> Add `HADInterstitialCustomEvent.swift` adapter in your project
+Implement MoPub Interstitial:
+
+```swift
+import HADFramework
+import UIKit
+
+class ViewController: UIViewController, MPInterstitialAdControllerDelegate {
+    var interstitial: MPInterstitialAdController!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        //Interstitial
+        interstitial = MPInterstitialAdController(forAdUnitId: "YOUR_AD_UNIT")
+        interstitial.delegate = self
+        interstitial.loadAd()
+    }
+    
+    //MARK: MPInterstitialAdControllerDelegate
+    func interstitialDidLoadAd(interstitial: MPInterstitialAdController!) {
+        print("interstitialDidLoadAd")
+        interstitial.showFromViewController(self)
+    }
+    
+    func interstitialDidFailToLoadAd(inter: MPInterstitialAdController!) {
+        print("interstitialDidFailToLoadAd")
+        interstitial = MPInterstitialAdController(forAdUnitId: "5b0f8ff979a840b4928ca7fd14ec82e7")
+        interstitial.delegate = self
+        interstitial.loadAd()
+    }
+}
+```
+
+####Native
+Custom Event Class: `HADNativeCustomEvent`
+
+Custom Event Class Data: `{"PLACEMENT":"<YOUR PLACEMENT>"}`
+
+You can use the test placement `5b3QbMRQ`
+
+> Add `HADNativeCustomEvent.swift` and `HADNativeAdAdapter.swift` adapter files in your project
+Implement MoPub NativeViewController:
+
+```swift
+import HADFramework
+import UIKit
+
+class NativeViewController: UIViewController, MPNativeAdRendering, MPNativeAdDelegate {
+    @IBOutlet weak var nativeView: NativeView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var mainTextLabel: UILabel!
+    @IBOutlet weak var callToActionLabel: UILabel!
+    @IBOutlet weak var iconImageView: UIImageView!
+    @IBOutlet weak var mainImageView: UIImageView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let settings = MPStaticNativeAdRendererSettings()
+        settings.renderingViewClass = NativeView.self
+        let config = MPStaticNativeAdRenderer.rendererConfigurationWithRendererSettings(settings)
+        config.supportedCustomEvents = ["HADNativeCustomEvent"]
+        let request = MPNativeAdRequest(adUnitIdentifier: "YOUR_AD_UNIT", rendererConfigurations: [config])
+        request.startWithCompletionHandler { (request, nativeAd, error) in
+            if error != nil {
+                print("Loading error")
+            } else {
+                print("Ad loaded")
+                nativeAd.delegate = self
+                do {
+                    let v = try nativeAd.retrieveAdView()
+                    v.frame = self.view.bounds
+                    self.view.addSubview(v)
+                } catch let error {
+                    print("ERROR: \(error)")
+                }
+            }
+        }
+    }
+    
+    //MARK: MPNativeAdRendering
+    func nativeTitleTextLabel() -> UILabel! {
+        return titleLabel
+    }
+    
+    func nativeMainTextLabel() -> UILabel! {
+        return mainTextLabel
+    }
+    
+    func nativeCallToActionTextLabel() -> UILabel! {
+        return callToActionLabel!
+    }
+    
+    func nativeIconImageView() -> UIImageView! {
+        return iconImageView
+    }
+    
+    func nativeMainImageView() -> UIImageView! {
+        return mainImageView
+    }
+    
+    func nativeVideoView() -> UIView! {
+        return UIView()
+    }
+    
+    //MARK: MPNativeAdDelegate
+    func viewControllerForPresentingModalView() -> UIViewController! {
+        return self
+    }
+}
+```
+
+And implement MoPubNativeAdRenderer, e.g.:
+
+```swift
+class NativeView: UIView, MPNativeAdRenderer {
+    //MARK: MPNativeAdRenderer
+    var settings: MPNativeAdRendererSettings!
+    
+    required init!(rendererSettings: MPNativeAdRendererSettings!) {
+        super.init(frame: CGRectZero)
+        settings = rendererSettings
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    static func rendererConfigurationWithRendererSettings(rendererSettings: MPNativeAdRendererSettings!) -> MPNativeAdRendererConfiguration! {
+        let settings = MPStaticNativeAdRendererSettings()
+        settings.renderingViewClass = NativeView.self
+        let config = MPNativeAdRendererConfiguration()
+        config.rendererSettings = settings
+        config.supportedCustomEvents = ["NativeView"]
+        return config
+    }
+    
+    func retrieveViewWithAdapter(adapter: MPNativeAdAdapter!) throws -> UIView {
+        return UIView()
+    }
+}
+```
+
+> This is your Hyperadx MoPub adapters. Now you can use Mopub as usual.
+
 ## Android
 
 The HyperAdX Interstitial ads allows you to monetize your Android apps with banner ads. This guide explains how to add banner ads to your app. If you’re interested in other kinds of ad units, see the list of available types.
