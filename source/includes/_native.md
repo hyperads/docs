@@ -173,6 +173,168 @@ func HADNativeAdDidClick(nativeAd: HADNativeAd) {
 }
 ```
 
+## Native Ad templates
+
+The Native Ad templates allows you to use prepared Ad banner views but with possibility of full customization.
+
+Just add HADBannerTemplateView to your view controller and set desired banner template and custom params.
+
+### Banner templates
+
+You can choose from six layouts.
+
+```swift
+HADBannerTemplateTypes.BlockOne   //Block banner 320x230
+HADBannerTemplateTypes.BlockTwo   //Flexible block banner with aspect ratio 320:300
+HADBannerTemplateTypes.BlockThree //Flexible block banner with aspect ratio 320:340
+HADBannerTemplateTypes.LineOne    //Line banner with 50pt height
+HADBannerTemplateTypes.LineTwo    //Line banner with 60pt height
+HADBannerTemplateTypes.LineThree  //Line banner with 90pt height
+```
+
+### Custom params
+
+All custom params starts with `custom` prefix
+
+Background colors
+```swift
+customBackgroundColor          //Whole ad background
+customButtonBackgroundColor    //CTA button background
+customAgeRatingBackgroundColor //AgeRating label background
+```
+
+Text colors
+```swift
+customTitleTextColor           //Title label text color
+customDescriptionTextColor     //Description label text color
+customPoweredByTextColor       //PoweredBy label text color
+customAgeRatingTextColor       //AgeRating label text color
+customButtonTitleColor         //CTA button title text color
+```
+
+Corner radius
+```swift
+customIconCornerRadius         //Icon
+customBannerCornerRadius       //Banner
+customButtonCornerRadius       //CTA button
+customAgeRatingCornerRadius    //Age rating label
+```
+
+CTA button border
+```swift
+customButtonBorderColor        //Border color
+customButtonBorderWidth        //Border width
+```
+
+Star rating
+```swift
+customStarRatingFilledColor    //Filled color
+customStarRatingEmptyColor     //Empty color
+customStarRatingTextColor      //Right text color
+```
+
+Click mode
+```swift
+customClickMode = .Button      //Handle click only on button
+customClickMode = .WholeBanner //Handle click everywhere
+```
+
+### Swift implementation
+
+```swift
+import HADFramework
+
+class MyViewController: UIViewController, HADBannerTemplateViewDelegate {
+    @IBOutlet weak var bannerTemplateView: HADBannerTemplateView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        //Just set HADBannerTemplateTypes param in loadAd method
+        bannerTemplateView.loadAd("PLACEMENT_ID", bannerTemplate: .One, delegate: self)
+        //And customize everything
+        bannerTemplateView.customBackgroundColor = UIColor.lightGrayColor()
+        bannerTemplateView.customTitleTextColor = UIColor.blueColor()
+        bannerTemplateView.customDescriptionTextColor = UIColor.darkGrayColor()
+        bannerTemplateView.customIconCornerRadius = 6
+        bannerTemplateView.customButtonBackgroundColor = UIColor.clearColor()
+        bannerTemplateView.customButtonBorderColor = UIColor.purpleColor()
+        bannerTemplateView.customButtonBorderWidth = 1
+        bannerTemplateView.customButtonTitleColor = UIColor.purpleColor()
+        bannerTemplateView.customButtonCornerRadius = 6
+        bannerTemplateView.customBannerCornerRadius = 6
+        bannerTemplateView.customStarRatingFilledColor = UIColor.greenColor()
+        bannerTemplateView.customStarRatingEmptyColor = UIColor.purpleColor()
+        bannerTemplateView.customStarRatingTextColor = UIColor.purpleColor()
+        bannerTemplateView.customClickMode = .Button
+    }
+    
+    //MARK: HADBannerTemplateViewDelegate
+    
+    func HADTemplateViewDidLoad(view: HADBannerTemplateView) {
+        print("AD LOADED")
+    }
+    
+    func HADTemplateViewDidClick(view: HADBannerTemplateView) {
+        print("CLICKED AD")
+    }
+    
+    func HADTemplateView(view: HADBannerTemplateView, didFailWithError error: NSError?) {
+        print("ERROR: %@", error?.localizedDescription)
+    }
+}
+```
+
+### Objective-C implementation
+
+```objective_c
+#import <HADFramework/HADFramework.h>
+
+@interface MyViewController () <HADBannerTemplateViewDelegate>
+@property (weak, nonatomic) IBOutlet HADBannerTemplateView *bannerTemplateView;
+@end
+
+@interface MyViewController : UIViewController <HADNativeAdDelegate>
+-(void)viewDidLoad {
+	[super viewDidLoad];
+	//Just set HADBannerTemplateTypes param in loadAd method
+	[self.bannerTemplateView loadAd:@"PLACEMENT_ID" bannerTemplate:HADBannerTemplateTypesBlockOne delegate:self];
+	//And customize everything
+	[self.bannerTemplateView setCustomBackgroundColor:[UIColor lightGrayColor]];
+	[self.bannerTemplateView setCustomTitleTextColor:[UIColor blackColor]];
+	[self.bannerTemplateView setCustomDescriptionTextColor:[UIColor darkGrayColor]];
+	[self.bannerTemplateView setCustomIconCornerRadius:6.0];
+	[self.bannerTemplateView setCustomButtonBackgroundColor:[UIColor clearColor]];
+	[self.bannerTemplateView setCustomButtonBorderColor:[UIColor purpleColor]];
+	[self.bannerTemplateView setCustomButtonBorderWidth:1.0];
+	[self.bannerTemplateView setCustomButtonTitleColor:[UIColor purpleColor]];
+	[self.bannerTemplateView setCustomButtonCornerRadius:6.0];
+	[self.bannerTemplateView setCustomBannerCornerRadius :6.0];
+	[self.bannerTemplateView setCustomAgeRatingCornerRadius:4.0];
+	[self.bannerTemplateView setCustomStarRatingFilledColor:[UIColor greenColor]];
+	[self.bannerTemplateView setCustomStarRatingEmptyColor:[UIColor purpleColor]];
+	[self.bannerTemplateView setCustomStarRatingTextColor:[UIColor purpleColor]];
+	[self.bannerTemplateView setCustomClickMode:BannerTemplateCustomClickModesButton];
+}
+
+#pragma mark - HADBannerTemplateViewDelegate
+
+-(void)HADTemplateViewDidLoad:(HADBannerView *)view {
+	NSLog(@"HADTemplateViewDidLoad");
+}
+
+-(void)HADTemplateView:(HADBannerView *)view didFailWithError:(NSError *)error {
+	NSLog(@"HADTemplateViewDidFai:l %@", error);
+}
+
+-(void)HADTemplateViewDidClick:(HADBannerView *)view {
+	NSLog(@"HADTemplateViewDidClick");
+}
+
+@end
+```
+
+As you can see it's really easy to use!
+
 ## Native Ads in Android
 
 The Native Ad API allows you to build a customized experience for the ads you show in your app. When using the Native Ad API, instead of receiving an ad ready to be displayed, you will receive a group of ad properties such as a title, an image, a call to action, and you will have to use them to construct a custom view where the ad is shown.
