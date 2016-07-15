@@ -335,6 +335,144 @@ class MyViewController: UIViewController, HADBannerTemplateViewDelegate {
 
 As you can see it's really easy to use!
 
+###Mopub Adapter
+
+* [Download](https://s3-us-west-2.amazonaws.com/adpanel-public/HyperadxiOSMoPubAdapter_2.0.0.zip) and extract the Mopub adapter if needed.
+
+You can use Hyperadx as a Network in Mopub's Mediation platform.
+
+Setup SDKs:
+
+* Integrate with Mopub SDK (https://github.com/mopub/mopub-ios-sdk/wiki/Manual-Native-Ads-Integration-for-iOS)
+* Install Hyperadx SDK
+* Add HADNativeAdAdapter.swift and HADNativeCustomEvent.swift files
+
+**NOTE** - In the Objective-C only project you must create swift header file as described here e.g. http://stackoverflow.com/questions/24102104/how-to-import-swift-code-to-objective-c
+
+Setup Mopub Dashboard
+
+* Create an "Hyperadx" Network in Mopub's dashboard and connect it to your Ad Units.
+* In Mopub's dashboard select Networks > Add New network
+* Then select Custom Native Network
+* Complete the fields accordingly to the Ad Unit that you want to use
+* Create new Order in Orders tab
+* Complete the fields accordingly to the Ad Unit that you want to use
+
+Custom Event Class: `HADNativeCustomEvent`
+
+Custom Event Class Data: `{"PLACEMENT":"<YOUR PLACEMENT>"}`
+
+You can use the test placement `5b3QbMRQ`
+
+> Add `HADNativeCustomEvent.swift` and `HADNativeAdAdapter.swift` adapter files in your project
+Implement MoPub NativeViewController:
+
+```swift
+import HADFramework
+import UIKit
+
+class NativeViewController: UIViewController, MPNativeAdRendering, MPNativeAdDelegate {
+    @IBOutlet weak var nativeView: NativeView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var mainTextLabel: UILabel!
+    @IBOutlet weak var callToActionLabel: UILabel!
+    @IBOutlet weak var iconImageView: UIImageView!
+    @IBOutlet weak var mainImageView: UIImageView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let settings = MPStaticNativeAdRendererSettings()
+        settings.renderingViewClass = NativeView.self
+        let config = MPStaticNativeAdRenderer.rendererConfigurationWithRendererSettings(settings)
+        config.supportedCustomEvents = ["HADNativeCustomEvent"]
+        let request = MPNativeAdRequest(adUnitIdentifier: "YOUR_AD_UNIT", rendererConfigurations: [config])
+        request.startWithCompletionHandler { (request, nativeAd, error) in
+            if error != nil {
+                print("Loading error")
+            } else {
+                print("Ad loaded")
+                nativeAd.delegate = self
+                do {
+                    let v = try nativeAd.retrieveAdView()
+                    v.frame = self.view.bounds
+                    self.view.addSubview(v)
+                } catch let error {
+                    print("ERROR: \(error)")
+                }
+            }
+        }
+    }
+    
+    //MARK: MPNativeAdRendering
+    func nativeTitleTextLabel() -> UILabel! {
+        return titleLabel
+    }
+    
+    func nativeMainTextLabel() -> UILabel! {
+        return mainTextLabel
+    }
+    
+    func nativeCallToActionTextLabel() -> UILabel! {
+        return callToActionLabel!
+    }
+    
+    func nativeIconImageView() -> UIImageView! {
+        return iconImageView
+    }
+    
+    func nativeMainImageView() -> UIImageView! {
+        return mainImageView
+    }
+    
+    func nativeVideoView() -> UIView! {
+        return UIView()
+    }
+    
+    //MARK: MPNativeAdDelegate
+    func viewControllerForPresentingModalView() -> UIViewController! {
+        return self
+    }
+}
+```
+
+And implement MoPubNativeAdRenderer, e.g.:
+
+```swift
+class NativeView: UIView, MPNativeAdRenderer {
+    //MARK: MPNativeAdRenderer
+    var settings: MPNativeAdRendererSettings!
+    
+    required init!(rendererSettings: MPNativeAdRendererSettings!) {
+        super.init(frame: CGRectZero)
+        settings = rendererSettings
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    static func rendererConfigurationWithRendererSettings(rendererSettings: MPNativeAdRendererSettings!) -> MPNativeAdRendererConfiguration! {
+        let settings = MPStaticNativeAdRendererSettings()
+        settings.renderingViewClass = NativeView.self
+        let config = MPNativeAdRendererConfiguration()
+        config.rendererSettings = settings
+        config.supportedCustomEvents = ["NativeView"]
+        return config
+    }
+    
+    func retrieveViewWithAdapter(adapter: MPNativeAdAdapter!) throws -> UIView {
+        return UIView()
+    }
+}
+```
+
+> This is your Hyperadx Native MoPub adapter. Now you can use Mopub as usual.
+
+
 ## Native Ads in Android
 
 The Native Ad API allows you to build a customized experience for the ads you show in your app. When using the Native Ad API, instead of receiving an ad ready to be displayed, you will receive a group of ad properties such as a title, an image, a call to action, and you will have to use them to construct a custom view where the ad is shown.
