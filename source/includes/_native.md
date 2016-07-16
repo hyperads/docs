@@ -200,7 +200,7 @@ Just add HADBannerTemplateView to your view controller and set desired banner te
 You can choose from six layouts.
 
 ```swift
-HADBannerTemplateTypes.BlockOne   //Block banner 320x230
+HADBannerTemplateTypes.BlockOne   //Flexible block banner with aspect ratio 320:230
 HADBannerTemplateTypes.BlockTwo   //Flexible block banner with aspect ratio 320:300
 HADBannerTemplateTypes.BlockThree //Flexible block banner with aspect ratio 320:340
 HADBannerTemplateTypes.LineOne    //Line banner with 50pt height
