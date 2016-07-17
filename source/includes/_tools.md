@@ -14,13 +14,31 @@ You must replace <code>PLACEMENT_ID</code> with your placement's ID.
 
 You can easily customize traffic distribution across different rules
 
+## Events (iOS)
+You can send the events very easy. Just call the method sendEvent(type: HADEventType) from HADEvent class.
+
+Swift example:
+```swift
+HADEvent.sendEvent(.AchievementUnlocked)
+```
+
+Objective-C example:
+```objective_c
+[HADEvent sendEvent:HADEventTypeAchievementUnlocked];
+```
+
+That's all!
+
 ## Events (Android)
-You can send the events very easy. Just call the method sendEvetn(Context, event_code) from HADEvent class.
+You can send the events very easy. Just call the method sendEvent(Context, event_code) from HADEvent class.
 Example:
 ```java
 HADEvent.sendEvent(this, Event.GAMING_ACHIEVEMENT_UNLOCKED);
 ```
+
 That's all!
+
+
 > **Event codes:**
 > 
  	Authenticate events
