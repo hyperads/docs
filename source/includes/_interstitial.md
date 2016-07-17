@@ -74,7 +74,7 @@ The HyperAdX Interstitial ads allows you to monetize your Android apps with bann
 
 Sample projects:
 
-* [Download](https://s3-us-west-2.amazonaws.com/adpanel-public/HyperadxAndroidADs_Sample_v1.2.3.zip) and extract the Example app for Android.
+* [Download](https://s3-us-west-2.amazonaws.com/adpanel-public/HyperadxAndroidADs_Sample_v1.2.4.zip) and extract the Example app for Android.
 
 ### Set up the SDK
 
@@ -82,6 +82,7 @@ Sample projects:
 
 ```xml
 <uses-permission android:name="android.permission.INTERNET"/>
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 ```
 
 > Put the HyperAdxSDK_xxx.jar in “libs” folder in your Android Studio or Eclipse. Add it to dependencies in build.grandle file. Also you need to add google play services.
