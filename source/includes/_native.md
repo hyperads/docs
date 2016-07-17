@@ -66,11 +66,29 @@ override func viewDidLoad() {
 ```
 
 > You may set `content` param on HADNativeAd initialization to get only needed properties. If you didn't set `content` param then you get all properties.
+
+> to get title text
+
 ```swift
-.Title       //to get title text
-.Description //to get description text
-.Banner      //to get banner
-.Icon        //to get icon
+.Title
+```
+
+> to get description text
+
+```swift
+.Description
+```
+
+> to get banner
+
+```swift
+.Banner
+```
+
+> to get icon
+
+```swift
+.Icon
 ```
 
 > Now that you have added the code to load the ad, add the following functions to handle loading failures and to construct the ad once it has loaded:
@@ -142,11 +160,29 @@ func HADNativeAdDidClick(nativeAd: HADNativeAd) {
 ```
 
 > You may set `content` param on HADNativeAd initialization to get only needed properties. If you didn't set `content` param then you get all properties.
+
+> to get title text
+
 ```objective_c
-HADAdContentTitle       //to get title text
-HADAdContentDescription //to get description text
-HADAdContentBanner      //to get banner
-HADAdContentIcon        //to get icon
+HADAdContentTitle
+```
+
+> to get description text
+
+```objective_c
+HADAdContentDescription
+```
+
+> to get banner
+
+```objective_c
+HADAdContentBanner
+```
+
+> to get icon
+
+```objective_c
+HADAdContentIcon
 ```
 
 > Now that you have added the code to load the ad, add the following functions to handle loading failures and to construct the ad once it has loaded:
@@ -199,13 +235,40 @@ Just add HADBannerTemplateView to your view controller and set desired banner te
 
 You can choose from six layouts.
 
+> Flexible block banner with aspect ratio 320:230
+
 ```swift
-HADBannerTemplateTypes.BlockOne   //Flexible block banner with aspect ratio 320:230
-HADBannerTemplateTypes.BlockTwo   //Flexible block banner with aspect ratio 320:300
-HADBannerTemplateTypes.BlockThree //Flexible block banner with aspect ratio 320:340
-HADBannerTemplateTypes.LineOne    //Line banner with 50pt height
-HADBannerTemplateTypes.LineTwo    //Line banner with 60pt height
-HADBannerTemplateTypes.LineThree  //Line banner with 90pt height
+HADBannerTemplateTypes.BlockOne
+```
+
+> Flexible block banner with aspect ratio 320:300
+
+```swift
+HADBannerTemplateTypes.BlockTwo
+```
+
+> Flexible block banner with aspect ratio 320:340
+
+```swift
+HADBannerTemplateTypes.BlockThree
+```
+
+> Line banner with 50pt height
+
+```swift
+HADBannerTemplateTypes.LineOne
+```
+
+> Line banner with 60pt height
+
+```swift
+HADBannerTemplateTypes.LineTwo
+```
+
+> Line banner with 90pt height
+
+```swift
+HADBannerTemplateTypes.LineThree
 ```
 
 ### Custom params
@@ -213,46 +276,129 @@ HADBannerTemplateTypes.LineThree  //Line banner with 90pt height
 All custom params starts with `custom` prefix
 
 Background colors
+
+> Whole ad background
+
 ```swift
-customBackgroundColor          //Whole ad background
-customButtonBackgroundColor    //CTA button background
-customAgeRatingBackgroundColor //AgeRating label background
+customBackgroundColor
+```
+
+> CTA button background
+
+```swift
+customButtonBackgroundColor
+```
+
+> AgeRating label background
+
+```swift
+customAgeRatingBackgroundColor
 ```
 
 Text colors
+
+> Title label text color
+
 ```swift
-customTitleTextColor           //Title label text color
-customDescriptionTextColor     //Description label text color
-customPoweredByTextColor       //PoweredBy label text color
-customAgeRatingTextColor       //AgeRating label text color
-customButtonTitleColor         //CTA button title text color
+customTitleTextColor
+```
+
+> Description label text color
+
+```swift
+customDescriptionTextColor
+```
+
+> PoweredBy label text color
+
+```swift
+customPoweredByTextColor
+```
+
+> AgeRating label text color
+
+```swift
+customAgeRatingTextColor
+```
+
+> CTA button title text color
+
+```swift
+customButtonTitleColor
 ```
 
 Corner radius
+
+> Icon
+
 ```swift
-customIconCornerRadius         //Icon
-customBannerCornerRadius       //Banner
-customButtonCornerRadius       //CTA button
-customAgeRatingCornerRadius    //Age rating label
+customIconCornerRadius
+```
+
+> Banner
+
+```swift
+customBannerCornerRadius
+```
+
+> CTA button
+
+```swift
+customButtonCornerRadius
+```
+
+> Age rating label
+
+```swift
+customAgeRatingCornerRadius
 ```
 
 CTA button border
+
+> Border color
+
 ```swift
-customButtonBorderColor        //Border color
-customButtonBorderWidth        //Border width
+customButtonBorderColor
+```
+
+> Border width
+
+```swift
+customButtonBorderWidth
 ```
 
 Star rating
+
+> Filled color
+
 ```swift
-customStarRatingFilledColor    //Filled color
-customStarRatingEmptyColor     //Empty color
-customStarRatingTextColor      //Right text color
+customStarRatingFilledColor
+```
+
+> Empty color
+
+```swift
+customStarRatingEmptyColor
+```
+
+> Right text color
+
+```swift
+customStarRatingTextColor
 ```
 
 Click mode
+
+> Handle click only on button
+
 ```swift
-customClickMode = .Button      //Handle click only on button
-customClickMode = .WholeBanner //Handle click everywhere
+customClickMode = .Button
+```
+
+> Handle click everywhere
+
+```swift
+customClickMode = .WholeBanner
 ```
 
 ### Swift implementation
