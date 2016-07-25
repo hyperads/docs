@@ -153,7 +153,7 @@
 <p>Follow these steps to download and include it in your project:</p>
 
 <ul>
-<li><a href="https://s3-us-west-2.amazonaws.com/adpanel-public/HyperadxiOSADs_Sample_v2.0.0.zip">Download</a> and extract the HADFramework for iOS.</li>
+<li><a href="https://s3-us-west-2.amazonaws.com/adpanel-public/HyperadxiOSADs_Sample_v2.0.1.zip">Download</a> and extract the HADFramework for iOS.</li>
 <li>Open your project target General tab.</li>
 <li>Drag the HADFramework.framework file to Embedded Binaries.</li>
 <li>Open your project target Build Settings tab. (Required only for Objective-C projects)</li>
@@ -185,9 +185,35 @@
 </blockquote>
 <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">viewDidLoad</span><span class="p">()</span> <span class="p">{</span>
     <span class="k">super</span><span class="o">.</span><span class="nf">viewDidLoad</span><span class="p">()</span>
-    <span class="n">nativeAd</span> <span class="o">=</span> <span class="kt">HADNativeAd</span><span class="p">(</span><span class="nv">placementId</span><span class="p">:</span> <span class="s">"PLACEMENT_ID"</span><span class="p">,</span> <span class="nv">bannerSize</span><span class="p">:</span> <span class="o">.</span><span class="kt">Block300x250</span><span class="p">,</span> <span class="nv">delegate</span><span class="p">:</span> <span class="k">self</span><span class="p">)</span>
+    <span class="n">nativeAd</span> <span class="o">=</span> <span class="kt">HADNativeAd</span><span class="p">(</span><span class="nv">placementId</span><span class="p">:</span> <span class="s">"PLACEMENT_ID"</span><span class="p">,</span> <span class="nv">content</span><span class="p">:</span> <span class="p">[</span><span class="o">.</span><span class="kt">Title</span><span class="p">,</span> <span class="o">.</span><span class="kt">Description</span><span class="p">,</span> <span class="o">.</span><span class="kt">Banner</span><span class="p">,</span> <span class="o">.</span><span class="kt">Icon</span><span class="p">],</span> <span class="nv">delegate</span><span class="p">:</span> <span class="k">self</span><span class="p">)</span>
     <span class="n">nativeAd</span><span class="o">.</span><span class="nf">loadAd</span><span class="p">()</span>
 <span class="p">}</span>
+</code></pre>
+
+<blockquote>
+<p>You may set <code class="prettyprint">content</code> param on HADNativeAd initialization to get only needed properties. If you didn&rsquo;t set <code class="prettyprint">content</code> param then you get all properties.</p>
+
+<p>to get title text</p>
+</blockquote>
+<pre class="highlight swift"><code><span class="o">.</span><span class="kt">Title</span>
+</code></pre>
+
+<blockquote>
+<p>to get description text</p>
+</blockquote>
+<pre class="highlight swift"><code><span class="o">.</span><span class="kt">Description</span>
+</code></pre>
+
+<blockquote>
+<p>to get banner</p>
+</blockquote>
+<pre class="highlight swift"><code><span class="o">.</span><span class="kt">Banner</span>
+</code></pre>
+
+<blockquote>
+<p>to get icon</p>
+</blockquote>
+<pre class="highlight swift"><code><span class="o">.</span><span class="kt">Icon</span>
 </code></pre>
 
 <blockquote>
@@ -253,9 +279,35 @@
 </blockquote>
 <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">viewDidLoad</span> <span class="p">{</span>
     <span class="p">[</span><span class="n">super</span> <span class="nf">viewDidLoad</span><span class="p">];</span>
-    <span class="n">self</span><span class="p">.</span><span class="n">nativeAd</span> <span class="o">=</span> <span class="p">[[</span><span class="n">HADNativeAd</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithPlacementId</span><span class="p">:</span><span class="s">@"PLACEMENT_ID"</span> <span class="nf">bannerSize</span><span class="p">:</span><span class="n">HADBannerSizeBlock300x250</span> <span class="nf">delegate</span><span class="p">:</span><span class="n">self</span><span class="p">];</span>
+    <span class="n">self</span><span class="p">.</span><span class="n">nativeAd</span> <span class="o">=</span> <span class="p">[[</span><span class="n">HADNativeAd</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithPlacementId</span><span class="p">:</span><span class="s">@"PLACEMENT_ID"</span> <span class="nf">content</span><span class="p">:@[</span><span class="n">HADAdContentTitle</span><span class="p">,</span> <span class="n">HADAdContentDescription</span><span class="p">,</span> <span class="n">HADAdContentBanner</span><span class="p">,</span> <span class="n">HADAdContentIcon</span><span class="p">]</span> <span class="nf">delegate</span><span class="p">:</span><span class="n">self</span><span class="p">];</span>
         <span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">nativeAd</span> <span class="nf">loadAd</span><span class="p">];</span>
 <span class="p">}</span>
+</code></pre>
+
+<blockquote>
+<p>You may set <code class="prettyprint">content</code> param on HADNativeAd initialization to get only needed properties. If you didn&rsquo;t set <code class="prettyprint">content</code> param then you get all properties.</p>
+
+<p>to get title text</p>
+</blockquote>
+<pre class="highlight objective_c"><code><span class="n">HADAdContentTitle</span>
+</code></pre>
+
+<blockquote>
+<p>to get description text</p>
+</blockquote>
+<pre class="highlight objective_c"><code><span class="n">HADAdContentDescription</span>
+</code></pre>
+
+<blockquote>
+<p>to get banner</p>
+</blockquote>
+<pre class="highlight objective_c"><code><span class="n">HADAdContentBanner</span>
+</code></pre>
+
+<blockquote>
+<p>to get icon</p>
+</blockquote>
+<pre class="highlight objective_c"><code><span class="n">HADAdContentIcon</span>
 </code></pre>
 
 <blockquote>
@@ -307,60 +359,172 @@
 <h3 id="banner-templates">Banner templates</h3>
 
 <p>You can choose from six layouts.</p>
-<pre class="highlight swift"><code><span class="kt">HADBannerTemplateTypes</span><span class="o">.</span><span class="kt">BlockOne</span>   <span class="c1">//Block banner 320x230</span>
-<span class="kt">HADBannerTemplateTypes</span><span class="o">.</span><span class="kt">BlockTwo</span>   <span class="c1">//Flexible block banner with aspect ratio 320:300</span>
-<span class="kt">HADBannerTemplateTypes</span><span class="o">.</span><span class="kt">BlockThree</span> <span class="c1">//Flexible block banner with aspect ratio 320:340</span>
-<span class="kt">HADBannerTemplateTypes</span><span class="o">.</span><span class="kt">LineOne</span>    <span class="c1">//Line banner with 50pt height</span>
-<span class="kt">HADBannerTemplateTypes</span><span class="o">.</span><span class="kt">LineTwo</span>    <span class="c1">//Line banner with 60pt height</span>
-<span class="kt">HADBannerTemplateTypes</span><span class="o">.</span><span class="kt">LineThree</span>  <span class="c1">//Line banner with 90pt height</span>
+
+<blockquote>
+<p>Flexible block banner with aspect ratio 320:230</p>
+</blockquote>
+<pre class="highlight swift"><code><span class="kt">HADBannerTemplateTypes</span><span class="o">.</span><span class="kt">BlockOne</span>
+</code></pre>
+
+<blockquote>
+<p>Flexible block banner with aspect ratio 320:300</p>
+</blockquote>
+<pre class="highlight swift"><code><span class="kt">HADBannerTemplateTypes</span><span class="o">.</span><span class="kt">BlockTwo</span>
+</code></pre>
+
+<blockquote>
+<p>Flexible block banner with aspect ratio 320:340</p>
+</blockquote>
+<pre class="highlight swift"><code><span class="kt">HADBannerTemplateTypes</span><span class="o">.</span><span class="kt">BlockThree</span>
+</code></pre>
+
+<blockquote>
+<p>Line banner with 50pt height</p>
+</blockquote>
+<pre class="highlight swift"><code><span class="kt">HADBannerTemplateTypes</span><span class="o">.</span><span class="kt">LineOne</span>
+</code></pre>
+
+<blockquote>
+<p>Line banner with 60pt height</p>
+</blockquote>
+<pre class="highlight swift"><code><span class="kt">HADBannerTemplateTypes</span><span class="o">.</span><span class="kt">LineTwo</span>
+</code></pre>
+
+<blockquote>
+<p>Line banner with 90pt height</p>
+</blockquote>
+<pre class="highlight swift"><code><span class="kt">HADBannerTemplateTypes</span><span class="o">.</span><span class="kt">LineThree</span>
 </code></pre>
 
 <h3 id="custom-params">Custom params</h3>
 
 <p>All custom params starts with <code class="prettyprint">custom</code> prefix</p>
 
-<p>Background colors
-<code class="prettyprint">swift
-customBackgroundColor          //Whole ad background
-customButtonBackgroundColor    //CTA button background
-customAgeRatingBackgroundColor //AgeRating label background
-</code></p>
+<p>Background colors</p>
 
-<p>Text colors
-<code class="prettyprint">swift
-customTitleTextColor           //Title label text color
-customDescriptionTextColor     //Description label text color
-customPoweredByTextColor       //PoweredBy label text color
-customAgeRatingTextColor       //AgeRating label text color
-customButtonTitleColor         //CTA button title text color
-</code></p>
+<blockquote>
+<p>Whole ad background</p>
+</blockquote>
+<pre class="highlight swift"><code><span class="n">customBackgroundColor</span>
+</code></pre>
 
-<p>Corner radius
-<code class="prettyprint">swift
-customIconCornerRadius         //Icon
-customBannerCornerRadius       //Banner
-customButtonCornerRadius       //CTA button
-customAgeRatingCornerRadius    //Age rating label
-</code></p>
+<blockquote>
+<p>CTA button background</p>
+</blockquote>
+<pre class="highlight swift"><code><span class="n">customButtonBackgroundColor</span>
+</code></pre>
 
-<p>CTA button border
-<code class="prettyprint">swift
-customButtonBorderColor        //Border color
-customButtonBorderWidth        //Border width
-</code></p>
+<blockquote>
+<p>AgeRating label background</p>
+</blockquote>
+<pre class="highlight swift"><code><span class="n">customAgeRatingBackgroundColor</span>
+</code></pre>
 
-<p>Star rating
-<code class="prettyprint">swift
-customStarRatingFilledColor    //Filled color
-customStarRatingEmptyColor     //Empty color
-customStarRatingTextColor      //Right text color
-</code></p>
+<p>Text colors</p>
 
-<p>Click mode
-<code class="prettyprint">swift
-customClickMode = .Button      //Handle click only on button
-customClickMode = .WholeBanner //Handle click everywhere
-</code></p>
+<blockquote>
+<p>Title label text color</p>
+</blockquote>
+<pre class="highlight swift"><code><span class="n">customTitleTextColor</span>
+</code></pre>
+
+<blockquote>
+<p>Description label text color</p>
+</blockquote>
+<pre class="highlight swift"><code><span class="n">customDescriptionTextColor</span>
+</code></pre>
+
+<blockquote>
+<p>PoweredBy label text color</p>
+</blockquote>
+<pre class="highlight swift"><code><span class="n">customPoweredByTextColor</span>
+</code></pre>
+
+<blockquote>
+<p>AgeRating label text color</p>
+</blockquote>
+<pre class="highlight swift"><code><span class="n">customAgeRatingTextColor</span>
+</code></pre>
+
+<blockquote>
+<p>CTA button title text color</p>
+</blockquote>
+<pre class="highlight swift"><code><span class="n">customButtonTitleColor</span>
+</code></pre>
+
+<p>Corner radius</p>
+
+<blockquote>
+<p>Icon</p>
+</blockquote>
+<pre class="highlight swift"><code><span class="n">customIconCornerRadius</span>
+</code></pre>
+
+<blockquote>
+<p>Banner</p>
+</blockquote>
+<pre class="highlight swift"><code><span class="n">customBannerCornerRadius</span>
+</code></pre>
+
+<blockquote>
+<p>CTA button</p>
+</blockquote>
+<pre class="highlight swift"><code><span class="n">customButtonCornerRadius</span>
+</code></pre>
+
+<blockquote>
+<p>Age rating label</p>
+</blockquote>
+<pre class="highlight swift"><code><span class="n">customAgeRatingCornerRadius</span>
+</code></pre>
+
+<p>CTA button border</p>
+
+<blockquote>
+<p>Border color</p>
+</blockquote>
+<pre class="highlight swift"><code><span class="n">customButtonBorderColor</span>
+</code></pre>
+
+<blockquote>
+<p>Border width</p>
+</blockquote>
+<pre class="highlight swift"><code><span class="n">customButtonBorderWidth</span>
+</code></pre>
+
+<p>Star rating</p>
+
+<blockquote>
+<p>Filled color</p>
+</blockquote>
+<pre class="highlight swift"><code><span class="n">customStarRatingFilledColor</span>
+</code></pre>
+
+<blockquote>
+<p>Empty color</p>
+</blockquote>
+<pre class="highlight swift"><code><span class="n">customStarRatingEmptyColor</span>
+</code></pre>
+
+<blockquote>
+<p>Right text color</p>
+</blockquote>
+<pre class="highlight swift"><code><span class="n">customStarRatingTextColor</span>
+</code></pre>
+
+<p>Click mode</p>
+
+<blockquote>
+<p>Handle click only on button</p>
+</blockquote>
+<pre class="highlight swift"><code><span class="n">customClickMode</span> <span class="o">=</span> <span class="o">.</span><span class="kt">Button</span>
+</code></pre>
+
+<blockquote>
+<p>Handle click everywhere</p>
+</blockquote>
+<pre class="highlight swift"><code><span class="n">customClickMode</span> <span class="o">=</span> <span class="o">.</span><span class="kt">WholeBanner</span>
+</code></pre>
 
 <h3 id="swift-implementation">Swift implementation</h3>
 <pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">HADFramework</span>
@@ -457,10 +621,9 @@ customClickMode = .WholeBanner //Handle click everywhere
 <h3 id="mopub-adapter">Mopub Adapter</h3>
 
 <ul>
-<li><a href="https://s3-us-west-2.amazonaws.com/adpanel-public/HyperadxiOSMoPubAdapter_2.0.0.zip">Download</a> and extract the Mopub adapter if needed.</li>
+<li><p><a href="https://s3-us-west-2.amazonaws.com/adpanel-public/HyperadxiOSADs_Sample_v2.0.1.zip">Download</a> and extract the HADFramework for iOS.</p></li>
+<li><p>You can find Mopub adapter example in HyperadxiOSADs_Sample_v2.0.1/Mediation Adapters/MoPub/.</p></li>
 </ul>
-
-<p>You can use Hyperadx as a Network in Mopub&rsquo;s Mediation platform.</p>
 
 <p>Setup SDKs:</p>
 
@@ -604,7 +767,7 @@ Implement MoPub NativeViewController:</p>
 <p>Sample projects:</p>
 
 <ul>
-<li><a href="https://s3-us-west-2.amazonaws.com/adpanel-public/HyperadxAndroidADs_Sample_v1.2.3.zip">Download</a> and extract the Example app for Android.</li>
+<li><a href="https://s3-us-west-2.amazonaws.com/adpanel-public/HyperadxAndroidADs_Sample_v1.2.4.zip">Download</a> and extract the Example app for Android.</li>
 </ul>
 
 <h3 id="set-up-the-sdk">Set up the SDK</h3>
@@ -613,6 +776,7 @@ Implement MoPub NativeViewController:</p>
 <p>Add following under manifest tag to your AndroidManifest.xml:</p>
 </blockquote>
 <pre class="highlight xml"><code> <span class="nt">&lt;uses-permission</span> <span class="na">android:name=</span><span class="s">"android.permission.INTERNET"</span><span class="nt">/&gt;</span>
+ <span class="nt">&lt;uses-permission</span> <span class="na">android:name=</span><span class="s">"android.permission.ACCESS_NETWORK_STATE"</span> <span class="nt">/&gt;</span>
 </code></pre>
 
 <blockquote>
@@ -945,6 +1109,12 @@ Create package &ldquo;com.mopub.nativeads&rdquo; in your project and put this cl
 
 <p>HyperAdX uses Placement ID to allow access to the API. You can register a new App and create Placement at our <a href="http://hyperadx.com/publishers/sign_in">developer portal</a>.</p>
 
+<p>HyperAdX expects for Placement ID to be included in all API requests to the server in a get variable that looks like the following:</p>
+
+<aside class="notice">
+You must replace <code>PLACEMENT_ID</code> with your placement&rsquo;s ID.
+</aside>
+
 <h2 id="mobile-web">Mobile Web</h2>
 
 <ul>
@@ -1274,7 +1444,7 @@ Implement MoPub Banner:</p>
 <p><strong>Manual</strong></p>
 
 <ul>
-<li><a href="https://s3-us-west-2.amazonaws.com/adpanel-public/HyperadxiOSADs_Sample_v2.0.0.zip">Download</a> and extract the HADFramework for iOS.</li>
+<li><a href="https://s3-us-west-2.amazonaws.com/adpanel-public/HyperadxiOSADs_Sample_v2.0.1.zip">Download</a> and extract the HADFramework for iOS.</li>
 <li>Open your project target General tab.</li>
 <li>Drag the HADFramework.framework file to Embedded Binaries.</li>
 <li>Open your project target Build Settings tab. (Required only for Objective-C projects)</li>
@@ -1441,7 +1611,8 @@ Import the SDK header in AppDelegate.h:</p>
 <h3 id="admob-adapter">Admob Adapter</h3>
 
 <ul>
-<li><p><a href="https://s3-us-west-2.amazonaws.com/adpanel-public/HyperadxiOSAdmobAdapter_2.0.0.zip">Download</a> and extract the AdMob adapter if needed.</p></li>
+<li><p><a href="https://s3-us-west-2.amazonaws.com/adpanel-public/HyperadxiOSADs_Sample_v2.0.1.zip">Download</a> and extract the HADFramework for iOS.</p></li>
+<li><p>You can find Admob adapter example in HyperadxiOSADs_Sample_v2.0.1/Mediation Adapters/AdMob/.</p></li>
 <li><p>First of all you need to add new app in AdMob console.</p></li>
 <li><p>You will get UnitId string like &lsquo;ca-app-pub-**********<strong><em>/</em></strong>**********&rsquo;.
 For the next few hours you may get the AdMob errors with codes 0 or 2. Just be patient.</p></li>
@@ -1504,10 +1675,9 @@ For the next few hours you may get the AdMob errors with codes 0 or 2. Just be p
 <h3 id="mopub-adapter">Mopub Adapter</h3>
 
 <ul>
-<li><a href="https://s3-us-west-2.amazonaws.com/adpanel-public/HyperadxiOSMoPubAdapter_2.0.0.zip">Download</a> and extract the Mopub adapter if needed.</li>
+<li><p><a href="https://s3-us-west-2.amazonaws.com/adpanel-public/HyperadxiOSADs_Sample_v2.0.1.zip">Download</a> and extract the HADFramework for iOS.</p></li>
+<li><p>You can find Mopub adapter example in HyperadxiOSADs_Sample_v2.0.1/Mediation Adapters/MoPub/.</p></li>
 </ul>
-
-<p>You can use Hyperadx as a Network in Mopub&rsquo;s Mediation platform.</p>
 
 <p>Setup SDKs:</p>
 
@@ -1580,7 +1750,7 @@ Implement MoPub Interstitial:</p>
 <p>Sample projects:</p>
 
 <ul>
-<li><a href="https://s3-us-west-2.amazonaws.com/adpanel-public/HyperadxAndroidADs_Sample_v1.2.3.zip">Download</a> and extract the Example app for Android.</li>
+<li><a href="https://s3-us-west-2.amazonaws.com/adpanel-public/HyperadxAndroidADs_Sample_v1.2.4.zip">Download</a> and extract the Example app for Android.</li>
 </ul>
 
 <h3 id="set-up-the-sdk">Set up the SDK</h3>
@@ -1589,6 +1759,7 @@ Implement MoPub Interstitial:</p>
 <p>Add following under manifest tag to your AndroidManifest.xml:</p>
 </blockquote>
 <pre class="highlight xml"><code><span class="nt">&lt;uses-permission</span> <span class="na">android:name=</span><span class="s">"android.permission.INTERNET"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;uses-permission</span> <span class="na">android:name=</span><span class="s">"android.permission.ACCESS_NETWORK_STATE"</span> <span class="nt">/&gt;</span>
 </code></pre>
 
 <blockquote>
@@ -1851,11 +2022,77 @@ Create package &ldquo;com.mopub.mobileads&rdquo; in your project and put this cl
     <span class="kd">protected</span> <span class="kt">void</span> <span class="n">onInvalidate</span><span class="o">()</span> <span class="o">{</span>
     <span class="o">}</span>
 <span class="o">}</span>
+
+<span class="o">&gt;</span> <span class="n">This</span> <span class="n">is</span> <span class="n">your</span> <span class="n">adapter</span><span class="o">.</span> <span class="n">Now</span> <span class="n">you</span> <span class="n">can</span> <span class="n">use</span> <span class="n">Mopub</span> <span class="n">as</span> <span class="n">usual</span><span class="o">.</span>
+
 </code></pre>
 
-<blockquote>
-<p>This is your adapter. Now you can use Mopub as usual.</p>
-</blockquote>
+          <h1 id="segments">Segments</h1>
+
+<p>With sending in-app events triggered by your users you can improve your monetization and get higher earnings.</p>
+
+<p>Our platform automatically build audiences using your in-app data (provided by your events) and assigns high performing campaigns individually to each segment.</p>
+
+<p>Also our advertisers and mediabuying departmentment make higher bids for more engaged users.</p>
+
+<h2 id="android">Android</h2>
+
+<p>You can send the events very easy. Just call the method <code class="prettyprint">sendEvent(Context, event_code)</code> from HADEvent class.</p>
+
+<p>Example: <code class="prettyprint">HADEvent.sendEvent(this, Event.GAMING_ACHIEVEMENT_UNLOCKED);</code></p>
+
+<h2 id="ios">iOS</h2>
+
+<p>You can send the events very easy. Just call the method <code class="prettyprint">sendEvent(type: HADEventType)</code> from HADEvent class.</p>
+
+<p>Swift example: <code class="prettyprint">HADEvent.sendEvent(.AchievementUnlocked)</code></p>
+
+<p>Objective-C example: <code class="prettyprint">[HADEvent sendEvent:HADEventTypeAchievementUnlocked];</code></p>
+
+<h2 id="event-codes">Event codes</h2>
+
+<p><strong>Authenticate events</strong></p>
+
+<ul>
+<li>101 Registration</li>
+<li>102 Login</li>
+<li>103 Open</li>
+</ul>
+
+<p><strong>eCommerce events</strong></p>
+
+<ul>
+<li>201 Add to Wishlist</li>
+<li>202 Add to Cart</li>
+<li>203 Added Payment Info</li>
+<li>204 Reservation</li>
+<li>205 Checkout Initiated</li>
+<li>206 Purchase</li>
+</ul>
+
+<p><strong>Content events</strong></p>
+
+<ul>
+<li>301 Search</li>
+<li>302 Content View</li>
+</ul>
+
+<p><strong>Gaming events</strong></p>
+
+<ul>
+<li>401 Tutorial Completed</li>
+<li>402 Level Achieved</li>
+<li>403 Achievement Unlocked</li>
+<li>404 Spent Credit</li>
+</ul>
+
+<p><strong>Social events</strong></p>
+
+<ul>
+<li>501 Invite</li>
+<li>502 Rated</li>
+<li>504 Share</li>
+</ul>
 
           <h1 id="api">API</h1>
 
@@ -1904,18 +2141,6 @@ Create package &ldquo;com.mopub.mobileads&rdquo; in your project and put this cl
 <td>false</td>
 <td>image</td>
 <td>Type of creative (image/video)</td>
-</tr>
-<tr>
-<td>type</td>
-<td>false</td>
-<td>native</td>
-<td>Type of advertisement</td>
-</tr>
-<tr>
-<td>orientation</td>
-<td>false</td>
-<td>No</td>
-<td>Device orientation</td>
 </tr>
 <tr>
 <td>format</td>
@@ -2049,47 +2274,6 @@ You must replace <code>PLACEMENT_ID</code> with your placement&rsquo;s ID.
 <h2 id="traffic-distribution-system-tds">Traffic distribution system (TDS)</h2>
 
 <p>You can easily customize traffic distribution across different rules</p>
-
-<h2 id="events-android">Events (Android)</h2>
-
-<p>You can send the events very easy. Just call the method sendEvetn(Context, event_code) from HADEvent class.
-Example:
-<code class="prettyprint">java
-HADEvent.sendEvent(this, Event.GAMING_ACHIEVEMENT_UNLOCKED);
-</code>
-That&rsquo;s all!</p>
-
-<blockquote>
-<p><strong>Event codes:</strong></p>
-
-<p>Authenticate events
-- 101 Registration
-- 102 Login
-- 103 Open</p>
-
-<p>eCommerce events
-- 201 Add to Wishlist
-- 202 Add to Cart
-- 203 Added Payment Info
-- 204 Reservation
-- 205 Checkout Initiated
-- 206 Purchase</p>
-
-<p>Content events
-- 301 Search
-- 302 Content View</p>
-
-<p>Gaming events
-- 401 Tutorial Completed
-- 402 Level Achieved
-- 403 Achievement Unlocked
-- 404 Spent Credit</p>
-
-<p>Social events
-- 501 Invite
-- 502 Rated
-- 504 Share</p>
-</blockquote>
 
       </div>
       <div class="dark-box">
