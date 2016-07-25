@@ -9,6 +9,7 @@ includes:
   - native
   - banner
   - interstitial
+  - segments
   - api
   - tools
 

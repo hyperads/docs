@@ -15,7 +15,7 @@ The HyperAdX Interstitial ads allows you to monetize your iOS apps with banner a
 
 **Manual**
 
-* [Download](https://s3-us-west-2.amazonaws.com/adpanel-public/HyperadxiOSADs_Sample_v2.0.0.zip) and extract the HADFramework for iOS.
+* [Download](https://s3-us-west-2.amazonaws.com/adpanel-public/HyperadxiOSADs_Sample_v2.0.1.zip) and extract the HADFramework for iOS.
 * Open your project target General tab.
 * Drag the HADFramework.framework file to Embedded Binaries.
 * Open your project target Build Settings tab. (Required only for Objective-C projects)
@@ -180,7 +180,9 @@ func HADInterstitialDidClose(controller: HADInterstitial) {
 
 ###Admob Adapter
 
-* [Download](https://s3-us-west-2.amazonaws.com/adpanel-public/HyperadxiOSAdmobAdapter_2.0.0.zip) and extract the AdMob adapter if needed.
+* [Download](https://s3-us-west-2.amazonaws.com/adpanel-public/HyperadxiOSADs_Sample_v2.0.1.zip) and extract the HADFramework for iOS.
+
+* You can find Admob adapter example in HyperadxiOSADs_Sample_v2.0.1/Mediation Adapters/AdMob/.
 
 * First of all you need to add new app in AdMob console.
 
@@ -209,7 +211,7 @@ import UIKit
 
 class ViewController: UIViewController, GADInterstitialDelegate {
     var interstitial: GADInterstitial!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         let request = GADRequest()
@@ -218,7 +220,7 @@ class ViewController: UIViewController, GADInterstitialDelegate {
         interstitial.delegate = self
         interstitial.loadRequest(request)
     }
-    
+
     @IBAction func createAndLoadInterstitial() {
         if interstitial.isReady {
             interstitial.presentFromRootViewController(self)
@@ -226,12 +228,12 @@ class ViewController: UIViewController, GADInterstitialDelegate {
             print("Ad wasn't ready")
         }
     }
-    
+
     //MARK: GADInterstitialDelegate
     func interstitialDidReceiveAd(ad: GADInterstitial!) {
         print("interstitialDidReceiveAd")
     }
-    
+
     func interstitial(ad: GADInterstitial!, didFailToReceiveAdWithError error: GADRequestError!) {
         print("interstitial didFailToReceiveAdWithError: \(error)")
     }
@@ -240,9 +242,9 @@ class ViewController: UIViewController, GADInterstitialDelegate {
 
 ###Mopub Adapter
 
-* [Download](https://s3-us-west-2.amazonaws.com/adpanel-public/HyperadxiOSMoPubAdapter_2.0.0.zip) and extract the Mopub adapter if needed.
+* [Download](https://s3-us-west-2.amazonaws.com/adpanel-public/HyperadxiOSADs_Sample_v2.0.1.zip) and extract the HADFramework for iOS.
 
-You can use Hyperadx as a Network in Mopub's Mediation platform.
+* You can find Mopub adapter example in HyperadxiOSADs_Sample_v2.0.1/Mediation Adapters/MoPub/.
 
 Setup SDKs:
 
@@ -276,7 +278,7 @@ import UIKit
 
 class ViewController: UIViewController, MPInterstitialAdControllerDelegate {
     var interstitial: MPInterstitialAdController!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         //Interstitial
@@ -284,13 +286,13 @@ class ViewController: UIViewController, MPInterstitialAdControllerDelegate {
         interstitial.delegate = self
         interstitial.loadAd()
     }
-    
+
     //MARK: MPInterstitialAdControllerDelegate
     func interstitialDidLoadAd(interstitial: MPInterstitialAdController!) {
         print("interstitialDidLoadAd")
         interstitial.showFromViewController(self)
     }
-    
+
     func interstitialDidFailToLoadAd(inter: MPInterstitialAdController!) {
         print("interstitialDidFailToLoadAd")
         interstitial = MPInterstitialAdController(forAdUnitId: "5b0f8ff979a840b4928ca7fd14ec82e7")
@@ -572,6 +574,7 @@ public class HyperadxInterstitialMopub extends CustomEventInterstitial {
     protected void onInvalidate() {
     }
 }
-```
 
 > This is your adapter. Now you can use Mopub as usual.
+
+```

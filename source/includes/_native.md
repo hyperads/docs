@@ -2,12 +2,6 @@
 
 HyperAdX uses Placement ID to allow access to the API. You can register a new App and create Placement at our [developer portal](http://hyperadx.com/publishers/sign_in).
 
-HyperAdX expects for Placement ID to be included in all API requests to the server in a get variable that looks like the following:
-
-<aside class="notice">
-You must replace <code>PLACEMENT_ID</code> with your placement's ID.
-</aside>
-
 ## Native Ads in Mobile Web
 
 * Go to the Publisher UI
@@ -29,7 +23,7 @@ The HyperAdX's Native Ads allows you to build a customized experience for the ad
 
 Follow these steps to download and include it in your project:
 
-* [Download](https://s3-us-west-2.amazonaws.com/adpanel-public/HyperadxiOSADs_Sample_v2.0.0.zip) and extract the HADFramework for iOS.
+* [Download](https://s3-us-west-2.amazonaws.com/adpanel-public/HyperadxiOSADs_Sample_v2.0.1.zip) and extract the HADFramework for iOS.
 * Open your project target General tab.
 * Drag the HADFramework.framework file to Embedded Binaries.
 * Open your project target Build Settings tab. (Required only for Objective-C projects)
@@ -49,9 +43,9 @@ class MyViewController: UIViewController, HADNativeAdDelegate {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descLabel: UILabel!
     @IBOutlet weak var cta: UIButton?
-    
+
     var nativeAd: HADNativeAd! = nil
-    
+
 }
 ```
 
@@ -98,7 +92,7 @@ override func viewDidLoad() {
 func HADAd(nativeAd: HADNativeAd, didFailWithError error: NSError) {
 	print("ERROR: \(error.localizedDescription)")
 }
-    
+
 func HADNativeAdDidLoad(nativeAd: HADNativeAd) {
 	imageView.loadHADBanner(nativeAd, animated: true) { (error, image) in
     		if error != nil {
@@ -408,7 +402,7 @@ import HADFramework
 
 class MyViewController: UIViewController, HADBannerTemplateViewDelegate {
     @IBOutlet weak var bannerTemplateView: HADBannerTemplateView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         //Just set HADBannerTemplateTypes param in loadAd method
@@ -429,17 +423,17 @@ class MyViewController: UIViewController, HADBannerTemplateViewDelegate {
         bannerTemplateView.customStarRatingTextColor = UIColor.purpleColor()
         bannerTemplateView.customClickMode = .Button
     }
-    
+
     //MARK: HADBannerTemplateViewDelegate
-    
+
     func HADTemplateViewDidLoad(view: HADBannerTemplateView) {
         print("AD LOADED")
     }
-    
+
     func HADTemplateViewDidClick(view: HADBannerTemplateView) {
         print("CLICKED AD")
     }
-    
+
     func HADTemplateView(view: HADBannerTemplateView, didFailWithError error: NSError?) {
         print("ERROR: %@", error?.localizedDescription)
     }
@@ -499,9 +493,9 @@ As you can see it's really easy to use!
 
 ###Mopub Adapter
 
-* [Download](https://s3-us-west-2.amazonaws.com/adpanel-public/HyperadxiOSMoPubAdapter_2.0.0.zip) and extract the Mopub adapter if needed.
+* [Download](https://s3-us-west-2.amazonaws.com/adpanel-public/HyperadxiOSADs_Sample_v2.0.1.zip) and extract the HADFramework for iOS.
 
-You can use Hyperadx as a Network in Mopub's Mediation platform.
+* You can find Mopub adapter example in HyperadxiOSADs_Sample_v2.0.1/Mediation Adapters/MoPub/.
 
 Setup SDKs:
 
@@ -540,7 +534,7 @@ class NativeViewController: UIViewController, MPNativeAdRendering, MPNativeAdDel
     @IBOutlet weak var callToActionLabel: UILabel!
     @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var mainImageView: UIImageView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         let settings = MPStaticNativeAdRendererSettings()
@@ -564,32 +558,32 @@ class NativeViewController: UIViewController, MPNativeAdRendering, MPNativeAdDel
             }
         }
     }
-    
+
     //MARK: MPNativeAdRendering
     func nativeTitleTextLabel() -> UILabel! {
         return titleLabel
     }
-    
+
     func nativeMainTextLabel() -> UILabel! {
         return mainTextLabel
     }
-    
+
     func nativeCallToActionTextLabel() -> UILabel! {
         return callToActionLabel!
     }
-    
+
     func nativeIconImageView() -> UIImageView! {
         return iconImageView
     }
-    
+
     func nativeMainImageView() -> UIImageView! {
         return mainImageView
     }
-    
+
     func nativeVideoView() -> UIView! {
         return UIView()
     }
-    
+
     //MARK: MPNativeAdDelegate
     func viewControllerForPresentingModalView() -> UIViewController! {
         return self
@@ -603,20 +597,20 @@ And implement MoPubNativeAdRenderer, e.g.:
 class NativeView: UIView, MPNativeAdRenderer {
     //MARK: MPNativeAdRenderer
     var settings: MPNativeAdRendererSettings!
-    
+
     required init!(rendererSettings: MPNativeAdRendererSettings!) {
         super.init(frame: CGRectZero)
         settings = rendererSettings
     }
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-    
+
     static func rendererConfigurationWithRendererSettings(rendererSettings: MPNativeAdRendererSettings!) -> MPNativeAdRendererConfiguration! {
         let settings = MPStaticNativeAdRendererSettings()
         settings.renderingViewClass = NativeView.self
@@ -625,7 +619,7 @@ class NativeView: UIView, MPNativeAdRenderer {
         config.supportedCustomEvents = ["NativeView"]
         return config
     }
-    
+
     func retrieveViewWithAdapter(adapter: MPNativeAdAdapter!) throws -> UIView {
         return UIView()
     }
