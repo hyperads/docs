@@ -11,6 +11,7 @@ includes:
   - interstitial
   - segments
   - api
+  - network_adapters
   - tools
 
 search: true

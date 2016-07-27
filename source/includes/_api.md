@@ -62,8 +62,9 @@ callback({"status": "success", "ads": []})
 
 ## Account API
 
+**Coming soon**
 
-## Errors
+## Error codes
 
 The HyperAdX API uses the following error codes:
 

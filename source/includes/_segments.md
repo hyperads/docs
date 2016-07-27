@@ -4,7 +4,7 @@ With sending in-app events triggered by your users you can improve your monetiza
 
 Our platform automatically build audiences using your in-app data (provided by your events) and assigns high performing campaigns individually to each segment.
 
-Also our advertisers and mediabuying departmentment make higher bids for more engaged users.
+Also our advertisers and mediabuying department make higher bids for more engaged users.
 
 ## Android
 
