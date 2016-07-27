@@ -192,7 +192,10 @@
 
 <blockquote>
 <p>You may set <code class="prettyprint">content</code> param on HADNativeAd initialization to get only needed properties. If you didn&rsquo;t set <code class="prettyprint">content</code> param then you get all properties.</p>
+</blockquote>
+<pre class="highlight plaintext"><code></code></pre>
 
+<blockquote>
 <p>to get title text</p>
 </blockquote>
 <pre class="highlight swift"><code><span class="o">.</span><span class="kt">Title</span>
@@ -286,7 +289,10 @@
 
 <blockquote>
 <p>You may set <code class="prettyprint">content</code> param on HADNativeAd initialization to get only needed properties. If you didn&rsquo;t set <code class="prettyprint">content</code> param then you get all properties.</p>
+</blockquote>
+<pre class="highlight plaintext"><code></code></pre>
 
+<blockquote>
 <p>to get title text</p>
 </blockquote>
 <pre class="highlight objective_c"><code><span class="n">HADAdContentTitle</span>
@@ -350,183 +356,155 @@
 <span class="p">}</span>
 </code></pre>
 
-<h2 id="native-ad-templates">Native Ad templates</h2>
+<h2 id="native-ad-ios-templates">Native Ad iOS templates</h2>
 
 <p>The Native Ad templates allows you to use prepared Ad banner views but with possibility of full customization.</p>
 
 <p>Just add HADBannerTemplateView to your view controller and set desired banner template and custom params.</p>
 
-<h3 id="banner-templates">Banner templates</h3>
+<h3 id="you-can-choose-from-six-layouts">You can choose from six layouts:</h3>
 
-<p>You can choose from six layouts.</p>
-
-<blockquote>
-<p>Flexible block banner with aspect ratio 320:230</p>
-</blockquote>
-<pre class="highlight swift"><code><span class="kt">HADBannerTemplateTypes</span><span class="o">.</span><span class="kt">BlockOne</span>
-</code></pre>
-
-<blockquote>
-<p>Flexible block banner with aspect ratio 320:300</p>
-</blockquote>
-<pre class="highlight swift"><code><span class="kt">HADBannerTemplateTypes</span><span class="o">.</span><span class="kt">BlockTwo</span>
-</code></pre>
-
-<blockquote>
-<p>Flexible block banner with aspect ratio 320:340</p>
-</blockquote>
-<pre class="highlight swift"><code><span class="kt">HADBannerTemplateTypes</span><span class="o">.</span><span class="kt">BlockThree</span>
-</code></pre>
-
-<blockquote>
-<p>Line banner with 50pt height</p>
-</blockquote>
-<pre class="highlight swift"><code><span class="kt">HADBannerTemplateTypes</span><span class="o">.</span><span class="kt">LineOne</span>
-</code></pre>
-
-<blockquote>
-<p>Line banner with 60pt height</p>
-</blockquote>
-<pre class="highlight swift"><code><span class="kt">HADBannerTemplateTypes</span><span class="o">.</span><span class="kt">LineTwo</span>
-</code></pre>
-
-<blockquote>
-<p>Line banner with 90pt height</p>
-</blockquote>
-<pre class="highlight swift"><code><span class="kt">HADBannerTemplateTypes</span><span class="o">.</span><span class="kt">LineThree</span>
-</code></pre>
+<table><thead>
+<tr>
+<th>Layout</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">HADBannerTemplateTypes.BlockOne</code></td>
+<td>Flexible block banner with aspect ratio 320:230</td>
+</tr>
+<tr>
+<td><code class="prettyprint">HADBannerTemplateTypes.BlockTwo</code></td>
+<td>Flexible block banner with aspect ratio 320:300</td>
+</tr>
+<tr>
+<td><code class="prettyprint">HADBannerTemplateTypes.BlockThree</code></td>
+<td>Flexible block banner with aspect ratio 320:340</td>
+</tr>
+<tr>
+<td><code class="prettyprint">HADBannerTemplateTypes.LineOne</code></td>
+<td>Line banner with 50pt height</td>
+</tr>
+<tr>
+<td><code class="prettyprint">HADBannerTemplateTypes.LineTwo</code></td>
+<td>Line banner with 60pt height</td>
+</tr>
+<tr>
+<td><code class="prettyprint">HADBannerTemplateTypes.LineThree</code></td>
+<td>Line banner with 90pt height</td>
+</tr>
+</tbody></table>
 
 <h3 id="custom-params">Custom params</h3>
 
 <p>All custom params starts with <code class="prettyprint">custom</code> prefix</p>
 
-<p>Background colors</p>
+<table><thead>
+<tr>
+<th>Group</th>
+<th>Param</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Background color</td>
+<td><code class="prettyprint">customBackgroundColor</code></td>
+<td>Whole ad background</td>
+</tr>
+<tr>
+<td>Background color</td>
+<td><code class="prettyprint">customButtonBackgroundColor</code></td>
+<td>CTA button background</td>
+</tr>
+<tr>
+<td>Background color</td>
+<td><code class="prettyprint">customAgeRatingBackgroundColor</code></td>
+<td>AgeRating label background</td>
+</tr>
+<tr>
+<td>Text colors</td>
+<td><code class="prettyprint">customTitleTextColor</code></td>
+<td>Title label text color</td>
+</tr>
+<tr>
+<td>Text colors</td>
+<td><code class="prettyprint">customDescriptionTextColor</code></td>
+<td>Description label text color</td>
+</tr>
+<tr>
+<td>Text colors</td>
+<td><code class="prettyprint">customPoweredByTextColor</code></td>
+<td>PoweredBy label text color</td>
+</tr>
+<tr>
+<td>Text colors</td>
+<td><code class="prettyprint">customAgeRatingTextColor</code></td>
+<td>AgeRating label text color</td>
+</tr>
+<tr>
+<td>Text colors</td>
+<td><code class="prettyprint">customButtonTitleColor</code></td>
+<td>CTA button title text color</td>
+</tr>
+<tr>
+<td>Corner radius</td>
+<td><code class="prettyprint">customIconCornerRadius</code></td>
+<td>Icon</td>
+</tr>
+<tr>
+<td>Corner radius</td>
+<td><code class="prettyprint">customBannerCornerRadius</code></td>
+<td>Banner</td>
+</tr>
+<tr>
+<td>Corner radius</td>
+<td><code class="prettyprint">customButtonCornerRadius</code></td>
+<td>CTA button</td>
+</tr>
+<tr>
+<td>Corner radius</td>
+<td><code class="prettyprint">customAgeRatingCornerRadius</code></td>
+<td>Age rating label</td>
+</tr>
+<tr>
+<td>CTA button border</td>
+<td><code class="prettyprint">customButtonBorderColor</code></td>
+<td>Border color</td>
+</tr>
+<tr>
+<td>CTA button border</td>
+<td><code class="prettyprint">customButtonBorderWidth</code></td>
+<td>Border width</td>
+</tr>
+<tr>
+<td>Star rating</td>
+<td><code class="prettyprint">customStarRatingFilledColor</code></td>
+<td>Filled color</td>
+</tr>
+<tr>
+<td>Star rating</td>
+<td><code class="prettyprint">customStarRatingEmptyColor</code></td>
+<td>Empty color</td>
+</tr>
+<tr>
+<td>Star rating</td>
+<td><code class="prettyprint">customStarRatingTextColor</code></td>
+<td>Right text color</td>
+</tr>
+<tr>
+<td>Click mode</td>
+<td><code class="prettyprint">customClickMode = .Button</code></td>
+<td>Handle click only on button</td>
+</tr>
+<tr>
+<td>Click mode</td>
+<td><code class="prettyprint">customClickMode = .WholeBanner</code></td>
+<td>Handle click everywhere</td>
+</tr>
+</tbody></table>
 
-<blockquote>
-<p>Whole ad background</p>
-</blockquote>
-<pre class="highlight swift"><code><span class="n">customBackgroundColor</span>
-</code></pre>
-
-<blockquote>
-<p>CTA button background</p>
-</blockquote>
-<pre class="highlight swift"><code><span class="n">customButtonBackgroundColor</span>
-</code></pre>
-
-<blockquote>
-<p>AgeRating label background</p>
-</blockquote>
-<pre class="highlight swift"><code><span class="n">customAgeRatingBackgroundColor</span>
-</code></pre>
-
-<p>Text colors</p>
-
-<blockquote>
-<p>Title label text color</p>
-</blockquote>
-<pre class="highlight swift"><code><span class="n">customTitleTextColor</span>
-</code></pre>
-
-<blockquote>
-<p>Description label text color</p>
-</blockquote>
-<pre class="highlight swift"><code><span class="n">customDescriptionTextColor</span>
-</code></pre>
-
-<blockquote>
-<p>PoweredBy label text color</p>
-</blockquote>
-<pre class="highlight swift"><code><span class="n">customPoweredByTextColor</span>
-</code></pre>
-
-<blockquote>
-<p>AgeRating label text color</p>
-</blockquote>
-<pre class="highlight swift"><code><span class="n">customAgeRatingTextColor</span>
-</code></pre>
-
-<blockquote>
-<p>CTA button title text color</p>
-</blockquote>
-<pre class="highlight swift"><code><span class="n">customButtonTitleColor</span>
-</code></pre>
-
-<p>Corner radius</p>
-
-<blockquote>
-<p>Icon</p>
-</blockquote>
-<pre class="highlight swift"><code><span class="n">customIconCornerRadius</span>
-</code></pre>
-
-<blockquote>
-<p>Banner</p>
-</blockquote>
-<pre class="highlight swift"><code><span class="n">customBannerCornerRadius</span>
-</code></pre>
-
-<blockquote>
-<p>CTA button</p>
-</blockquote>
-<pre class="highlight swift"><code><span class="n">customButtonCornerRadius</span>
-</code></pre>
-
-<blockquote>
-<p>Age rating label</p>
-</blockquote>
-<pre class="highlight swift"><code><span class="n">customAgeRatingCornerRadius</span>
-</code></pre>
-
-<p>CTA button border</p>
-
-<blockquote>
-<p>Border color</p>
-</blockquote>
-<pre class="highlight swift"><code><span class="n">customButtonBorderColor</span>
-</code></pre>
-
-<blockquote>
-<p>Border width</p>
-</blockquote>
-<pre class="highlight swift"><code><span class="n">customButtonBorderWidth</span>
-</code></pre>
-
-<p>Star rating</p>
-
-<blockquote>
-<p>Filled color</p>
-</blockquote>
-<pre class="highlight swift"><code><span class="n">customStarRatingFilledColor</span>
-</code></pre>
-
-<blockquote>
-<p>Empty color</p>
-</blockquote>
-<pre class="highlight swift"><code><span class="n">customStarRatingEmptyColor</span>
-</code></pre>
-
-<blockquote>
-<p>Right text color</p>
-</blockquote>
-<pre class="highlight swift"><code><span class="n">customStarRatingTextColor</span>
-</code></pre>
-
-<p>Click mode</p>
-
-<blockquote>
-<p>Handle click only on button</p>
-</blockquote>
-<pre class="highlight swift"><code><span class="n">customClickMode</span> <span class="o">=</span> <span class="o">.</span><span class="kt">Button</span>
-</code></pre>
-
-<blockquote>
-<p>Handle click everywhere</p>
-</blockquote>
-<pre class="highlight swift"><code><span class="n">customClickMode</span> <span class="o">=</span> <span class="o">.</span><span class="kt">WholeBanner</span>
-</code></pre>
-
-<h3 id="swift-implementation">Swift implementation</h3>
+<h3 id="swift-example">Swift example</h3>
 <pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">HADFramework</span>
 
 <span class="kd">class</span> <span class="kt">MyViewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="kt">HADBannerTemplateViewDelegate</span> <span class="p">{</span>
@@ -569,7 +547,7 @@
 <span class="p">}</span>
 </code></pre>
 
-<h3 id="objective-c-implementation">Objective-C implementation</h3>
+<h3 id="objective-c-example">Objective-C example</h3>
 <pre class="highlight objective_c"><code><span class="cp">#import &lt;HADFramework/HADFramework.h&gt;
 </span>
 <span class="k">@interface</span> <span class="nc">MyViewController</span> <span class="p">()</span> <span class="o">&lt;</span><span class="n">HADBannerTemplateViewDelegate</span><span class="o">&gt;</span>
@@ -615,150 +593,6 @@
 
 <span class="k">@end</span>
 </code></pre>
-
-<p>As you can see it&rsquo;s really easy to use!</p>
-
-<h3 id="mopub-adapter">Mopub Adapter</h3>
-
-<ul>
-<li><p><a href="https://s3-us-west-2.amazonaws.com/adpanel-public/HyperadxiOSADs_Sample_v2.0.1.zip">Download</a> and extract the HADFramework for iOS.</p></li>
-<li><p>You can find Mopub adapter example in HyperadxiOSADs_Sample_v2.0.1/Mediation Adapters/MoPub/.</p></li>
-</ul>
-
-<p>Setup SDKs:</p>
-
-<ul>
-<li>Integrate with Mopub SDK (https://github.com/mopub/mopub-ios-sdk/wiki/Manual-Native-Ads-Integration-for-iOS)</li>
-<li>Install Hyperadx SDK</li>
-<li>Add HADNativeAdAdapter.swift and HADNativeCustomEvent.swift files</li>
-</ul>
-
-<p><strong>NOTE</strong> - In the Objective-C only project you must create swift header file as described here e.g. http://stackoverflow.com/questions/24102104/how-to-import-swift-code-to-objective-c</p>
-
-<p>Setup Mopub Dashboard</p>
-
-<ul>
-<li>Create an &ldquo;Hyperadx&rdquo; Network in Mopub&rsquo;s dashboard and connect it to your Ad Units.</li>
-<li>In Mopub&rsquo;s dashboard select Networks &gt; Add New network</li>
-<li>Then select Custom Native Network</li>
-<li>Complete the fields accordingly to the Ad Unit that you want to use</li>
-<li>Create new Order in Orders tab</li>
-<li>Complete the fields accordingly to the Ad Unit that you want to use</li>
-</ul>
-
-<p>Custom Event Class: <code class="prettyprint">HADNativeCustomEvent</code></p>
-
-<p>Custom Event Class Data: <code class="prettyprint">{&quot;PLACEMENT&quot;:&quot;&lt;YOUR PLACEMENT&gt;&quot;}</code></p>
-
-<p>You can use the test placement <code class="prettyprint">5b3QbMRQ</code></p>
-
-<blockquote>
-<p>Add <code class="prettyprint">HADNativeCustomEvent.swift</code> and <code class="prettyprint">HADNativeAdAdapter.swift</code> adapter files in your project
-Implement MoPub NativeViewController:</p>
-</blockquote>
-<pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">HADFramework</span>
-<span class="kd">import</span> <span class="kt">UIKit</span>
-
-<span class="kd">class</span> <span class="kt">NativeViewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="kt">MPNativeAdRendering</span><span class="p">,</span> <span class="kt">MPNativeAdDelegate</span> <span class="p">{</span>
-    <span class="kd">@IBOutlet</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">nativeView</span><span class="p">:</span> <span class="kt">NativeView</span><span class="o">!</span>
-    <span class="kd">@IBOutlet</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">titleLabel</span><span class="p">:</span> <span class="kt">UILabel</span><span class="o">!</span>
-    <span class="kd">@IBOutlet</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">mainTextLabel</span><span class="p">:</span> <span class="kt">UILabel</span><span class="o">!</span>
-    <span class="kd">@IBOutlet</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">callToActionLabel</span><span class="p">:</span> <span class="kt">UILabel</span><span class="o">!</span>
-    <span class="kd">@IBOutlet</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">iconImageView</span><span class="p">:</span> <span class="kt">UIImageView</span><span class="o">!</span>
-    <span class="kd">@IBOutlet</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">mainImageView</span><span class="p">:</span> <span class="kt">UIImageView</span><span class="o">!</span>
-
-    <span class="k">override</span> <span class="kd">func</span> <span class="nf">viewDidLoad</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">super</span><span class="o">.</span><span class="nf">viewDidLoad</span><span class="p">()</span>
-        <span class="k">let</span> <span class="nv">settings</span> <span class="o">=</span> <span class="kt">MPStaticNativeAdRendererSettings</span><span class="p">()</span>
-        <span class="n">settings</span><span class="o">.</span><span class="n">renderingViewClass</span> <span class="o">=</span> <span class="kt">NativeView</span><span class="o">.</span><span class="k">self</span>
-        <span class="k">let</span> <span class="nv">config</span> <span class="o">=</span> <span class="kt">MPStaticNativeAdRenderer</span><span class="o">.</span><span class="nf">rendererConfigurationWithRendererSettings</span><span class="p">(</span><span class="n">settings</span><span class="p">)</span>
-        <span class="n">config</span><span class="o">.</span><span class="n">supportedCustomEvents</span> <span class="o">=</span> <span class="p">[</span><span class="s">"HADNativeCustomEvent"</span><span class="p">]</span>
-        <span class="k">let</span> <span class="nv">request</span> <span class="o">=</span> <span class="kt">MPNativeAdRequest</span><span class="p">(</span><span class="nv">adUnitIdentifier</span><span class="p">:</span> <span class="s">"YOUR_AD_UNIT"</span><span class="p">,</span> <span class="nv">rendererConfigurations</span><span class="p">:</span> <span class="p">[</span><span class="n">config</span><span class="p">])</span>
-        <span class="n">request</span><span class="o">.</span><span class="n">startWithCompletionHandler</span> <span class="p">{</span> <span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">nativeAd</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span> <span class="k">in</span>
-            <span class="k">if</span> <span class="n">error</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-                <span class="nf">print</span><span class="p">(</span><span class="s">"Loading error"</span><span class="p">)</span>
-            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-                <span class="nf">print</span><span class="p">(</span><span class="s">"Ad loaded"</span><span class="p">)</span>
-                <span class="n">nativeAd</span><span class="o">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="k">self</span>
-                <span class="k">do</span> <span class="p">{</span>
-                    <span class="k">let</span> <span class="nv">v</span> <span class="o">=</span> <span class="k">try</span> <span class="n">nativeAd</span><span class="o">.</span><span class="nf">retrieveAdView</span><span class="p">()</span>
-                    <span class="n">v</span><span class="o">.</span><span class="n">frame</span> <span class="o">=</span> <span class="k">self</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="n">bounds</span>
-                    <span class="k">self</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="nf">addSubview</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
-                <span class="p">}</span> <span class="k">catch</span> <span class="k">let</span> <span class="nv">error</span> <span class="p">{</span>
-                    <span class="nf">print</span><span class="p">(</span><span class="s">"ERROR: </span><span class="se">\(</span><span class="n">error</span><span class="se">)</span><span class="s">"</span><span class="p">)</span>
-                <span class="p">}</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-
-    <span class="c1">//MARK: MPNativeAdRendering</span>
-    <span class="kd">func</span> <span class="nf">nativeTitleTextLabel</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">UILabel</span><span class="o">!</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="n">titleLabel</span>
-    <span class="p">}</span>
-
-    <span class="kd">func</span> <span class="nf">nativeMainTextLabel</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">UILabel</span><span class="o">!</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="n">mainTextLabel</span>
-    <span class="p">}</span>
-
-    <span class="kd">func</span> <span class="nf">nativeCallToActionTextLabel</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">UILabel</span><span class="o">!</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="n">callToActionLabel</span><span class="o">!</span>
-    <span class="p">}</span>
-
-    <span class="kd">func</span> <span class="nf">nativeIconImageView</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">UIImageView</span><span class="o">!</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="n">iconImageView</span>
-    <span class="p">}</span>
-
-    <span class="kd">func</span> <span class="nf">nativeMainImageView</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">UIImageView</span><span class="o">!</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="n">mainImageView</span>
-    <span class="p">}</span>
-
-    <span class="kd">func</span> <span class="nf">nativeVideoView</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">UIView</span><span class="o">!</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="kt">UIView</span><span class="p">()</span>
-    <span class="p">}</span>
-
-    <span class="c1">//MARK: MPNativeAdDelegate</span>
-    <span class="kd">func</span> <span class="nf">viewControllerForPresentingModalView</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">UIViewController</span><span class="o">!</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="k">self</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre>
-
-<p>And implement MoPubNativeAdRenderer, e.g.:</p>
-<pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">NativeView</span><span class="p">:</span> <span class="kt">UIView</span><span class="p">,</span> <span class="kt">MPNativeAdRenderer</span> <span class="p">{</span>
-    <span class="c1">//MARK: MPNativeAdRenderer</span>
-    <span class="k">var</span> <span class="nv">settings</span><span class="p">:</span> <span class="kt">MPNativeAdRendererSettings</span><span class="o">!</span>
-
-    <span class="kd">required</span> <span class="nf">init</span><span class="o">!</span><span class="p">(</span><span class="nv">rendererSettings</span><span class="p">:</span> <span class="kt">MPNativeAdRendererSettings</span><span class="o">!</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">super</span><span class="o">.</span><span class="nf">init</span><span class="p">(</span><span class="nv">frame</span><span class="p">:</span> <span class="kt">CGRectZero</span><span class="p">)</span>
-        <span class="n">settings</span> <span class="o">=</span> <span class="n">rendererSettings</span>
-    <span class="p">}</span>
-
-    <span class="k">override</span> <span class="nf">init</span><span class="p">(</span><span class="nv">frame</span><span class="p">:</span> <span class="kt">CGRect</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">super</span><span class="o">.</span><span class="nf">init</span><span class="p">(</span><span class="nv">frame</span><span class="p">:</span> <span class="n">frame</span><span class="p">)</span>
-    <span class="p">}</span>
-
-    <span class="kd">required</span> <span class="nf">init</span><span class="p">?(</span><span class="n">coder</span> <span class="nv">aDecoder</span><span class="p">:</span> <span class="kt">NSCoder</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">super</span><span class="o">.</span><span class="nf">init</span><span class="p">(</span><span class="nv">coder</span><span class="p">:</span> <span class="n">aDecoder</span><span class="p">)</span>
-    <span class="p">}</span>
-
-    <span class="kd">static</span> <span class="kd">func</span> <span class="nf">rendererConfigurationWithRendererSettings</span><span class="p">(</span><span class="nv">rendererSettings</span><span class="p">:</span> <span class="kt">MPNativeAdRendererSettings</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">MPNativeAdRendererConfiguration</span><span class="o">!</span> <span class="p">{</span>
-        <span class="k">let</span> <span class="nv">settings</span> <span class="o">=</span> <span class="kt">MPStaticNativeAdRendererSettings</span><span class="p">()</span>
-        <span class="n">settings</span><span class="o">.</span><span class="n">renderingViewClass</span> <span class="o">=</span> <span class="kt">NativeView</span><span class="o">.</span><span class="k">self</span>
-        <span class="k">let</span> <span class="nv">config</span> <span class="o">=</span> <span class="kt">MPNativeAdRendererConfiguration</span><span class="p">()</span>
-        <span class="n">config</span><span class="o">.</span><span class="n">rendererSettings</span> <span class="o">=</span> <span class="n">settings</span>
-        <span class="n">config</span><span class="o">.</span><span class="n">supportedCustomEvents</span> <span class="o">=</span> <span class="p">[</span><span class="s">"NativeView"</span><span class="p">]</span>
-        <span class="k">return</span> <span class="n">config</span>
-    <span class="p">}</span>
-
-    <span class="kd">func</span> <span class="nf">retrieveViewWithAdapter</span><span class="p">(</span><span class="nv">adapter</span><span class="p">:</span> <span class="kt">MPNativeAdAdapter</span><span class="o">!</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">UIView</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="kt">UIView</span><span class="p">()</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre>
-
-<blockquote>
-<p>This is your Hyperadx Native MoPub adapter. Now you can use Mopub as usual.</p>
-</blockquote>
 
 <h2 id="native-ads-in-android">Native Ads in Android</h2>
 
@@ -907,203 +741,6 @@ Implement MoPub NativeViewController:</p>
     <span class="n">NativeAd</span><span class="o">.</span><span class="na">downloadAndDisplayImage</span><span class="o">(</span><span class="n">ivImage</span><span class="o">,</span> <span class="n">ad</span><span class="o">.</span><span class="na">getImage_url</span><span class="o">());</span>
 <span class="o">}</span>
 </code></pre>
-
-<h3 id="mopub-adapter">Mopub Adapter</h3>
-
-<ul>
-<li><a href="https://s3-us-west-2.amazonaws.com/adpanel-public/HyperadxAndroidMoPubAdapter_1.1.0.zip">Download</a> and extract the Mopub adapter if needed.</li>
-</ul>
-
-<p>You can use Hyperadx as a Network in Mopub&rsquo;s Mediation platform.
-Setup SDKs</p>
-
-<ul>
-<li>Integrate with Mopub SDK (https://github.com/mopub/mopub-android-sdk/wiki/Getting-Started)</li>
-<li>Install Hyperadx SDK</li>
-</ul>
-
-<p>Setup Mopub Dashboard</p>
-
-<ul>
-<li>Create an &ldquo;Hyperadx&rdquo; Network in Mopub&rsquo;s dashboard and connect it to your Ad Units.</li>
-<li>In Mopub&rsquo;s dashboard select Networks &gt; Add New network</li>
-</ul>
-
-<p>Then select Custom Native Network. Complete the fields accordingly to the Ad Unit that you want to use</p>
-
-<ul>
-<li>Custom Event Class: <code class="prettyprint">com.mopub.nativeads.HyperadxNativeMopub</code></li>
-<li>Custom Event Class Data: <code class="prettyprint">{&quot;PLACEMENT&quot;:&quot;&lt;YOUR PLACEMENT&gt;&quot;}</code></li>
-</ul>
-
-<p>You can use the test placement &ldquo;5b3QbMRQ&rdquo;</p>
-
-<blockquote>
-<p>Add adapter in your project
-Create package &ldquo;com.mopub.nativeads&rdquo; in your project and put this class in there:</p>
-</blockquote>
-<pre class="highlight java"><code><span class="n">HyperadxNativeMopub</span><span class="o">.</span><span class="na">java</span><span class="o">:</span>
-
-<span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">mopub</span><span class="o">.</span><span class="na">nativeads</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">android.app.Activity</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">android.os.AsyncTask</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">android.support.annotation.NonNull</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">android.util.Log</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">android.view.View</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">com.hyperadx.lib.sdk.nativeads.Ad</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">com.hyperadx.lib.sdk.nativeads.AdListener</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">com.hyperadx.lib.sdk.nativeads.HADNativeAd</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.net.HttpURLConnection</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.net.MalformedURLException</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.net.URL</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.HashSet</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Map</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Set</span><span class="o">;</span>
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HyperadxNativeMopub</span> <span class="kd">extends</span> <span class="n">CustomEventNative</span> <span class="o">{</span>
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">PLACEMENT_KEY</span> <span class="o">=</span> <span class="s">"PLACEMENT"</span><span class="o">;</span>
-    <span class="n">com</span><span class="o">.</span><span class="na">hyperadx</span><span class="o">.</span><span class="na">lib</span><span class="o">.</span><span class="na">sdk</span><span class="o">.</span><span class="na">nativeads</span><span class="o">.</span><span class="na">HADNativeAd</span> <span class="n">nativeAd</span><span class="o">;</span>
-
-    <span class="nd">@Override</span>
-    <span class="kd">protected</span> <span class="kt">void</span> <span class="n">loadNativeAd</span><span class="o">(</span><span class="kd">final</span> <span class="nd">@NonNull</span> <span class="n">Activity</span> <span class="n">activity</span><span class="o">,</span> <span class="kd">final</span> <span class="nd">@NonNull</span> <span class="n">CustomEventNativeListener</span> <span class="n">customEventNativeListener</span><span class="o">,</span> <span class="nd">@NonNull</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;</span> <span class="n">localExtras</span><span class="o">,</span> <span class="nd">@NonNull</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">serverExtras</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kd">final</span> <span class="n">String</span> <span class="n">placement</span><span class="o">;</span>
-        <span class="k">if</span> <span class="o">((</span><span class="n">serverExtras</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">&amp;&amp;</span> <span class="n">serverExtras</span><span class="o">.</span><span class="na">containsKey</span><span class="o">(</span><span class="n">PLACEMENT_KEY</span><span class="o">))</span> <span class="o">{</span>
-            <span class="n">placement</span> <span class="o">=</span> <span class="n">serverExtras</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">PLACEMENT_KEY</span><span class="o">);</span>
- <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-            <span class="n">customEventNativeListener</span><span class="o">.</span><span class="na">onNativeAdFailed</span><span class="o">(</span><span class="n">NativeErrorCode</span><span class="o">.</span><span class="na">NATIVE_ADAPTER_CONFIGURATION_ERROR</span><span class="o">);</span>
-            <span class="k">return</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="n">nativeAd</span> <span class="o">=</span> <span class="k">new</span> <span class="n">com</span><span class="o">.</span><span class="na">hyperadx</span><span class="o">.</span><span class="na">lib</span><span class="o">.</span><span class="na">sdk</span><span class="o">.</span><span class="na">nativeads</span><span class="o">.</span><span class="na">HADNativeAd</span><span class="o">(</span><span class="n">activity</span><span class="o">,</span> <span class="n">placement</span><span class="o">);</span> <span class="c1">//Native AD constructor</span>
-        <span class="n">nativeAd</span><span class="o">.</span><span class="na">setContent</span><span class="o">(</span><span class="s">"title,icon,description"</span><span class="o">);</span>
-        <span class="n">nativeAd</span><span class="o">.</span><span class="na">setAdListener</span><span class="o">(</span><span class="k">new</span> <span class="n">AdListener</span><span class="o">()</span> <span class="o">{</span> <span class="c1">// Add Listeners</span>
-            <span class="nd">@Override</span>
-            <span class="kd">public</span> <span class="kt">void</span> <span class="n">onAdLoaded</span><span class="o">(</span><span class="n">Ad</span> <span class="n">ad</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">customEventNativeListener</span><span class="o">.</span><span class="na">onNativeAdLoaded</span><span class="o">(</span><span class="k">new</span> <span class="n">HyperadxNativeAd</span><span class="o">(</span><span class="n">ad</span><span class="o">,</span> <span class="n">nativeAd</span><span class="o">,</span> <span class="n">activity</span><span class="o">));</span>
-
-            <span class="nd">@Override</span>
-            <span class="kd">public</span> <span class="kt">void</span> <span class="n">onError</span><span class="o">(</span><span class="n">Ad</span> <span class="n">nativeAd</span><span class="o">,</span> <span class="n">String</span> <span class="n">error</span><span class="o">)</span> <span class="o">{</span> <span class="c1">// Called when load is fail</span>
-                <span class="n">customEventNativeListener</span><span class="o">.</span><span class="na">onNativeAdFailed</span><span class="o">(</span><span class="n">NativeErrorCode</span><span class="o">.</span><span class="na">EMPTY_AD_RESPONSE</span><span class="o">);</span>
-            <span class="o">}</span>
-
-            <span class="nd">@Override</span>
-            <span class="kd">public</span> <span class="kt">void</span> <span class="n">onAdClicked</span><span class="o">()</span> <span class="o">{</span> <span class="c1">// Called when user click on AD</span>
-                <span class="n">Log</span><span class="o">.</span><span class="na">wtf</span><span class="o">(</span><span class="s">"TAG"</span><span class="o">,</span> <span class="s">"AD Clicked"</span><span class="o">);</span>
-            <span class="o">}</span>
-        <span class="o">});</span>
-        <span class="n">nativeAd</span><span class="o">.</span><span class="na">loadAd</span><span class="o">();</span>
-
-
-    <span class="kd">class</span> <span class="nc">HyperadxNativeAd</span> <span class="kd">extends</span> <span class="n">StaticNativeAd</span> <span class="o">{</span>
-        <span class="kd">final</span> <span class="n">Ad</span> <span class="n">hadModel</span><span class="o">;</span>
-        <span class="kd">final</span> <span class="n">com</span><span class="o">.</span><span class="na">hyperadx</span><span class="o">.</span><span class="na">lib</span><span class="o">.</span><span class="na">sdk</span><span class="o">.</span><span class="na">nativeads</span><span class="o">.</span><span class="na">HADNativeAd</span> <span class="n">nativeAd</span><span class="o">;</span>
-        <span class="kd">final</span> <span class="n">ImpressionTracker</span> <span class="n">impressionTracker</span><span class="o">;</span>
-        <span class="kd">final</span> <span class="n">NativeClickHandler</span> <span class="n">nativeClickHandler</span><span class="o">;</span>
-        <span class="kd">final</span> <span class="n">Activity</span> <span class="n">activity</span><span class="o">;</span>
-        <span class="kd">public</span> <span class="n">HyperadxNativeAd</span><span class="o">(</span><span class="nd">@NonNull</span> <span class="n">Ad</span> <span class="n">customModel</span><span class="o">,</span> <span class="n">HADNativeAd</span> <span class="n">nativeAd</span><span class="o">,</span> <span class="n">Activity</span> <span class="n">activity</span><span class="o">)</span> <span class="o">{</span>
-
-            <span class="n">hadModel</span> <span class="o">=</span> <span class="n">customModel</span><span class="o">;</span>
-            <span class="k">this</span><span class="o">.</span><span class="na">nativeAd</span> <span class="o">=</span> <span class="n">nativeAd</span><span class="o">;</span>
-            <span class="k">this</span><span class="o">.</span><span class="na">activity</span> <span class="o">=</span> <span class="n">activity</span><span class="o">;</span>
-            <span class="n">impressionTracker</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ImpressionTracker</span><span class="o">(</span><span class="n">activity</span><span class="o">);</span>
-            <span class="n">nativeClickHandler</span> <span class="o">=</span> <span class="k">new</span> <span class="n">NativeClickHandler</span><span class="o">(</span><span class="n">activity</span><span class="o">);</span>
-            <span class="n">setIconImageUrl</span><span class="o">(</span><span class="n">hadModel</span><span class="o">.</span><span class="na">getIcon_url</span><span class="o">());</span>
-            <span class="n">setMainImageUrl</span><span class="o">(</span><span class="n">hadModel</span><span class="o">.</span><span class="na">getImage_url</span><span class="o">());</span>
-            <span class="n">setTitle</span><span class="o">(</span><span class="n">hadModel</span><span class="o">.</span><span class="na">getTitle</span><span class="o">());</span>
-            <span class="n">setText</span><span class="o">(</span><span class="n">hadModel</span><span class="o">.</span><span class="na">getDescription</span><span class="o">());</span>
-            <span class="n">setClickDestinationUrl</span><span class="o">(</span><span class="n">hadModel</span><span class="o">.</span><span class="na">getClickUrl</span><span class="o">());</span>
-            <span class="k">for</span> <span class="o">(</span><span class="n">Ad</span><span class="o">.</span><span class="na">Tracker</span> <span class="n">tracker</span> <span class="o">:</span> <span class="n">hadModel</span><span class="o">.</span><span class="na">getTrackers</span><span class="o">())</span>
-                <span class="k">if</span> <span class="o">(</span><span class="n">tracker</span><span class="o">.</span><span class="na">getType</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="s">"impression"</span><span class="o">))</span> <span class="o">{</span>
-                    <span class="n">addImpressionTracker</span><span class="o">(</span><span class="n">tracker</span><span class="o">.</span><span class="na">getUrl</span><span class="o">());</span>
-                <span class="o">}</span>
-
-        <span class="nd">@Override</span>
-        <span class="kd">public</span> <span class="kt">void</span> <span class="n">prepare</span><span class="o">(</span><span class="kd">final</span> <span class="n">View</span> <span class="n">view</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">impressionTracker</span><span class="o">.</span><span class="na">addView</span><span class="o">(</span><span class="n">view</span><span class="o">,</span> <span class="k">this</span><span class="o">);</span>
-            <span class="n">nativeClickHandler</span><span class="o">.</span><span class="na">setOnClickListener</span><span class="o">(</span><span class="n">view</span><span class="o">,</span> <span class="k">this</span><span class="o">);</span>
-        <span class="o">}</span>
-
-        <span class="nd">@Override</span>
-        <span class="kd">public</span> <span class="kt">void</span> <span class="n">recordImpression</span><span class="o">(</span><span class="kd">final</span> <span class="n">View</span> <span class="n">view</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">notifyAdImpressed</span><span class="o">();</span>
-            <span class="k">for</span> <span class="o">(</span><span class="n">Ad</span><span class="o">.</span><span class="na">Tracker</span> <span class="n">tracker</span> <span class="o">:</span> <span class="n">hadModel</span><span class="o">.</span><span class="na">getTrackers</span><span class="o">())</span>
-                <span class="k">if</span> <span class="o">(</span><span class="n">tracker</span><span class="o">.</span><span class="na">getType</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="s">"impression"</span><span class="o">))</span> <span class="o">{</span>
-                    <span class="k">new</span> <span class="n">LoadUrlTask</span><span class="o">().</span><span class="na">execute</span><span class="o">(</span><span class="n">tracker</span><span class="o">.</span><span class="na">getUrl</span><span class="o">());</span>
-                <span class="o">}</span>
-
-        <span class="nd">@Override</span>
-        <span class="kd">public</span> <span class="kt">void</span> <span class="n">handleClick</span><span class="o">(</span><span class="kd">final</span> <span class="n">View</span> <span class="n">view</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">notifyAdClicked</span><span class="o">();</span>
-            <span class="n">nativeClickHandler</span><span class="o">.</span><span class="na">openClickDestinationUrl</span><span class="o">(</span><span class="n">getClickDestinationUrl</span><span class="o">(),</span> <span class="n">view</span><span class="o">);</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">hadModel</span><span class="o">.</span><span class="na">getClickUrl</span><span class="o">()</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span>
-                <span class="k">new</span> <span class="n">LoadUrlTask</span><span class="o">().</span><span class="na">execute</span><span class="o">(</span><span class="n">hadModel</span><span class="o">.</span><span class="na">getClickUrl</span><span class="o">());</span>
-        <span class="o">}</span>
-
-        <span class="kd">private</span> <span class="kd">class</span> <span class="nc">LoadUrlTask</span> <span class="kd">extends</span> <span class="n">AsyncTask</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Void</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="o">{</span>
-            <span class="n">String</span> <span class="n">userAgent</span><span class="o">;</span>
-            <span class="kd">public</span> <span class="n">LoadUrlTask</span><span class="o">()</span> <span class="o">{</span>
-                <span class="n">userAgent</span> <span class="o">=</span> <span class="n">com</span><span class="o">.</span><span class="na">hyperadx</span><span class="o">.</span><span class="na">lib</span><span class="o">.</span><span class="na">sdk</span><span class="o">.</span><span class="na">Util</span><span class="o">.</span><span class="na">getDefaultUserAgentString</span><span class="o">(</span><span class="n">activity</span><span class="o">);</span>
-
-            <span class="nd">@Override</span>
-            <span class="kd">protected</span> <span class="n">String</span> <span class="n">doInBackground</span><span class="o">(</span><span class="n">String</span><span class="o">...</span> <span class="n">urls</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">String</span> <span class="n">loadingUrl</span> <span class="o">=</span> <span class="n">urls</span><span class="o">[</span><span class="mi">0</span><span class="o">];</span>
-                <span class="n">URL</span> <span class="n">url</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
-                <span class="k">try</span> <span class="o">{</span>
-                    <span class="n">url</span> <span class="o">=</span> <span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="n">loadingUrl</span><span class="o">);</span>
-                <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">MalformedURLException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-                    <span class="k">return</span> <span class="o">(</span><span class="n">loadingUrl</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">?</span> <span class="n">loadingUrl</span> <span class="o">:</span> <span class="s">""</span><span class="o">;</span>
-                <span class="o">}</span>
-                <span class="n">com</span><span class="o">.</span><span class="na">hyperadx</span><span class="o">.</span><span class="na">lib</span><span class="o">.</span><span class="na">sdk</span><span class="o">.</span><span class="na">HADLog</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="s">"Checking URL redirect:"</span> <span class="o">+</span> <span class="n">loadingUrl</span><span class="o">);</span>
-                <span class="kt">int</span> <span class="n">statusCode</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
-                <span class="n">HttpURLConnection</span> <span class="n">connection</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
-                <span class="n">String</span> <span class="n">nextLocation</span> <span class="o">=</span> <span class="n">url</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
-                <span class="n">Set</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">redirectLocations</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;();</span>
-                <span class="n">redirectLocations</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">nextLocation</span><span class="o">);</span>
-                <span class="k">try</span> <span class="o">{</span>
-                    <span class="k">do</span> <span class="o">{</span>
-                        <span class="n">connection</span> <span class="o">=</span> <span class="o">(</span><span class="n">HttpURLConnection</span><span class="o">)</span> <span class="n">url</span><span class="o">.</span><span class="na">openConnection</span><span class="o">();</span>
-                        <span class="n">connection</span><span class="o">.</span><span class="na">setRequestProperty</span><span class="o">(</span><span class="s">"User-Agent"</span><span class="o">,</span>
-                                <span class="n">userAgent</span><span class="o">);</span>
-                        <span class="n">connection</span><span class="o">.</span><span class="na">setInstanceFollowRedirects</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>
-                        <span class="n">statusCode</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="na">getResponseCode</span><span class="o">();</span>
-                        <span class="k">if</span> <span class="o">(</span><span class="n">statusCode</span> <span class="o">==</span> <span class="n">HttpURLConnection</span><span class="o">.</span><span class="na">HTTP_OK</span><span class="o">)</span> <span class="o">{</span>
-                            <span class="n">connection</span><span class="o">.</span><span class="na">disconnect</span><span class="o">();</span>
-                            <span class="k">break</span><span class="o">;</span>
-                        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-                            <span class="n">nextLocation</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="na">getHeaderField</span><span class="o">(</span><span class="s">"location"</span><span class="o">);</span>
-                            <span class="n">connection</span><span class="o">.</span><span class="na">disconnect</span><span class="o">();</span>
-                            <span class="k">if</span> <span class="o">(!</span><span class="n">redirectLocations</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">nextLocation</span><span class="o">))</span> <span class="o">{</span>
-                                <span class="n">com</span><span class="o">.</span><span class="na">hyperadx</span><span class="o">.</span><span class="na">lib</span><span class="o">.</span><span class="na">sdk</span><span class="o">.</span><span class="na">HADLog</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="s">"URL redirect cycle detected"</span><span class="o">);</span>
-                                <span class="k">return</span> <span class="s">""</span><span class="o">;</span>
-                            <span class="o">}</span>
-                            <span class="n">url</span> <span class="o">=</span> <span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="n">nextLocation</span><span class="o">);</span>
-                        <span class="o">}</span>
-                    <span class="o">}</span>
-
-                    <span class="k">while</span> <span class="o">(</span><span class="n">statusCode</span> <span class="o">==</span> <span class="n">HttpURLConnection</span><span class="o">.</span><span class="na">HTTP_MOVED_TEMP</span> <span class="o">||</span> <span class="n">statusCode</span> <span class="o">==</span> <span class="n">HttpURLConnection</span><span class="o">.</span><span class="na">HTTP_MOVED_PERM</span>
-                            <span class="o">||</span> <span class="n">statusCode</span> <span class="o">==</span> <span class="n">HttpURLConnection</span><span class="o">.</span><span class="na">HTTP_UNAVAILABLE</span>
-                            <span class="o">||</span> <span class="n">statusCode</span> <span class="o">==</span> <span class="n">HttpURLConnection</span><span class="o">.</span><span class="na">HTTP_SEE_OTHER</span><span class="o">);</span>
-                <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">IOException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-                    <span class="k">return</span> <span class="o">(</span><span class="n">nextLocation</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">?</span> <span class="n">nextLocation</span> <span class="o">:</span> <span class="s">""</span><span class="o">;</span>
-                <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
-                    <span class="k">if</span> <span class="o">(</span><span class="n">connection</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span>
-                        <span class="n">connection</span><span class="o">.</span><span class="na">disconnect</span><span class="o">();</span>
-                <span class="o">}</span>
-                <span class="k">return</span> <span class="n">nextLocation</span><span class="o">;</span>
-
-            <span class="nd">@Override</span>
-            <span class="kd">protected</span> <span class="kt">void</span> <span class="n">onPostExecute</span><span class="o">(</span><span class="n">String</span> <span class="n">url</span><span class="o">)</span> <span class="o">{</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre>
-
-<blockquote>
-<p>This is your adapter. Now you can use Mopub as usual.</p>
-</blockquote>
 
           <h1 id="banner">Banner</h1>
 
@@ -1279,150 +916,6 @@ Import the SDK header in AppDelegate.h:</p>
     <span class="n">NSLog</span><span class="p">(</span><span class="s">@"HADViewDidClick"</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre>
-
-<h3 id="admob-adapter">Admob Adapter</h3>
-
-<ul>
-<li><p><a href="https://s3-us-west-2.amazonaws.com/adpanel-public/HyperadxiOSAdmobAdapter_2.0.0.zip">Download</a> and extract the AdMob adapter if needed.</p></li>
-<li><p>First of all you need to add new app in AdMob console.</p></li>
-<li><p>You will get UnitId string like &lsquo;ca-app-pub-**********<strong><em>/</em></strong>**********&rsquo;.
-For the next few hours you may get the AdMob errors with codes 0 or 2. Just be patient.</p></li>
-</ul>
-
-<p>Then you need to add new mediation source.</p>
-
-<ul>
-<li><p>Fill <code class="prettyprint">Class Name</code> field with a <code class="prettyprint">HADCustomEventBanner</code>. And a <code class="prettyprint">Parameter</code> with your HyperAdx statement string.</p></li>
-<li><p>Setup eCPM for new network</p></li>
-</ul>
-
-<p>Now you can setting up your Xcode project.</p>
-
-<ul>
-<li>Put HyperAdx-SDK as described above</li>
-<li>Add HADCustomEventBanner.swift file</li>
-</ul>
-
-<p><strong>NOTE</strong> - In the Objective-C only project you must create swift header file as described here e.g. http://stackoverflow.com/questions/24102104/how-to-import-swift-code-to-objective-c</p>
-
-<blockquote>
-<p>Just create AdMob banner Ad as usually:</p>
-</blockquote>
-<pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">GoogleMobileAds</span>
-<span class="kd">import</span> <span class="kt">HADFramework</span>
-<span class="kd">import</span> <span class="kt">UIKit</span>
-
-<span class="kd">class</span> <span class="kt">ViewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="kt">GADBannerViewDelegate</span> <span class="p">{</span>
-    <span class="k">var</span> <span class="nv">bannerView</span><span class="p">:</span> <span class="kt">GADBannerView</span><span class="o">!</span>
-
-    <span class="k">override</span> <span class="kd">func</span> <span class="nf">viewDidLoad</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">super</span><span class="o">.</span><span class="nf">viewDidLoad</span><span class="p">()</span>
-        <span class="k">let</span> <span class="nv">request</span> <span class="o">=</span> <span class="kt">GADRequest</span><span class="p">()</span>
-        <span class="c1">//Banner 320x50</span>
-        <span class="n">bannerView</span> <span class="o">=</span> <span class="kt">GADBannerView</span><span class="p">(</span><span class="nv">adSize</span><span class="p">:</span> <span class="kt">GADAdSize</span><span class="o">.</span><span class="nf">init</span><span class="p">(</span><span class="nv">size</span><span class="p">:</span> <span class="kt">CGSizeMake</span><span class="p">(</span><span class="mi">320</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span> <span class="nv">flags</span><span class="p">:</span> <span class="mi">0</span><span class="p">))</span>
-        <span class="n">bannerView</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">origin</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="kt">UIScreen</span><span class="o">.</span><span class="nf">mainScreen</span><span class="p">()</span><span class="o">.</span><span class="n">bounds</span><span class="o">.</span><span class="n">width</span><span class="o">-</span><span class="mi">320</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
-        <span class="n">bannerView</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">origin</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">100</span>
-        <span class="n">bannerView</span><span class="o">.</span><span class="n">adUnitID</span> <span class="o">=</span> <span class="s">"YOUR_ADUNIT_ID"</span>
-        <span class="n">bannerView</span><span class="o">.</span><span class="n">rootViewController</span> <span class="o">=</span> <span class="k">self</span>
-        <span class="n">bannerView</span><span class="o">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="k">self</span>
-        <span class="n">view</span><span class="o">.</span><span class="nf">addSubview</span><span class="p">(</span><span class="n">bannerView</span><span class="p">)</span>
-        <span class="n">bannerView</span><span class="o">.</span><span class="nf">loadRequest</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
-    <span class="p">}</span>
-
-    <span class="c1">//MARK: GADBannerViewDelegate</span>
-    <span class="kd">func</span> <span class="nf">adViewDidReceiveAd</span><span class="p">(</span><span class="nv">bannerView</span><span class="p">:</span> <span class="kt">GADBannerView</span><span class="o">!</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nf">print</span><span class="p">(</span><span class="s">"adViewDidReceiveAd"</span><span class="p">)</span>
-    <span class="p">}</span>
-
-    <span class="kd">func</span> <span class="nf">adView</span><span class="p">(</span><span class="nv">bannerView</span><span class="p">:</span> <span class="kt">GADBannerView</span><span class="o">!</span><span class="p">,</span> <span class="n">didFailToReceiveAdWithError</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">GADRequestError</span><span class="o">!</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nf">print</span><span class="p">(</span><span class="s">"didFailToReceiveAdWithError: </span><span class="se">\(</span><span class="n">error</span><span class="se">)</span><span class="s">"</span><span class="p">)</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre>
-
-<h3 id="mopub-adapter">Mopub Adapter</h3>
-
-<ul>
-<li><a href="https://s3-us-west-2.amazonaws.com/adpanel-public/HyperadxiOSMoPubAdapter_2.0.0.zip">Download</a> and extract the Mopub adapter if needed.</li>
-</ul>
-
-<p>You can use Hyperadx as a Network in Mopub&rsquo;s Mediation platform.</p>
-
-<p>Setup SDKs:</p>
-
-<ul>
-<li>Integrate with Mopub SDK (https://github.com/mopub/mopub-ios-sdk/wiki/Manual-Native-Ads-Integration-for-iOS)</li>
-<li>Install Hyperadx SDK</li>
-<li>Add HADBannerCustomEvent.swift file</li>
-</ul>
-
-<p><strong>NOTE</strong> - In the Objective-C only project you must create swift header file as described here e.g. http://stackoverflow.com/questions/24102104/how-to-import-swift-code-to-objective-c</p>
-
-<p>Setup Mopub Dashboard</p>
-
-<ul>
-<li>Create an &ldquo;Hyperadx&rdquo; Network in Mopub&rsquo;s dashboard and connect it to your Ad Units.</li>
-<li>In Mopub&rsquo;s dashboard select Networks &gt; Add New network</li>
-<li>Then select Custom Native Network</li>
-<li>Complete the fields accordingly to the Ad Unit that you want to use</li>
-<li>Create new Order in Orders tab</li>
-<li>Complete the fields accordingly to the Ad Unit that you want to use</li>
-</ul>
-
-<p>Custom Event Class: <code class="prettyprint">HADBannerCustomEvent</code></p>
-
-<p>Custom Event Class Data: <code class="prettyprint">{&quot;PLACEMENT&quot;:&quot;&lt;YOUR PLACEMENT&gt;&quot;}</code></p>
-
-<p>You can use the test placement <code class="prettyprint">5b3QbMRQ</code></p>
-
-<blockquote>
-<p>Add <code class="prettyprint">HADBannerCustomEvent.swift</code> adapter in your project
-Implement MoPub Banner:</p>
-</blockquote>
-<pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">HADFramework</span>
-<span class="kd">import</span> <span class="kt">UIKit</span>
-
-<span class="kd">class</span> <span class="kt">ViewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="kt">MPAdViewDelegate</span> <span class="p">{</span>
-    <span class="k">override</span> <span class="kd">func</span> <span class="nf">viewDidLoad</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">super</span><span class="o">.</span><span class="nf">viewDidLoad</span><span class="p">()</span>
-        <span class="c1">//Banner 320x50</span>
-        <span class="k">let</span> <span class="nv">m</span> <span class="o">=</span> <span class="kt">MPAdView</span><span class="p">(</span><span class="nv">adUnitId</span><span class="p">:</span> <span class="s">"YOUR_AD_UNIT"</span><span class="p">,</span> <span class="nv">size</span><span class="p">:</span> <span class="kt">CGSizeMake</span><span class="p">(</span><span class="mi">320</span><span class="p">,</span> <span class="mi">50</span><span class="p">))</span>
-        <span class="n">m</span><span class="o">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="k">self</span>
-        <span class="n">m</span><span class="o">.</span><span class="n">frame</span> <span class="o">=</span> <span class="kt">CGRectMake</span><span class="p">((</span><span class="kt">UIScreen</span><span class="o">.</span><span class="nf">mainScreen</span><span class="p">()</span><span class="o">.</span><span class="n">bounds</span><span class="o">.</span><span class="n">width</span><span class="o">-</span><span class="mi">320</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">320</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
-        <span class="n">view</span><span class="o">.</span><span class="nf">addSubview</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
-        <span class="n">m</span><span class="o">.</span><span class="nf">loadAd</span><span class="p">()</span>
-    <span class="p">}</span>
-
-    <span class="c1">//MARK: MPAdViewDelegate</span>
-    <span class="kd">func</span> <span class="nf">viewControllerForPresentingModalView</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">UIViewController</span><span class="o">!</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="k">self</span>
-    <span class="p">}</span>
-
-    <span class="kd">func</span> <span class="nf">adViewDidLoadAd</span><span class="p">(</span><span class="nv">view</span><span class="p">:</span> <span class="kt">MPAdView</span><span class="o">!</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nf">print</span><span class="p">(</span><span class="s">"adViewDidLoadAd"</span><span class="p">)</span>
-    <span class="p">}</span>
-
-    <span class="kd">func</span> <span class="nf">adViewDidFailToLoadAd</span><span class="p">(</span><span class="nv">view</span><span class="p">:</span> <span class="kt">MPAdView</span><span class="o">!</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nf">print</span><span class="p">(</span><span class="s">"adViewDidFailToLoadAd"</span><span class="p">)</span>
-    <span class="p">}</span>
-
-    <span class="kd">func</span> <span class="nf">didDismissModalViewForAd</span><span class="p">(</span><span class="nv">view</span><span class="p">:</span> <span class="kt">MPAdView</span><span class="o">!</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nf">print</span><span class="p">(</span><span class="s">"didDismissModalViewForAd"</span><span class="p">)</span>
-    <span class="p">}</span>
-
-    <span class="kd">func</span> <span class="nf">willPresentModalViewForAd</span><span class="p">(</span><span class="nv">view</span><span class="p">:</span> <span class="kt">MPAdView</span><span class="o">!</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nf">print</span><span class="p">(</span><span class="s">"willPresentModalViewForAd"</span><span class="p">)</span>
-    <span class="p">}</span>
-
-    <span class="kd">func</span> <span class="nf">willLeaveApplicationFromAd</span><span class="p">(</span><span class="nv">view</span><span class="p">:</span> <span class="kt">MPAdView</span><span class="o">!</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nf">print</span><span class="p">(</span><span class="s">"willLeaveApplicationFromAd"</span><span class="p">)</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre>
-
-<blockquote>
-<p>This is your Hyperadx Banner MoPub adapter. Now you can use Mopub as usual.</p>
-</blockquote>
 
           <h1 id="interstitial-ads">Interstitial ads</h1>
 
@@ -1608,141 +1101,6 @@ Import the SDK header in AppDelegate.h:</p>
 <span class="p">}</span>
 </code></pre>
 
-<h3 id="admob-adapter">Admob Adapter</h3>
-
-<ul>
-<li><p><a href="https://s3-us-west-2.amazonaws.com/adpanel-public/HyperadxiOSADs_Sample_v2.0.1.zip">Download</a> and extract the HADFramework for iOS.</p></li>
-<li><p>You can find Admob adapter example in HyperadxiOSADs_Sample_v2.0.1/Mediation Adapters/AdMob/.</p></li>
-<li><p>First of all you need to add new app in AdMob console.</p></li>
-<li><p>You will get UnitId string like &lsquo;ca-app-pub-**********<strong><em>/</em></strong>**********&rsquo;.
-For the next few hours you may get the AdMob errors with codes 0 or 2. Just be patient.</p></li>
-</ul>
-
-<p>Then you need to add new mediation source.</p>
-
-<ul>
-<li><p>Fill <code class="prettyprint">Class Name</code> field with a <code class="prettyprint">HADCustomEventInterstitial</code>. And a <code class="prettyprint">Parameter</code> with your HyperAdx statement string.</p></li>
-<li><p>Setup eCPM for new network</p></li>
-</ul>
-
-<p>Now you can setting up your Xcode project.</p>
-
-<ul>
-<li>Put HyperAdx-SDK as described above</li>
-<li>Add HADCustomEventInterstitial.swift file</li>
-</ul>
-
-<p><strong>NOTE</strong> - In the Objective-C only project you must create swift header file as described here e.g. http://stackoverflow.com/questions/24102104/how-to-import-swift-code-to-objective-c</p>
-
-<blockquote>
-<p>Just create AdMob interstitial Ad as usually:</p>
-</blockquote>
-<pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">GoogleMobileAds</span>
-<span class="kd">import</span> <span class="kt">HADFramework</span>
-<span class="kd">import</span> <span class="kt">UIKit</span>
-
-<span class="kd">class</span> <span class="kt">ViewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="kt">GADInterstitialDelegate</span> <span class="p">{</span>
-    <span class="k">var</span> <span class="nv">interstitial</span><span class="p">:</span> <span class="kt">GADInterstitial</span><span class="o">!</span>
-
-    <span class="k">override</span> <span class="kd">func</span> <span class="nf">viewDidLoad</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">super</span><span class="o">.</span><span class="nf">viewDidLoad</span><span class="p">()</span>
-        <span class="k">let</span> <span class="nv">request</span> <span class="o">=</span> <span class="kt">GADRequest</span><span class="p">()</span>
-        <span class="c1">//Interstitial</span>
-        <span class="n">interstitial</span> <span class="o">=</span> <span class="kt">GADInterstitial</span><span class="p">(</span><span class="nv">adUnitID</span><span class="p">:</span> <span class="s">"YOUR_ADUNIT_ID"</span><span class="p">)</span>
-        <span class="n">interstitial</span><span class="o">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="k">self</span>
-        <span class="n">interstitial</span><span class="o">.</span><span class="nf">loadRequest</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
-    <span class="p">}</span>
-
-    <span class="kd">@IBAction</span> <span class="kd">func</span> <span class="nf">createAndLoadInterstitial</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="n">interstitial</span><span class="o">.</span><span class="n">isReady</span> <span class="p">{</span>
-            <span class="n">interstitial</span><span class="o">.</span><span class="nf">presentFromRootViewController</span><span class="p">(</span><span class="k">self</span><span class="p">)</span>
-        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-            <span class="nf">print</span><span class="p">(</span><span class="s">"Ad wasn't ready"</span><span class="p">)</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-
-    <span class="c1">//MARK: GADInterstitialDelegate</span>
-    <span class="kd">func</span> <span class="nf">interstitialDidReceiveAd</span><span class="p">(</span><span class="nv">ad</span><span class="p">:</span> <span class="kt">GADInterstitial</span><span class="o">!</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nf">print</span><span class="p">(</span><span class="s">"interstitialDidReceiveAd"</span><span class="p">)</span>
-    <span class="p">}</span>
-
-    <span class="kd">func</span> <span class="nf">interstitial</span><span class="p">(</span><span class="nv">ad</span><span class="p">:</span> <span class="kt">GADInterstitial</span><span class="o">!</span><span class="p">,</span> <span class="n">didFailToReceiveAdWithError</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">GADRequestError</span><span class="o">!</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nf">print</span><span class="p">(</span><span class="s">"interstitial didFailToReceiveAdWithError: </span><span class="se">\(</span><span class="n">error</span><span class="se">)</span><span class="s">"</span><span class="p">)</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre>
-
-<h3 id="mopub-adapter">Mopub Adapter</h3>
-
-<ul>
-<li><p><a href="https://s3-us-west-2.amazonaws.com/adpanel-public/HyperadxiOSADs_Sample_v2.0.1.zip">Download</a> and extract the HADFramework for iOS.</p></li>
-<li><p>You can find Mopub adapter example in HyperadxiOSADs_Sample_v2.0.1/Mediation Adapters/MoPub/.</p></li>
-</ul>
-
-<p>Setup SDKs:</p>
-
-<ul>
-<li>Integrate with Mopub SDK (https://github.com/mopub/mopub-ios-sdk/wiki/Manual-Native-Ads-Integration-for-iOS)</li>
-<li>Install Hyperadx SDK</li>
-<li>Add HADInterstitialCustomEvent.swift file</li>
-</ul>
-
-<p><strong>NOTE</strong> - In the Objective-C only project you must create swift header file as described here e.g. http://stackoverflow.com/questions/24102104/how-to-import-swift-code-to-objective-c</p>
-
-<p>Setup Mopub Dashboard</p>
-
-<ul>
-<li>Create an &ldquo;Hyperadx&rdquo; Network in Mopub&rsquo;s dashboard and connect it to your Ad Units.</li>
-<li>In Mopub&rsquo;s dashboard select Networks &gt; Add New network</li>
-<li>Then select Custom Native Network</li>
-<li>Complete the fields accordingly to the Ad Unit that you want to use</li>
-<li>Create new Order in Orders tab</li>
-<li>Complete the fields accordingly to the Ad Unit that you want to use</li>
-</ul>
-
-<p>Custom Event Class: <code class="prettyprint">HADInterstitialCustomEvent</code></p>
-
-<p>Custom Event Class Data: <code class="prettyprint">{&quot;PLACEMENT&quot;:&quot;&lt;YOUR PLACEMENT&gt;&quot;}</code></p>
-
-<p>You can use the test placement <code class="prettyprint">5b3QbMRQ</code></p>
-
-<blockquote>
-<p>Add <code class="prettyprint">HADInterstitialCustomEvent.swift</code> adapter in your project
-Implement MoPub Interstitial:</p>
-</blockquote>
-<pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">HADFramework</span>
-<span class="kd">import</span> <span class="kt">UIKit</span>
-
-<span class="kd">class</span> <span class="kt">ViewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="kt">MPInterstitialAdControllerDelegate</span> <span class="p">{</span>
-    <span class="k">var</span> <span class="nv">interstitial</span><span class="p">:</span> <span class="kt">MPInterstitialAdController</span><span class="o">!</span>
-
-    <span class="k">override</span> <span class="kd">func</span> <span class="nf">viewDidLoad</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">super</span><span class="o">.</span><span class="nf">viewDidLoad</span><span class="p">()</span>
-        <span class="c1">//Interstitial</span>
-        <span class="n">interstitial</span> <span class="o">=</span> <span class="kt">MPInterstitialAdController</span><span class="p">(</span><span class="nv">forAdUnitId</span><span class="p">:</span> <span class="s">"YOUR_AD_UNIT"</span><span class="p">)</span>
-        <span class="n">interstitial</span><span class="o">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="k">self</span>
-        <span class="n">interstitial</span><span class="o">.</span><span class="nf">loadAd</span><span class="p">()</span>
-    <span class="p">}</span>
-
-    <span class="c1">//MARK: MPInterstitialAdControllerDelegate</span>
-    <span class="kd">func</span> <span class="nf">interstitialDidLoadAd</span><span class="p">(</span><span class="nv">interstitial</span><span class="p">:</span> <span class="kt">MPInterstitialAdController</span><span class="o">!</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nf">print</span><span class="p">(</span><span class="s">"interstitialDidLoadAd"</span><span class="p">)</span>
-        <span class="n">interstitial</span><span class="o">.</span><span class="nf">showFromViewController</span><span class="p">(</span><span class="k">self</span><span class="p">)</span>
-    <span class="p">}</span>
-
-    <span class="kd">func</span> <span class="nf">interstitialDidFailToLoadAd</span><span class="p">(</span><span class="nv">inter</span><span class="p">:</span> <span class="kt">MPInterstitialAdController</span><span class="o">!</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nf">print</span><span class="p">(</span><span class="s">"interstitialDidFailToLoadAd"</span><span class="p">)</span>
-        <span class="n">interstitial</span> <span class="o">=</span> <span class="kt">MPInterstitialAdController</span><span class="p">(</span><span class="nv">forAdUnitId</span><span class="p">:</span> <span class="s">"5b0f8ff979a840b4928ca7fd14ec82e7"</span><span class="p">)</span>
-        <span class="n">interstitial</span><span class="o">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="k">self</span>
-        <span class="n">interstitial</span><span class="o">.</span><span class="nf">loadAd</span><span class="p">()</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre>
-
-<blockquote>
-<p>This is your Hyperadx Interstitial MoPub adapter. Now you can use Mopub as usual.</p>
-</blockquote>
-
 <h2 id="android">Android</h2>
 
 <p>The HyperAdX Interstitial ads allows you to monetize your Android apps with banner ads. This guide explains how to add banner ads to your app. If you’re interested in other kinds of ad units, see the list of available types.</p>
@@ -1820,220 +1178,13 @@ Implement MoPub Interstitial:</p>
 <span class="o">}</span>
 </code></pre>
 
-<h3 id="admob-adapter">Admob Adapter</h3>
-
-<ul>
-<li><p><a href="https://s3-us-west-2.amazonaws.com/adpanel-public/HyperadxAndroidAdmobSample_1.0.1.zip">Download</a> and extract the AdMob adapter if needed.</p></li>
-<li><p>First of all you need to add new app in AdMob console.</p></li>
-<li><p>You will get UnitId string like &#39;ca-app-pub-**********<strong><em>/</em></strong>**********&rsquo;.
-For the next few hours you may get the AdMob errors with codes 0 or 2. Just be patient.</p></li>
-</ul>
-
-<p>Then you need to add new mediation source.</p>
-
-<ul>
-<li><p>Fill <code class="prettyprint">Class Name</code> field with a <code class="prettyprint">com.hyperadx.admob.HADInterstitialEvent</code> string. And a <code class="prettyprint">Parameter</code> with your HyperAdx statement string.</p></li>
-<li><p>Setup eCPM for new network</p></li>
-</ul>
-
-<p>Now you can setting up your android project.</p>
-
-<ul>
-<li>Put HyperAdx-SDK and AdMob-adapter in &#39;libs&rsquo; folder.</li>
-<li>Add those lines in your <code class="prettyprint">build.gradle</code> file:</li>
-</ul>
-
-<p><strong>NOTE</strong> - Admob interstitial may not work in emulator. Use real devices even for tests!</p>
-<pre class="highlight plaintext"><code>dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:23.4.0'
-    compile 'com.google.android.gms:play-services-ads:9.0.2'
-    compile 'com.google.android.gms:play-services-base:9.0.2'
-}
-</code></pre>
-
-<blockquote>
-<p>Just create AdMob interstitial Ad as usually:</p>
-</blockquote>
-<pre class="highlight java"><code><span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">hyperadx</span><span class="o">.</span><span class="na">admob_sample</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">android.os.Bundle</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">android.support.v7.app.AppCompatActivity</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">android.view.View</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">android.widget.Toast</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">com.google.android.gms.ads.AdRequest</span><span class="o">;</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MainActivity</span> <span class="kd">extends</span> <span class="n">AppCompatActivity</span> <span class="o">{</span>
-    <span class="kd">private</span> <span class="n">com</span><span class="o">.</span><span class="na">google</span><span class="o">.</span><span class="na">android</span><span class="o">.</span><span class="na">gms</span><span class="o">.</span><span class="na">ads</span><span class="o">.</span><span class="na">InterstitialAd</span> <span class="n">mAdapterInterstitial</span><span class="o">;</span>
-    <span class="nd">@Override</span>
-    <span class="kd">protected</span> <span class="kt">void</span> <span class="n">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
-        <span class="n">setContentView</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">activity_main</span><span class="o">);</span>
-        <span class="n">loadInterstitialAd</span><span class="o">();</span>
-    <span class="o">}</span>
-
-    <span class="kd">private</span> <span class="kt">void</span> <span class="n">loadInterstitialAd</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">mAdapterInterstitial</span> <span class="o">=</span> <span class="k">new</span> <span class="n">com</span><span class="o">.</span><span class="na">google</span><span class="o">.</span><span class="na">android</span><span class="o">.</span><span class="na">gms</span><span class="o">.</span><span class="na">ads</span><span class="o">.</span><span class="na">InterstitialAd</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
-        <span class="n">mAdapterInterstitial</span><span class="o">.</span><span class="na">setAdUnitId</span><span class="o">(</span>
-                <span class="s">"ca-app-pub-6172762133617463/5529648238"</span>
-        <span class="o">);</span>
-
-        <span class="n">mAdapterInterstitial</span><span class="o">.</span><span class="na">setAdListener</span><span class="o">(</span><span class="k">new</span> <span class="n">com</span><span class="o">.</span><span class="na">google</span><span class="o">.</span><span class="na">android</span><span class="o">.</span><span class="na">gms</span><span class="o">.</span><span class="na">ads</span><span class="o">.</span><span class="na">AdListener</span><span class="o">()</span> <span class="o">{</span>
-            <span class="nd">@Override</span>
-            <span class="kd">public</span> <span class="kt">void</span> <span class="n">onAdFailedToLoad</span><span class="o">(</span><span class="kt">int</span> <span class="n">errorCode</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">Toast</span><span class="o">.</span><span class="na">makeText</span><span class="o">(</span><span class="n">MainActivity</span><span class="o">.</span><span class="na">this</span><span class="o">,</span>
-                        <span class="s">"Error loading adapter interstitial, code "</span> <span class="o">+</span> <span class="n">errorCode</span><span class="o">,</span>
-                        <span class="n">Toast</span><span class="o">.</span><span class="na">LENGTH_SHORT</span><span class="o">).</span><span class="na">show</span><span class="o">();</span>
-            <span class="o">}</span>
-
-            <span class="nd">@Override</span>
-            <span class="kd">public</span> <span class="kt">void</span> <span class="n">onAdLoaded</span><span class="o">()</span> <span class="o">{</span>
-                <span class="n">Toast</span><span class="o">.</span><span class="na">makeText</span><span class="o">(</span><span class="n">MainActivity</span><span class="o">.</span><span class="na">this</span><span class="o">,</span>
-                        <span class="s">"onAdLoaded()"</span><span class="o">,</span>
-                        <span class="n">Toast</span><span class="o">.</span><span class="na">LENGTH_SHORT</span><span class="o">).</span><span class="na">show</span><span class="o">();</span>
-            <span class="o">}</span>
-
-            <span class="nd">@Override</span>
-            <span class="kd">public</span> <span class="kt">void</span> <span class="n">onAdOpened</span><span class="o">()</span> <span class="o">{</span>
-            <span class="o">}</span>
-
-            <span class="nd">@Override</span>
-            <span class="kd">public</span> <span class="kt">void</span> <span class="n">onAdClosed</span><span class="o">()</span> <span class="o">{</span>
-                <span class="n">mAdapterInterstitial</span><span class="o">.</span><span class="na">loadAd</span><span class="o">(</span><span class="k">new</span> <span class="n">AdRequest</span><span class="o">.</span><span class="na">Builder</span><span class="o">().</span><span class="na">build</span><span class="o">());</span>
-            <span class="o">}</span>
-        <span class="o">});</span>
-
-        <span class="n">mAdapterInterstitial</span><span class="o">.</span><span class="na">loadAd</span><span class="o">(</span><span class="k">new</span> <span class="n">AdRequest</span><span class="o">.</span><span class="na">Builder</span><span class="o">().</span><span class="na">build</span><span class="o">());</span>
-    <span class="o">}</span>
-
-
-    <span class="kd">public</span> <span class="kt">void</span> <span class="n">showInterstitial</span><span class="o">(</span><span class="n">View</span> <span class="n">view</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">mAdapterInterstitial</span><span class="o">.</span><span class="na">isLoaded</span><span class="o">())</span>
-            <span class="n">mAdapterInterstitial</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
-        <span class="k">else</span>
-            <span class="n">Toast</span><span class="o">.</span><span class="na">makeText</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="s">"The Interstitial AD not ready yet. Try again!"</span><span class="o">,</span> <span class="n">Toast</span><span class="o">.</span><span class="na">LENGTH_LONG</span><span class="o">).</span><span class="na">show</span><span class="o">();</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre>
-
-<h3 id="mopub-adapter">Mopub Adapter</h3>
-
-<ul>
-<li><a href="https://s3-us-west-2.amazonaws.com/adpanel-public/HyperadxAndroidMoPubAdapter_1.1.0.zip">Download</a> and extract the Mopub adapter if needed.</li>
-</ul>
-
-<p>You can use Hyperadx as a Network in Mopub&rsquo;s Mediation platform.</p>
-
-<p>Setup SDKs:</p>
-
-<ul>
-<li>Integrate with Mopub SDK (https://github.com/mopub/mopub-android-sdk/wiki/Getting-Started)</li>
-<li>Install Hyperadx SDK</li>
-</ul>
-
-<p>Setup Mopub Dashboard</p>
-
-<ul>
-<li>Create an &ldquo;Hyperadx&rdquo; Network in Mopub&rsquo;s dashboard and connect it to your Ad Units.</li>
-<li>In Mopub&rsquo;s dashboard select Networks &gt; Add New network</li>
-<li>Then select Custom Native Network</li>
-<li>Complete the fields accordingly to the Ad Unit that you want to use</li>
-</ul>
-
-<p>Custom Event Class: <code class="prettyprint">com.mopub.mobileads.HyperadxInterstitialMopub</code></p>
-
-<p>Custom Event Class Data: <code class="prettyprint">{&quot;PLACEMENT&quot;:&quot;&lt;YOUR PLACEMENT&gt;&quot;}</code></p>
-
-<p>You can use the test placement <code class="prettyprint">5b3QbMRQ</code></p>
-
-<blockquote>
-<p>Add adapter in your project
-Create package &ldquo;com.mopub.mobileads&rdquo; in your project and put this class in there:</p>
-</blockquote>
-<pre class="highlight java"><code><span class="n">HyperadxInterstitialMopub</span><span class="o">.</span><span class="na">java</span><span class="o">:</span>
-
-<span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">mopub</span><span class="o">.</span><span class="na">mobileads</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">android.content.Context</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">android.util.Log</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">com.hyperadx.lib.sdk.interstitialads.HADInterstitialAd</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">com.hyperadx.lib.sdk.interstitialads.InterstitialAdListener</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Map</span><span class="o">;</span>
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HyperadxInterstitialMopub</span> <span class="kd">extends</span> <span class="n">CustomEventInterstitial</span> <span class="o">{</span>
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">PLACEMENT_KEY</span> <span class="o">=</span> <span class="s">"PLACEMENT"</span><span class="o">;</span>
-    <span class="kd">private</span> <span class="n">HADInterstitialAd</span> <span class="n">interstitialAd</span><span class="o">;</span>
-    <span class="kd">private</span> <span class="n">com</span><span class="o">.</span><span class="na">hyperadx</span><span class="o">.</span><span class="na">lib</span><span class="o">.</span><span class="na">sdk</span><span class="o">.</span><span class="na">interstitialads</span><span class="o">.</span><span class="na">Ad</span> <span class="n">iAd</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
-    <span class="n">CustomEventInterstitialListener</span> <span class="n">customEventInterstitialListener</span><span class="o">;</span>
-
-    <span class="nd">@Override</span>
-    <span class="kd">protected</span> <span class="kt">void</span> <span class="n">loadInterstitial</span><span class="o">(</span><span class="kd">final</span> <span class="n">Context</span> <span class="n">context</span><span class="o">,</span> <span class="kd">final</span> <span class="n">CustomEventInterstitialListener</span> <span class="n">customEventInterstitialListener</span><span class="o">,</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;</span> <span class="n">localExtras</span><span class="o">,</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">serverExtras</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kd">final</span> <span class="n">String</span> <span class="n">placement</span><span class="o">;</span>
-        <span class="kd">final</span> <span class="n">String</span> <span class="n">appId</span><span class="o">;</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">serverExtras</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">serverExtras</span><span class="o">.</span><span class="na">containsKey</span><span class="o">(</span><span class="n">PLACEMENT_KEY</span><span class="o">))</span> <span class="o">{</span>
-            <span class="n">placement</span> <span class="o">=</span> <span class="n">serverExtras</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">PLACEMENT_KEY</span><span class="o">);</span>
-
- <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-            <span class="n">customEventInterstitialListener</span><span class="o">.</span><span class="na">onInterstitialFailed</span><span class="o">(</span><span class="n">MoPubErrorCode</span><span class="o">.</span><span class="na">ADAPTER_CONFIGURATION_ERROR</span><span class="o">);</span>
-            <span class="k">return</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="n">interstitialAd</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HADInterstitialAd</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="n">placement</span><span class="o">);</span> <span class="c1">//Interstitial AD constructor</span>
-        <span class="n">interstitialAd</span><span class="o">.</span><span class="na">setAdListener</span><span class="o">(</span><span class="k">new</span> <span class="n">InterstitialAdListener</span><span class="o">()</span> <span class="o">{</span> <span class="c1">// Set Listener</span>
-            <span class="nd">@Override</span>
-            <span class="kd">public</span> <span class="kt">void</span> <span class="n">onAdLoaded</span><span class="o">(</span><span class="n">com</span><span class="o">.</span><span class="na">hyperadx</span><span class="o">.</span><span class="na">lib</span><span class="o">.</span><span class="na">sdk</span><span class="o">.</span><span class="na">interstitialads</span><span class="o">.</span><span class="na">Ad</span> <span class="n">ad</span><span class="o">)</span> <span class="o">{</span> <span class="c1">// Called when AD is Loaded</span>
-                <span class="n">iAd</span> <span class="o">=</span> <span class="n">ad</span><span class="o">;</span>
-                <span class="c1">//   Toast.makeText(context, "Interstitial Ad loaded", Toast.LENGTH_SHORT).show();</span>
-                <span class="n">customEventInterstitialListener</span><span class="o">.</span><span class="na">onInterstitialLoaded</span><span class="o">();</span>
-            <span class="o">}</span>
-
-            <span class="nd">@Override</span>
-            <span class="kd">public</span> <span class="kt">void</span> <span class="n">onError</span><span class="o">(</span><span class="n">com</span><span class="o">.</span><span class="na">hyperadx</span><span class="o">.</span><span class="na">lib</span><span class="o">.</span><span class="na">sdk</span><span class="o">.</span><span class="na">interstitialads</span><span class="o">.</span><span class="na">Ad</span> <span class="n">Ad</span><span class="o">,</span> <span class="n">String</span> <span class="n">error</span><span class="o">)</span> <span class="o">{</span> <span class="c1">// Called when load is fail</span>
-                <span class="c1">//   Toast.makeText(context, "Interstitial Ad failed to load with error: " + error, Toast.LENGTH_SHORT).show();</span>
-                <span class="n">customEventInterstitialListener</span><span class="o">.</span><span class="na">onInterstitialFailed</span><span class="o">(</span><span class="n">MoPubErrorCode</span><span class="o">.</span><span class="na">UNSPECIFIED</span><span class="o">);</span>
-
-            <span class="nd">@Override</span>
-            <span class="kd">public</span> <span class="kt">void</span> <span class="n">onInterstitialDisplayed</span><span class="o">()</span> <span class="o">{</span> <span class="c1">// Called when Ad was impressed</span>
-                <span class="c1">//    Toast.makeText(context, "Tracked Interstitial Ad impression", Toast.LENGTH_SHORT).show();</span>
-                <span class="n">customEventInterstitialListener</span><span class="o">.</span><span class="na">onInterstitialShown</span><span class="o">();</span>
-            <span class="o">}</span>
-
-            <span class="nd">@Override</span>
-            <span class="kd">public</span> <span class="kt">void</span> <span class="n">onInterstitialDismissed</span><span class="o">(</span><span class="n">com</span><span class="o">.</span><span class="na">hyperadx</span><span class="o">.</span><span class="na">lib</span><span class="o">.</span><span class="na">sdk</span><span class="o">.</span><span class="na">interstitialads</span><span class="o">.</span><span class="na">Ad</span> <span class="n">ad</span><span class="o">)</span> <span class="o">{</span> <span class="c1">// Called when Ad was dissnissed by user</span>
-                <span class="c1">//   Toast.makeText(context, "Interstitial Ad Dismissed", Toast.LENGTH_SHORT).show();</span>
-                <span class="n">customEventInterstitialListener</span><span class="o">.</span><span class="na">onInterstitialDismissed</span><span class="o">();</span>
-
-            <span class="nd">@Override</span>
-            <span class="kd">public</span> <span class="kt">void</span> <span class="n">onAdClicked</span><span class="o">()</span> <span class="o">{</span> <span class="c1">// Called when user click on AD</span>
-                <span class="c1">//   Toast.makeText(context, "Tracked Interstitial Ad click", Toast.LENGTH_SHORT).show();</span>
-                <span class="n">customEventInterstitialListener</span><span class="o">.</span><span class="na">onInterstitialClicked</span><span class="o">();</span>
-            <span class="o">}</span>
-        <span class="o">});</span>
-
-        <span class="k">this</span><span class="o">.</span><span class="na">customEventInterstitialListener</span> <span class="o">=</span> <span class="n">customEventInterstitialListener</span><span class="o">;</span>
-        <span class="n">interstitialAd</span><span class="o">.</span><span class="na">loadAd</span><span class="o">();</span> <span class="c1">// Call to load AD</span>
-
-    <span class="nd">@Override</span>
-    <span class="kd">protected</span> <span class="kt">void</span> <span class="n">showInterstitial</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">iAd</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span>
-            <span class="n">HADInterstitialAd</span><span class="o">.</span><span class="na">show</span><span class="o">(</span><span class="n">iAd</span><span class="o">);</span> <span class="c1">// Call to show AD</span>
-        <span class="k">else</span>
-            <span class="n">Log</span><span class="o">.</span><span class="na">e</span><span class="o">(</span><span class="s">"HADInterstitialMopub"</span><span class="o">,</span> <span class="s">"The Interstitial AD not ready yet. Try again!"</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Override</span>
-    <span class="kd">protected</span> <span class="kt">void</span> <span class="n">onInvalidate</span><span class="o">()</span> <span class="o">{</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-<span class="o">&gt;</span> <span class="n">This</span> <span class="n">is</span> <span class="n">your</span> <span class="n">adapter</span><span class="o">.</span> <span class="n">Now</span> <span class="n">you</span> <span class="n">can</span> <span class="n">use</span> <span class="n">Mopub</span> <span class="n">as</span> <span class="n">usual</span><span class="o">.</span>
-
-</code></pre>
-
           <h1 id="segments">Segments</h1>
 
 <p>With sending in-app events triggered by your users you can improve your monetization and get higher earnings.</p>
 
 <p>Our platform automatically build audiences using your in-app data (provided by your events) and assigns high performing campaigns individually to each segment.</p>
 
-<p>Also our advertisers and mediabuying departmentment make higher bids for more engaged users.</p>
+<p>Also our advertisers and mediabuying department make higher bids for more engaged users.</p>
 
 <h2 id="android">Android</h2>
 
@@ -2215,7 +1366,9 @@ Create package &ldquo;com.mopub.mobileads&rdquo; in your project and put this cl
 
 <h2 id="account-api">Account API</h2>
 
-<h2 id="errors">Errors</h2>
+<p><strong>Coming soon</strong></p>
+
+<h2 id="error-codes">Error codes</h2>
 
 <p>The HyperAdX API uses the following error codes:</p>
 
@@ -2258,6 +1411,763 @@ Create package &ldquo;com.mopub.mobileads&rdquo; in your project and put this cl
 <td>Service Unavailable &ndash; We&rsquo;re temporarially offline for maintanance. Please try again later.</td>
 </tr>
 </tbody></table>
+
+          <h1 id="mopub-adapter">Mopub Adapter</h1>
+
+<h2 id="ios">iOS</h2>
+
+<ul>
+<li><p><a href="https://s3-us-west-2.amazonaws.com/adpanel-public/HyperadxiOSADs_Sample_v2.0.1.zip">Download</a> and extract the HADFramework for iOS.</p></li>
+<li><p>You can find Mopub adapter example in HyperadxiOSADs_Sample_v2.0.1/Mediation Adapters/MoPub/.</p></li>
+</ul>
+
+<p>Setup SDKs:</p>
+
+<ul>
+<li><a href="https://github.com/mopub/mopub-ios-sdk/wiki/Manual-Native-Ads-Integration-for-iOS">Integrate</a> with Mopub SDK</li>
+<li>Install Hyperadx SDK</li>
+</ul>
+
+<p><strong>NOTE</strong> - In the Objective-C only project you must create swift header file as described <a href="http://stackoverflow.com/questions/24102104/how-to-import-swift-code-to-objective-c">here</a></p>
+
+<h3 id="setup-mopub-dashboard">Setup Mopub Dashboard</h3>
+
+<ul>
+<li>Create an &ldquo;Hyperadx&rdquo; Network in Mopub&rsquo;s dashboard and connect it to your Ad Units. In Mopub&rsquo;s dashboard select Networks &gt; Add New network</li>
+</ul>
+
+<p><img alt="Mopub-1" src="images/adapters/ios/mopub1.png" /></p>
+
+<ul>
+<li>Then select Custom Native Network</li>
+</ul>
+
+<p><img alt="Mopub-2" src="images/adapters/ios/mopub2.png" /></p>
+
+<ul>
+<li>Complete the fields accordingly to the Ad Unit that you want to use</li>
+</ul>
+
+<p><img alt="Mopub-3" src="images/adapters/ios/mopub3.png" /></p>
+
+<h3 id="native-ads">Native ads</h3>
+
+<ul>
+<li>Add HADNativeAdAdapter.swift and HADNativeCustomEvent.swift files</li>
+<li>Custom Event Class: <code class="prettyprint">HADNativeCustomEvent</code></li>
+<li>Custom Event Class Data: <code class="prettyprint">{&quot;PLACEMENT&quot;:&quot;&lt;YOUR PLACEMENT&gt;&quot;}</code></li>
+</ul>
+
+<p><strong>You can use the test placement <code class="prettyprint">5b3QbMRQ</code></strong></p>
+
+<blockquote>
+<p>Add <code class="prettyprint">HADNativeCustomEvent.swift</code> and <code class="prettyprint">HADNativeAdAdapter.swift</code> adapter files in your project
+Implement MoPub NativeViewController:</p>
+</blockquote>
+<pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">HADFramework</span>
+<span class="kd">import</span> <span class="kt">UIKit</span>
+
+<span class="kd">class</span> <span class="kt">NativeViewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="kt">MPNativeAdRendering</span><span class="p">,</span> <span class="kt">MPNativeAdDelegate</span> <span class="p">{</span>
+    <span class="kd">@IBOutlet</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">nativeView</span><span class="p">:</span> <span class="kt">NativeView</span><span class="o">!</span>
+    <span class="kd">@IBOutlet</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">titleLabel</span><span class="p">:</span> <span class="kt">UILabel</span><span class="o">!</span>
+    <span class="kd">@IBOutlet</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">mainTextLabel</span><span class="p">:</span> <span class="kt">UILabel</span><span class="o">!</span>
+    <span class="kd">@IBOutlet</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">callToActionLabel</span><span class="p">:</span> <span class="kt">UILabel</span><span class="o">!</span>
+    <span class="kd">@IBOutlet</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">iconImageView</span><span class="p">:</span> <span class="kt">UIImageView</span><span class="o">!</span>
+    <span class="kd">@IBOutlet</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">mainImageView</span><span class="p">:</span> <span class="kt">UIImageView</span><span class="o">!</span>
+
+    <span class="k">override</span> <span class="kd">func</span> <span class="nf">viewDidLoad</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">super</span><span class="o">.</span><span class="nf">viewDidLoad</span><span class="p">()</span>
+        <span class="k">let</span> <span class="nv">settings</span> <span class="o">=</span> <span class="kt">MPStaticNativeAdRendererSettings</span><span class="p">()</span>
+        <span class="n">settings</span><span class="o">.</span><span class="n">renderingViewClass</span> <span class="o">=</span> <span class="kt">NativeView</span><span class="o">.</span><span class="k">self</span>
+        <span class="k">let</span> <span class="nv">config</span> <span class="o">=</span> <span class="kt">MPStaticNativeAdRenderer</span><span class="o">.</span><span class="nf">rendererConfigurationWithRendererSettings</span><span class="p">(</span><span class="n">settings</span><span class="p">)</span>
+        <span class="n">config</span><span class="o">.</span><span class="n">supportedCustomEvents</span> <span class="o">=</span> <span class="p">[</span><span class="s">"HADNativeCustomEvent"</span><span class="p">]</span>
+        <span class="k">let</span> <span class="nv">request</span> <span class="o">=</span> <span class="kt">MPNativeAdRequest</span><span class="p">(</span><span class="nv">adUnitIdentifier</span><span class="p">:</span> <span class="s">"YOUR_AD_UNIT"</span><span class="p">,</span> <span class="nv">rendererConfigurations</span><span class="p">:</span> <span class="p">[</span><span class="n">config</span><span class="p">])</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">startWithCompletionHandler</span> <span class="p">{</span> <span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">nativeAd</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span> <span class="k">in</span>
+            <span class="k">if</span> <span class="n">error</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+                <span class="nf">print</span><span class="p">(</span><span class="s">"Loading error"</span><span class="p">)</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="nf">print</span><span class="p">(</span><span class="s">"Ad loaded"</span><span class="p">)</span>
+                <span class="n">nativeAd</span><span class="o">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="k">self</span>
+                <span class="k">do</span> <span class="p">{</span>
+                    <span class="k">let</span> <span class="nv">v</span> <span class="o">=</span> <span class="k">try</span> <span class="n">nativeAd</span><span class="o">.</span><span class="nf">retrieveAdView</span><span class="p">()</span>
+                    <span class="n">v</span><span class="o">.</span><span class="n">frame</span> <span class="o">=</span> <span class="k">self</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="n">bounds</span>
+                    <span class="k">self</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="nf">addSubview</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+                <span class="p">}</span> <span class="k">catch</span> <span class="k">let</span> <span class="nv">error</span> <span class="p">{</span>
+                    <span class="nf">print</span><span class="p">(</span><span class="s">"ERROR: </span><span class="se">\(</span><span class="n">error</span><span class="se">)</span><span class="s">"</span><span class="p">)</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1">//MARK: MPNativeAdRendering</span>
+    <span class="kd">func</span> <span class="nf">nativeTitleTextLabel</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">UILabel</span><span class="o">!</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">titleLabel</span>
+    <span class="p">}</span>
+
+    <span class="kd">func</span> <span class="nf">nativeMainTextLabel</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">UILabel</span><span class="o">!</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">mainTextLabel</span>
+    <span class="p">}</span>
+
+    <span class="kd">func</span> <span class="nf">nativeCallToActionTextLabel</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">UILabel</span><span class="o">!</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">callToActionLabel</span><span class="o">!</span>
+    <span class="p">}</span>
+
+    <span class="kd">func</span> <span class="nf">nativeIconImageView</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">UIImageView</span><span class="o">!</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">iconImageView</span>
+    <span class="p">}</span>
+
+    <span class="kd">func</span> <span class="nf">nativeMainImageView</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">UIImageView</span><span class="o">!</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">mainImageView</span>
+    <span class="p">}</span>
+
+    <span class="kd">func</span> <span class="nf">nativeVideoView</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">UIView</span><span class="o">!</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kt">UIView</span><span class="p">()</span>
+    <span class="p">}</span>
+
+    <span class="c1">//MARK: MPNativeAdDelegate</span>
+    <span class="kd">func</span> <span class="nf">viewControllerForPresentingModalView</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">UIViewController</span><span class="o">!</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">self</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+
+<blockquote>
+<p>And implement MoPubNativeAdRenderer, e.g.:</p>
+</blockquote>
+<pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">NativeView</span><span class="p">:</span> <span class="kt">UIView</span><span class="p">,</span> <span class="kt">MPNativeAdRenderer</span> <span class="p">{</span>
+    <span class="c1">//MARK: MPNativeAdRenderer</span>
+    <span class="k">var</span> <span class="nv">settings</span><span class="p">:</span> <span class="kt">MPNativeAdRendererSettings</span><span class="o">!</span>
+
+    <span class="kd">required</span> <span class="nf">init</span><span class="o">!</span><span class="p">(</span><span class="nv">rendererSettings</span><span class="p">:</span> <span class="kt">MPNativeAdRendererSettings</span><span class="o">!</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">super</span><span class="o">.</span><span class="nf">init</span><span class="p">(</span><span class="nv">frame</span><span class="p">:</span> <span class="kt">CGRectZero</span><span class="p">)</span>
+        <span class="n">settings</span> <span class="o">=</span> <span class="n">rendererSettings</span>
+    <span class="p">}</span>
+
+    <span class="k">override</span> <span class="nf">init</span><span class="p">(</span><span class="nv">frame</span><span class="p">:</span> <span class="kt">CGRect</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">super</span><span class="o">.</span><span class="nf">init</span><span class="p">(</span><span class="nv">frame</span><span class="p">:</span> <span class="n">frame</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="kd">required</span> <span class="nf">init</span><span class="p">?(</span><span class="n">coder</span> <span class="nv">aDecoder</span><span class="p">:</span> <span class="kt">NSCoder</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">super</span><span class="o">.</span><span class="nf">init</span><span class="p">(</span><span class="nv">coder</span><span class="p">:</span> <span class="n">aDecoder</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="kd">static</span> <span class="kd">func</span> <span class="nf">rendererConfigurationWithRendererSettings</span><span class="p">(</span><span class="nv">rendererSettings</span><span class="p">:</span> <span class="kt">MPNativeAdRendererSettings</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">MPNativeAdRendererConfiguration</span><span class="o">!</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="nv">settings</span> <span class="o">=</span> <span class="kt">MPStaticNativeAdRendererSettings</span><span class="p">()</span>
+        <span class="n">settings</span><span class="o">.</span><span class="n">renderingViewClass</span> <span class="o">=</span> <span class="kt">NativeView</span><span class="o">.</span><span class="k">self</span>
+        <span class="k">let</span> <span class="nv">config</span> <span class="o">=</span> <span class="kt">MPNativeAdRendererConfiguration</span><span class="p">()</span>
+        <span class="n">config</span><span class="o">.</span><span class="n">rendererSettings</span> <span class="o">=</span> <span class="n">settings</span>
+        <span class="n">config</span><span class="o">.</span><span class="n">supportedCustomEvents</span> <span class="o">=</span> <span class="p">[</span><span class="s">"NativeView"</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">config</span>
+    <span class="p">}</span>
+
+    <span class="kd">func</span> <span class="nf">retrieveViewWithAdapter</span><span class="p">(</span><span class="nv">adapter</span><span class="p">:</span> <span class="kt">MPNativeAdAdapter</span><span class="o">!</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">UIView</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kt">UIView</span><span class="p">()</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+
+<h3 id="interstitial">Interstitial</h3>
+
+<ul>
+<li>Custom Event Class: <code class="prettyprint">HADInterstitialCustomEvent</code></li>
+<li>Custom Event Class Data: <code class="prettyprint">{&quot;PLACEMENT&quot;:&quot;&lt;YOUR PLACEMENT&gt;&quot;}</code></li>
+</ul>
+
+<p><strong>You can use the test placement <code class="prettyprint">5b3QbMRQ</code></strong></p>
+
+<blockquote>
+<p>Add <code class="prettyprint">HADInterstitialCustomEvent.swift</code> adapter in your project. Implement MoPub Interstitial:</p>
+</blockquote>
+<pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">HADFramework</span>
+<span class="kd">import</span> <span class="kt">UIKit</span>
+
+<span class="kd">class</span> <span class="kt">ViewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="kt">MPInterstitialAdControllerDelegate</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nv">interstitial</span><span class="p">:</span> <span class="kt">MPInterstitialAdController</span><span class="o">!</span>
+
+    <span class="k">override</span> <span class="kd">func</span> <span class="nf">viewDidLoad</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">super</span><span class="o">.</span><span class="nf">viewDidLoad</span><span class="p">()</span>
+        <span class="c1">//Interstitial</span>
+        <span class="n">interstitial</span> <span class="o">=</span> <span class="kt">MPInterstitialAdController</span><span class="p">(</span><span class="nv">forAdUnitId</span><span class="p">:</span> <span class="s">"YOUR_AD_UNIT"</span><span class="p">)</span>
+        <span class="n">interstitial</span><span class="o">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="k">self</span>
+        <span class="n">interstitial</span><span class="o">.</span><span class="nf">loadAd</span><span class="p">()</span>
+    <span class="p">}</span>
+
+    <span class="c1">//MARK: MPInterstitialAdControllerDelegate</span>
+    <span class="kd">func</span> <span class="nf">interstitialDidLoadAd</span><span class="p">(</span><span class="nv">interstitial</span><span class="p">:</span> <span class="kt">MPInterstitialAdController</span><span class="o">!</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nf">print</span><span class="p">(</span><span class="s">"interstitialDidLoadAd"</span><span class="p">)</span>
+        <span class="n">interstitial</span><span class="o">.</span><span class="nf">showFromViewController</span><span class="p">(</span><span class="k">self</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="kd">func</span> <span class="nf">interstitialDidFailToLoadAd</span><span class="p">(</span><span class="nv">inter</span><span class="p">:</span> <span class="kt">MPInterstitialAdController</span><span class="o">!</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nf">print</span><span class="p">(</span><span class="s">"interstitialDidFailToLoadAd"</span><span class="p">)</span>
+        <span class="n">interstitial</span> <span class="o">=</span> <span class="kt">MPInterstitialAdController</span><span class="p">(</span><span class="nv">forAdUnitId</span><span class="p">:</span> <span class="s">"5b0f8ff979a840b4928ca7fd14ec82e7"</span><span class="p">)</span>
+        <span class="n">interstitial</span><span class="o">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="k">self</span>
+        <span class="n">interstitial</span><span class="o">.</span><span class="nf">loadAd</span><span class="p">()</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+
+<h3 id="banner">Banner</h3>
+
+<p>Custom Event Class: <code class="prettyprint">HADBannerCustomEvent</code></p>
+
+<p>Custom Event Class Data: <code class="prettyprint">{&quot;PLACEMENT&quot;:&quot;&lt;YOUR PLACEMENT&gt;&quot;}</code></p>
+
+<p><strong>You can use the test placement <code class="prettyprint">5b3QbMRQ</code></strong></p>
+
+<blockquote>
+<p>Add <code class="prettyprint">HADBannerCustomEvent.swift</code> adapter in your project
+Implement MoPub Banner:</p>
+</blockquote>
+<pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">HADFramework</span>
+<span class="kd">import</span> <span class="kt">UIKit</span>
+
+<span class="kd">class</span> <span class="kt">ViewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="kt">MPAdViewDelegate</span> <span class="p">{</span>
+    <span class="k">override</span> <span class="kd">func</span> <span class="nf">viewDidLoad</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">super</span><span class="o">.</span><span class="nf">viewDidLoad</span><span class="p">()</span>
+        <span class="c1">//Banner 320x50</span>
+        <span class="k">let</span> <span class="nv">m</span> <span class="o">=</span> <span class="kt">MPAdView</span><span class="p">(</span><span class="nv">adUnitId</span><span class="p">:</span> <span class="s">"YOUR_AD_UNIT"</span><span class="p">,</span> <span class="nv">size</span><span class="p">:</span> <span class="kt">CGSizeMake</span><span class="p">(</span><span class="mi">320</span><span class="p">,</span> <span class="mi">50</span><span class="p">))</span>
+        <span class="n">m</span><span class="o">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="k">self</span>
+        <span class="n">m</span><span class="o">.</span><span class="n">frame</span> <span class="o">=</span> <span class="kt">CGRectMake</span><span class="p">((</span><span class="kt">UIScreen</span><span class="o">.</span><span class="nf">mainScreen</span><span class="p">()</span><span class="o">.</span><span class="n">bounds</span><span class="o">.</span><span class="n">width</span><span class="o">-</span><span class="mi">320</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">320</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+        <span class="n">view</span><span class="o">.</span><span class="nf">addSubview</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+        <span class="n">m</span><span class="o">.</span><span class="nf">loadAd</span><span class="p">()</span>
+    <span class="p">}</span>
+
+    <span class="c1">//MARK: MPAdViewDelegate</span>
+    <span class="kd">func</span> <span class="nf">viewControllerForPresentingModalView</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">UIViewController</span><span class="o">!</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">self</span>
+    <span class="p">}</span>
+
+    <span class="kd">func</span> <span class="nf">adViewDidLoadAd</span><span class="p">(</span><span class="nv">view</span><span class="p">:</span> <span class="kt">MPAdView</span><span class="o">!</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nf">print</span><span class="p">(</span><span class="s">"adViewDidLoadAd"</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="kd">func</span> <span class="nf">adViewDidFailToLoadAd</span><span class="p">(</span><span class="nv">view</span><span class="p">:</span> <span class="kt">MPAdView</span><span class="o">!</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nf">print</span><span class="p">(</span><span class="s">"adViewDidFailToLoadAd"</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="kd">func</span> <span class="nf">didDismissModalViewForAd</span><span class="p">(</span><span class="nv">view</span><span class="p">:</span> <span class="kt">MPAdView</span><span class="o">!</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nf">print</span><span class="p">(</span><span class="s">"didDismissModalViewForAd"</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="kd">func</span> <span class="nf">willPresentModalViewForAd</span><span class="p">(</span><span class="nv">view</span><span class="p">:</span> <span class="kt">MPAdView</span><span class="o">!</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nf">print</span><span class="p">(</span><span class="s">"willPresentModalViewForAd"</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="kd">func</span> <span class="nf">willLeaveApplicationFromAd</span><span class="p">(</span><span class="nv">view</span><span class="p">:</span> <span class="kt">MPAdView</span><span class="o">!</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nf">print</span><span class="p">(</span><span class="s">"willLeaveApplicationFromAd"</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+
+<h2 id="android">Android</h2>
+
+<ul>
+<li><a href="https://s3-us-west-2.amazonaws.com/adpanel-public/HyperadxAndroidMoPubAdapter_1.1.0.zip">Download</a> and extract the Mopub adapter if needed.</li>
+</ul>
+
+<p>You can use Hyperadx as a Network in Mopub&rsquo;s Mediation platform.
+Setup SDKs</p>
+
+<ul>
+<li><a href="https://github.com/mopub/mopub-android-sdk/wiki/Getting-Started">Integrate</a> with Mopub SDK</li>
+<li>Install Hyperadx SDK</li>
+</ul>
+
+<p>Setup Mopub Dashboard</p>
+
+<ul>
+<li>Create an &ldquo;Hyperadx&rdquo; Network in Mopub&rsquo;s dashboard and connect it to your Ad Units.</li>
+<li>In Mopub&rsquo;s dashboard select Networks &gt; Add New network</li>
+</ul>
+
+<p>Then select Custom Native Network. Complete the fields accordingly to the Ad Unit that you want to use</p>
+
+<h3 id="native">Native</h3>
+
+<ul>
+<li>Custom Event Class: <code class="prettyprint">com.mopub.nativeads.HyperadxNativeMopub</code></li>
+<li>Custom Event Class Data: <code class="prettyprint">{&quot;PLACEMENT&quot;:&quot;&lt;YOUR PLACEMENT&gt;&quot;}</code></li>
+</ul>
+
+<p><strong>You can use the test placement &ldquo;5b3QbMRQ&rdquo;</strong></p>
+
+<blockquote>
+<p>Add adapter in your project. Create package &ldquo;com.mopub.nativeads&rdquo; in your project and put this class in there:</p>
+</blockquote>
+<pre class="highlight java"><code><span class="n">HyperadxNativeMopub</span><span class="o">.</span><span class="na">java</span><span class="o">:</span>
+
+<span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">mopub</span><span class="o">.</span><span class="na">nativeads</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.app.Activity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.os.AsyncTask</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.support.annotation.NonNull</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.util.Log</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.view.View</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.hyperadx.lib.sdk.nativeads.Ad</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.hyperadx.lib.sdk.nativeads.AdListener</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.hyperadx.lib.sdk.nativeads.HADNativeAd</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.net.HttpURLConnection</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.net.MalformedURLException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.net.URL</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.HashSet</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Map</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Set</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HyperadxNativeMopub</span> <span class="kd">extends</span> <span class="n">CustomEventNative</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">PLACEMENT_KEY</span> <span class="o">=</span> <span class="s">"PLACEMENT"</span><span class="o">;</span>
+    <span class="n">com</span><span class="o">.</span><span class="na">hyperadx</span><span class="o">.</span><span class="na">lib</span><span class="o">.</span><span class="na">sdk</span><span class="o">.</span><span class="na">nativeads</span><span class="o">.</span><span class="na">HADNativeAd</span> <span class="n">nativeAd</span><span class="o">;</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="n">loadNativeAd</span><span class="o">(</span><span class="kd">final</span> <span class="nd">@NonNull</span> <span class="n">Activity</span> <span class="n">activity</span><span class="o">,</span> <span class="kd">final</span> <span class="nd">@NonNull</span> <span class="n">CustomEventNativeListener</span> <span class="n">customEventNativeListener</span><span class="o">,</span> <span class="nd">@NonNull</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;</span> <span class="n">localExtras</span><span class="o">,</span> <span class="nd">@NonNull</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">serverExtras</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">final</span> <span class="n">String</span> <span class="n">placement</span><span class="o">;</span>
+        <span class="k">if</span> <span class="o">((</span><span class="n">serverExtras</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">&amp;&amp;</span> <span class="n">serverExtras</span><span class="o">.</span><span class="na">containsKey</span><span class="o">(</span><span class="n">PLACEMENT_KEY</span><span class="o">))</span> <span class="o">{</span>
+            <span class="n">placement</span> <span class="o">=</span> <span class="n">serverExtras</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">PLACEMENT_KEY</span><span class="o">);</span>
+ <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+            <span class="n">customEventNativeListener</span><span class="o">.</span><span class="na">onNativeAdFailed</span><span class="o">(</span><span class="n">NativeErrorCode</span><span class="o">.</span><span class="na">NATIVE_ADAPTER_CONFIGURATION_ERROR</span><span class="o">);</span>
+            <span class="k">return</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="n">nativeAd</span> <span class="o">=</span> <span class="k">new</span> <span class="n">com</span><span class="o">.</span><span class="na">hyperadx</span><span class="o">.</span><span class="na">lib</span><span class="o">.</span><span class="na">sdk</span><span class="o">.</span><span class="na">nativeads</span><span class="o">.</span><span class="na">HADNativeAd</span><span class="o">(</span><span class="n">activity</span><span class="o">,</span> <span class="n">placement</span><span class="o">);</span> <span class="c1">//Native AD constructor</span>
+        <span class="n">nativeAd</span><span class="o">.</span><span class="na">setContent</span><span class="o">(</span><span class="s">"title,icon,description"</span><span class="o">);</span>
+        <span class="n">nativeAd</span><span class="o">.</span><span class="na">setAdListener</span><span class="o">(</span><span class="k">new</span> <span class="n">AdListener</span><span class="o">()</span> <span class="o">{</span> <span class="c1">// Add Listeners</span>
+            <span class="nd">@Override</span>
+            <span class="kd">public</span> <span class="kt">void</span> <span class="n">onAdLoaded</span><span class="o">(</span><span class="n">Ad</span> <span class="n">ad</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">customEventNativeListener</span><span class="o">.</span><span class="na">onNativeAdLoaded</span><span class="o">(</span><span class="k">new</span> <span class="n">HyperadxNativeAd</span><span class="o">(</span><span class="n">ad</span><span class="o">,</span> <span class="n">nativeAd</span><span class="o">,</span> <span class="n">activity</span><span class="o">));</span>
+
+            <span class="nd">@Override</span>
+            <span class="kd">public</span> <span class="kt">void</span> <span class="n">onError</span><span class="o">(</span><span class="n">Ad</span> <span class="n">nativeAd</span><span class="o">,</span> <span class="n">String</span> <span class="n">error</span><span class="o">)</span> <span class="o">{</span> <span class="c1">// Called when load is fail</span>
+                <span class="n">customEventNativeListener</span><span class="o">.</span><span class="na">onNativeAdFailed</span><span class="o">(</span><span class="n">NativeErrorCode</span><span class="o">.</span><span class="na">EMPTY_AD_RESPONSE</span><span class="o">);</span>
+            <span class="o">}</span>
+
+            <span class="nd">@Override</span>
+            <span class="kd">public</span> <span class="kt">void</span> <span class="n">onAdClicked</span><span class="o">()</span> <span class="o">{</span> <span class="c1">// Called when user click on AD</span>
+                <span class="n">Log</span><span class="o">.</span><span class="na">wtf</span><span class="o">(</span><span class="s">"TAG"</span><span class="o">,</span> <span class="s">"AD Clicked"</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">});</span>
+        <span class="n">nativeAd</span><span class="o">.</span><span class="na">loadAd</span><span class="o">();</span>
+
+
+    <span class="kd">class</span> <span class="nc">HyperadxNativeAd</span> <span class="kd">extends</span> <span class="n">StaticNativeAd</span> <span class="o">{</span>
+        <span class="kd">final</span> <span class="n">Ad</span> <span class="n">hadModel</span><span class="o">;</span>
+        <span class="kd">final</span> <span class="n">com</span><span class="o">.</span><span class="na">hyperadx</span><span class="o">.</span><span class="na">lib</span><span class="o">.</span><span class="na">sdk</span><span class="o">.</span><span class="na">nativeads</span><span class="o">.</span><span class="na">HADNativeAd</span> <span class="n">nativeAd</span><span class="o">;</span>
+        <span class="kd">final</span> <span class="n">ImpressionTracker</span> <span class="n">impressionTracker</span><span class="o">;</span>
+        <span class="kd">final</span> <span class="n">NativeClickHandler</span> <span class="n">nativeClickHandler</span><span class="o">;</span>
+        <span class="kd">final</span> <span class="n">Activity</span> <span class="n">activity</span><span class="o">;</span>
+        <span class="kd">public</span> <span class="n">HyperadxNativeAd</span><span class="o">(</span><span class="nd">@NonNull</span> <span class="n">Ad</span> <span class="n">customModel</span><span class="o">,</span> <span class="n">HADNativeAd</span> <span class="n">nativeAd</span><span class="o">,</span> <span class="n">Activity</span> <span class="n">activity</span><span class="o">)</span> <span class="o">{</span>
+
+            <span class="n">hadModel</span> <span class="o">=</span> <span class="n">customModel</span><span class="o">;</span>
+            <span class="k">this</span><span class="o">.</span><span class="na">nativeAd</span> <span class="o">=</span> <span class="n">nativeAd</span><span class="o">;</span>
+            <span class="k">this</span><span class="o">.</span><span class="na">activity</span> <span class="o">=</span> <span class="n">activity</span><span class="o">;</span>
+            <span class="n">impressionTracker</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ImpressionTracker</span><span class="o">(</span><span class="n">activity</span><span class="o">);</span>
+            <span class="n">nativeClickHandler</span> <span class="o">=</span> <span class="k">new</span> <span class="n">NativeClickHandler</span><span class="o">(</span><span class="n">activity</span><span class="o">);</span>
+            <span class="n">setIconImageUrl</span><span class="o">(</span><span class="n">hadModel</span><span class="o">.</span><span class="na">getIcon_url</span><span class="o">());</span>
+            <span class="n">setMainImageUrl</span><span class="o">(</span><span class="n">hadModel</span><span class="o">.</span><span class="na">getImage_url</span><span class="o">());</span>
+            <span class="n">setTitle</span><span class="o">(</span><span class="n">hadModel</span><span class="o">.</span><span class="na">getTitle</span><span class="o">());</span>
+            <span class="n">setText</span><span class="o">(</span><span class="n">hadModel</span><span class="o">.</span><span class="na">getDescription</span><span class="o">());</span>
+            <span class="n">setClickDestinationUrl</span><span class="o">(</span><span class="n">hadModel</span><span class="o">.</span><span class="na">getClickUrl</span><span class="o">());</span>
+            <span class="k">for</span> <span class="o">(</span><span class="n">Ad</span><span class="o">.</span><span class="na">Tracker</span> <span class="n">tracker</span> <span class="o">:</span> <span class="n">hadModel</span><span class="o">.</span><span class="na">getTrackers</span><span class="o">())</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">tracker</span><span class="o">.</span><span class="na">getType</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="s">"impression"</span><span class="o">))</span> <span class="o">{</span>
+                    <span class="n">addImpressionTracker</span><span class="o">(</span><span class="n">tracker</span><span class="o">.</span><span class="na">getUrl</span><span class="o">());</span>
+                <span class="o">}</span>
+
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="kt">void</span> <span class="n">prepare</span><span class="o">(</span><span class="kd">final</span> <span class="n">View</span> <span class="n">view</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">impressionTracker</span><span class="o">.</span><span class="na">addView</span><span class="o">(</span><span class="n">view</span><span class="o">,</span> <span class="k">this</span><span class="o">);</span>
+            <span class="n">nativeClickHandler</span><span class="o">.</span><span class="na">setOnClickListener</span><span class="o">(</span><span class="n">view</span><span class="o">,</span> <span class="k">this</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="kt">void</span> <span class="n">recordImpression</span><span class="o">(</span><span class="kd">final</span> <span class="n">View</span> <span class="n">view</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">notifyAdImpressed</span><span class="o">();</span>
+            <span class="k">for</span> <span class="o">(</span><span class="n">Ad</span><span class="o">.</span><span class="na">Tracker</span> <span class="n">tracker</span> <span class="o">:</span> <span class="n">hadModel</span><span class="o">.</span><span class="na">getTrackers</span><span class="o">())</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">tracker</span><span class="o">.</span><span class="na">getType</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="s">"impression"</span><span class="o">))</span> <span class="o">{</span>
+                    <span class="k">new</span> <span class="n">LoadUrlTask</span><span class="o">().</span><span class="na">execute</span><span class="o">(</span><span class="n">tracker</span><span class="o">.</span><span class="na">getUrl</span><span class="o">());</span>
+                <span class="o">}</span>
+
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="kt">void</span> <span class="n">handleClick</span><span class="o">(</span><span class="kd">final</span> <span class="n">View</span> <span class="n">view</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">notifyAdClicked</span><span class="o">();</span>
+            <span class="n">nativeClickHandler</span><span class="o">.</span><span class="na">openClickDestinationUrl</span><span class="o">(</span><span class="n">getClickDestinationUrl</span><span class="o">(),</span> <span class="n">view</span><span class="o">);</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">hadModel</span><span class="o">.</span><span class="na">getClickUrl</span><span class="o">()</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span>
+                <span class="k">new</span> <span class="n">LoadUrlTask</span><span class="o">().</span><span class="na">execute</span><span class="o">(</span><span class="n">hadModel</span><span class="o">.</span><span class="na">getClickUrl</span><span class="o">());</span>
+        <span class="o">}</span>
+
+        <span class="kd">private</span> <span class="kd">class</span> <span class="nc">LoadUrlTask</span> <span class="kd">extends</span> <span class="n">AsyncTask</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Void</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="o">{</span>
+            <span class="n">String</span> <span class="n">userAgent</span><span class="o">;</span>
+            <span class="kd">public</span> <span class="n">LoadUrlTask</span><span class="o">()</span> <span class="o">{</span>
+                <span class="n">userAgent</span> <span class="o">=</span> <span class="n">com</span><span class="o">.</span><span class="na">hyperadx</span><span class="o">.</span><span class="na">lib</span><span class="o">.</span><span class="na">sdk</span><span class="o">.</span><span class="na">Util</span><span class="o">.</span><span class="na">getDefaultUserAgentString</span><span class="o">(</span><span class="n">activity</span><span class="o">);</span>
+
+            <span class="nd">@Override</span>
+            <span class="kd">protected</span> <span class="n">String</span> <span class="n">doInBackground</span><span class="o">(</span><span class="n">String</span><span class="o">...</span> <span class="n">urls</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">String</span> <span class="n">loadingUrl</span> <span class="o">=</span> <span class="n">urls</span><span class="o">[</span><span class="mi">0</span><span class="o">];</span>
+                <span class="n">URL</span> <span class="n">url</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+                <span class="k">try</span> <span class="o">{</span>
+                    <span class="n">url</span> <span class="o">=</span> <span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="n">loadingUrl</span><span class="o">);</span>
+                <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">MalformedURLException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="k">return</span> <span class="o">(</span><span class="n">loadingUrl</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">?</span> <span class="n">loadingUrl</span> <span class="o">:</span> <span class="s">""</span><span class="o">;</span>
+                <span class="o">}</span>
+                <span class="n">com</span><span class="o">.</span><span class="na">hyperadx</span><span class="o">.</span><span class="na">lib</span><span class="o">.</span><span class="na">sdk</span><span class="o">.</span><span class="na">HADLog</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="s">"Checking URL redirect:"</span> <span class="o">+</span> <span class="n">loadingUrl</span><span class="o">);</span>
+                <span class="kt">int</span> <span class="n">statusCode</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+                <span class="n">HttpURLConnection</span> <span class="n">connection</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+                <span class="n">String</span> <span class="n">nextLocation</span> <span class="o">=</span> <span class="n">url</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+                <span class="n">Set</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">redirectLocations</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;();</span>
+                <span class="n">redirectLocations</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">nextLocation</span><span class="o">);</span>
+                <span class="k">try</span> <span class="o">{</span>
+                    <span class="k">do</span> <span class="o">{</span>
+                        <span class="n">connection</span> <span class="o">=</span> <span class="o">(</span><span class="n">HttpURLConnection</span><span class="o">)</span> <span class="n">url</span><span class="o">.</span><span class="na">openConnection</span><span class="o">();</span>
+                        <span class="n">connection</span><span class="o">.</span><span class="na">setRequestProperty</span><span class="o">(</span><span class="s">"User-Agent"</span><span class="o">,</span>
+                                <span class="n">userAgent</span><span class="o">);</span>
+                        <span class="n">connection</span><span class="o">.</span><span class="na">setInstanceFollowRedirects</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>
+                        <span class="n">statusCode</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="na">getResponseCode</span><span class="o">();</span>
+                        <span class="k">if</span> <span class="o">(</span><span class="n">statusCode</span> <span class="o">==</span> <span class="n">HttpURLConnection</span><span class="o">.</span><span class="na">HTTP_OK</span><span class="o">)</span> <span class="o">{</span>
+                            <span class="n">connection</span><span class="o">.</span><span class="na">disconnect</span><span class="o">();</span>
+                            <span class="k">break</span><span class="o">;</span>
+                        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                            <span class="n">nextLocation</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="na">getHeaderField</span><span class="o">(</span><span class="s">"location"</span><span class="o">);</span>
+                            <span class="n">connection</span><span class="o">.</span><span class="na">disconnect</span><span class="o">();</span>
+                            <span class="k">if</span> <span class="o">(!</span><span class="n">redirectLocations</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">nextLocation</span><span class="o">))</span> <span class="o">{</span>
+                                <span class="n">com</span><span class="o">.</span><span class="na">hyperadx</span><span class="o">.</span><span class="na">lib</span><span class="o">.</span><span class="na">sdk</span><span class="o">.</span><span class="na">HADLog</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="s">"URL redirect cycle detected"</span><span class="o">);</span>
+                                <span class="k">return</span> <span class="s">""</span><span class="o">;</span>
+                            <span class="o">}</span>
+                            <span class="n">url</span> <span class="o">=</span> <span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="n">nextLocation</span><span class="o">);</span>
+                        <span class="o">}</span>
+                    <span class="o">}</span>
+
+                    <span class="k">while</span> <span class="o">(</span><span class="n">statusCode</span> <span class="o">==</span> <span class="n">HttpURLConnection</span><span class="o">.</span><span class="na">HTTP_MOVED_TEMP</span> <span class="o">||</span> <span class="n">statusCode</span> <span class="o">==</span> <span class="n">HttpURLConnection</span><span class="o">.</span><span class="na">HTTP_MOVED_PERM</span>
+                            <span class="o">||</span> <span class="n">statusCode</span> <span class="o">==</span> <span class="n">HttpURLConnection</span><span class="o">.</span><span class="na">HTTP_UNAVAILABLE</span>
+                            <span class="o">||</span> <span class="n">statusCode</span> <span class="o">==</span> <span class="n">HttpURLConnection</span><span class="o">.</span><span class="na">HTTP_SEE_OTHER</span><span class="o">);</span>
+                <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">IOException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="k">return</span> <span class="o">(</span><span class="n">nextLocation</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">?</span> <span class="n">nextLocation</span> <span class="o">:</span> <span class="s">""</span><span class="o">;</span>
+                <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+                    <span class="k">if</span> <span class="o">(</span><span class="n">connection</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span>
+                        <span class="n">connection</span><span class="o">.</span><span class="na">disconnect</span><span class="o">();</span>
+                <span class="o">}</span>
+                <span class="k">return</span> <span class="n">nextLocation</span><span class="o">;</span>
+
+            <span class="nd">@Override</span>
+            <span class="kd">protected</span> <span class="kt">void</span> <span class="n">onPostExecute</span><span class="o">(</span><span class="n">String</span> <span class="n">url</span><span class="o">)</span> <span class="o">{</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre>
+
+<h3 id="interstitial">Interstitial</h3>
+
+<p>Custom Event Class: <code class="prettyprint">com.mopub.mobileads.HyperadxInterstitialMopub</code></p>
+
+<p>Custom Event Class Data: <code class="prettyprint">{&quot;PLACEMENT&quot;:&quot;&lt;YOUR PLACEMENT&gt;&quot;}</code></p>
+
+<p><strong>You can use the test placement <code class="prettyprint">5b3QbMRQ</code></strong></p>
+
+<blockquote>
+<p>Add adapter in your project
+Create package &ldquo;com.mopub.mobileads&rdquo; in your project and put this class in there:</p>
+</blockquote>
+<pre class="highlight java"><code><span class="n">HyperadxInterstitialMopub</span><span class="o">.</span><span class="na">java</span><span class="o">:</span>
+
+<span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">mopub</span><span class="o">.</span><span class="na">mobileads</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.content.Context</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.util.Log</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.hyperadx.lib.sdk.interstitialads.HADInterstitialAd</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.hyperadx.lib.sdk.interstitialads.InterstitialAdListener</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Map</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HyperadxInterstitialMopub</span> <span class="kd">extends</span> <span class="n">CustomEventInterstitial</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">PLACEMENT_KEY</span> <span class="o">=</span> <span class="s">"PLACEMENT"</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="n">HADInterstitialAd</span> <span class="n">interstitialAd</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="n">com</span><span class="o">.</span><span class="na">hyperadx</span><span class="o">.</span><span class="na">lib</span><span class="o">.</span><span class="na">sdk</span><span class="o">.</span><span class="na">interstitialads</span><span class="o">.</span><span class="na">Ad</span> <span class="n">iAd</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+    <span class="n">CustomEventInterstitialListener</span> <span class="n">customEventInterstitialListener</span><span class="o">;</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="n">loadInterstitial</span><span class="o">(</span><span class="kd">final</span> <span class="n">Context</span> <span class="n">context</span><span class="o">,</span> <span class="kd">final</span> <span class="n">CustomEventInterstitialListener</span> <span class="n">customEventInterstitialListener</span><span class="o">,</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;</span> <span class="n">localExtras</span><span class="o">,</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">serverExtras</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">final</span> <span class="n">String</span> <span class="n">placement</span><span class="o">;</span>
+        <span class="kd">final</span> <span class="n">String</span> <span class="n">appId</span><span class="o">;</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">serverExtras</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">serverExtras</span><span class="o">.</span><span class="na">containsKey</span><span class="o">(</span><span class="n">PLACEMENT_KEY</span><span class="o">))</span> <span class="o">{</span>
+            <span class="n">placement</span> <span class="o">=</span> <span class="n">serverExtras</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">PLACEMENT_KEY</span><span class="o">);</span>
+
+ <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+            <span class="n">customEventInterstitialListener</span><span class="o">.</span><span class="na">onInterstitialFailed</span><span class="o">(</span><span class="n">MoPubErrorCode</span><span class="o">.</span><span class="na">ADAPTER_CONFIGURATION_ERROR</span><span class="o">);</span>
+            <span class="k">return</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="n">interstitialAd</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HADInterstitialAd</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="n">placement</span><span class="o">);</span> <span class="c1">//Interstitial AD constructor</span>
+        <span class="n">interstitialAd</span><span class="o">.</span><span class="na">setAdListener</span><span class="o">(</span><span class="k">new</span> <span class="n">InterstitialAdListener</span><span class="o">()</span> <span class="o">{</span> <span class="c1">// Set Listener</span>
+            <span class="nd">@Override</span>
+            <span class="kd">public</span> <span class="kt">void</span> <span class="n">onAdLoaded</span><span class="o">(</span><span class="n">com</span><span class="o">.</span><span class="na">hyperadx</span><span class="o">.</span><span class="na">lib</span><span class="o">.</span><span class="na">sdk</span><span class="o">.</span><span class="na">interstitialads</span><span class="o">.</span><span class="na">Ad</span> <span class="n">ad</span><span class="o">)</span> <span class="o">{</span> <span class="c1">// Called when AD is Loaded</span>
+                <span class="n">iAd</span> <span class="o">=</span> <span class="n">ad</span><span class="o">;</span>
+                <span class="c1">//   Toast.makeText(context, "Interstitial Ad loaded", Toast.LENGTH_SHORT).show();</span>
+                <span class="n">customEventInterstitialListener</span><span class="o">.</span><span class="na">onInterstitialLoaded</span><span class="o">();</span>
+            <span class="o">}</span>
+
+            <span class="nd">@Override</span>
+            <span class="kd">public</span> <span class="kt">void</span> <span class="n">onError</span><span class="o">(</span><span class="n">com</span><span class="o">.</span><span class="na">hyperadx</span><span class="o">.</span><span class="na">lib</span><span class="o">.</span><span class="na">sdk</span><span class="o">.</span><span class="na">interstitialads</span><span class="o">.</span><span class="na">Ad</span> <span class="n">Ad</span><span class="o">,</span> <span class="n">String</span> <span class="n">error</span><span class="o">)</span> <span class="o">{</span> <span class="c1">// Called when load is fail</span>
+                <span class="c1">//   Toast.makeText(context, "Interstitial Ad failed to load with error: " + error, Toast.LENGTH_SHORT).show();</span>
+                <span class="n">customEventInterstitialListener</span><span class="o">.</span><span class="na">onInterstitialFailed</span><span class="o">(</span><span class="n">MoPubErrorCode</span><span class="o">.</span><span class="na">UNSPECIFIED</span><span class="o">);</span>
+
+            <span class="nd">@Override</span>
+            <span class="kd">public</span> <span class="kt">void</span> <span class="n">onInterstitialDisplayed</span><span class="o">()</span> <span class="o">{</span> <span class="c1">// Called when Ad was impressed</span>
+                <span class="c1">//    Toast.makeText(context, "Tracked Interstitial Ad impression", Toast.LENGTH_SHORT).show();</span>
+                <span class="n">customEventInterstitialListener</span><span class="o">.</span><span class="na">onInterstitialShown</span><span class="o">();</span>
+            <span class="o">}</span>
+
+            <span class="nd">@Override</span>
+            <span class="kd">public</span> <span class="kt">void</span> <span class="n">onInterstitialDismissed</span><span class="o">(</span><span class="n">com</span><span class="o">.</span><span class="na">hyperadx</span><span class="o">.</span><span class="na">lib</span><span class="o">.</span><span class="na">sdk</span><span class="o">.</span><span class="na">interstitialads</span><span class="o">.</span><span class="na">Ad</span> <span class="n">ad</span><span class="o">)</span> <span class="o">{</span> <span class="c1">// Called when Ad was dissnissed by user</span>
+                <span class="c1">//   Toast.makeText(context, "Interstitial Ad Dismissed", Toast.LENGTH_SHORT).show();</span>
+                <span class="n">customEventInterstitialListener</span><span class="o">.</span><span class="na">onInterstitialDismissed</span><span class="o">();</span>
+
+            <span class="nd">@Override</span>
+            <span class="kd">public</span> <span class="kt">void</span> <span class="n">onAdClicked</span><span class="o">()</span> <span class="o">{</span> <span class="c1">// Called when user click on AD</span>
+                <span class="c1">//   Toast.makeText(context, "Tracked Interstitial Ad click", Toast.LENGTH_SHORT).show();</span>
+                <span class="n">customEventInterstitialListener</span><span class="o">.</span><span class="na">onInterstitialClicked</span><span class="o">();</span>
+            <span class="o">}</span>
+        <span class="o">});</span>
+
+        <span class="k">this</span><span class="o">.</span><span class="na">customEventInterstitialListener</span> <span class="o">=</span> <span class="n">customEventInterstitialListener</span><span class="o">;</span>
+        <span class="n">interstitialAd</span><span class="o">.</span><span class="na">loadAd</span><span class="o">();</span> <span class="c1">// Call to load AD</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="n">showInterstitial</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">iAd</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span>
+            <span class="n">HADInterstitialAd</span><span class="o">.</span><span class="na">show</span><span class="o">(</span><span class="n">iAd</span><span class="o">);</span> <span class="c1">// Call to show AD</span>
+        <span class="k">else</span>
+            <span class="n">Log</span><span class="o">.</span><span class="na">e</span><span class="o">(</span><span class="s">"HADInterstitialMopub"</span><span class="o">,</span> <span class="s">"The Interstitial AD not ready yet. Try again!"</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="n">onInvalidate</span><span class="o">()</span> <span class="o">{</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+
+<blockquote>
+<p>This is your adapter. Now you can use Mopub as usual.</p>
+</blockquote>
+
+<h1 id="admob-adapter">Admob adapter</h1>
+
+<h2 id="ios">iOS</h2>
+
+<ul>
+<li><p><a href="https://s3-us-west-2.amazonaws.com/adpanel-public/HyperadxiOSADs_Sample_v2.0.1.zip">Download</a> and extract the HADFramework for iOS.</p></li>
+<li><p>You can find Admob adapter example in HyperadxiOSADs_Sample_v2.0.1/Mediation Adapters/AdMob/.</p></li>
+<li><p>First of all you need to add new app in AdMob console.</p></li>
+</ul>
+
+<p><strong>You will get UnitId string like &lsquo;ca-app-pub-+++++++++++++/+++++++++++++&rsquo;. For the next few hours you may get the AdMob errors with codes 0 or 2. Just be patient.</strong></p>
+
+<p><img alt="Admob 1" src="images/adapters/ios/AdMobBanner1.png" /></p>
+
+<p><img alt="Admob 2" src="images/adapters/ios/AdMobBanner2.png" /></p>
+
+<ul>
+<li>Then you need to add new mediation source.</li>
+</ul>
+
+<p><img alt="Admob 3" src="images/adapters/ios/AdMobBanner3.png" /></p>
+
+<h3 id="banner">Banner</h3>
+
+<ul>
+<li><p>Fill <code class="prettyprint">Class Name</code> field with a <code class="prettyprint">HADCustomEventBanner</code>. And a <code class="prettyprint">Parameter</code> with your HyperAdx statement string.</p></li>
+<li><p>Setup eCPM for new network</p></li>
+</ul>
+
+<p>Now you can setting up your Xcode project.</p>
+
+<ul>
+<li>Put HyperAdx-SDK as described above</li>
+<li>Add HADCustomEventBanner.swift file</li>
+</ul>
+
+<p><strong>NOTE</strong> - In the Objective-C only project you must create swift header file as described <a href="http://stackoverflow.com/questions/24102104/how-to-import-swift-code-to-objective-c">here</a></p>
+
+<blockquote>
+<p>Just create AdMob banner Ad as usually:</p>
+</blockquote>
+<pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">GoogleMobileAds</span>
+<span class="kd">import</span> <span class="kt">HADFramework</span>
+<span class="kd">import</span> <span class="kt">UIKit</span>
+
+<span class="kd">class</span> <span class="kt">ViewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="kt">GADBannerViewDelegate</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nv">bannerView</span><span class="p">:</span> <span class="kt">GADBannerView</span><span class="o">!</span>
+
+    <span class="k">override</span> <span class="kd">func</span> <span class="nf">viewDidLoad</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">super</span><span class="o">.</span><span class="nf">viewDidLoad</span><span class="p">()</span>
+        <span class="k">let</span> <span class="nv">request</span> <span class="o">=</span> <span class="kt">GADRequest</span><span class="p">()</span>
+        <span class="c1">//Banner 320x50</span>
+        <span class="n">bannerView</span> <span class="o">=</span> <span class="kt">GADBannerView</span><span class="p">(</span><span class="nv">adSize</span><span class="p">:</span> <span class="kt">GADAdSize</span><span class="o">.</span><span class="nf">init</span><span class="p">(</span><span class="nv">size</span><span class="p">:</span> <span class="kt">CGSizeMake</span><span class="p">(</span><span class="mi">320</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span> <span class="nv">flags</span><span class="p">:</span> <span class="mi">0</span><span class="p">))</span>
+        <span class="n">bannerView</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">origin</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="kt">UIScreen</span><span class="o">.</span><span class="nf">mainScreen</span><span class="p">()</span><span class="o">.</span><span class="n">bounds</span><span class="o">.</span><span class="n">width</span><span class="o">-</span><span class="mi">320</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+        <span class="n">bannerView</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">origin</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">100</span>
+        <span class="n">bannerView</span><span class="o">.</span><span class="n">adUnitID</span> <span class="o">=</span> <span class="s">"YOUR_ADUNIT_ID"</span>
+        <span class="n">bannerView</span><span class="o">.</span><span class="n">rootViewController</span> <span class="o">=</span> <span class="k">self</span>
+        <span class="n">bannerView</span><span class="o">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="k">self</span>
+        <span class="n">view</span><span class="o">.</span><span class="nf">addSubview</span><span class="p">(</span><span class="n">bannerView</span><span class="p">)</span>
+        <span class="n">bannerView</span><span class="o">.</span><span class="nf">loadRequest</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="c1">//MARK: GADBannerViewDelegate</span>
+    <span class="kd">func</span> <span class="nf">adViewDidReceiveAd</span><span class="p">(</span><span class="nv">bannerView</span><span class="p">:</span> <span class="kt">GADBannerView</span><span class="o">!</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nf">print</span><span class="p">(</span><span class="s">"adViewDidReceiveAd"</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="kd">func</span> <span class="nf">adView</span><span class="p">(</span><span class="nv">bannerView</span><span class="p">:</span> <span class="kt">GADBannerView</span><span class="o">!</span><span class="p">,</span> <span class="n">didFailToReceiveAdWithError</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">GADRequestError</span><span class="o">!</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nf">print</span><span class="p">(</span><span class="s">"didFailToReceiveAdWithError: </span><span class="se">\(</span><span class="n">error</span><span class="se">)</span><span class="s">"</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+
+<h3 id="interstitial">Interstitial</h3>
+
+<ul>
+<li><p>Fill <code class="prettyprint">Class Name</code> field with a <code class="prettyprint">HADCustomEventInterstitial</code>. And a <code class="prettyprint">Parameter</code> with your HyperAdx statement string.</p></li>
+<li><p>Setup eCPM for new network</p></li>
+</ul>
+
+<p>Now you can setting up your Xcode project.</p>
+
+<ul>
+<li>Put HyperAdx-SDK as described above</li>
+<li>Add HADCustomEventInterstitial.swift file</li>
+</ul>
+
+<p><strong>NOTE</strong> - In the Objective-C only project you must create swift header file as described <a href="http://stackoverflow.com/questions/24102104/how-to-import-swift-code-to-objective-c">here</a></p>
+
+<blockquote>
+<p>Just create AdMob interstitial Ad as usually:</p>
+</blockquote>
+<pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">GoogleMobileAds</span>
+<span class="kd">import</span> <span class="kt">HADFramework</span>
+<span class="kd">import</span> <span class="kt">UIKit</span>
+
+<span class="kd">class</span> <span class="kt">ViewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="kt">GADInterstitialDelegate</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nv">interstitial</span><span class="p">:</span> <span class="kt">GADInterstitial</span><span class="o">!</span>
+
+    <span class="k">override</span> <span class="kd">func</span> <span class="nf">viewDidLoad</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">super</span><span class="o">.</span><span class="nf">viewDidLoad</span><span class="p">()</span>
+        <span class="k">let</span> <span class="nv">request</span> <span class="o">=</span> <span class="kt">GADRequest</span><span class="p">()</span>
+        <span class="c1">//Interstitial</span>
+        <span class="n">interstitial</span> <span class="o">=</span> <span class="kt">GADInterstitial</span><span class="p">(</span><span class="nv">adUnitID</span><span class="p">:</span> <span class="s">"YOUR_ADUNIT_ID"</span><span class="p">)</span>
+        <span class="n">interstitial</span><span class="o">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="k">self</span>
+        <span class="n">interstitial</span><span class="o">.</span><span class="nf">loadRequest</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="kd">@IBAction</span> <span class="kd">func</span> <span class="nf">createAndLoadInterstitial</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="n">interstitial</span><span class="o">.</span><span class="n">isReady</span> <span class="p">{</span>
+            <span class="n">interstitial</span><span class="o">.</span><span class="nf">presentFromRootViewController</span><span class="p">(</span><span class="k">self</span><span class="p">)</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nf">print</span><span class="p">(</span><span class="s">"Ad wasn't ready"</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1">//MARK: GADInterstitialDelegate</span>
+    <span class="kd">func</span> <span class="nf">interstitialDidReceiveAd</span><span class="p">(</span><span class="nv">ad</span><span class="p">:</span> <span class="kt">GADInterstitial</span><span class="o">!</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nf">print</span><span class="p">(</span><span class="s">"interstitialDidReceiveAd"</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="kd">func</span> <span class="nf">interstitial</span><span class="p">(</span><span class="nv">ad</span><span class="p">:</span> <span class="kt">GADInterstitial</span><span class="o">!</span><span class="p">,</span> <span class="n">didFailToReceiveAdWithError</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">GADRequestError</span><span class="o">!</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nf">print</span><span class="p">(</span><span class="s">"interstitial didFailToReceiveAdWithError: </span><span class="se">\(</span><span class="n">error</span><span class="se">)</span><span class="s">"</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+
+<h2 id="android">Android</h2>
+
+<ul>
+<li><p><a href="https://s3-us-west-2.amazonaws.com/adpanel-public/HyperadxAndroidAdmobSample_1.0.1.zip">Download</a> and extract the AdMob adapter if needed.</p></li>
+<li><p>First of all you need to add new app in AdMob console.</p></li>
+<li><p>You will get UnitId string like &#39;ca-app-pub-**********<strong><em>/</em></strong>**********&rsquo;.
+For the next few hours you may get the AdMob errors with codes 0 or 2. Just be patient.</p></li>
+</ul>
+
+<p>Then you need to add new mediation source.</p>
+
+<h3 id="interstitial">Interstitial</h3>
+
+<ul>
+<li><p>Fill <code class="prettyprint">Class Name</code> field with a <code class="prettyprint">com.hyperadx.admob.HADInterstitialEvent</code> string. And a <code class="prettyprint">Parameter</code> with your HyperAdx statement string.</p></li>
+<li><p>Setup eCPM for new network</p></li>
+</ul>
+
+<p>Now you can setting up your android project.</p>
+
+<ul>
+<li>Put HyperAdx-SDK and AdMob-adapter in &#39;libs&rsquo; folder.</li>
+<li>Add those lines in your <code class="prettyprint">build.gradle</code> file:</li>
+</ul>
+
+<p><strong>NOTE</strong> - Admob interstitial may not work in emulator. Use real devices even for tests!</p>
+<pre class="highlight plaintext"><code>dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:23.4.0'
+    compile 'com.google.android.gms:play-services-ads:9.0.2'
+    compile 'com.google.android.gms:play-services-base:9.0.2'
+}
+</code></pre>
+
+<blockquote>
+<p>Just create AdMob interstitial Ad as usually:</p>
+</blockquote>
+<pre class="highlight java"><code><span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">hyperadx</span><span class="o">.</span><span class="na">admob_sample</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.os.Bundle</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.support.v7.app.AppCompatActivity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.view.View</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.widget.Toast</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.google.android.gms.ads.AdRequest</span><span class="o">;</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MainActivity</span> <span class="kd">extends</span> <span class="n">AppCompatActivity</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="n">com</span><span class="o">.</span><span class="na">google</span><span class="o">.</span><span class="na">android</span><span class="o">.</span><span class="na">gms</span><span class="o">.</span><span class="na">ads</span><span class="o">.</span><span class="na">InterstitialAd</span> <span class="n">mAdapterInterstitial</span><span class="o">;</span>
+    <span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="n">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
+        <span class="n">setContentView</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">activity_main</span><span class="o">);</span>
+        <span class="n">loadInterstitialAd</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="kt">void</span> <span class="n">loadInterstitialAd</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">mAdapterInterstitial</span> <span class="o">=</span> <span class="k">new</span> <span class="n">com</span><span class="o">.</span><span class="na">google</span><span class="o">.</span><span class="na">android</span><span class="o">.</span><span class="na">gms</span><span class="o">.</span><span class="na">ads</span><span class="o">.</span><span class="na">InterstitialAd</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+        <span class="n">mAdapterInterstitial</span><span class="o">.</span><span class="na">setAdUnitId</span><span class="o">(</span>
+                <span class="s">"ca-app-pub-6172762133617463/5529648238"</span>
+        <span class="o">);</span>
+
+        <span class="n">mAdapterInterstitial</span><span class="o">.</span><span class="na">setAdListener</span><span class="o">(</span><span class="k">new</span> <span class="n">com</span><span class="o">.</span><span class="na">google</span><span class="o">.</span><span class="na">android</span><span class="o">.</span><span class="na">gms</span><span class="o">.</span><span class="na">ads</span><span class="o">.</span><span class="na">AdListener</span><span class="o">()</span> <span class="o">{</span>
+            <span class="nd">@Override</span>
+            <span class="kd">public</span> <span class="kt">void</span> <span class="n">onAdFailedToLoad</span><span class="o">(</span><span class="kt">int</span> <span class="n">errorCode</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">Toast</span><span class="o">.</span><span class="na">makeText</span><span class="o">(</span><span class="n">MainActivity</span><span class="o">.</span><span class="na">this</span><span class="o">,</span>
+                        <span class="s">"Error loading adapter interstitial, code "</span> <span class="o">+</span> <span class="n">errorCode</span><span class="o">,</span>
+                        <span class="n">Toast</span><span class="o">.</span><span class="na">LENGTH_SHORT</span><span class="o">).</span><span class="na">show</span><span class="o">();</span>
+            <span class="o">}</span>
+
+            <span class="nd">@Override</span>
+            <span class="kd">public</span> <span class="kt">void</span> <span class="n">onAdLoaded</span><span class="o">()</span> <span class="o">{</span>
+                <span class="n">Toast</span><span class="o">.</span><span class="na">makeText</span><span class="o">(</span><span class="n">MainActivity</span><span class="o">.</span><span class="na">this</span><span class="o">,</span>
+                        <span class="s">"onAdLoaded()"</span><span class="o">,</span>
+                        <span class="n">Toast</span><span class="o">.</span><span class="na">LENGTH_SHORT</span><span class="o">).</span><span class="na">show</span><span class="o">();</span>
+            <span class="o">}</span>
+
+            <span class="nd">@Override</span>
+            <span class="kd">public</span> <span class="kt">void</span> <span class="n">onAdOpened</span><span class="o">()</span> <span class="o">{</span>
+            <span class="o">}</span>
+
+            <span class="nd">@Override</span>
+            <span class="kd">public</span> <span class="kt">void</span> <span class="n">onAdClosed</span><span class="o">()</span> <span class="o">{</span>
+                <span class="n">mAdapterInterstitial</span><span class="o">.</span><span class="na">loadAd</span><span class="o">(</span><span class="k">new</span> <span class="n">AdRequest</span><span class="o">.</span><span class="na">Builder</span><span class="o">().</span><span class="na">build</span><span class="o">());</span>
+            <span class="o">}</span>
+        <span class="o">});</span>
+
+        <span class="n">mAdapterInterstitial</span><span class="o">.</span><span class="na">loadAd</span><span class="o">(</span><span class="k">new</span> <span class="n">AdRequest</span><span class="o">.</span><span class="na">Builder</span><span class="o">().</span><span class="na">build</span><span class="o">());</span>
+    <span class="o">}</span>
+
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="n">showInterstitial</span><span class="o">(</span><span class="n">View</span> <span class="n">view</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">mAdapterInterstitial</span><span class="o">.</span><span class="na">isLoaded</span><span class="o">())</span>
+            <span class="n">mAdapterInterstitial</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+        <span class="k">else</span>
+            <span class="n">Toast</span><span class="o">.</span><span class="na">makeText</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="s">"The Interstitial AD not ready yet. Try again!"</span><span class="o">,</span> <span class="n">Toast</span><span class="o">.</span><span class="na">LENGTH_LONG</span><span class="o">).</span><span class="na">show</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
 
           <h1 id="tools">Tools</h1>
 
