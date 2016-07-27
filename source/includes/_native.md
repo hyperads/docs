@@ -514,6 +514,13 @@ Setup SDKs:
 Setup Mopub Dashboard
 
 * Create an "Hyperadx" Network in Mopub's dashboard and connect it to your Ad Units.
+* In Mopub's dashboard select Orders > Add a New Order
+* This screen shows forms for creating Order and Line item at the same time
+* The most interested part is "Line Item Details"
+* Choose Network > Custom Native Network
+* Fill Class field with `HADNativeAdAdapter`
+* Fill Data field with: `{"placementId": "<YOUR PLACEMENT>"}`
+* In "Ad Unit Targeting" section select ad units with native format
 * In Mopub's dashboard select Networks > Add New network
 * Then select Custom Native Network
 * Complete the fields accordingly to the Ad Unit that you want to use
