@@ -230,6 +230,16 @@ public void onAdLoaded(Ad ad) { // Called when AD is Loaded
 }
 ```
 
+Another way to inflate AdView is do it by yourself:
+...
+```java
+ LayoutInflater mInflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+ View adView = mInflater.inflate(R.layout.native_ad_layout, null, false);
+ 
+ AdView = nativeAd.getNativeAdView(ad, adView); // Registering view for AD
+```
+...
+
 ###Mopub Adapter
 
 * [Download](https://s3-us-west-2.amazonaws.com/adpanel-public/HyperadxAndroidMoPubAdapter_1.1.0.zip) and extract the Mopub adapter if needed.
