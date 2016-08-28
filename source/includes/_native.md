@@ -506,3 +506,65 @@ public void onAdLoaded(Ad ad) { // Called when AD is Loaded
     NativeAd.downloadAndDisplayImage(ivImage, ad.getImage_url());
 }
 ```
+> If you want to use Native AD in RecyclerView you should use registerViewForInteraction(Ad ad, View adView) method instead of getNativeAdView(Ad ad, int ResID)
+Sample: 
+
+```java
+
+   @Override
+    public void onBindViewHolder(final MyViewHolder holder, int position) {
+
+        if (getItemViewType(position) == AD_TYPE) {
+
+            final HADNativeAd nativeAd = new HADNativeAd(activity,
+                    activity.getString(R.string.Placement)
+            ); //Native AD constructor
+
+            nativeAd.setContent("title,icon,description"); // Set content to load
+            nativeAd.setAdListener(new AdListener() { // Add Listeners
+
+                @Override
+                public void onAdLoaded(Ad ad) { // Called when AD is Loaded
+                    Toast.makeText(activity, "Native ad loaded", Toast.LENGTH_SHORT).show();
+
+                    holder.ivIcon.setVisibility(View.VISIBLE);
+
+
+                    nativeAd.registerViewForInteraction(ad, holder.rlRoot); // Configuring your view
+
+                    //  Setting the Text.
+                    holder.title.setText(ad.getTitle());
+                    holder.genre.setText(ad.getDescription());
+                    //  Downloading and setting the ad icon.
+                    HADNativeAd.downloadAndDisplayImage(holder.ivIcon, ad.getIcon_url());
+
+                }
+
+                @Override
+                public void onError(Ad nativeAd, String error) { // Called when load is fail
+                    Toast.makeText(activity, "Native Ad failed to load with error: " + error, Toast.LENGTH_SHORT).show();
+
+                }
+
+                @Override
+                public void onAdClicked() { // Called when user click on AD
+                    Toast.makeText(activity, "Tracked Native Ad click", Toast.LENGTH_SHORT).show();
+
+                }
+            });
+
+            nativeAd.loadAd(); // Call to load AD
+
+
+        } else {
+
+            holder.ivIcon.setVisibility(View.GONE);
+
+            Movie movie = moviesList.get(position);
+            holder.title.setText(movie.getTitle());
+            holder.genre.setText(movie.getGenre());
+            holder.year.setText(movie.getYear());
+        }
+    }
+
+```
