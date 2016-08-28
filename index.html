@@ -742,6 +742,69 @@
 <span class="o">}</span>
 </code></pre>
 
+<blockquote>
+<p>If you want to use Native AD in RecyclerView you should use registerViewForInteraction(Ad ad, View adView) method instead of getNativeAdView(Ad ad, int ResID)
+Sample: </p>
+</blockquote>
+<pre class="highlight java"><code>
+   <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="n">onBindViewHolder</span><span class="o">(</span><span class="kd">final</span> <span class="n">MyViewHolder</span> <span class="n">holder</span><span class="o">,</span> <span class="kt">int</span> <span class="n">position</span><span class="o">)</span> <span class="o">{</span>
+
+        <span class="k">if</span> <span class="o">(</span><span class="n">getItemViewType</span><span class="o">(</span><span class="n">position</span><span class="o">)</span> <span class="o">==</span> <span class="n">AD_TYPE</span><span class="o">)</span> <span class="o">{</span>
+
+            <span class="kd">final</span> <span class="n">HADNativeAd</span> <span class="n">nativeAd</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HADNativeAd</span><span class="o">(</span><span class="n">activity</span><span class="o">,</span>
+                    <span class="n">activity</span><span class="o">.</span><span class="na">getString</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">string</span><span class="o">.</span><span class="na">Placement</span><span class="o">)</span>
+            <span class="o">);</span> <span class="c1">//Native AD constructor</span>
+
+            <span class="n">nativeAd</span><span class="o">.</span><span class="na">setContent</span><span class="o">(</span><span class="s">"title,icon,description"</span><span class="o">);</span> <span class="c1">// Set content to load</span>
+            <span class="n">nativeAd</span><span class="o">.</span><span class="na">setAdListener</span><span class="o">(</span><span class="k">new</span> <span class="n">AdListener</span><span class="o">()</span> <span class="o">{</span> <span class="c1">// Add Listeners</span>
+
+                <span class="nd">@Override</span>
+                <span class="kd">public</span> <span class="kt">void</span> <span class="n">onAdLoaded</span><span class="o">(</span><span class="n">Ad</span> <span class="n">ad</span><span class="o">)</span> <span class="o">{</span> <span class="c1">// Called when AD is Loaded</span>
+                    <span class="n">Toast</span><span class="o">.</span><span class="na">makeText</span><span class="o">(</span><span class="n">activity</span><span class="o">,</span> <span class="s">"Native ad loaded"</span><span class="o">,</span> <span class="n">Toast</span><span class="o">.</span><span class="na">LENGTH_SHORT</span><span class="o">).</span><span class="na">show</span><span class="o">();</span>
+
+                    <span class="n">holder</span><span class="o">.</span><span class="na">ivIcon</span><span class="o">.</span><span class="na">setVisibility</span><span class="o">(</span><span class="n">View</span><span class="o">.</span><span class="na">VISIBLE</span><span class="o">);</span>
+
+
+                    <span class="n">nativeAd</span><span class="o">.</span><span class="na">registerViewForInteraction</span><span class="o">(</span><span class="n">ad</span><span class="o">,</span> <span class="n">holder</span><span class="o">.</span><span class="na">rlRoot</span><span class="o">);</span> <span class="c1">// Configuring your view</span>
+
+                    <span class="c1">//  Setting the Text.</span>
+                    <span class="n">holder</span><span class="o">.</span><span class="na">title</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="n">ad</span><span class="o">.</span><span class="na">getTitle</span><span class="o">());</span>
+                    <span class="n">holder</span><span class="o">.</span><span class="na">genre</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="n">ad</span><span class="o">.</span><span class="na">getDescription</span><span class="o">());</span>
+                    <span class="c1">//  Downloading and setting the ad icon.</span>
+                    <span class="n">HADNativeAd</span><span class="o">.</span><span class="na">downloadAndDisplayImage</span><span class="o">(</span><span class="n">holder</span><span class="o">.</span><span class="na">ivIcon</span><span class="o">,</span> <span class="n">ad</span><span class="o">.</span><span class="na">getIcon_url</span><span class="o">());</span>
+
+                <span class="o">}</span>
+
+                <span class="nd">@Override</span>
+                <span class="kd">public</span> <span class="kt">void</span> <span class="n">onError</span><span class="o">(</span><span class="n">Ad</span> <span class="n">nativeAd</span><span class="o">,</span> <span class="n">String</span> <span class="n">error</span><span class="o">)</span> <span class="o">{</span> <span class="c1">// Called when load is fail</span>
+                    <span class="n">Toast</span><span class="o">.</span><span class="na">makeText</span><span class="o">(</span><span class="n">activity</span><span class="o">,</span> <span class="s">"Native Ad failed to load with error: "</span> <span class="o">+</span> <span class="n">error</span><span class="o">,</span> <span class="n">Toast</span><span class="o">.</span><span class="na">LENGTH_SHORT</span><span class="o">).</span><span class="na">show</span><span class="o">();</span>
+
+                <span class="o">}</span>
+
+                <span class="nd">@Override</span>
+                <span class="kd">public</span> <span class="kt">void</span> <span class="n">onAdClicked</span><span class="o">()</span> <span class="o">{</span> <span class="c1">// Called when user click on AD</span>
+                    <span class="n">Toast</span><span class="o">.</span><span class="na">makeText</span><span class="o">(</span><span class="n">activity</span><span class="o">,</span> <span class="s">"Tracked Native Ad click"</span><span class="o">,</span> <span class="n">Toast</span><span class="o">.</span><span class="na">LENGTH_SHORT</span><span class="o">).</span><span class="na">show</span><span class="o">();</span>
+
+                <span class="o">}</span>
+            <span class="o">});</span>
+
+            <span class="n">nativeAd</span><span class="o">.</span><span class="na">loadAd</span><span class="o">();</span> <span class="c1">// Call to load AD</span>
+
+
+        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+
+            <span class="n">holder</span><span class="o">.</span><span class="na">ivIcon</span><span class="o">.</span><span class="na">setVisibility</span><span class="o">(</span><span class="n">View</span><span class="o">.</span><span class="na">GONE</span><span class="o">);</span>
+
+            <span class="n">Movie</span> <span class="n">movie</span> <span class="o">=</span> <span class="n">moviesList</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">position</span><span class="o">);</span>
+            <span class="n">holder</span><span class="o">.</span><span class="na">title</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="n">movie</span><span class="o">.</span><span class="na">getTitle</span><span class="o">());</span>
+            <span class="n">holder</span><span class="o">.</span><span class="na">genre</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="n">movie</span><span class="o">.</span><span class="na">getGenre</span><span class="o">());</span>
+            <span class="n">holder</span><span class="o">.</span><span class="na">year</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="n">movie</span><span class="o">.</span><span class="na">getYear</span><span class="o">());</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+</code></pre>
+
           <h1 id="banner">Banner</h1>
 
 <p>HyperAdX uses Placement ID to allow access to the API. You can register a new App and create Placement at our <a href="http://hyperadx.com/publishers/sign_in">developer portal</a>.</p>
