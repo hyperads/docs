@@ -13,6 +13,7 @@ includes:
   - api
   - network_adapters
   - tools
+  - changelog
 
 search: true
 ---
