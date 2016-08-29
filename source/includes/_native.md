@@ -23,12 +23,16 @@ The HyperAdX's Native Ads allows you to build a customized experience for the ad
 
 Follow these steps to download and include it in your project:
 
-* [Download](https://s3-us-west-2.amazonaws.com/adpanel-public/HyperadxiOSADs_Sample_v2.0.1.zip) and extract the HADFramework for iOS.
+* [Download](https://s3-us-west-2.amazonaws.com/adpanel-public/HyperadxiOSADs_Sample_v2.0.2.zip) and extract the HADFramework for iOS.
 * Open your project target General tab.
 * Drag the HADFramework.framework file to Embedded Binaries.
 * Open your project target Build Settings tab. (Required only for Objective-C projects)
 * Set "Embedded Content Contains Swift Code" to Yes. (Required only for Objective-C projects)
 * Add the AdSupport framework to your project.
+
+### iOS 7
+
+If you want to support iOS7 - [download](https://s3-us-west-2.amazonaws.com/adpanel-public/HADFramework-ObjC-iOS7%2B.framework.zip) our legacy SDK. It supports only NativeAds.
 
 ### Swift implementation
 
@@ -368,7 +372,7 @@ The Native Ad API allows you to build a customized experience for the ads you sh
 
 Sample projects:
 
-* [Download](https://s3-us-west-2.amazonaws.com/adpanel-public/HyperadxAndroidADs_Sample_v1.2.4.zip) and extract the Example app for Android.
+* [Download](https://s3-us-west-2.amazonaws.com/adpanel-public/HyperadxAndroidADs_Sample_v1.2.7.zip) and extract the Example app for Android.
 
 ### Set up the SDK
 

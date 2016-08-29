@@ -23,12 +23,16 @@ The HyperAdX Banner ads allows you to monetize your iOS apps with banner ads. Th
 
 **Manual**
 
-* [Download](https://s3-us-west-2.amazonaws.com/adpanel-public/HyperadxiOSADs_Sample_v2.0.0.zip) and extract the HADFramework for iOS.
+* [Download](https://s3-us-west-2.amazonaws.com/adpanel-public/HyperadxiOSADs_Sample_v2.0.2.zip) and extract the HADFramework for iOS.
 * Open your project target General tab.
 * Drag the HADFramework.framework file to Embedded Binaries.
 * Open your project target Build Settings tab. (Required only for Objective-C projects)
 * Set "Embedded Content Contains Swift Code" to Yes. (Required only for Objective-C projects)
 * Add the AdSupport framework to your project.
+
+### iOS 7
+
+If you want to support iOS7 - [download](https://s3-us-west-2.amazonaws.com/adpanel-public/HADFramework-ObjC-iOS7%2B.framework.zip) our legacy SDK. It supports only NativeAds.
 
 ### Swift implementation
 
