@@ -60,9 +60,70 @@ gaid | false | No | Android advertising ID
 callback({"status": "success", "ads": []})
 ```
 
-## Account API
+## Developer Reports
 
-**Coming soon**
+### HTTP Request
+
+`GET http://localhost:3000/publishers/api/v1/developer/reports`
+
+### Query Parameters
+
+Parameter | Required | Default | Description
+--------- | ------- | ------- | -----------
+access_token | true | | Publisher access token (can be obtained in publisher's profile)
+attributes | false | app | Attributes for grouping result (ex. app,placement,country)
+page | false | 1 | Result page
+date_start | false | | Date start (format is \"YYYY-MM-DD\")
+date_end | false | | Date end (format is \"YYYY-MM-DD\")
+
+### Response
+
+> http://localhost:3000/publishers/api/v1/developer/reports?access_token=rJTjwo7GXUABTKZUtEhuDyQz
+> returns JSON structured like this:
+
+```json
+{
+  "page": 1,
+  "total_pages": 1,
+  "total_count": 1,
+  "time_zone": "Moscow",
+  "data": [
+    {
+      "app": "Kuphal, Walter and Conroy",
+      "app_id": 3,
+      "clicks": null,
+      "impressions": null,
+      "ctr": null,
+      "payout": null
+    }
+  ]
+}
+```
+
+> http://localhost:3000/publishers/api/v1/developer/reports?access_token=rJTjwo7GXUABTKZUtEhuDyQz&attributes=app,placement,country
+> returns JSON structured like this:
+
+```json
+{
+  "page": 1,
+  "total_pages": 1,
+  "total_count": 1,
+  "time_zone": "Moscow",
+  "data": [
+    {
+    "app": "Kuphal, Walter and Conroy",
+    "app_id": 3,
+    "placement": "Kuhn Inc",
+    "placement_id": 2,
+    "country": "RU",
+    "clicks": null,
+    "impressions": null,
+    "ctr": null,
+    "payout": null
+    }
+  ]
+}
+```
 
 ## Error codes
 
