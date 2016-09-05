@@ -75,6 +75,9 @@ attributes | false | app | Attributes for grouping result (ex. app,placement,cou
 page | false | 1 | Result page
 date_start | false | | Date start (format is \"YYYY-MM-DD\")
 date_end | false | | Date end (format is \"YYYY-MM-DD\")
+app_id | false | | ID of application
+placement_id | false | | ID of placement
+country | false | | Country
 
 ### Response
 
