@@ -60,9 +60,219 @@ gaid | false | No | Android advertising ID
 callback({"status": "success", "ads": []})
 ```
 
-## Account API
+## Developer Reports
 
-**Coming soon**
+### HTTP Request
+
+`GET http://hyperadx.com/publishers/api/v1/developer/reports`
+
+### Query Parameters
+
+Parameter | Required | Default | Description
+--------- | ------- | ------- | -----------
+access_token | true | | Publisher access token (can be obtained in publisher's profile)
+attributes | false | app | Attributes for grouping result (ex. app,placement,country)
+page | false | 1 | Result page
+date_start | false | | Date start (format is \"YYYY-MM-DD\")
+date_end | false | | Date end (format is \"YYYY-MM-DD\")
+app_id | false | | Comma delimited list of app ids
+placement_id | false | | Comma delimited list of placements ids
+country | false | | Country
+
+### Response
+
+> http://hyperadx.com/publishers/api/v1/developer/reports?access_token={access_token}
+> returns JSON structured like this:
+
+```json
+{
+  "page": 1,
+  "total_pages": 1,
+  "total_count": 1,
+  "time_zone": "Moscow",
+  "data": [
+    {
+      "app": "Kuphal, Walter and Conroy",
+      "app_id": 3,
+      "clicks": null,
+      "impressions": null,
+      "ctr": null,
+      "payout": null
+    }
+  ]
+}
+```
+
+> http://hyperadx.com/publishers/api/v1/developer/reports?access_token={access_token}&attributes=app,placement,country
+> returns JSON structured like this:
+
+```json
+{
+  "page": 1,
+  "total_pages": 1,
+  "total_count": 1,
+  "time_zone": "Moscow",
+  "data": [
+    {
+    "app": "Kuphal, Walter and Conroy",
+    "app_id": 3,
+    "placement": "Kuhn Inc",
+    "placement_id": 2,
+    "country": "RU",
+    "clicks": null,
+    "impressions": null,
+    "ctr": null,
+    "payout": null
+    }
+  ]
+}
+```
+
+## Affilate Reports
+
+### HTTP Request
+
+`GET http://hyperadx.com/publishers/api/v1/reports`
+
+### Query Parameters
+
+Parameter | Required | Default | Description
+--------- | ------- | ------- | -----------
+access_token | true | | Publisher access token (can be obtained in publisher's profile)
+attributes | true | app | Comma-separated list of attributes: traffic_source, traffic_source_id, ad_unit, ad_unit_id, campaign, campaign_id, clicks, installs, cr, validated_installs, validated_payout, day, hour, year
+page | false | 1 | Result page
+date_start | false | | Date start (format is \"YYYY-MM-DD\")
+date_end | false | | Date end (format is \"YYYY-MM-DD\")
+campaign_id | false | | Campaign ID filter
+country | false | | Country
+
+### Response
+
+> http://hyperadx.com/publishers/api/v1/reports?access_token={access_token}
+> returns JSON structured like this:
+
+```json
+{
+  "page": 1,
+  "total_pages": 1,
+  "total_count": 1,
+  "time_zone": "Moscow",
+  "data": [
+    {
+      "campaign_id": 3,
+      "clicks": 0,
+      "installs": 0,
+      "payout": "0.0",
+      "cr": 0,
+      "day": "2016-09-06"
+    }
+  ]
+}
+```
+
+> http://hyperadx.com/publishers/api/v1/reports?access_token={access_token}&attributes=clicks
+> returns JSON structured like this:
+
+```json
+{
+  "page": 1,
+  "total_pages": 1,
+  "total_count": 1,
+  "time_zone": "Moscow",
+  "data": [
+    {
+      "clicks": 0
+    }
+  ]
+}
+```
+
+## Campaigns List
+
+### HTTP Request
+
+`GET http://hyperadx.com/publishers/api/v1/campaigns?access_token={access_token}`
+
+### Query Parameters
+
+Parameter | Required | Default | Description
+--------- | ------- | ------- | -----------
+access_token | true | | Publisher access token (can be obtained in publisher's profile)
+
+### Response
+
+> GET http://hyperadx.com/publishers/api/v1/campaigns?access_token={access_token}
+> returns JSON structured like this:
+
+```json
+{
+  "data": [
+    {
+      "id": 3,
+      "name": "Bernier, Berge and O'Keefe1",
+      "description": "Considine-Cassin",
+      "require_approval": false,
+      "payout_type": "cpc",
+      "cap": null,
+      "daily_cap": null,
+      "payout": 0,
+      "currency": "USD",
+      "geo": null,
+      "status": "active",
+      "platform": "ios",
+      "tracking_link": "http://localhost:9292/tracker/clicks?data=RzFR",
+      "app": {
+        "name": "Hodkiewicz-Murray",
+        "icon": "http://lesch.org/camren",
+        "url": "http://satterfieldboehm.name/curt"
+      }
+    }
+  ],
+  "total_pages": 1,
+  "total_count": 1
+}
+```
+
+## Campaigns Request Approval
+
+### HTTP Request
+
+`POST http://hyperadx.com/publishers/api/v1/campaigns/{campaign_id}/request_approval?access_token={access_token}`
+
+### Query Parameters
+
+Parameter | Required | Default | Description
+--------- | ------- | ------- | -----------
+access_token | true | | Publisher access token (can be obtained in publisher's profile)
+campaign_id | true | | Campaign ID
+
+### Response
+
+> POST http://hyperadx.com/publishers/api/v1/campaigns/3/request_approval?access_token={access_token}
+> returns JSON structured like this:
+
+```json
+{
+  "id": 3,
+  "name": "Bernier, Berge and O'Keefe1",
+  "description": "Considine-Cassin",
+  "require_approval": false,
+  "payout_type": "cpc",
+  "cap": null,
+  "daily_cap": null,
+  "payout": 0.0,
+  "currency": "USD",
+  "geo": null,
+  "status": "active",
+  "platform": "ios",
+  "tracking_link": "http://localhost:9292/tracker/clicks?data=RzFR",
+  "app": {
+    "name": "Hodkiewicz-Murray",
+    "icon": "http://lesch.org/camren",
+    "url": "http://satterfieldboehm.name/curt"
+  }
+}
+```
 
 ## Error codes
 
