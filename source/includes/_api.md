@@ -187,6 +187,93 @@ country | false | | Country
 }
 ```
 
+## Campaigns List
+
+### HTTP Request
+
+`GET http://localhost:3000/publishers/api/v1/campaigns?access_token=rJTjwo7GXUABTKZUtEhuDyQz`
+
+### Query Parameters
+
+Parameter | Required | Default | Description
+--------- | ------- | ------- | -----------
+access_token | true | | Publisher access token (can be obtained in publisher's profile)
+
+### Response
+
+> GET http://localhost:3000/publishers/api/v1/campaigns?access_token=rJTjwo7GXUABTKZUtEhuDyQz
+> returns JSON structured like this:
+
+```json
+{
+  "data": [
+    {
+      "id": 3,
+      "name": "Bernier, Berge and O'Keefe1",
+      "description": "Considine-Cassin",
+      "require_approval": false,
+      "payout_type": "cpc",
+      "cap": null,
+      "daily_cap": null,
+      "payout": 0,
+      "currency": "USD",
+      "geo": null,
+      "status": "active",
+      "platform": "ios",
+      "tracking_link": "http://localhost:9292/tracker/clicks?data=RzFR",
+      "app": {
+        "name": "Hodkiewicz-Murray",
+        "icon": "http://lesch.org/camren",
+        "url": "http://satterfieldboehm.name/curt"
+      }
+    }
+  ],
+  "total_pages": 1,
+  "total_count": 1
+}
+```
+
+## Campaigns Request Approval
+
+### HTTP Request
+
+`POST http://localhost:3000/publishers/api/v1/campaigns/{campaign_id}/request_approval?access_token=rJTjwo7GXUABTKZUtEhuDyQz`
+
+### Query Parameters
+
+Parameter | Required | Default | Description
+--------- | ------- | ------- | -----------
+access_token | true | | Publisher access token (can be obtained in publisher's profile)
+campaign_id | true | | Campaign ID
+
+### Response
+
+> POST http://localhost:3000/publishers/api/v1/campaigns/3/request_approval?access_token=rJTjwo7GXUABTKZUtEhuDyQz
+> returns JSON structured like this:
+
+```json
+{
+  "id": 3,
+  "name": "Bernier, Berge and O'Keefe1",
+  "description": "Considine-Cassin",
+  "require_approval": false,
+  "payout_type": "cpc",
+  "cap": null,
+  "daily_cap": null,
+  "payout": 0.0,
+  "currency": "USD",
+  "geo": null,
+  "status": "active",
+  "platform": "ios",
+  "tracking_link": "http://localhost:9292/tracker/clicks?data=RzFR",
+  "app": {
+    "name": "Hodkiewicz-Murray",
+    "icon": "http://lesch.org/camren",
+    "url": "http://satterfieldboehm.name/curt"
+  }
+}
+```
+
 ## Error codes
 
 The HyperAdX API uses the following error codes:
