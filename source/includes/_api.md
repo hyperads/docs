@@ -94,10 +94,10 @@ country | false | | Country
     {
       "app": "Kuphal, Walter and Conroy",
       "app_id": 3,
-      "clicks": null,
-      "impressions": null,
-      "ctr": null,
-      "payout": null
+      "clicks": 456,
+      "impressions": 1780,
+      "ctr": 230,
+      "payout": 110
     }
   ]
 }
@@ -119,10 +119,10 @@ country | false | | Country
     "placement": "Kuhn Inc",
     "placement_id": 2,
     "country": "RU",
-    "clicks": null,
-    "impressions": null,
-    "ctr": null,
-    "payout": null
+    "clicks": 456,
+    "impressions": 1780,
+    "ctr": 230,
+    "payout": 110
     }
   ]
 }
@@ -160,10 +160,10 @@ country | false | | Country
   "data": [
     {
       "campaign_id": 3,
-      "clicks": 0,
-      "installs": 0,
-      "payout": "0.0",
-      "cr": 0,
+      "clicks": 456,
+      "installs": 11,
+      "payout": "0.11",
+      "cr": 13,
       "day": "2016-09-06"
     }
   ]
@@ -181,7 +181,7 @@ country | false | | Country
   "time_zone": "Moscow",
   "data": [
     {
-      "clicks": 0
+      "clicks": 456
     }
   ]
 }
@@ -215,7 +215,7 @@ access_token | true | | Publisher access token (can be obtained in publisher's p
       "payout_type": "cpc",
       "cap": null,
       "daily_cap": null,
-      "payout": 0,
+      "payout": 500,
       "currency": "USD",
       "geo": null,
       "status": "active",
@@ -260,7 +260,7 @@ campaign_id | true | | Campaign ID
   "payout_type": "cpc",
   "cap": null,
   "daily_cap": null,
-  "payout": 0.0,
+  "payout": 500.0,
   "currency": "USD",
   "geo": null,
   "status": "active",
