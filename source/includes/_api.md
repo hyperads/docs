@@ -81,7 +81,7 @@ country | false | | Country
 
 ### Response
 
-> http://localhost:3000/publishers/api/v1/developer/reports?access_token=rJTjwo7GXUABTKZUtEhuDyQz
+> http://localhost:3000/publishers/api/v1/developer/reports?access_token={access_token}
 > returns JSON structured like this:
 
 ```json
@@ -103,7 +103,7 @@ country | false | | Country
 }
 ```
 
-> http://localhost:3000/publishers/api/v1/developer/reports?access_token=rJTjwo7GXUABTKZUtEhuDyQz&attributes=app,placement,country
+> http://localhost:3000/publishers/api/v1/developer/reports?access_token={access_token}&attributes=app,placement,country
 > returns JSON structured like this:
 
 ```json
@@ -148,7 +148,7 @@ country | false | | Country
 
 ### Response
 
-> http://localhost:3000/publishers/api/v1/reports?access_token=rJTjwo7GXUABTKZUtEhuDyQz
+> http://localhost:3000/publishers/api/v1/reports?access_token={access_token}
 > returns JSON structured like this:
 
 ```json
@@ -170,7 +170,7 @@ country | false | | Country
 }
 ```
 
-> http://localhost:3000/publishers/api/v1/reports?access_token=rJTjwo7GXUABTKZUtEhuDyQz&attributes=clicks
+> http://localhost:3000/publishers/api/v1/reports?access_token={access_token}&attributes=clicks
 > returns JSON structured like this:
 
 ```json
@@ -191,7 +191,7 @@ country | false | | Country
 
 ### HTTP Request
 
-`GET http://localhost:3000/publishers/api/v1/campaigns?access_token=rJTjwo7GXUABTKZUtEhuDyQz`
+`GET http://localhost:3000/publishers/api/v1/campaigns?access_token={access_token}`
 
 ### Query Parameters
 
@@ -201,7 +201,7 @@ access_token | true | | Publisher access token (can be obtained in publisher's p
 
 ### Response
 
-> GET http://localhost:3000/publishers/api/v1/campaigns?access_token=rJTjwo7GXUABTKZUtEhuDyQz
+> GET http://localhost:3000/publishers/api/v1/campaigns?access_token={access_token}
 > returns JSON structured like this:
 
 ```json
@@ -237,7 +237,7 @@ access_token | true | | Publisher access token (can be obtained in publisher's p
 
 ### HTTP Request
 
-`POST http://localhost:3000/publishers/api/v1/campaigns/{campaign_id}/request_approval?access_token=rJTjwo7GXUABTKZUtEhuDyQz`
+`POST http://localhost:3000/publishers/api/v1/campaigns/{campaign_id}/request_approval?access_token={access_token}`
 
 ### Query Parameters
 
@@ -248,7 +248,7 @@ campaign_id | true | | Campaign ID
 
 ### Response
 
-> POST http://localhost:3000/publishers/api/v1/campaigns/3/request_approval?access_token=rJTjwo7GXUABTKZUtEhuDyQz
+> POST http://localhost:3000/publishers/api/v1/campaigns/3/request_approval?access_token={access_token}
 > returns JSON structured like this:
 
 ```json
