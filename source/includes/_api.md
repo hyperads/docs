@@ -75,8 +75,8 @@ attributes | false | app | Attributes for grouping result (ex. app,placement,cou
 page | false | 1 | Result page
 date_start | false | | Date start (format is \"YYYY-MM-DD\")
 date_end | false | | Date end (format is \"YYYY-MM-DD\")
-app_id | false | | ID of application
-placement_id | false | | ID of placement
+app_id | false | | Comma delimited list of app ids
+placement_id | false | | Comma delimited list of placements ids
 country | false | | Country
 
 ### Response
@@ -123,6 +123,65 @@ country | false | | Country
     "impressions": null,
     "ctr": null,
     "payout": null
+    }
+  ]
+}
+```
+
+## Affilate Reports
+
+### HTTP Request
+
+`GET http://localhost:3000/publishers/api/v1/reports`
+
+### Query Parameters
+
+Parameter | Required | Default | Description
+--------- | ------- | ------- | -----------
+access_token | true | | Publisher access token (can be obtained in publisher's profile)
+attributes | true | app | Comma-separated list of attributes: traffic_source, traffic_source_id, ad_unit, ad_unit_id, campaign, campaign_id, clicks, installs, cr, validated_installs, validated_payout, day, hour, year
+page | false | 1 | Result page
+date_start | false | | Date start (format is \"YYYY-MM-DD\")
+date_end | false | | Date end (format is \"YYYY-MM-DD\")
+campaign_id | false | | Campaign ID filter
+country | false | | Country
+
+### Response
+
+> http://localhost:3000/publishers/api/v1/reports?access_token=rJTjwo7GXUABTKZUtEhuDyQz
+> returns JSON structured like this:
+
+```json
+{
+  "page": 1,
+  "total_pages": 1,
+  "total_count": 1,
+  "time_zone": "Moscow",
+  "data": [
+    {
+      "campaign_id": 3,
+      "clicks": 0,
+      "installs": 0,
+      "payout": "0.0",
+      "cr": 0,
+      "day": "2016-09-06"
+    }
+  ]
+}
+```
+
+> http://localhost:3000/publishers/api/v1/reports?access_token=rJTjwo7GXUABTKZUtEhuDyQz&attributes=clicks
+> returns JSON structured like this:
+
+```json
+{
+  "page": 1,
+  "total_pages": 1,
+  "total_count": 1,
+  "time_zone": "Moscow",
+  "data": [
+    {
+      "clicks": 0
     }
   ]
 }
