@@ -41,11 +41,21 @@ import HADFramework
 
 > And in your application didFinishLaunchingWithOptions method call HAD.create()
 
+Swift 2.2
 ```swift
 func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
   // Override point for customization after application launch.
   HAD.create()
   return true
+}
+```
+
+Swift 3.0
+```swift
+private func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    // Override point for customization after application launch.
+    HAD.create()
+    return true
 }
 ```
 
@@ -56,29 +66,51 @@ import UIKit
 import HADFramework
 
 class MyViewController: UIViewController, HADBannerViewDelegate {
-	var bannerView: HADBannerView!
+    var bannerView: HADBannerView!
 }
 ```
 
 > Then, on your View Controller's viewDidLoad implementation, use property of the HADBannerView class and add it to your view. Since HADBannerView is a subclass of UIView, you can add it to your view hierarchy just as with any other view:
 
+Swift 2.2
 ```swift
 override func viewDidLoad() {
-	super.viewDidLoad()
-	bannerView = HADBannerView(frame: CGRectMake(0,0, view.frame.size.width, 50))
-	view.addSubview(bannerView);
-	bannerView.loadAd("PLACEMENT_ID", bannerSize: .Height50, delegate: self)
+    super.viewDidLoad()
+    bannerView = HADBannerView(frame: CGRectMake(0,0, view.frame.size.width, 50))
+    view.addSubview(bannerView)
+    bannerView.loadAd("PLACEMENT_ID", bannerSize: .Height50, delegate: self)
+}
+```
+
+Swift 3.0
+```swift
+override func viewDidLoad() {
+    super.viewDidLoad()
+    bannerView = HADBannerView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 50))
+    view.addSubview(bannerView)
+    bannerView.loadAd(placementId: "PLACEMENT_ID", bannerSize: .height50, delegate: self)
 }
 ```
 
 > If you are building your app for iPad, consider using the `HADBannerSize.Height90` size instead. The HADFramework also supports the 300x250 ad size. Configure the HADBannerView with the following ad size: `HADBannerSize.Block300x250`:
 
+Swift 2.2
 ```swift
 override func viewDidLoad() {
     super.viewDidLoad()
     bannerView = HADBannerView(frame: CGRectMake(10, 100, 300, 250))
-    view.addSubview(bannerView);
+    view.addSubview(bannerView)
     bannerView.loadAd("PLACEMENT_ID", bannerSize: .Block300x250, delegate: self)
+}
+```
+
+Swift 3.0
+```swift
+override func viewDidLoad() {
+    super.viewDidLoad()
+    bannerView = HADBannerView(frame: CGRect(x: 10, y: 100, width: 300, height: 250))
+    view.addSubview(bannerView)
+    bannerView.loadAd(placementId: "PLACEMENT_ID", bannerSize: .block300x250, delegate: self)
 }
 ```
 
@@ -88,15 +120,15 @@ override func viewDidLoad() {
 //MARK: HADBannerViewDelegate
 
 func HADViewDidLoad(view: HADBannerView) {
-	print("AD LOADED")
+    print("AD LOADED")
 }
 
 func HADViewDidClick(view: HADBannerView) {
-	print("CLICKED AD")
+    print("CLICKED AD")
 }
 
 func HADView(view: HADBannerView, didFailWithError error: NSError?) {
-	print("ERROR: %@", error?.localizedDescription)
+    print("ERROR: %@", error?.localizedDescription)
 }
 ```
 
@@ -193,6 +225,7 @@ Now you can setting up your Xcode project.
 
 > Just create AdMob banner Ad as usually:
 
+Swift 2.2
 ```swift
 import GoogleMobileAds
 import HADFramework
@@ -207,6 +240,40 @@ class ViewController: UIViewController, GADBannerViewDelegate {
         //Banner 320x50
         bannerView = GADBannerView(adSize: GADAdSize.init(size: CGSizeMake(320, 50), flags: 0))
         bannerView.frame.origin.x = (UIScreen.mainScreen().bounds.width-320)/2
+        bannerView.frame.origin.y = 100
+        bannerView.adUnitID = "YOUR_ADUNIT_ID"
+        bannerView.rootViewController = self
+        bannerView.delegate = self
+        view.addSubview(bannerView)
+        bannerView.loadRequest(request)
+    }
+    
+    //MARK: GADBannerViewDelegate
+    func adViewDidReceiveAd(bannerView: GADBannerView!) {
+        print("adViewDidReceiveAd")
+    }
+    
+    func adView(bannerView: GADBannerView!, didFailToReceiveAdWithError error: GADRequestError!) {
+        print("didFailToReceiveAdWithError: \(error)")
+    }
+}
+```
+
+Swift 3.0
+```swift
+import GoogleMobileAds
+import HADFramework
+import UIKit
+
+class ViewController: UIViewController, GADBannerViewDelegate {
+    var bannerView: GADBannerView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let request = GADRequest()
+        //Banner 320x50
+        bannerView = GADBannerView(adSize: GADAdSize.init(size: CGSize(with: 320, height: 50), flags: 0))
+        bannerView.frame.origin.x = (UIScreen.main.bounds.width-320)/2
         bannerView.frame.origin.y = 100
         bannerView.adUnitID = "YOUR_ADUNIT_ID"
         bannerView.rootViewController = self
@@ -265,6 +332,7 @@ You can use the test placement `5b3QbMRQ`
 > Add `HADBannerCustomEvent.swift` adapter in your project
 Implement MoPub Banner:
 
+Swift 2.2
 ```swift
 import HADFramework
 import UIKit
@@ -276,6 +344,49 @@ class ViewController: UIViewController, MPAdViewDelegate {
         let m = MPAdView(adUnitId: "YOUR_AD_UNIT", size: CGSizeMake(320, 50))
         m.delegate = self
         m.frame = CGRectMake((UIScreen.mainScreen().bounds.width-320)/2, 100, 320, 50)
+        view.addSubview(m)
+        m.loadAd()
+    }
+
+    //MARK: MPAdViewDelegate
+    func viewControllerForPresentingModalView() -> UIViewController! {
+        return self
+    }
+    
+    func adViewDidLoadAd(view: MPAdView!) {
+        print("adViewDidLoadAd")
+    }
+    
+    func adViewDidFailToLoadAd(view: MPAdView!) {
+        print("adViewDidFailToLoadAd")
+    }
+    
+    func didDismissModalViewForAd(view: MPAdView!) {
+        print("didDismissModalViewForAd")
+    }
+    
+    func willPresentModalViewForAd(view: MPAdView!) {
+        print("willPresentModalViewForAd")
+    }
+    
+    func willLeaveApplicationFromAd(view: MPAdView!) {
+        print("willLeaveApplicationFromAd")
+    }
+}
+```
+
+Swift 3.0
+```swift
+import HADFramework
+import UIKit
+
+class ViewController: UIViewController, MPAdViewDelegate {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        //Banner 320x50
+        let m = MPAdView(adUnitId: "YOUR_AD_UNIT", size: CGSize(width: 320, height: 50))
+        m.delegate = self
+        m.frame = CGRect(x: (UIScreen.main.bounds.width-320)/2, y: 100, width: 320, height: 50)
         view.addSubview(m)
         m.loadAd()
     }
