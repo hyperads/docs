@@ -60,39 +60,14 @@ class MyViewController: UIViewController, HADNativeAdDelegate {
 ```swift
 override func viewDidLoad() {
 	super.viewDidLoad()
-	nativeAd = HADNativeAd(placementId: "PLACEMENT_ID", content: [.Title, .Description, .Banner, .Icon], delegate: self)
+	nativeAd = HADNativeAd(placementId: "PLACEMENT_ID", delegate: self)
 	nativeAd.loadAd()
 }
 ```
 
-> You may set `content` param on HADNativeAd initialization to get only needed properties. If you didn't set `content` param then you get all properties.
-
-> to get title text
-
-```swift
-.Title
-```
-
-> to get description text
-
-```swift
-.Description
-```
-
-> to get banner
-
-```swift
-.Banner
-```
-
-> to get icon
-
-```swift
-.Icon
-```
-
 > Now that you have added the code to load the ad, add the following functions to handle loading failures and to construct the ad once it has loaded:
 
+Swift 2.2
 ```swift
 //MARK: HADNativeAd Delegate
 func HADAd(nativeAd: HADNativeAd, didFailWithError error: NSError) {
@@ -117,6 +92,38 @@ func HADNativeAdDidLoad(nativeAd: HADNativeAd) {
 	titleLabel.text = nativeAd.title
 	descLabel.text = nativeAd.desc
 	cta?.setTitle(nativeAd.cta, forState: .Normal)
+}
+
+func HADNativeAdDidClick(nativeAd: HADNativeAd) {
+	print("CLICKED AD")
+}
+```
+
+Swift 3.0
+```swift
+//MARK: HADNativeAd Delegate
+func HADAd(nativeAd: HADNativeAd, didFailWithError error: NSError) {
+	print("ERROR: \(error.localizedDescription)")
+}
+    
+func HADNativeAdDidLoad(nativeAd: HADNativeAd) {
+	imageView.loadHADBanner(nativeAd: nativeAd, animated: true) { (error, image) in
+    		if error != nil {
+        		print("ERROR: CAN'T DOWNLOAD BANNER \(error)")
+        		return
+    		}
+    		print("BANNER DOWNLOADED")
+	}
+	iconView.loadHADIcon(nativeAd: nativeAd, animated: true) { (error, image) in
+    		if error != nil {
+        		print("ERROR: CAN'T DOWNLOAD ICON \(error)")
+        		return
+    		}
+    		print("ICON DOWNLOADED")
+	}
+	titleLabel.text = nativeAd.title
+	descLabel.text = nativeAd.desc
+	cta?.setTitle(nativeAd.cta, for: .normal)
 }
 
 func HADNativeAdDidClick(nativeAd: HADNativeAd) {
@@ -238,37 +245,37 @@ You can choose from six layouts.
 > Flexible block banner with aspect ratio 320:230
 
 ```swift
-HADBannerTemplateTypes.BlockOne
+HADBannerTemplateTypes.blockOne
 ```
 
 > Flexible block banner with aspect ratio 320:300
 
 ```swift
-HADBannerTemplateTypes.BlockTwo
+HADBannerTemplateTypes.blockTwo
 ```
 
 > Flexible block banner with aspect ratio 320:340
 
 ```swift
-HADBannerTemplateTypes.BlockThree
+HADBannerTemplateTypes.blockThree
 ```
 
 > Line banner with 50pt height
 
 ```swift
-HADBannerTemplateTypes.LineOne
+HADBannerTemplateTypes.lineOne
 ```
 
 > Line banner with 60pt height
 
 ```swift
-HADBannerTemplateTypes.LineTwo
+HADBannerTemplateTypes.lineTwo
 ```
 
 > Line banner with 90pt height
 
 ```swift
-HADBannerTemplateTypes.LineThree
+HADBannerTemplateTypes.lineThree
 ```
 
 ### Custom params
@@ -403,6 +410,7 @@ customClickMode = .WholeBanner
 
 ### Swift implementation
 
+Swift 2.2
 ```swift
 import HADFramework
 
@@ -412,7 +420,7 @@ class MyViewController: UIViewController, HADBannerTemplateViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         //Just set HADBannerTemplateTypes param in loadAd method
-        bannerTemplateView.loadAd("PLACEMENT_ID", bannerTemplate: .One, delegate: self)
+        bannerTemplateView.loadAd("PLACEMENT_ID", bannerTemplate: .BlockOne, delegate: self)
         //And customize everything
         bannerTemplateView.customBackgroundColor = UIColor.lightGrayColor()
         bannerTemplateView.customTitleTextColor = UIColor.blueColor()
@@ -428,6 +436,50 @@ class MyViewController: UIViewController, HADBannerTemplateViewDelegate {
         bannerTemplateView.customStarRatingEmptyColor = UIColor.purpleColor()
         bannerTemplateView.customStarRatingTextColor = UIColor.purpleColor()
         bannerTemplateView.customClickMode = .Button
+    }
+    
+    //MARK: HADBannerTemplateViewDelegate
+    
+    func HADTemplateViewDidLoad(view: HADBannerTemplateView) {
+        print("AD LOADED")
+    }
+    
+    func HADTemplateViewDidClick(view: HADBannerTemplateView) {
+        print("CLICKED AD")
+    }
+    
+    func HADTemplateView(view: HADBannerTemplateView, didFailWithError error: NSError?) {
+        print("ERROR: %@", error?.localizedDescription)
+    }
+}
+```
+
+Swift 3.0
+```swift
+import HADFramework
+
+class MyViewController: UIViewController, HADBannerTemplateViewDelegate {
+    @IBOutlet weak var bannerTemplateView: HADBannerTemplateView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        //Just set HADBannerTemplateTypes param in loadAd method
+        bannerTemplateView.loadAd(placementId: "PLACEMENT_ID", bannerTemplate: .blockOne, delegate: self)
+        //And customize everything
+        bannerTemplateView.customBackgroundColor = UIColor.lightGray
+        bannerTemplateView.customTitleTextColor = UIColor.blue
+        bannerTemplateView.customDescriptionTextColor = UIColor.darkGray
+        bannerTemplateView.customIconCornerRadius = 6
+        bannerTemplateView.customButtonBackgroundColor = UIColor.clear
+        bannerTemplateView.customButtonBorderColor = UIColor.purple
+        bannerTemplateView.customButtonBorderWidth = 1
+        bannerTemplateView.customButtonTitleColor = UIColor.purple
+        bannerTemplateView.customButtonCornerRadius = 6
+        bannerTemplateView.customBannerCornerRadius = 6
+        bannerTemplateView.customStarRatingFilledColor = UIColor.green
+        bannerTemplateView.customStarRatingEmptyColor = UIColor.purple
+        bannerTemplateView.customStarRatingTextColor = UIColor.purple
+        bannerTemplateView.customClickMode = .button
     }
     
     //MARK: HADBannerTemplateViewDelegate
@@ -606,6 +658,7 @@ class NativeViewController: UIViewController, MPNativeAdRendering, MPNativeAdDel
 
 And implement MoPubNativeAdRenderer, e.g.:
 
+Swift 2.2
 ```swift
 class NativeView: UIView, MPNativeAdRenderer {
     //MARK: MPNativeAdRenderer
@@ -613,6 +666,40 @@ class NativeView: UIView, MPNativeAdRenderer {
     
     required init!(rendererSettings: MPNativeAdRendererSettings!) {
         super.init(frame: CGRectZero)
+        settings = rendererSettings
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    static func rendererConfigurationWithRendererSettings(rendererSettings: MPNativeAdRendererSettings!) -> MPNativeAdRendererConfiguration! {
+        let settings = MPStaticNativeAdRendererSettings()
+        settings.renderingViewClass = NativeView.self
+        let config = MPNativeAdRendererConfiguration()
+        config.rendererSettings = settings
+        config.supportedCustomEvents = ["NativeView"]
+        return config
+    }
+    
+    func retrieveViewWithAdapter(adapter: MPNativeAdAdapter!) throws -> UIView {
+        return UIView()
+    }
+}
+```
+
+Swift 3.0
+```swift
+class NativeView: UIView, MPNativeAdRenderer {
+    //MARK: MPNativeAdRenderer
+    var settings: MPNativeAdRendererSettings!
+    
+    required init!(rendererSettings: MPNativeAdRendererSettings!) {
+        super.init(frame: CGRect.zero)
         settings = rendererSettings
     }
     
