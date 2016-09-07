@@ -201,6 +201,8 @@ country | false | | Country
 Parameter | Required | Default | Description
 --------- | ------- | ------- | -----------
 access_token | true | | Publisher access token (can be obtained in [developer portal](http://hyperadx.com/publishers/profile))
+platform | false | | Platform: ios or android
+country | false | | Comma-separated list of codes of countries (ex. CA,GB)
 
 ### Response
 
