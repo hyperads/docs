@@ -33,11 +33,21 @@ import HADFramework
 
 > And in your application didFinishLaunchingWithOptions method call HAD.create()
 
+Swift 2.2
 ```swift
 func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
   // Override point for customization after application launch.
   HAD.create()
   return true
+}
+```
+
+Swift 3.0
+```swift
+private func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    // Override point for customization after application launch.
+    HAD.create()
+    return true
 }
 ```
 
@@ -69,6 +79,7 @@ func loadInterstitalAd() {
 
 > Now that you have added the code to load the ad, add the following functions to handle loading failures and to display the ad once it has loaded:
 
+Swift 2.2
 ```swift
 //MARK: HADInterstitial Delegate
 
@@ -76,6 +87,21 @@ func HADInterstitialDidLoad(controller: HADInterstitial) {
   controller.modalTransitionStyle = .CoverVertical
   controller.modalPresentationStyle = .FullScreen
   presentViewController(controller, animated: true, completion: nil)
+}
+
+func HADInterstitialDidFail(controller: HADInterstitial, error: NSError?) {
+  print("HADInterstitialDidFail: \(error)")
+}
+```
+
+Swift 3.0
+```swift
+//MARK: HADInterstitial Delegate
+
+func HADInterstitialDidLoad(controller: HADInterstitial) {
+  controller.modalTransitionStyle = .coverVertical
+  controller.modalPresentationStyle = .fullScreen
+  present(controller, animated: true, completion: nil)
 }
 
 func HADInterstitialDidFail(controller: HADInterstitial, error: NSError?) {
