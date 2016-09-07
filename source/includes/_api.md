@@ -70,14 +70,15 @@ callback({"status": "success", "ads": []})
 
 Parameter | Required | Default | Description
 --------- | ------- | ------- | -----------
-access_token | true | | Publisher access token (can be obtained in publisher's profile)
-attributes | false | app | Attributes for grouping result (ex. app,placement,country)
+access_token | true | | Publisher access token (can be obtained in [developer portal](http://hyperadx.com/publishers/profile))
+attributes | false | app | Comma-separated list of attributes for grouping: app, placement, country, day, hour, month
 page | false | 1 | Result page
 date_start | false | | Date start (format is \"YYYY-MM-DD\")
 date_end | false | | Date end (format is \"YYYY-MM-DD\")
 app_id | false | | Comma delimited list of app ids
 placement_id | false | | Comma delimited list of placements ids
 country | false | | Country
+sorting | false | created_at | Field that would be used to order result: clicks, impressions, ctr, payout, created_at
 
 ### Response
 
@@ -97,7 +98,8 @@ country | false | | Country
       "clicks": 456,
       "impressions": 1780,
       "ctr": 230,
-      "payout": 110
+      "payout": 110,
+      "created_at": "2016-09-07T10:35:31.000Z"
     }
   ]
 }
@@ -114,15 +116,16 @@ country | false | | Country
   "time_zone": "Moscow",
   "data": [
     {
-    "app": "Kuphal, Walter and Conroy",
-    "app_id": 3,
-    "placement": "Kuhn Inc",
-    "placement_id": 2,
-    "country": "RU",
-    "clicks": 456,
-    "impressions": 1780,
-    "ctr": 230,
-    "payout": 110
+      "app": "Kuphal, Walter and Conroy",
+      "app_id": 3,
+      "placement": "Kuhn Inc",
+      "placement_id": 2,
+      "country": "RU",
+      "clicks": 456,
+      "impressions": 1780,
+      "ctr": 230,
+      "payout": 110,
+      "created_at": "2016-09-07T10:35:31.000Z"
     }
   ]
 }
@@ -138,7 +141,7 @@ country | false | | Country
 
 Parameter | Required | Default | Description
 --------- | ------- | ------- | -----------
-access_token | true | | Publisher access token (can be obtained in publisher's profile)
+access_token | true | | Publisher access token (can be obtained in [developer portal](http://hyperadx.com/publishers/profile))
 attributes | true | app | Comma-separated list of attributes: traffic_source, traffic_source_id, ad_unit, ad_unit_id, campaign, campaign_id, clicks, installs, cr, validated_installs, validated_payout, day, hour, year
 page | false | 1 | Result page
 date_start | false | | Date start (format is \"YYYY-MM-DD\")
@@ -197,7 +200,7 @@ country | false | | Country
 
 Parameter | Required | Default | Description
 --------- | ------- | ------- | -----------
-access_token | true | | Publisher access token (can be obtained in publisher's profile)
+access_token | true | | Publisher access token (can be obtained in [developer portal](http://hyperadx.com/publishers/profile))
 
 ### Response
 
@@ -243,7 +246,7 @@ access_token | true | | Publisher access token (can be obtained in publisher's p
 
 Parameter | Required | Default | Description
 --------- | ------- | ------- | -----------
-access_token | true | | Publisher access token (can be obtained in publisher's profile)
+access_token | true | | Publisher access token (can be obtained in [developer portal](http://hyperadx.com/publishers/profile))
 campaign_id | true | | Campaign ID
 
 ### Response
