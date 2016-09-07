@@ -17,9 +17,14 @@ You can easily customize traffic distribution across different rules
 ## Events (iOS)
 You can send the events very easy. Just call the method sendEvent(type: HADEventType) from HADEvent class.
 
-Swift example:
+Swift 2.2 example:
 ```swift
 HADEvent.sendEvent(.AchievementUnlocked)
+```
+
+Swift 3.0 example:
+```swift
+HADEvent.send(event: .achievementUnlocked)
 ```
 
 Objective-C example:
