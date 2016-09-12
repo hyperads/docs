@@ -60,10 +60,226 @@ gaid | false | No | Android advertising ID
 callback({"status": "success", "ads": []})
 ```
 
-## Account API
+## Developer Reports
 
+### HTTP Request
 
-## Errors
+`GET http://hyperadx.com/publishers/api/v1/developer/reports`
+
+### Query Parameters
+
+Parameter | Required | Default | Description
+--------- | ------- | ------- | -----------
+access_token | true | | Publisher access token (can be obtained in [developer portal](http://hyperadx.com/publishers/profile))
+attributes | false | app | Comma-separated list of attributes for grouping: app, placement, country, day, hour, month
+page | false | 1 | Result page
+date_start | false | | Date start (format is \"YYYY-MM-DD\")
+date_end | false | | Date end (format is \"YYYY-MM-DD\")
+app_id | false | | Comma delimited list of app ids
+placement_id | false | | Comma delimited list of placements ids
+country | false | | Country
+sorting | false | created_at | Field that would be used to order result: clicks, impressions, ctr, payout, created_at
+
+### Response
+
+> http://hyperadx.com/publishers/api/v1/developer/reports?access_token={access_token}
+> returns JSON structured like this:
+
+```json
+{
+  "page": 1,
+  "total_pages": 1,
+  "total_count": 1,
+  "time_zone": "Moscow",
+  "data": [
+    {
+      "app": "Kuphal, Walter and Conroy",
+      "app_id": 3,
+      "clicks": 456,
+      "impressions": 1780,
+      "ctr": 230,
+      "payout": 110,
+      "created_at": "2016-09-07T10:35:31.000Z"
+    }
+  ]
+}
+```
+
+> http://hyperadx.com/publishers/api/v1/developer/reports?access_token={access_token}&attributes=app,placement,country
+> returns JSON structured like this:
+
+```json
+{
+  "page": 1,
+  "total_pages": 1,
+  "total_count": 1,
+  "time_zone": "Moscow",
+  "data": [
+    {
+      "app": "Kuphal, Walter and Conroy",
+      "app_id": 3,
+      "placement": "Kuhn Inc",
+      "placement_id": 2,
+      "country": "RU",
+      "clicks": 456,
+      "impressions": 1780,
+      "ctr": 230,
+      "payout": 110,
+      "created_at": "2016-09-07T10:35:31.000Z"
+    }
+  ]
+}
+```
+
+## Affilate Reports
+
+### HTTP Request
+
+`GET http://hyperadx.com/publishers/api/v1/reports`
+
+### Query Parameters
+
+Parameter | Required | Default | Description
+--------- | ------- | ------- | -----------
+access_token | true | | Publisher access token (can be obtained in [developer portal](http://hyperadx.com/publishers/profile))
+attributes | true | app | Comma-separated list of attributes: traffic_source, traffic_source_id, ad_unit, ad_unit_id, campaign, campaign_id, clicks, installs, cr, validated_installs, validated_payout, day, hour, year
+page | false | 1 | Result page
+date_start | false | | Date start (format is \"YYYY-MM-DD\")
+date_end | false | | Date end (format is \"YYYY-MM-DD\")
+campaign_id | false | | Campaign ID filter
+country | false | | Country
+
+### Response
+
+> http://hyperadx.com/publishers/api/v1/reports?access_token={access_token}
+> returns JSON structured like this:
+
+```json
+{
+  "page": 1,
+  "total_pages": 1,
+  "total_count": 1,
+  "time_zone": "Moscow",
+  "data": [
+    {
+      "campaign_id": 3,
+      "clicks": 456,
+      "installs": 11,
+      "payout": "0.11",
+      "cr": 13,
+      "day": "2016-09-06"
+    }
+  ]
+}
+```
+
+> http://hyperadx.com/publishers/api/v1/reports?access_token={access_token}&attributes=clicks
+> returns JSON structured like this:
+
+```json
+{
+  "page": 1,
+  "total_pages": 1,
+  "total_count": 1,
+  "time_zone": "Moscow",
+  "data": [
+    {
+      "clicks": 456
+    }
+  ]
+}
+```
+
+## Campaigns List
+
+### HTTP Request
+
+`GET http://hyperadx.com/publishers/api/v1/campaigns?access_token={access_token}`
+
+### Query Parameters
+
+Parameter | Required | Default | Description
+--------- | ------- | ------- | -----------
+access_token | true | | Publisher access token (can be obtained in [developer portal](http://hyperadx.com/publishers/profile))
+platform | false | | Platform: ios or android
+country | false | | Comma-separated list of codes of countries (ex. CA,GB)
+
+### Response
+
+> GET http://hyperadx.com/publishers/api/v1/campaigns?access_token={access_token}
+> returns JSON structured like this:
+
+```json
+{
+  "data": [
+    {
+      "id": 3,
+      "name": "Bernier, Berge and O'Keefe1",
+      "description": "Considine-Cassin",
+      "require_approval": false,
+      "payout_type": "cpc",
+      "cap": null,
+      "daily_cap": null,
+      "payout": 500,
+      "currency": "USD",
+      "geo": null,
+      "status": "active",
+      "platform": "ios",
+      "tracking_link": "http://localhost:9292/tracker/clicks?data=RzFR",
+      "app": {
+        "name": "Hodkiewicz-Murray",
+        "icon": "http://lesch.org/camren",
+        "url": "http://satterfieldboehm.name/curt"
+      }
+    }
+  ],
+  "total_pages": 1,
+  "total_count": 1
+}
+```
+
+## Campaigns Request Approval
+
+### HTTP Request
+
+`POST http://hyperadx.com/publishers/api/v1/campaigns/{campaign_id}/request_approval?access_token={access_token}`
+
+### Query Parameters
+
+Parameter | Required | Default | Description
+--------- | ------- | ------- | -----------
+access_token | true | | Publisher access token (can be obtained in [developer portal](http://hyperadx.com/publishers/profile))
+campaign_id | true | | Campaign ID
+
+### Response
+
+> POST http://hyperadx.com/publishers/api/v1/campaigns/3/request_approval?access_token={access_token}
+> returns JSON structured like this:
+
+```json
+{
+  "id": 3,
+  "name": "Bernier, Berge and O'Keefe1",
+  "description": "Considine-Cassin",
+  "require_approval": false,
+  "payout_type": "cpc",
+  "cap": null,
+  "daily_cap": null,
+  "payout": 500.0,
+  "currency": "USD",
+  "geo": null,
+  "status": "active",
+  "platform": "ios",
+  "tracking_link": "http://localhost:9292/tracker/clicks?data=RzFR",
+  "app": {
+    "name": "Hodkiewicz-Murray",
+    "icon": "http://lesch.org/camren",
+    "url": "http://satterfieldboehm.name/curt"
+  }
+}
+```
+
+## Error codes
 
 The HyperAdX API uses the following error codes:
 

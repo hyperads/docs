@@ -9,8 +9,11 @@ includes:
   - native
   - banner
   - interstitial
+  - segments
   - api
+  - network_adapters
   - tools
+  - changelog
 
 search: true
 ---
