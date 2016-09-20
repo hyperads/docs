@@ -2,9 +2,9 @@
 
 ## iOS
 
-* [Download](https://s3-us-west-2.amazonaws.com/adpanel-public/HyperadxiOSADs_Sample_v2.0.1.zip) and extract the HADFramework for iOS.
+* [Download](https://github.com/hyperads/ios-sdk/releases) and extract the HADFramework for iOS.
 
-* You can find Mopub adapter example in HyperadxiOSADs_Sample_v2.0.1/Mediation Adapters/MoPub/.
+* You can find Mopub adapter example in HyperadxiOSADs_Sample_VERSION/Mediation Adapters/MoPub/.
 
 Setup SDKs:
 
@@ -238,7 +238,7 @@ class ViewController: UIViewController, MPAdViewDelegate {
 
 ## Android
 
-* [Download](https://s3-us-west-2.amazonaws.com/adpanel-public/HyperadxAndroidMoPubAdapter_1.1.0.zip) and extract the Mopub adapter if needed.
+* [Download](https://github.com/hyperads/android-MoPub-adapter/releases) and extract the Mopub adapter if needed.
 
 You can use Hyperadx as a Network in Mopub's Mediation platform.
 Setup SDKs
@@ -515,9 +515,9 @@ public class HyperadxInterstitialMopub extends CustomEventInterstitial {
 
 ## iOS
 
-* [Download](https://s3-us-west-2.amazonaws.com/adpanel-public/HyperadxiOSADs_Sample_v2.0.1.zip) and extract the HADFramework for iOS.
+* [Download](https://github.com/hyperads/ios-sdk/releases) and extract the HADFramework for iOS.
 
-* You can find Admob adapter example in HyperadxiOSADs_Sample_v2.0.1/Mediation Adapters/AdMob/.
+* You can find Admob adapter example in HyperadxiOSADs_Sample_VERSION/Mediation Adapters/AdMob/.
 
 * First of all you need to add new app in AdMob console.
 
@@ -635,7 +635,7 @@ class ViewController: UIViewController, GADInterstitialDelegate {
 
 ## Android
 
-* [Download](https://s3-us-west-2.amazonaws.com/adpanel-public/HyperadxAndroidAdmobSample_1.0.1.zip) and extract the AdMob adapter if needed.
+* [Download](https://github.com/hyperads/android-AdMob-adapter/releases) and extract the AdMob adapter if needed.
 
 * First of all you need to add new app in AdMob console.
 

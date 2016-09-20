@@ -15,7 +15,7 @@ The HyperAdX Interstitial ads allows you to monetize your iOS apps with banner a
 
 **Manual**
 
-* [Download](https://s3-us-west-2.amazonaws.com/adpanel-public/HyperadxiOSADs_Sample_v2.0.2.zip) and extract the HADFramework for iOS.
+* [Download](https://github.com/hyperads/ios-sdk/releases) and extract the HADFramework for iOS.
 * Open your project target General tab.
 * Drag the HADFramework.framework file to Embedded Binaries.
 * Open your project target Build Settings tab. (Required only for Objective-C projects)
@@ -24,7 +24,7 @@ The HyperAdX Interstitial ads allows you to monetize your iOS apps with banner a
 
 ### iOS 7
 
-If you want to support iOS7 - [download](https://s3-us-west-2.amazonaws.com/adpanel-public/HADFramework-ObjC-iOS7%2B.framework.zip) our legacy SDK. It supports only NativeAds.
+If you want to support iOS7 - [download](https://github.com/hyperads/ios-sdk/releases/tag/v2.0.3) our legacy SDK. It supports only NativeAds.
 
 ### Swift implementation
 
@@ -188,7 +188,7 @@ The HyperAdX Interstitial ads allows you to monetize your Android apps with bann
 
 Sample projects:
 
-* [Download](https://s3-us-west-2.amazonaws.com/adpanel-public/HyperadxAndroidADs_Sample_v1.2.7.zip) and extract the Example app for Android.
+* [Download](https://github.com/hyperads/android-sdk/releases) latest release and extract the Example app for Android.
 
 ### Set up the SDK
 
