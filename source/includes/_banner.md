@@ -189,6 +189,7 @@ func HADView(view: HADBannerView, didFailWithError error: NSError?) {
 
 > Then, add and implement the following three functions in your View Controller implementation file to handle ad loading failures and completions:
 
+Before v2.1.0
 ```objective_c
 #pragma mark - HADBannerViewDelegate
 
@@ -201,6 +202,23 @@ func HADView(view: HADBannerView, didFailWithError error: NSError?) {
 }
 
 -(void)HADViewDidClick:(HADBannerView *)view {
+    NSLog(@"HADViewDidClick");
+}
+```
+
+After v2.1.0
+```objective_c
+#pragma mark - HADBannerViewDelegate
+
+-(void)HADViewDidLoadWithView:(HADBannerView *)view {
+    NSLog(@"HADViewDidLoad");
+}
+
+-(void)HADViewWithView:(HADBannerView *)view didFailWithError:(NSError *)error {
+    NSLog(@"HADViewDidFai:l %@", error);
+}
+
+-(void)HADViewDidClickWithView:(HADBannerView *)view {
     NSLog(@"HADViewDidClick");
 }
 ```
