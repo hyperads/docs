@@ -177,6 +177,7 @@ func HADInterstitialDidClose(controller: HADInterstitial) {
 
 > Now that you have added the code to load the ad, add the following functions to handle loading failures and to display the ad once it has loaded:
 
+Before v2.1.0
 ```objective_c
 #pragma mark - HADInterstitialDelegate
 
@@ -192,8 +193,25 @@ func HADInterstitialDidClose(controller: HADInterstitial) {
 }
 ```
 
+After v2.1.0
+```objective_c
+#pragma mark - HADInterstitialDelegate
+
+-(void)HADInterstitialDidLoadWithController:(HADInterstitial *)controller {
+  NSLog(@"HADInterstitialDidLoad");
+  self.interstitial.modalPresentationStyle = UIModalPresentationFullScreen;
+  self.interstitial.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+  [self presentViewController:self.interstitial animated:YES completion:nil];
+}
+
+-(void)HADInterstitialDidFailWithController:(HADInterstitial *)controller error:(NSError *)error {
+  NSLog(@"HADInterstitialDidFail: %@", error);
+}
+```
+
 > Optionally, you can add the following functions to handle the cases where the full screen ad is closed or when the user clicks on it:
 
+Before v2.1.0
 ```objective_c
 -(void)HADInterstitialDidClick:(HADInterstitial *)controller {
   NSLog(@"HADInterstitialDidClick");
@@ -204,6 +222,21 @@ func HADInterstitialDidClose(controller: HADInterstitial) {
 }
 
 -(void)HADInterstitialDidClose:(HADInterstitial *)controller {
+  NSLog(@"HADInterstitialDidClose");
+}
+```
+
+After v2.1.0
+```objective_c
+-(void)HADInterstitialDidClickWithController:(HADInterstitial *)controller {
+  NSLog(@"HADInterstitialDidClick");
+}
+
+-(void)HADInterstitialWillCloseWithController:(HADInterstitial *)controller {
+  NSLog(@"HADInterstitialWillClose");
+}
+
+-(void)HADInterstitialDidCloseWithController:(HADInterstitial *)controller {
   NSLog(@"HADInterstitialDidClose");
 }
 ```
