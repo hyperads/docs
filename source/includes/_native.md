@@ -195,6 +195,7 @@ HADAdContentIcon
 
 > Now that you have added the code to load the ad, add the following functions to handle loading failures and to construct the ad once it has loaded:
 
+Before v2.1.0
 ```objective_c
 -(void)HADNativeAdDidFail:(HADNativeAd *)nativeAd error:(NSError *)error
 	NSLog(@"ERROR: %@",error.localizedDescription);
@@ -221,6 +222,37 @@ HADAdContentIcon
 }
 
 -(void)HADNativeAdDidClick:(HADNativeAd *)nativeAd
+	NSLog(@"CLICKED AD");
+}
+```
+
+After v2.1.0
+```objective_c
+-(void)HADNativeAdDidFailWithNativeAd:(HADNativeAd *)nativeAd error:(NSError *)error {
+	NSLog(@"ERROR: %@",error.localizedDescription);
+}
+
+-(void)HADNativeAdDidLoadWithNativeAd:(HADNativeAd *)nativeAd {
+	[self.bannerMediaView loadHADBanner:nativeAd animated:NO completion:^(NSError * _Nullable error, UIImage * _Nullable image) {
+		if (!error) {
+    			NSLog(@"Banner downloaded");
+		} else {
+    			NSLog(@"Banner download error: %@", error);
+		}
+	}];
+	[self.iconMediaView loadHADIcon:nativeAd animated:NO completion:^(NSError * _Nullable error, UIImage * _Nullable image) {
+		if (!error) {
+    			NSLog(@"Icon downloaded");
+		} else {
+    			NSLog(@"Icon download error: %@", error);
+		}
+	}];
+	[self.titleLabel setText:nativeAd.title];
+	[self.descriptionLabel setText:nativeAd.desc];
+	[self.ctaButton setTitle:nativeAd.cta forState:UIControlStateNormal];
+}
+
+-(void)HADNativeAdDidClickWithNativeAd:(HADNativeAd *)nativeAd {
 	NSLog(@"CLICKED AD");
 }
 ```
@@ -397,7 +429,10 @@ class MyViewController: UIViewController, HADBannerTemplateViewDelegate {
 	[self.bannerTemplateView setCustomStarRatingTextColor:[UIColor purpleColor]];
 	[self.bannerTemplateView setCustomClickMode:BannerTemplateCustomClickModesButton];
 }
+```
 
+Before v2.1.0
+```
 #pragma mark - HADBannerTemplateViewDelegate
 
 -(void)HADTemplateViewDidLoad:(HADBannerView *)view {
@@ -409,6 +444,25 @@ class MyViewController: UIViewController, HADBannerTemplateViewDelegate {
 }
 
 -(void)HADTemplateViewDidClick:(HADBannerView *)view {
+	NSLog(@"HADTemplateViewDidClick");
+}
+
+@end
+```
+
+After v2.1.0
+```
+#pragma mark - HADBannerTemplateViewDelegate
+
+-(void)HADTemplateViewDidLoadWithView:(HADBannerTemplateView *)view {
+	NSLog(@"HADTemplateViewDidLoad");
+}
+
+-(void)HADTemplateViewWithView:(HADBannerTemplateView *)view didFailWithError:(NSError *)error {
+	NSLog(@"HADTemplateViewDidFai:l %@", error);
+}
+
+-(void)HADTemplateViewDidClickWithView:(HADBannerTemplateView *)view {
 	NSLog(@"HADTemplateViewDidClick");
 }
 
